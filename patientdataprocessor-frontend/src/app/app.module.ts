@@ -28,11 +28,11 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     Ng2SearchPipeModule
   ],
   providers: [
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: HttpIntercepterService,
-    //   multi: true
-    // }
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpIntercepterService,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

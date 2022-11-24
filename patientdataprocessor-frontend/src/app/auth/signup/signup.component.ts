@@ -26,7 +26,7 @@ export class SignupComponent implements OnInit {
 
   signup() {
 
-    this.user.username = this.username;
+    // this.user.username = this.username;
     this.user.password = this.password;
     this.user.name = this.name;
     this.user.role = 'user';

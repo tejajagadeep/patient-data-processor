@@ -1,6 +1,6 @@
 export class User {
     name : string = '';
-    username : string = '';
+    userName : string = '';
     password : string = '';
     role : string = '';
     token : string = '';
