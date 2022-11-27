@@ -11,6 +11,7 @@ import { UserDashboardComponent } from './component/user-dashboard/user-dashboar
 import { AdminDashboardComponent } from './component/admin-dashboard/admin-dashboard.component';
 import { HttpIntercepterService } from './service/auth/http-intercepter.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { LogoutComponent } from './auth/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     LoginComponent,
     SignupComponent,
     UserDashboardComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

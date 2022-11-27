@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/model/user';
-import { AuthService } from 'src/app/service/auth.service';
+import { AuthenticationDataService } from 'src/app/service/auth/authentication-data.service';
+import { UserDataService } from 'src/app/service/data/user-data.service';
 
 @Component({
   selector: 'app-signup',
@@ -16,7 +17,12 @@ export class SignupComponent implements OnInit {
 
   user : User = new User();
 
-  constructor( private authService : AuthService, private route : Router) { }
+  constructor( 
+    private router: Router,
+    private route: ActivatedRoute,
+    private userService: UserDataService,
+    private authService: AuthenticationDataService
+  ) { }
 
   ngOnInit(): void {
     this.username = '';
@@ -24,27 +30,33 @@ export class SignupComponent implements OnInit {
     this.name = '';
   }
 
-  signup() {
-
-    // this.user.username = this.username;
-    this.user.password = this.password;
-    this.user.name = this.name;
-    this.user.role = 'user';
-
-    this.authService.signUp(this.user).subscribe(res => {
-      if(res == null) {
-        alert("Registration failed");
-        this.ngOnInit();
-      }else {
-        console.log("Registration successful");
-        alert("Registration successful");
-        this.route.navigate(['/']);
-      }
-    }, err => {
-      alert("Registration failed.");
-      this.ngOnInit();
-    })
-
+  login(){
+    this.authService.authenticate(this.username, this.password).subscribe(
+      response => {}
+    )
   }
+
+  // signup() {
+
+  //   // this.user.username = this.username;
+  //   this.user.password = this.password;
+  //   this.user.name = this.name;
+  //   this.user.role = 'user';
+
+  //   this.authService.signUp(this.user).subscribe(res => {
+  //     if(res == null) {
+  //       alert("Registration failed");
+  //       this.ngOnInit();
+  //     }else {
+  //       console.log("Registration successful");
+  //       alert("Registration successful");
+  //       this.route.navigate(['/']);
+  //     }
+  //   }, err => {
+  //     alert("Registration failed.");
+  //     this.ngOnInit();
+  //   })
+
+  // }
 
 }

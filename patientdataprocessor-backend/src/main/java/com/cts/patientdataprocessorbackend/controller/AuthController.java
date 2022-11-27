@@ -22,7 +22,7 @@ import com.cts.patientdataprocessorbackend.model.MessageResponse;
 import com.cts.patientdataprocessorbackend.model.User;
 
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 public class AuthController {
 

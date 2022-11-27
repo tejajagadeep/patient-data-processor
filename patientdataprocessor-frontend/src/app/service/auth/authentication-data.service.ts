@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { API_URL } from 'src/app/app.constants';
 import { MessageResponse } from 'src/app/model/message-response';
 
 @Injectable({
@@ -22,7 +23,8 @@ export class AuthenticationDataService {
   ) { }
 
   authenticate(username: string, password: string) {
-    return this.httpClient.post<any>('http://localhost:8091/patient-data-processor/authenticate', { username, password }).pipe(
+    return this.httpClient.post<any>(`${API_URL}/authenticate`, { username, password }).pipe(
+      // return this.httpClient.post<any>(`http://localhost:8093/project-management/authenticate`, { username, password }).pipe(
       map(
         userData => {
           sessionStorage.setItem('authenticatedUser', username);

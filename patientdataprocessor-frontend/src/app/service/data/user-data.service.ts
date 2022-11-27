@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { USER_API_URL } from 'src/app/app.constants';
 import { User } from 'src/app/model/user';
 
 @Injectable({
@@ -12,6 +13,6 @@ export class UserDataService {
   ) { }
 
   getUserByUserName(userName: string){
-    return this.http.get<User>(`http://localhost:8091/patient-data-processor/getUserByEmailId/${userName}`)
+    return this.http.get<User>(`${USER_API_URL}/getUserByEmailId/${userName}`)
   }
 }

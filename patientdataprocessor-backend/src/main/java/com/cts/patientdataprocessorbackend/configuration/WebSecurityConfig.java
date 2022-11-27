@@ -60,9 +60,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		log.info("inside HttpSecurity configure of WebSecurityConfig");
 		http.authorizeRequests()
-		.antMatchers("/authenticate").permitAll()
+				.antMatchers("/authenticate").permitAll()
+				.antMatchers(HttpMethod.GET).permitAll()
 
-		.antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+				.antMatchers(HttpMethod.GET, "/api/v1.0/user/helloWorld").permitAll()
+				.antMatchers(HttpMethod.POST, "/authenticate").permitAll()
+				.antMatchers(HttpMethod.POST, "/api/v1.0/user/userSignUp").permitAll()
+				.antMatchers(HttpMethod.POST, "/api/v1.0/user/login/**").permitAll()
+				.antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+				.antMatchers("/v3/api-docs/**").permitAll()
 		;
 
 		http.cors();

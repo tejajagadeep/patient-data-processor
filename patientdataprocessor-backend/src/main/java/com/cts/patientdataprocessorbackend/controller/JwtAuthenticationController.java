@@ -22,8 +22,8 @@ import com.cts.patientdataprocessorbackend.jwt.JwtTokenUtil;
 import com.cts.patientdataprocessorbackend.security.UserDetailsServiceImpl;
 
 
+@CrossOrigin(origins = "*")
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
 public class JwtAuthenticationController {
 
 	@Autowired

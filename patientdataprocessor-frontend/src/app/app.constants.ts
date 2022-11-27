@@ -1,1 +1,5 @@
-export const USER_API_URL = ""
+export const API_URL = "http://localhost:8091/patient-data-processor"
+export const USER_API_URL = "http://localhost:8091/patient-data-processor/api/v1.0/user"
+export const DOCTOR_API_URL = "http://localhost:8091/patient-data-processor/api/v1.0/doctor"
+export const PATIENT_API_URL = "http://localhost:8091/patient-data-processor/api/v1.0/patient"
+export const PRESCRIPTION_API_URL = "http://localhost:8091/patient-data-processor/prescription"
