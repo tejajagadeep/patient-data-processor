@@ -27,7 +27,7 @@ public class ReportController {
 		return reportService.getAllReports();
 	}
 	
-	@PostMapping("/saveReport/{ContactNumber}")
+	@PostMapping("/saveReport/{contactNumber}")
 	public Report saveReport(@PathVariable Long contactNumber, @RequestBody Report report){
 		return reportService.saveReport(contactNumber, report);
 	}

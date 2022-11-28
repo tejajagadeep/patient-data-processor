@@ -40,7 +40,7 @@ public class ReportServiceImpl implements ReportService{
 		
 		patient.addReports(report);
 
-		patientRepository.save(patient);
+//		patientRepository.save(patient);
 		return reportRepository.save(report);
 	}
 
