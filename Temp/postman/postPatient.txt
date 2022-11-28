@@ -1,0 +1,22 @@
+{
+        "contactNumber": 7894561230,
+        "address": "hyderabad",
+        "firstName": "Ragu",
+        "lastName": "Ramesh",
+        "dateOfBirth": "1988-01-20T18:30:00.000+00:00",
+        "martialStatus": "single",
+        "emorgencyContactNumber": 9789456123,
+        "email": "ramesh@gmail.com",
+        "bloodGroup": "O+",
+        "bloodSugarLvls": "7.8 mmol/L",
+        "dateVisited": "2021-08-22T18:30:00.000+00:00",
+        "treatmentStartDate": "2020-01-17T18:30:00.000+00:00",
+        "treatmentEndDate": "2023-12-20T18:30:00.000+00:00",
+        "prescription": "Angiotensin-converting enzyme",
+        "reports": "NA",
+        "height": "183cm",
+        "weight": "76kgs",
+        "bpcheck": "140/90mmHg",
+        "disease": "High Blood Pressure",
+        "gender": "Male"
+    }

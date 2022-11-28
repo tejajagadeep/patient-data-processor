@@ -12,6 +12,9 @@ import { AdminDashboardComponent } from './component/admin-dashboard/admin-dashb
 import { HttpIntercepterService } from './service/auth/http-intercepter.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { LogoutComponent } from './auth/logout/logout.component';
+import { PatientRegistrationComponent } from './patient/patient-registration/patient-registration.component';
+import { ViewPatientDetailsComponent } from './patient/view-patient-details/view-patient-details.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { LogoutComponent } from './auth/logout/logout.component';
     SignupComponent,
     UserDashboardComponent,
     AdminDashboardComponent,
-    LogoutComponent
+    LogoutComponent,
+    PatientRegistrationComponent,
+    ViewPatientDetailsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -30,11 +36,11 @@ import { LogoutComponent } from './auth/logout/logout.component';
     Ng2SearchPipeModule
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HttpIntercepterService,
-      multi: true
-    }
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: HttpIntercepterService,
+    //   multi: true
+    // }
   ],
   bootstrap: [AppComponent]
 })

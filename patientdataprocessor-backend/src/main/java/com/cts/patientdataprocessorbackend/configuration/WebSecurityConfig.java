@@ -68,7 +68,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers(HttpMethod.POST, "/api/v1.0/user/userSignUp").permitAll()
 				.antMatchers(HttpMethod.POST, "/api/v1.0/user/login/**").permitAll()
 				.antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-				.antMatchers("/v3/api-docs/**").permitAll()
+//				.antMatchers("/v3/api-docs/**").permitAll()
+//				.antMatchers("/swagger-ui/**").permitAll()
+//				.antMatchers("/swagger-resources/**").permitAll()
+				.antMatchers("/swagger-ui.html").permitAll()
+//				.antMatchers("/webjars/**").permitAll()
 		;
 
 		http.cors();
@@ -121,6 +125,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	public void configure(WebSecurity web) throws Exception {
 		log.info("inside WebSecurity configure of WebSecurityConfig");
 		web.ignoring().antMatchers("/h2-console/**").antMatchers("/swagger");
+		web.ignoring().antMatchers("/authapp/login","/h2-console/**","/v2/api-docs","/configuration/ui",
+				"/swagger-resources/**","/configuration/security","/swagger-ui.html","/webjars/**","/patient-data-processor/swagger");
 	}
 
 }
