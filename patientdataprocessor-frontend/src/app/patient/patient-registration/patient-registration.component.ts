@@ -12,6 +12,9 @@ export class PatientRegistrationComponent implements OnInit {
 
   patient!: Patient
 
+  dummyNumber!: number
+  dummyDate!: Date
+
   errorMessageResponse!: string
 
   constructor(
@@ -21,6 +24,7 @@ export class PatientRegistrationComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.patient = new Patient(this.dummyNumber, '','','','',this.dummyDate,'',this.dummyNumber,'','','',this.dummyDate,this.dummyDate,this.dummyDate,'','','',[])
   }
 
   OnlyAlbhabets(event: any):boolean{

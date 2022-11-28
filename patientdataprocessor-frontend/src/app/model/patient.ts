@@ -1,3 +1,5 @@
+import { Report } from "./report";
+
 export class Patient{
     constructor(
     
@@ -33,10 +35,10 @@ export class Patient{
 	
 	public prescription: string,
 	
-	public reports: string,
-	
 	public height: string,
 	
-	public weight: string
+	public weight: string,
+
+    public reports: Report[]
     ) {}
 }

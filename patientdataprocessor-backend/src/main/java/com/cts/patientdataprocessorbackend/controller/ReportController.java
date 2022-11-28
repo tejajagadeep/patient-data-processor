@@ -3,6 +3,7 @@ package com.cts.patientdataprocessorbackend.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,11 +23,13 @@ public class ReportController {
 	@Autowired
 	private ReportService reportService;
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
 	@GetMapping("/getAllReports")
 	public List<Report> getAllReports(){
 		return reportService.getAllReports();
 	}
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
 	@PostMapping("/saveReport/{contactNumber}")
 	public Report saveReport(@PathVariable Long contactNumber, @RequestBody Report report){
 		return reportService.saveReport(contactNumber, report);
