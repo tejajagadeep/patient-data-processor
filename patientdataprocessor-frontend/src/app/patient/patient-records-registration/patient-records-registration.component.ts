@@ -11,7 +11,8 @@ import { PatientDataService } from 'src/app/service/data/patient-data.service';
 export class PatientRecordsRegistrationComponent implements OnInit {
 
   patient!: Patient
-
+  dummyNumber!: number
+  dummyDate!: Date
   errorMessageResponse!: string
   
   constructor(
@@ -21,6 +22,7 @@ export class PatientRecordsRegistrationComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.patient = new Patient(this.dummyNumber, '','','','',this.dummyDate,'',this.dummyNumber,'','','',this.dummyDate,this.dummyDate,this.dummyDate,'','','',[])
   }
 
   savepatient(){
