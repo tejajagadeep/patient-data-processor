@@ -11,7 +11,6 @@
                     {{errorMessageResponse}}
                 </div>
 
-                <!-- (keypress)="OnlyAlbhabets($event)" -->
                 <div class="row align-items-center pt-4 pb-3">
                     <label class="col-md-3 ps-5" for="exampleInputfirstName">
                         <h6 class="mb-0">First Name<span class="required">*</span></h6>
@@ -20,9 +19,9 @@
                         <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name"
                             [(ngModel)]="patient.firstName" required #firstName="ngModel"
                             [class.is-invalid]="firstName.invalid && firstName.touched" (keypress)="OnlyAlbhabets($event)"/>
-                        <small class="text-danger" [class.d-none]="firstName.valid || firstName.untouched">First Name
+                        <!-- <small class="text-danger" [class.d-none]="firstName.valid || firstName.untouched">First Name
                             is
-                            required</small>
+                            required</small> -->
                     </div>
                 </div>
 
@@ -46,7 +45,10 @@
                     </label>
                     <div class="form-group col-md-9 pe-5">
                         <input type="tel" [(ngModel)]="patient.contactNumber" class="form-control" name="contactNumber"
-                        pattern="[0-9]{10}" title="must have 10 numbers"  maxlength="10"  required />
+                        pattern="[0-9]{10}" title="must have 10 numbers"  maxlength="10"  required #contactNumber="ngModel"/>
+                        <small class="text-danger" [class.d-none]="contactNumber.valid || contactNumber.untouched">Contact Number
+                            is
+                            required</small>
                     </div>
                 </div>
     
@@ -143,7 +145,7 @@
 
                 <div class="row align-items-center pt-4 pb-3">
                     <label class="col-md-3 ps-5" for="exampleInputpatientvisitedDate">
-                        <h6 class="mb-0">Last Visited Date</h6>
+                        <h6 class="mb-0">Date</h6>
                     </label>
 
                     <fieldset class="form-group col-md-9 pe-5">

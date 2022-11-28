@@ -1,5 +1,7 @@
 package com.cts.patientdataprocessorbackend.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -15,6 +17,12 @@ public class Doctor {
 	
 	@NotNull
 	private String password;
+	
+	@NotNull
+	private String name;
+	
+	@NotNull
+	private Date dateOfBirth;
 	
 	@NotNull
 	private String specialization;

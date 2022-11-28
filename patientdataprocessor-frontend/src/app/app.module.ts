@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 
@@ -15,6 +15,7 @@ import { LogoutComponent } from './auth/logout/logout.component';
 import { PatientRegistrationComponent } from './patient/patient-registration/patient-registration.component';
 import { ViewPatientDetailsComponent } from './patient/view-patient-details/view-patient-details.component';
 import { HomeComponent } from './home/home.component';
+import { PatientRecordsRegistrationComponent } from './patient/patient-records-registration/patient-records-registration.component';
 
 @NgModule({
   declarations: [
@@ -26,11 +27,13 @@ import { HomeComponent } from './home/home.component';
     LogoutComponent,
     PatientRegistrationComponent,
     ViewPatientDetailsComponent,
-    HomeComponent
+    HomeComponent,
+    PatientRecordsRegistrationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
     Ng2SearchPipeModule

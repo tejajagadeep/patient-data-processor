@@ -1,0 +1,47 @@
+package com.cts.patientdataprocessorbackend.service;
+
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Set;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.cts.patientdataprocessorbackend.model.Patient;
+import com.cts.patientdataprocessorbackend.model.Report;
+import com.cts.patientdataprocessorbackend.repository.PatientRepository;
+import com.cts.patientdataprocessorbackend.repository.ReportRepository;
+
+@Service
+public class ReportServiceImpl implements ReportService{
+	
+	@Autowired
+	private ReportRepository reportRepository;
+	
+	@Autowired
+	private PatientRepository patientRepository;
+
+	@Override
+	public List<Report> getAllReports() {
+		return reportRepository.findAll();
+	}
+
+	@Override
+	public Report saveReport(Long contactNumber,Report report) {
+
+		Patient patient = patientRepository.findByContactNumber(contactNumber);
+
+		if (patient == null) {
+
+//			log.warn("Patient does'nt exist " + contactNumber);
+			throw new NoSuchElementException("Patient doesn't exist");
+
+		} 
+		
+		patient.addReports(report);
+
+		patientRepository.save(patient);
+		return reportRepository.save(report);
+	}
+
+}
