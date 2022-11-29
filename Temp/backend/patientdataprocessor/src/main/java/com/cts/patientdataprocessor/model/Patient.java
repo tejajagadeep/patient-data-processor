@@ -47,7 +47,7 @@ public class Patient {
 	
 //	private String bloodSugarLvls;
 	
-	private String Disease;
+	private String disease;
 	
 	private Date dateVisited;
 	

@@ -15,7 +15,8 @@ export class UserDashboardComponent implements OnInit {
   
   hospitalDetail !: FormGroup;
   hospitalObj !: Patient
-  hospitalList:Patient[]=[];
+  hospitalList!:Patient[];
+  patients!: Patient[]
  
   
   searchText:string='';
@@ -28,9 +29,13 @@ export class UserDashboardComponent implements OnInit {
     private patientService: PatientDataService,
     private route : Router) {}
 
-  ngOnInit(): void {
+  
 
+  ngOnInit(): void {
+    this.patientGetAll()
     this.getAllHospital();
+    console.log(this.hospitalList)
+    console.log(this.getAllHospital())
 
 
     this.hospitalDetail = this.formBuilder.group(
@@ -222,6 +227,14 @@ export class UserDashboardComponent implements OnInit {
 
   }
  
-  
+  patientGetAll(){
+    this.patientService.getAllPatient().subscribe(
+      response=> {this.patients=response,
+    console.log(response)
+
+      }
+      
+    )
+  }
 
 }

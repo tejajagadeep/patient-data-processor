@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Patient } from '../model/patient';
+import { PatientDataService } from '../service/data/patient-data.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  patients!: Patient[]
+
+  constructor(
+    private patietnService: PatientDataService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    this.getAllPatients()
   }
 
+  getAllPatients(){
+    this.patietnService.getAllPatient().subscribe(
+      response=> {
+        this.patients=response,
+        console.log(response)
+      }
+    )
+  }
 }

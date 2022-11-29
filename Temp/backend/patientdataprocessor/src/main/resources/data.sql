@@ -1,0 +1,2 @@
+insert into patient(contact_number,address,first_name,last_name,gender,date_of_birth,marital_status,emergency_contact_number,email,blood_group,disease,date_visited,treatment_start_date,treatment_end_date,prescription,height,weight)
+	values(7894561230,'hyderabad','Rakel','Ramesh','Male','1999-05-28','single',7894561231,'ramesh@gmail.com','O+','High BP','2022-11-28','2021-11-28','2023-11-28','Diuretics','170cms','75kgs');
