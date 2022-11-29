@@ -1,0 +1,359 @@
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Admin Hospital Management</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <button class="btn btn btn-success mr-1 me-2" data-bs-toggle="modal" data-bs-target="#addHospital" type="submit">Add Hospital</button>
+          
+        </div>
+        
+          
+        <div>
+          <button id="mybutton" class="btn btn-danger text-white me-2" (click)="logout()" >Logout</button>
+        </div>
+        
+      </div>
+      
+      </nav>
+   <br>
+   <br>
+  
+  <!--Card View-->
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3" *ngFor="let hospital of hospitalList">
+        
+        <div class="card" style="width:18rem;">
+          <div class="card-header text-center text-primary">
+            Hospital Details
+          </div>
+          <div class="card-body">
+            <div class="card-title mb-3">Patient Name :{{hospital.firstName}}</div>
+  
+            <div class="card-subtitle" > Patient LastName : {{hospital.lastName}}</div>
+            <div class="card-subtitle" > Patient Id : {{hospital.contactNumber}}</div>
+
+              
+             
+             
+  
+            
+           
+            <div class="row">
+              
+                <ul class="list-group list-group-flush">
+                 
+                  <li class="list-group-item">Patient  address: {{hospital.address}}</li>
+                  <li class="list-group-item">Patient Contact Number : {{hospital.contactNumber}}</li>
+                  
+                  <li class="list-group-item">Patient Gender : {{hospital.gender}}</li>
+                  
+                  <li class="list-group-item">Date Of Birth: {{hospital.dateOfBirth}}</li>
+                  
+  
+                </ul>
+              
+            </div>
+            <div class="row">
+              <div class="col-sm-7" style="margin-top: 20px; display:flex; justify-content:right;">
+                <td>
+                  <button type="button" class="btn btn-outline-primary me-2 " data-bs-toggle="modal" data-bs-target="#editHospital" (click)="editHospital(hospital)">Edit</button>
+                  <button type="button" class="btn btn-outline-danger " (click)="deleteHospital(hospital.contactNumber)">Delete</button><br>
+                 
+              </td>
+  
+              </div>
+              
+            </div>
+            <div class="row">
+              <div class="col-sm-7" style="margin-top: 20px; display:flex; justify-content:right;">
+                <td>
+                  
+                  <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2" (click)="onViewHospital(hospital)">View</button>
+              </td>
+  
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+  
+  <!-- Add plan modal -->
+  <div class="modal fade" id="addHospital" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add new Hospital</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+            <form [formGroup]="hospitalDetail">
+                
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Patient First Name </label>
+                <input type="text" placeholder="Enter the hospital name" formControlName="firstName"  class="form-control" id="name" aria-describedby="emailHelp">
+               
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Patient Last Name </label>
+                <input type="text" placeholder="Description of the hospital" formControlName="lastName" class="form-control" id="name" aria-describedby="emailHelp">
+               
+              </div>
+              
+               <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Contact Number </label>
+                  <input type="text" placeholder="street_line 1" formControlName="contactNumber" class="form-control" id="email" aria-describedby="emailHelp">
+                 
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label"> Address</label>
+                  <input type="text" formControlName="address" class="form-control" id="email" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Gender</label>
+                  <input type="text" placeholder="Near location" formControlName="gender" class="form-control" id="email" aria-describedby="emailHelp">
+                  
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label"> Date Of Birth</label>
+                  <input type="date" placeholder="State" formControlName="dateOfBirth" class="form-control" id="email" aria-describedby="emailHelp">
+                  
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Marital Status </label>
+                  <input type="text" formControlName="maritalStatus" class="form-control" id="email" aria-describedby="emailHelp">
+                  
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Emergency Contact Number </label>
+                  <input type="number"  formControlName="emergencyContactNumber" class="form-control" id="email" aria-describedby="emailHelp">
+                  
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email</label>
+                    <input type="text" placeholder="email" formControlName="email" class="form-control" id="email" aria-describedby="emailHelp">
+                    
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Blood Group</label>
+                    <input type="text"  formControlName=" bloodGroup" class="form-control" id="email" aria-describedby="emailHelp">
+                    
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Diseased</label>
+                    <input type="text"  formControlName="diseased" class="form-control" id="email" aria-describedby="emailHelp">
+                    
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Date Visited</label>
+                    <input type="date"  formControlName="dateVisited" class="form-control" id="email" aria-describedby="emailHelp">
+                    
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Treatement Start date</label>
+                    <input type="date"  formControlName="treatementStartDate" class="form-control" id="email" aria-describedby="emailHelp">
+                    
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Treatement End date</label>
+                    <input type="date"  formControlName="treatementEndDate" class="form-control" id="email" aria-describedby="emailHelp">
+                    
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Prescription</label>
+                    <input type="text"  formControlName="prescription" class="form-control" id="email" aria-describedby="emailHelp">
+                    
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">reports</label>
+                    <input type="text"  formControlName="reports" class="form-control" id="email" aria-describedby="emailHelp">
+                    
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">height</label>
+                    <input type="text"  formControlName="height" class="form-control" id="email" aria-describedby="emailHelp">
+                    
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">weight</label>
+                    <input type="text"  formControlName="weight" class="form-control" id="email" aria-describedby="emailHelp">
+                    
+                  </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" [disabled]="hospitalDetail.invalid" class="btn btn-primary" data-bs-dismiss="modal" (click)="addHospital()">Add hospital</button>
+                  </div>
+              </form>
+  
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  <!-- Edit employee modal -->
+  <div class="modal fade" id="editHospital" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit plan details</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+            <form [formGroup]="hospitalDetail">
+                
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Patient First Name </label>
+                <input type="text" placeholder="Enter the hospital name" formControlName="firstName"  class="form-control" id="name" aria-describedby="emailHelp">
+               
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Patient Last Name </label>
+                <input type="text" placeholder="Description of the hospital" formControlName="lastName" class="form-control" id="name" aria-describedby="emailHelp">
+               
+              </div>
+              
+               <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Contact Number </label>
+                  <input type="text" placeholder="street_line 1" formControlName="contactNumber" class="form-control" id="email" aria-describedby="emailHelp">
+                 
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label"> Address</label>
+                  <input type="text" formControlName="address" class="form-control" id="email" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Gender</label>
+                  <input type="text" placeholder="Near location" formControlName="gender" class="form-control" id="email" aria-describedby="emailHelp">
+                  
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label"> Date Of Birth</label>
+                  <input type="date" placeholder="State" formControlName="dateOfBirth" class="form-control" id="email" aria-describedby="emailHelp">
+                  
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Marital Status </label>
+                  <input type="text" formControlName="maritalStatus" class="form-control" id="email" aria-describedby="emailHelp">
+                  
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Emergency Contact Number </label>
+                  <input type="number"  formControlName="emergencyContactNumber" class="form-control" id="email" aria-describedby="emailHelp">
+                  
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email</label>
+                    <input type="text" placeholder="email" formControlName="email" class="form-control" id="email" aria-describedby="emailHelp">
+                    
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Blood Group</label>
+                    <input type="text"  formControlName=" bloodGroup" class="form-control" id="email" aria-describedby="emailHelp">
+                    
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Diseased</label>
+                    <input type="text"  formControlName="disease" class="form-control" id="email" aria-describedby="emailHelp">
+                    
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Date Visited</label>
+                    <input type="date"  formControlName="dateVisited" class="form-control" id="email" aria-describedby="emailHelp">
+                    
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Treatement Start date</label>
+                    <input type="date"  formControlName="treatementStartDate" class="form-control" id="email" aria-describedby="emailHelp">
+                    
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Treatement End date</label>
+                    <input type="date"  formControlName="treatementEndDate" class="form-control" id="email" aria-describedby="emailHelp">
+                    
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Prescription</label>
+                    <input type="text"  formControlName="prescription" class="form-control" id="email" aria-describedby="emailHelp">
+                    
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">reports</label>
+                    <input type="text"  formControlName="reports" class="form-control" id="email" aria-describedby="emailHelp">
+                    
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">height</label>
+                    <input type="text"  formControlName="height" class="form-control" id="email" aria-describedby="emailHelp">
+                    
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">weight</label>
+                    <input type="text"  formControlName="weight" class="form-control" id="email" aria-describedby="emailHelp">
+                    
+                  </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" [disabled]="hospitalDetail.invalid" class="btn btn-primary" data-bs-dismiss="modal" (click)="addHospital()">Add hospital</button>
+                  </div>
+              </form>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="exampleModal2" tabindex="-1"  aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Quick View</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row" style="margin-top: 20px; margin-bottom: 20px;">
+            <div class="col-sm-5" style="display: flex; justify-content: center; align-items: center;">
+              <div class="card-title mb-3">Patient First Name :{{hospitalObj.firstName}}</div>
+            </div>
+            <div class="col-sm-7" style="padding-right: 15px;">
+              <div style="margin-bottom: 10px; font-size: 30px; margin-top: 10px;">Patient Id: {{hospitalObj.id}}</div>
+              <strong>Patients LastName:</strong> {{hospitalObj.lastName}} <br>
+              <strong>Address:</strong> &nbsp;{{hospitalObj.address}}<br>
+              <strong>Contact:</strong>&nbsp;{{hospitalObj.contactNumber}}<br><br>
+              <strong>Gender:</strong>{{hospitalObj.gender}}<br>
+              <strong>Date of Birth:</strong>{{hospitalObj.dateOfBirth}}<br>
+              <strong>Date visited:</strong>{{hospitalObj.dateVisited}}<br>
+              <strong>Email:</strong>{{hospitalObj.email}}<br>
+              <strong>Blood Group:</strong>{{hospitalObj.bloodGroup}}<br>
+              <strong>diseased:</strong> &nbsp;{{hospitalObj.disease}}<br>
+              <strong>Reports:</strong> &nbsp;{{hospitalObj.reports}}<br>
+              <strong>Height:</strong> &nbsp;{{hospitalObj.height}}<br>
+              <strong>Weight:</strong> &nbsp;{{hospitalObj.weight}}<br>
+              <strong>Presription:</strong>{{hospitalObj.prescription}}<br>
+              <strong>reports:</strong>{{hospitalObj.reports}}
+              
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  </div> 
+  
+  

@@ -24,4 +24,11 @@ export class PatientDataService {
     return this.http.post<Patient>(`${PATIENT_API_URL}/registerPatient`,patient)
   }
 
+  updatePatientDetails(contactNumber: number,patient: Patient){
+    return this.http.put<Patient>(`${PATIENT_API_URL}/updatePatientDetails/${contactNumber}`,patient)
+  }
+
+  deletePatient(contactNumber: number){
+    return this.http.delete(`${PATIENT_API_URL}/deletePatient/${contactNumber}`)
+  }
 }

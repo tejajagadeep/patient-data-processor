@@ -19,7 +19,10 @@ public class Doctor {
 	private String password;
 	
 	@NotNull
-	private String name;
+	private String firstName;
+	
+	@NotNull
+	private String lastName;
 	
 	@NotNull
 	private Date dateOfBirth;

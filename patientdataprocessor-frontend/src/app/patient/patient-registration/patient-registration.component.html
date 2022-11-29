@@ -19,9 +19,9 @@
                         <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name"
                             [(ngModel)]="patient.firstName" required #firstName="ngModel"
                             [class.is-invalid]="firstName.invalid && firstName.touched" (keypress)="OnlyAlbhabets($event)"/>
-                        <!-- <small class="text-danger" [class.d-none]="firstName.valid || firstName.untouched">First Name
+                        <small class="text-danger" [class.d-none]="firstName.valid || firstName.untouched">First Name
                             is
-                            required</small> -->
+                            required</small>
                     </div>
                 </div>
 
@@ -44,8 +44,9 @@
                         <h6 class="mb-0">Contact Number<span class="required">*</span></h6>
                     </label>
                     <div class="form-group col-md-9 pe-5">
-                        <input type="tel" [(ngModel)]="patient.contactNumber" class="form-control" name="contactNumber"
-                        pattern="[0-9]{10}" title="must have 10 numbers"  maxlength="10"  required #contactNumber="ngModel"/>
+                        <input type="tel" [(ngModel)]="patient.contactNumber" class="form-control" placeholder="Contact Number" name="contactNumber"
+                        pattern="[0-9]{10}" title="must have 10 numbers"  maxlength="10"  required #contactNumber="ngModel"
+                        [class.is-invalid]="contactNumber.invalid && contactNumber.touched"/>
                         <small class="text-danger" [class.d-none]="contactNumber.valid || contactNumber.untouched">Contact Number
                             is
                             required</small>
@@ -137,7 +138,7 @@
                         <h6 class="mb-0">Emergency Contact Number</h6>
                     </label>
                     <fieldset class="form-group col-md-9 pe-5">
-                        <input type="text" class="form-control" id="emergencyContactNumber" name="emergencyContactNumber" placeholder="emergencyContactNumber"
+                        <input type="text" class="form-control" id="emergencyContactNumber" name="emergencyContactNumber" placeholder="Emergency Contact Number"
                             [(ngModel)]="patient.emergencyContactNumber">
                             
                     </fieldset>
