@@ -8,7 +8,6 @@ export class Doctor{
         public dateOfBirth: Date,
         public gender: string,
         public address: string,
-        public specialization: string,
         public contactNumber: number
 
     ) {}

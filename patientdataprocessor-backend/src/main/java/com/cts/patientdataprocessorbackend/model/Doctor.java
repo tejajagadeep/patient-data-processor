@@ -33,8 +33,6 @@ public class Doctor {
 	@NotNull
 	private String address;
 	
-	@NotNull
-	private String specialization;
 	
 	@NotNull
 	private Long contactNumber;

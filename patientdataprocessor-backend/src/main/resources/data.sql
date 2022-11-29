@@ -4,8 +4,8 @@ insert into User_Emp(user_name,password,role) values ('doctor@gmail.com', '{bcry
 insert into User_Emp(user_name,password,role) values ('drajaychekravarthi@gmail.com', '{bcrypt}$2a$10$CrYQ4MZGyFKcsRVdHzF.iu1lcFWHBcQx3i9faJj2I/KEwZ3ZNsflm','DOCTOR');
 
 
-insert into Doctor(email_id,password,first_name,last_name,date_of_birth,gender,address,specialization,contact_number) 
-	values('drajaychekravarthi@gmail.com','{bcrypt}$2a$10$CrYQ4MZGyFKcsRVdHzF.iu1lcFWHBcQx3i9faJj2I/KEwZ3ZNsflm',' Chekravarthi','Dr Ajay','1988-05-25','Female','hyderabad', 'Dermatology',7894561230);
+insert into Doctor(email_id,password,first_name,last_name,date_of_birth,gender,address,contact_number) 
+	values('drajaychekravarthi@gmail.com','{bcrypt}$2a$10$CrYQ4MZGyFKcsRVdHzF.iu1lcFWHBcQx3i9faJj2I/KEwZ3ZNsflm',' Chekravarthi','Dr Ajay','1988-05-25','Female','hyderabad',7894561230);
 		
 	
 insert into patient(contact_number,address,first_name,last_name,gender,date_of_birth,marital_status,emergency_contact_number,email,blood_group,disease,date_visited,treatment_start_date,treatment_end_date,prescription,height,weight)
