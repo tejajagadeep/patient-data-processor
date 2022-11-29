@@ -40,10 +40,10 @@
             Patient Details
           </div>
           <div class="card-body">
-            <div class="card-title mb-3">Patient Name :{{hospital.firstName}} {{hospital.lastName}}</div>
+            <div class="card-title mb-3">Name: {{hospital.firstName}} {{hospital.lastName}}</div>
   
-            <div class="card-subtitle" > Patient Email Id : {{hospital.email}}</div>
-            <div class="card-subtitle" > Emergency Contact Number : {{hospital.emergencyContactNumber}}</div>
+            <div class="card-subtitle" > <h6>Email Id:</h6> {{hospital.email}}</div>
+            <div class="card-subtitle" > <h6>Emergency Contact Number:</h6> {{hospital.emergencyContactNumber}}</div>
 
               
              
@@ -55,13 +55,13 @@
               
                 <ul class="list-group list-group-flush">
                  
-                  <li class="list-group-item">Patient  address: {{hospital.address}}</li>
-                  <li class="list-group-item">Patient Contact Number : {{hospital.contactNumber}}</li>
+                  <li class="list-group-item"><h6>Contact Number:</h6> {{hospital.contactNumber}}</li>
                   
-                  <li class="list-group-item">Patient Gender : {{hospital.gender}}</li>
+                  <li class="list-group-item"><h6>Gender:</h6> {{hospital.gender}}</li>
                   
-                  <li class="list-group-item">Date Of Birth: {{hospital.dateOfBirth | date : 'yyyy-MM-dd'}}</li>
+                  <li class="list-group-item"><h6>Date Of Birth:</h6> {{hospital.dateOfBirth | date : 'yyyy-MM-dd'}}</li>
                   
+                  <li class="list-group-item"><h6>Address:</h6> {{hospital.address}}</li>
   
                 </ul>
               
@@ -108,12 +108,12 @@
         
         <div class="card" style="width:18rem;">
           <div class="card-header text-center text-primary">
-            Patient Details
+            Doctor Details
           </div>
           <div class="card-body">
-            <div class="card-title mb-3">Doctor Name :{{hospital.firstName}} {{hospital.lastName}}</div>
+            <div class="card-title mb-3"> Name: {{hospital.firstName}} {{hospital.lastName}}</div>
   
-            <div class="card-subtitle" > Doctor Email Id : {{hospital.emailId}}</div>
+            <div class="card-subtitle" > <h6>Email Id:</h6> {{hospital.emailId}}</div>
             <!-- <div class="card-subtitle" > Emergency Contact Number : {{hospital.emergencyContactNumber}}</div> -->
 
               
@@ -126,12 +126,13 @@
               
                 <ul class="list-group list-group-flush">
                  
-                  <li class="list-group-item">Contact Number : {{hospital.contactNumber}}</li>
+                  <li class="list-group-item"><h6>Contact Number:</h6> {{hospital.contactNumber}}</li>
                   
-                  <li class="list-group-item">Doctor Gender : {{hospital.gender}}</li>
+                  <li class="list-group-item"><h6>Gender:</h6> {{hospital.gender}}</li>
                   
-                  <li class="list-group-item">Date Of Birth: {{hospital.dateOfBirth | date : 'yyyy-MM-dd'}} </li>
+                  <li class="list-group-item"><h6>Date Of Birth:</h6> {{hospital.dateOfBirth | date : 'yyyy-MM-dd'}} </li>
                   
+                  <li class="list-group-item"><h6>Address:</h6> {{hospital.address}}</li>
   
                 </ul>
               
