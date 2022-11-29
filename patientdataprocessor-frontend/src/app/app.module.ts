@@ -16,6 +16,8 @@ import { PatientRegistrationComponent } from './patient/patient-registration/pat
 import { ViewPatientDetailsComponent } from './patient/view-patient-details/view-patient-details.component';
 import { HomeComponent } from './home/home.component';
 import { PatientRecordsRegistrationComponent } from './patient/patient-records-registration/patient-records-registration.component';
+import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter-basic-auth.service';
+import { DoctorRegistrationComponent } from './doctor/doctor-registration/doctor-registration.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { PatientRecordsRegistrationComponent } from './patient/patient-records-r
     PatientRegistrationComponent,
     ViewPatientDetailsComponent,
     HomeComponent,
-    PatientRecordsRegistrationComponent
+    PatientRecordsRegistrationComponent,
+    DoctorRegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -39,11 +42,11 @@ import { PatientRecordsRegistrationComponent } from './patient/patient-records-r
     Ng2SearchPipeModule
   ],
   providers: [
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: HttpIntercepterService,
-    //   multi: true
-    // }
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpIntercepterBasicAuthService,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

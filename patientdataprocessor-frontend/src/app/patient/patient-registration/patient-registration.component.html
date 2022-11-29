@@ -41,7 +41,7 @@
 
                 <div class="row align-items-center pt-4 pb-3">
                     <label class="col-md-3 ps-5" for="contactNumber">
-                        <h6 class="mb-0">Contact Number</h6>
+                        <h6 class="mb-0">Contact Number<span class="required">*</span></h6>
                     </label>
                     <div class="form-group col-md-9 pe-5">
                         <input type="tel" [(ngModel)]="patient.contactNumber" class="form-control" name="contactNumber"
@@ -144,15 +144,91 @@
                 </div>
 
                 <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="exampleInputmbloodGroup">
+                        <h6 class="mb-0">Blood Group<span class="required">*</span></h6>
+                    </label>
+                    <div class="form-group col-md-9 pe-5">
+                        <input type="text" class="form-control" id="bloodGroup" name="bloodGroup" placeholder="Blood Group"
+                            [(ngModel)]="patient.bloodGroup" required #bloodGroup="ngModel"
+                            [class.is-invalid]="bloodGroup.invalid && bloodGroup.touched" />
+                        <small class="text-danger" [class.d-none]="bloodGroup.valid || bloodGroup.untouched">Blood Group
+                            is
+                            required</small>
+                    </div>
+                </div>
+
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="exampleInputdisease">
+                        <h6 class="mb-0">Disease</h6>
+                    </label>
+                    <div class="form-group col-md-9 pe-5">
+                        <input type="text" class="form-control" id="disease" name="disease" placeholder="Disease"
+                            [(ngModel)]="patient.disease">
+                    </div>
+                </div>
+                <div class="row align-items-center pt-4 pb-3">
                     <label class="col-md-3 ps-5" for="exampleInputpatientvisitedDate">
                         <h6 class="mb-0">Date</h6>
                     </label>
 
                     <fieldset class="form-group col-md-9 pe-5">
                         <input type="date" class="form-control" id="dateVisited" name="dateVisited"
-                            placeholder="Last Visited Date" [ngModel]="patient.dateVisited | date: 'yyyy-MM-dd' "
+                            placeholder="Visited Date" [ngModel]="patient.dateVisited | date: 'yyyy-MM-dd' "
                             (ngModelChange)="patient.dateOfBirth = $event"   />
                     </fieldset>
+                </div>
+
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="exampleInputpatienttreatmentStartDate">
+                        <h6 class="mb-0">Treatment Start Date</h6>
+                    </label>
+
+                    <fieldset class="form-group col-md-9 pe-5">
+                        <input type="date" class="form-control" id="treatmentStartDate" name="treatmentStartDate"
+                            placeholder="Treatment Start Date" [ngModel]="patient.treatmentStartDate | date: 'yyyy-MM-dd' "
+                            (ngModelChange)="patient.treatmentStartDate = $event"   />
+                    </fieldset>
+                </div>
+
+                
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="exampleInputpatientvisitedDate">
+                        <h6 class="mb-0">Treatment End Date</h6>
+                    </label>
+
+                    <fieldset class="form-group col-md-9 pe-5">
+                        <input type="date" class="form-control" id="treatmentEndDate" name="treatmentEndDate"
+                            placeholder="Treatment End Date" [ngModel]="patient.treatmentEndDate | date: 'yyyy-MM-dd' "
+                            (ngModelChange)="patient.treatmentEndDate = $event"   />
+                    </fieldset>
+                </div>
+
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="exampleInputprescription">
+                        <h6 class="mb-0">Prescription</h6>
+                    </label>
+                    <div class="form-group col-md-9 pe-5">
+                        <input type="text" class="form-control" id="prescription" name="prescription" placeholder="Disease"
+                            [(ngModel)]="patient.prescription">
+                    </div>
+                </div>
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="exampleInputHeight">
+                        <h6 class="mb-0">Height</h6>
+                    </label>
+                    <div class="form-group col-md-9 pe-5">
+                        <input type="text" class="form-control" id="height" name="height" placeholder="Height"
+                            [(ngModel)]="patient.height">
+                    </div>
+                </div>
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="exampleInputWeight">
+                        <h6 class="mb-0">Weight</h6>
+                    </label>
+                    <div class="form-group col-md-9 pe-5">
+                        <input type="text" class="form-control" id="weight" name="weight" placeholder="Weight"
+                            [(ngModel)]="patient.weight">
+                    </div>
                 </div>
 
                 <div class="d-flex justify-content-around pt-3">

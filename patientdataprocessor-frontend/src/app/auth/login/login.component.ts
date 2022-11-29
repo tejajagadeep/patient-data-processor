@@ -60,24 +60,27 @@ export class LoginComponent implements OnInit {
 
     this.authenticateLoginService.authenticate(this.username, this.password).subscribe(
       response => {
-        this.userService.getUserByUserName(this.username).subscribe(
-          resp => {
-              console.log(resp.role)
-              if( resp.role == 'AMDIN'){
-              this.router.navigate(['admin'])
-            }
-            if(resp.role == 'DOCTOR'){
-              this.router.navigate(['doctor'])
-            }
-      }
-        )
+        this.user = response,
+        this.router.navigate(['admin'])
       },
       error => {
         this.errorMessage = "Invalid Credentials"
       }
 
     );
-  }
 
+  //   this.userService.getUserByUserName(this.username).subscribe(
+  //     resp => {
+  //         console.log(resp.role)
+  //         if( resp.role == 'AMDIN'){
+  //         this.router.navigate(['admin'])
+  //       }
+  //       if(resp.role == 'DOCTOR'){
+  //         this.router.navigate(['doctor'])
+  //       }
+  // }
+  //   )
+  }
+  
 
 }
