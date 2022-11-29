@@ -28,6 +28,9 @@ public class Doctor {
 	private Date dateOfBirth;
 	
 	@NotNull
+	private String gender;
+	
+	@NotNull
 	private String specialization;
 	
 	@NotNull

@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
     this.authenticateLoginService.authenticate(this.username, this.password).subscribe(
       response => {
         this.user = response,
-        this.router.navigate(['admin'])
+        this.router.navigate(['home'])
       },
       error => {
         this.errorMessage = "Invalid Credentials"

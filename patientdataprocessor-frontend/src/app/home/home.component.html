@@ -1,28 +1,174 @@
-<nav class="navbar navbar-expand-lg sticky-top scrolling-navbar" style="background-color:rgb(84, 108, 139)">
-    <div class="container-fluid" style="background-color:rgb(70, 112, 190)">
-   
-      <a class="navbar-brand" href="#"><h3>Policy Managment System</h3></a>
+<div class="bg">
 
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link active" style="color:rgb(238, 247, 247)"  routerLink='/login' aria-current="page" href="#"><h5>Customer</h5></a>
-          </li>
-          
-        </ul>
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Admin Hospital Management</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <button class="btn btn btn-success mr-1 me-2" data-bs-toggle="modal" data-bs-target="#addHospital" type="submit">Add Hospital</button>
+        
+      </div>
+      
+        
+      <div>
+        <button id="mybutton" class="btn btn-danger text-white me-2" (click)="logout()" >Logout</button>
+      </div>
+      
+    </div>
+    
+    </nav>
+
+
+ <!-- Patients -->
+  <!--Card View-->
+  
+  <div class="container" *ngIf="user.role ==='DOCTOR'">
+    <br>
+    <div class="row">
+      <br>
+      <!-- <div class="col-md-6">
+        <img src="../assets/image/hospital.jpg"  height="100%" width="100%">
+    </div> -->
+
+      <div class="col-sm-3" *ngFor="let hospital of patients">
+        
+        <div class="card" style="width:18rem;">
+          <div class="card-header text-center text-primary">
+            Patient Details
+          </div>
+          <div class="card-body">
+            <div class="card-title mb-3">Patient Name :{{hospital.firstName}} {{hospital.lastName}}</div>
+  
+            <div class="card-subtitle" > Patient Email Id : {{hospital.email}}</div>
+            <div class="card-subtitle" > Emergency Contact Number : {{hospital.emergencyContactNumber}}</div>
+
+              
+             
+             
+  
+            
+           
+            <div class="row">
+              
+                <ul class="list-group list-group-flush">
+                 
+                  <li class="list-group-item">Patient  address: {{hospital.address}}</li>
+                  <li class="list-group-item">Patient Contact Number : {{hospital.contactNumber}}</li>
+                  
+                  <li class="list-group-item">Patient Gender : {{hospital.gender}}</li>
+                  
+                  <li class="list-group-item">Date Of Birth: {{hospital.dateOfBirth}}</li>
+                  
+  
+                </ul>
+              
+            </div>
+            <div class="row">
+              <div class="col-sm-7" style="margin-top: 20px; display:flex; justify-content:right;">
+                <td>
+                  <!-- <button type="button" class="btn btn-outline-primary me-2 " data-bs-toggle="modal" data-bs-target="#editHospital" (click)="editHospital(hospital)">Edit</button>
+                  <button type="button" class="btn btn-outline-danger " (click)="deleteHospital(hospital.contactNumber)">Delete</button><br> -->
+                 
+              </td>
+  
+              </div>
+              
+            </div>
+            <div class="row">
+              <div class="col-sm-7" style="margin-top: 20px; display:flex; justify-content:right;">
+                <td>
+                  
+                  <!-- <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2" (click)="onViewHospital(hospital)">View</button> -->
+              </td>
+  
+              </div>
+            </div>
+          </div>
       </div>
     </div>
-  </nav>
+    <br>
+  </div>
+    <br>
+  </div>
+  <!-- Doctors -->
+   <!--Card View-->
+  
+   <div class="container" *ngIf="user.role ==='ADMIN'">
+    <br>
+    <div class="row">
+      <br>
+      <!-- <div class="col-md-6">
+        <img src="../assets/image/hospital.jpg"  height="100%" width="100%">
+    </div> -->
 
+      <div class="col-sm-3" *ngFor="let hospital of patients">
+        
+        <div class="card" style="width:18rem;">
+          <div class="card-header text-center text-primary">
+            Patient Details
+          </div>
+          <div class="card-body">
+            <div class="card-title mb-3">Patient Name :{{hospital.firstName}} {{hospital.lastName}}</div>
+  
+            <div class="card-subtitle" > Patient Email Id : {{hospital.email}}</div>
+            <div class="card-subtitle" > Emergency Contact Number : {{hospital.emergencyContactNumber}}</div>
 
-  <img  src='assets/images/bg1.jpg' height="50%" width="100%">
- 
-
-   
+              
+             
+             
+  
+            
+           
+            <div class="row">
+              
+                <ul class="list-group list-group-flush">
+                 
+                  <li class="list-group-item">Patient  address: {{hospital.address}}</li>
+                  <li class="list-group-item">Patient Contact Number : {{hospital.contactNumber}}</li>
+                  
+                  <li class="list-group-item">Patient Gender : {{hospital.gender}}</li>
+                  
+                  <li class="list-group-item">Date Of Birth: {{hospital.dateOfBirth}}</li>
+                  
+  
+                </ul>
+              
+            </div>
+            <div class="row">
+              <div class="col-sm-7" style="margin-top: 20px; display:flex; justify-content:right;">
+                <td>
+                  <!-- <button type="button" class="btn btn-outline-primary me-2 " data-bs-toggle="modal" data-bs-target="#editHospital" (click)="editHospital(hospital)">Edit</button>
+                  <button type="button" class="btn btn-outline-danger " (click)="deleteHospital(hospital.contactNumber)">Delete</button><br> -->
+                 
+              </td>
+  
+              </div>
+              
+            </div>
+            <div class="row">
+              <div class="col-sm-7" style="margin-top: 20px; display:flex; justify-content:right;">
+                <td>
+                  
+                  <!-- <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2" (click)="onViewHospital(hospital)">View</button> -->
+              </td>
+  
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <br>
+  </div>
+    <br>
+  </div>
   <footer  class="container-fluid" style="background-color:rgb(70, 112, 190)">
     <p>*****************************************************************************************************************************************************************************************************************************</p>
   </footer>
 
+</div>
 
 
 

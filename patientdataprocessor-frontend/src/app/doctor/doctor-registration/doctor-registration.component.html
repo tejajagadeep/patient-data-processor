@@ -86,6 +86,23 @@
                 </div>
 
                 <div class="row align-items-center pt-4 pb-3">
+                    <label class="form-label col-md-3 ps-5" for="exampleInputgender">
+                      <h6 class="mb-0">Gender<span class="required">*</span></h6>
+                    </label>
+                    <div class="form-group col-md-9 pe-5">
+                      <select class="form-control" name="gender" id="gender" [(ngModel)]="doctor.gender" required #gender="ngModel"
+                      [class.is-invalid]="gender.invalid && gender.touched">
+                        <option value="" selected>Select Gender</option>
+                        <option value="Admin">Male</option>
+                        <option value="Member">Female</option>
+                      </select>
+                      
+                        <small class="text-danger" [class.d-none]="gender.valid || gender.untouched">Gender is a
+                          required field.</small>
+                    </div>
+                  </div>
+
+                <div class="row align-items-center pt-4 pb-3">
                     <label class="col-md-3 ps-5" for="exampleInputEmailId">
                         <h6 class="mb-0">Email Id<span class="required">*</span></h6>
                     </label>

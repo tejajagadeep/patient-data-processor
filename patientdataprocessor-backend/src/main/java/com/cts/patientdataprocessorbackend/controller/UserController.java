@@ -31,7 +31,7 @@ public class UserController {
 	}
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
-	@GetMapping("/getUserByEmailId/{emailId}")
+	@GetMapping("/getUserByEmailId/{userName}")
 	public ResponseEntity<User> getUserByUserName(@PathVariable String userName){
 		
 		return new ResponseEntity<>(userService.getUserByUserName(userName),HttpStatus.OK);
