@@ -3,7 +3,8 @@
 <div class="container-fluid">
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Admin Hospital Management</a>
+      <a class="navbar-brand" routerLink="/doctor-registration" *ngIf="user.role ==='ADMIN'">Add Doctor</a>
+      <a class="navbar-brand" routerLink="/patient-registration" *ngIf="user.role ==='ADMIN'">Add Patient</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -104,17 +105,17 @@
         <img src="../assets/image/hospital.jpg"  height="100%" width="100%">
     </div> -->
 
-      <div class="col-sm-3" *ngFor="let hospital of patients">
+      <div class="col-sm-3" *ngFor="let hospital of doctors">
         
         <div class="card" style="width:18rem;">
           <div class="card-header text-center text-primary">
             Patient Details
           </div>
           <div class="card-body">
-            <div class="card-title mb-3">Patient Name :{{hospital.firstName}} {{hospital.lastName}}</div>
+            <div class="card-title mb-3">Doctor Name :{{hospital.firstName}} {{hospital.lastName}}</div>
   
-            <div class="card-subtitle" > Patient Email Id : {{hospital.email}}</div>
-            <div class="card-subtitle" > Emergency Contact Number : {{hospital.emergencyContactNumber}}</div>
+            <div class="card-subtitle" > Doctor Email Id : {{hospital.emailId}}</div>
+            <!-- <div class="card-subtitle" > Emergency Contact Number : {{hospital.emergencyContactNumber}}</div> -->
 
               
              
@@ -126,10 +127,10 @@
               
                 <ul class="list-group list-group-flush">
                  
-                  <li class="list-group-item">Patient  address: {{hospital.address}}</li>
-                  <li class="list-group-item">Patient Contact Number : {{hospital.contactNumber}}</li>
+                  <li class="list-group-item">Specialization: {{hospital.specialization}}</li>
+                  <li class="list-group-item">Contact Number : {{hospital.contactNumber}}</li>
                   
-                  <li class="list-group-item">Patient Gender : {{hospital.gender}}</li>
+                  <li class="list-group-item">Doctor Gender : {{hospital.gender}}</li>
                   
                   <li class="list-group-item">Date Of Birth: {{hospital.dateOfBirth}}</li>
                   

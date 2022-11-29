@@ -24,7 +24,7 @@ export class DoctorRegistrationComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.doctor = new Doctor('','','','',this.dummyDate,'','',this.dummyNumber)
+    this.doctor = new Doctor('','','','',this.dummyDate,'','','',this.dummyNumber)
   }
 
   doctorRegistration(){

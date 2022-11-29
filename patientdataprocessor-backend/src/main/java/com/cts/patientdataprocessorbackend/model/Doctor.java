@@ -31,6 +31,9 @@ public class Doctor {
 	private String gender;
 	
 	@NotNull
+	private String address;
+	
+	@NotNull
 	private String specialization;
 	
 	@NotNull

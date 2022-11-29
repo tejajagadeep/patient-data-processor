@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Doctor } from '../model/doctor';
 import { Patient } from '../model/patient';
 import { User } from '../model/user';
@@ -26,7 +26,8 @@ export class HomeComponent implements OnInit {
     private authService: AuthenticationDataService,
     private userService: UserDataService,
     private doctorService: DoctorDataService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -62,5 +63,6 @@ export class HomeComponent implements OnInit {
 
   logout(){
     this.authService.logOut()
+    this.router.navigate(['logout'])
   }
 }

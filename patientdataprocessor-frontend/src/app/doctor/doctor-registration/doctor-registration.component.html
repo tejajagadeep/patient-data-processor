@@ -102,6 +102,20 @@
                     </div>
                   </div>
 
+                  <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="exampleInputAddress">
+                        <h6 class="mb-0">Address<span class="required">*</span></h6>
+                    </label>
+                    <div class="form-group col-md-9 pe-5">
+                        <input type="text" class="form-control" id="address" name="address" placeholder="Address"
+                            [(ngModel)]="doctor.address" required #address="ngModel"
+                            [class.is-invalid]="address.invalid && address.touched" />
+                        <small class="text-danger" [class.d-none]="address.valid || address.untouched">Address
+                            is
+                            required</small>
+                    </div>
+                </div>
+
                 <div class="row align-items-center pt-4 pb-3">
                     <label class="col-md-3 ps-5" for="exampleInputEmailId">
                         <h6 class="mb-0">Email Id<span class="required">*</span></h6>

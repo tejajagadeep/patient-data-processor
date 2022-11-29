@@ -12,16 +12,16 @@ import { AuthGuardService } from './service/auth/auth-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  {path:'login', component: LoginComponent},
-  {path:'signup', component: SignupComponent},
-  {path:'home', component: HomeComponent,canActivate:[AuthGuardService]},
-  {path:'patient-registration', component: PatientRegistrationComponent},
-  {path:'doctor-registration', component: DoctorRegistrationComponent},
-  {path:'user-dashboard', component: UserDashboardComponent},
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuardService] },
+  { path: 'patient-registration', component: PatientRegistrationComponent, canActivate: [AuthGuardService]  },
+  { path: 'doctor-registration', component: DoctorRegistrationComponent, canActivate: [AuthGuardService]  },
+  { path: 'user-dashboard', component: UserDashboardComponent, canActivate: [AuthGuardService]  },
 
-  {path: 'doctor', component: UserDashboardComponent,canActivate:[AuthGuardService]},
-  {path: 'admin', component:AdminDashboardComponent,canActivate:[AuthGuardService]},
-  {path: 'logout', component:LogoutComponent,canActivate:[AuthGuardService]},
+  { path: 'doctor', component: UserDashboardComponent, canActivate: [AuthGuardService] },
+  { path: 'admin', component: AdminDashboardComponent, canActivate: [AuthGuardService] },
+  { path: 'logout', component: LogoutComponent, canActivate: [AuthGuardService] },
   { path: '**', component: LoginComponent, canActivate: [AuthGuardService] }
 ];
 
