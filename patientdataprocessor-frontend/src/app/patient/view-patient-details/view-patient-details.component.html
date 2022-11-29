@@ -1,1 +1,135 @@
-<p>view-patient-details works!</p>
+<div class="container">
+    <div class="profile-details-content">
+        <h1 class="text-center">Patient {{patient.firstName}} {{patient.lastName}} Details</h1>
+        <table class="table table-striped table-bordered table-light">
+            <thead>
+                <tr>
+                    <th>Properties</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <h6>First Name</h6>
+                    </td>
+                    <td>{{patient.firstName}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <h6>Last Name</h6>
+                    </td>
+                    <td>{{patient.lastName}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <h6>Contact Number</h6>
+                    </td>
+                    <td>{{patient.contactNumber}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <h6>Address</h6>
+                    </td>
+                    <td>{{patient.address}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <h6>Gender</h6>
+                    </td>
+                    <td>{{patient.gender}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <h6>Date Of Birth</h6>
+                    </td>
+                    <td>{{patient.dateOfBirth | date : 'yyyy-MM-dd'}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <h6>Marital Status</h6>
+                    </td>
+                    <td>{{patient.maritalStatus}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <h6>Emergency Contact Number</h6>
+                    </td>
+                    <td>{{patient.emergencyContactNumber}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <h6>Email Id</h6>
+                    </td>
+                    <td>{{patient.email}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <h6>Blood Group</h6>
+                    </td>
+                    <td>{{patient.bloodGroup}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <h6>Disease</h6>
+                    </td>
+                    <td>{{patient.disease}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <h6>Date Visited</h6>
+                    </td>
+                    <td>{{patient.dateVisited | date : 'yyyy-MM-dd'}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <h6>Treatment Start Date</h6>
+                    </td>
+                    <td>{{patient.treatmentStartDate | date : 'yyyy-MM-dd'}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <h6>Treatment End Date</h6>
+                    </td>
+                    <td>{{patient.treatmentEndDate | date : 'yyyy-MM-dd'}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <h6>Prescription</h6>
+                    </td>
+                    <td>{{patient.prescription}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <h6>Height</h6>
+                    </td>
+                    <td>{{patient.height}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <h6>Weight</h6>
+                    </td>
+                    <td>{{patient.weight}}</td>
+                </tr>
+                
+
+            </tbody>
+        </table>
+        <!-- <br>
+        <div class="d-flex justify-content-between">
+            <button *ngIf="user.role === 'Admin' && patient.patientOwner === username"
+                (click)="deletepatient(patient.patientId)" class="btn btn-danger">Delete</button>
+            <button
+                *ngIf="user.role === 'Admin' && (patient.patientOwner === username || patient.patientManagerName === userByName.name)"
+                [routerLink]="['/patient-story-registration/',patient.patientId]" class="btn btn-secondary">New Story
+                For
+                {{patient.patientName}}</button>
+            <button
+                *ngIf="user.role === 'Admin' && (patient.patientOwner === username || patient.patientManagerName === userByName.name)"
+                (click)="updatepatient(patient.patientId)" class="btn btn-warning">Update</button>
+        </div>
+        <br> -->
+
+
+    </div>
+</div>

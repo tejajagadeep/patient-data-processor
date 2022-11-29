@@ -29,6 +29,6 @@ export class PatientDataService {
   }
 
   deletePatient(contactNumber: number){
-    return this.http.delete(`${PATIENT_API_URL}/deletePatient/${contactNumber}`)
+    return this.http.delete<Patient>(`${PATIENT_API_URL}/deletePatient/${contactNumber}`)
   }
 }

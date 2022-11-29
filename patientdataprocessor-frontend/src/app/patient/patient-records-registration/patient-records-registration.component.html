@@ -1,1 +1,221 @@
-<p>patient-records-registration works!</p>
+<section class="h-100 h-custom" style="background-color: #8fc4b7;">
+    <div class="container">
+
+        <form class="card" style="border-radius: 15px;" #RegisterForm="ngForm" (ngSubmit)="savepatient()">
+
+            <h1 class="text-center">Patient {{patient.firstName}} {{patient.lastName}} Updation</h1>
+
+
+
+            <div class="card-body">
+
+                <div class="container text-center  alert alert-warning" *ngIf="errorMessageResponse">Error:
+                    {{errorMessageResponse}}
+                </div>
+
+                
+
+                
+    
+
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="exampleInputlastName">
+                        <h6 class="mb-0">Address<span class="required">*</span></h6>
+                    </label>
+                    <div class="form-group col-md-9 pe-5">
+                        <input type="text" class="form-control" id="address" name="address" placeholder="Last Name"
+                            [(ngModel)]="patient.address" required #address="ngModel"
+                            [class.is-invalid]="address.invalid && address.touched" />
+                        <small class="text-danger" [class.d-none]="address.valid || address.untouched">Address
+                            is
+                            required</small>
+                    </div>
+                </div>
+
+
+
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="exampleInputEmailId">
+                        <h6 class="mb-0">Email Id<span class="required">*</span></h6>
+                    </label>
+                    <fieldset class="form-group col-md-9 pe-5">
+                        <input type="email" class="form-control" id="email" name="email"
+                            placeholder="Email Id" [(ngModel)]="patient.email"
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required #email="ngModel"
+                            [class.is-invalid]="email.invalid && email.touched" />
+                            
+                        <small class="text-danger"
+                            [class.d-none]="email.valid || email.untouched"> Email Id is
+                            required</small>
+                    </fieldset>
+                </div>
+
+                
+
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="exampleInputpatientdob">
+                        <h6 class="mb-0">Date Of Birth<span class="required">*</span></h6>
+                    </label>
+
+                    <fieldset class="form-group col-md-9 pe-5">
+                        <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth"
+                            placeholder="Date Of Birth" [ngModel]="patient.dateOfBirth | date: 'yyyy-MM-dd' "
+                            (ngModelChange)="patient.dateOfBirth = $event" required #dateOfBirth="ngModel"
+                            [class.is-invalid]="dateOfBirth.invalid && dateOfBirth.touched" />
+                           
+                        <small class="text-danger"
+                            [class.d-none]="dateOfBirth.valid || dateOfBirth.untouched">Date Of Birth
+                            is a required field.</small>
+                    </fieldset>
+                </div>
+
+               
+
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="form-label col-md-3 ps-5" for="exampleInputgender">
+                        <h6 class="mb-0">Gender<span class="required">*</span></h6>
+                    </label>
+                    <div class="form-group col-md-9 pe-5">
+                        <select class="form-control" name="gender" id="gender" [(ngModel)]="patient.gender" required>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="exampleInputmstatus">
+                        <h6 class="mb-0">Marital Status<span class="required">*</span></h6>
+                    </label>
+                    <div class="form-group col-md-9 pe-5">
+                        <input type="text" class="form-control" id="maritalStatus" name="maritalStatus" placeholder="Marital Status"
+                            [(ngModel)]="patient.maritalStatus" required #maritalStatus="ngModel"
+                            [class.is-invalid]="maritalStatus.invalid && maritalStatus.touched" />
+                        <small class="text-danger" [class.d-none]="maritalStatus.valid || maritalStatus.untouched">Marital Status
+                            is
+                            required</small>
+                    </div>
+                </div>
+
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="exampleInputemergencyContactNumber">
+                        <h6 class="mb-0">Emergency Contact Number</h6>
+                    </label>
+                    <fieldset class="form-group col-md-9 pe-5">
+                        <input type="text" class="form-control" id="emergencyContactNumber" name="emergencyContactNumber" placeholder="Emergency Contact Number"
+                            [(ngModel)]="patient.emergencyContactNumber">
+                            
+                    </fieldset>
+                </div>
+
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="exampleInputmbloodGroup">
+                        <h6 class="mb-0">Blood Group<span class="required">*</span></h6>
+                    </label>
+                    <div class="form-group col-md-9 pe-5">
+                        <input type="text" class="form-control" id="bloodGroup" name="bloodGroup" placeholder="Blood Group"
+                            [(ngModel)]="patient.bloodGroup" required #bloodGroup="ngModel"
+                            [class.is-invalid]="bloodGroup.invalid && bloodGroup.touched" />
+                        <small class="text-danger" [class.d-none]="bloodGroup.valid || bloodGroup.untouched">Blood Group
+                            is
+                            required</small>
+                    </div>
+                </div>
+
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="exampleInputdisease">
+                        <h6 class="mb-0">Disease</h6>
+                    </label>
+                    <div class="form-group col-md-9 pe-5">
+                        <input type="text" class="form-control" id="disease" name="disease" placeholder="Disease"
+                            [(ngModel)]="patient.disease">
+                    </div>
+                </div>
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="exampleInputpatientvisitedDate">
+                        <h6 class="mb-0">Date</h6>
+                    </label>
+
+                    <fieldset class="form-group col-md-9 pe-5">
+                        <input type="date" class="form-control" id="dateVisited" name="dateVisited"
+                            placeholder="Visited Date" [ngModel]="patient.dateVisited | date: 'yyyy-MM-dd' "
+                            (ngModelChange)="patient.dateOfBirth = $event"   />
+                    </fieldset>
+                </div>
+
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="exampleInputpatienttreatmentStartDate">
+                        <h6 class="mb-0">Treatment Start Date</h6>
+                    </label>
+
+                    <fieldset class="form-group col-md-9 pe-5">
+                        <input type="date" class="form-control" id="treatmentStartDate" name="treatmentStartDate"
+                            placeholder="Treatment Start Date" [ngModel]="patient.treatmentStartDate | date: 'yyyy-MM-dd' "
+                            (ngModelChange)="patient.treatmentStartDate = $event"   />
+                    </fieldset>
+                </div>
+
+                
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="exampleInputpatientvisitedDate">
+                        <h6 class="mb-0">Treatment End Date</h6>
+                    </label>
+
+                    <fieldset class="form-group col-md-9 pe-5">
+                        <input type="date" class="form-control" id="treatmentEndDate" name="treatmentEndDate"
+                            placeholder="Treatment End Date" [ngModel]="patient.treatmentEndDate | date: 'yyyy-MM-dd' "
+                            (ngModelChange)="patient.treatmentEndDate = $event"   />
+                    </fieldset>
+                </div>
+
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="exampleInputprescription">
+                        <h6 class="mb-0">Prescription</h6>
+                    </label>
+                    <div class="form-group col-md-9 pe-5">
+                        <input type="text" class="form-control" id="prescription" name="prescription" placeholder="Disease"
+                            [(ngModel)]="patient.prescription">
+                    </div>
+                </div>
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="exampleInputHeight">
+                        <h6 class="mb-0">Height</h6>
+                    </label>
+                    <div class="form-group col-md-9 pe-5">
+                        <input type="text" class="form-control" id="height" name="height" placeholder="Height"
+                            [(ngModel)]="patient.height">
+                    </div>
+                </div>
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="exampleInputWeight">
+                        <h6 class="mb-0">Weight</h6>
+                    </label>
+                    <div class="form-group col-md-9 pe-5">
+                        <input type="text" class="form-control" id="weight" name="weight" placeholder="Weight"
+                            [(ngModel)]="patient.weight">
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-around pt-3">
+                    <!-- <button type="button" class="btn btn-primary btn-lg" (click)="navBack()">Back</button> -->
+                    <!-- <button type="button" class="btn btn-light" [routerLink]="['/home/',username]">Home</button> -->
+                    <button type="reset" class="btn btn-info btn-lg">Reset All</button>
+                    <button type="submit" class="btn btn-warning btn-lg ms-2">Register</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</section>
+
+<!-- <mat-form-field>
+    <mat-label>
+        emailIds
+    </mat-label>
+    <input matInput type="text" [matAutocomplete]="auto"/>
+    <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let emailId of emailIds">
+            {{emailId}}
+        </mat-option>
+    </mat-autocomplete>
+</mat-form-field> -->

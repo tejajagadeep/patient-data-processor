@@ -27,15 +27,14 @@
   <!--Card View-->
   
   <div class="container" *ngIf="user.role ==='DOCTOR'">
-    <br>
-    <div class="row">
-      <br>
+        <br>
+        <div class="row">
       <!-- <div class="col-md-6">
         <img src="../assets/image/hospital.jpg"  height="100%" width="100%">
     </div> -->
 
       <div class="col-sm-3" *ngFor="let hospital of patients">
-        
+        <br>
         <div class="card" style="width:18rem;">
           <div class="card-header text-center text-primary">
             Patient Details
@@ -61,7 +60,7 @@
                   
                   <li class="list-group-item">Patient Gender : {{hospital.gender}}</li>
                   
-                  <li class="list-group-item">Date Of Birth: {{hospital.dateOfBirth}}</li>
+                  <li class="list-group-item">Date Of Birth: {{hospital.dateOfBirth | date : 'yyyy-MM-dd'}}</li>
                   
   
                 </ul>
@@ -70,8 +69,10 @@
             <div class="row">
               <div class="col-sm-7" style="margin-top: 20px; display:flex; justify-content:right;">
                 <td>
-                  <!-- <button type="button" class="btn btn-outline-primary me-2 " data-bs-toggle="modal" data-bs-target="#editHospital" (click)="editHospital(hospital)">Edit</button>
-                  <button type="button" class="btn btn-outline-danger " (click)="deleteHospital(hospital.contactNumber)">Delete</button><br> -->
+                  <button type="button" class="btn btn-outline-primary me-2 " data-bs-toggle="modal" data-bs-target="#editHospital" [routerLink]="['/view-patient-details/',hospital.contactNumber]">Details</button>
+                  <button type="button" class="btn btn-outline-primary me-2 " data-bs-toggle="modal" data-bs-target="#editHospital" [routerLink]="['/patient-records-registration/',hospital.contactNumber]">Edit</button>
+                  <!-- <button type="button" class="btn btn-outline-primary me-2 " data-bs-toggle="modal" data-bs-target="#editHospital" (click)="editHospital(hospital)">Edit</button>-->
+                  <button type="button" class="btn btn-outline-danger " (click)="deletePatient(hospital.contactNumber)">Delete</button><br> 
                  
               </td>
   
@@ -90,9 +91,7 @@
           </div>
       </div>
     </div>
-    <br>
   </div>
-    <br>
   </div>
   <!-- Doctors -->
    <!--Card View-->
@@ -131,7 +130,7 @@
                   
                   <li class="list-group-item">Doctor Gender : {{hospital.gender}}</li>
                   
-                  <li class="list-group-item">Date Of Birth: {{hospital.dateOfBirth}}</li>
+                  <li class="list-group-item">Date Of Birth: {{hospital.dateOfBirth | date : 'yyyy-MM-dd'}} </li>
                   
   
                 </ul>

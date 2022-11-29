@@ -61,6 +61,16 @@ export class HomeComponent implements OnInit {
     )
   }
 
+  deletePatient(contactNumber1: number){
+    this.patietnService.deletePatient(contactNumber1).subscribe(
+      response=> {
+        console.log(response),
+        this.getAllPatients()
+      },
+      error=> console.log(error)
+    )
+  }
+
   logout(){
     this.authService.logOut()
     this.router.navigate(['logout'])

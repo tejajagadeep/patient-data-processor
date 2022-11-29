@@ -14,6 +14,7 @@ export class PatientRecordsRegistrationComponent implements OnInit {
   dummyNumber!: number
   dummyDate!: Date
   errorMessageResponse!: string
+  contactNumber!: number
   
   constructor(
     private patientService: PatientDataService,
@@ -22,11 +23,18 @@ export class PatientRecordsRegistrationComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.patient = new Patient(this.dummyNumber, '','','','',this.dummyDate,'',this.dummyNumber,'','','',this.dummyDate,this.dummyDate,this.dummyDate,'','','',[])
+    this.contactNumber = this.route.snapshot.params['contactNumber']
+    this.getPatient(this.contactNumber)
+  }
+
+  getPatient(contactNumber1: number){
+    this.patientService.getByContactNumber(contactNumber1).subscribe(
+      response=> this.patient=response
+    )
   }
 
   savepatient(){
-    this.patientService.registerPatient(this.patient).subscribe(
+    this.patientService.updatePatientDetails(this.contactNumber,this.patient).subscribe(
       response=> this.patient=response,
       error=> this.errorMessageResponse = error
     )

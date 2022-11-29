@@ -5,9 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -43,13 +45,13 @@ public class PatientController {
 	}
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
-	@GetMapping("/updatePatientDetails/{contactNumber}")
+	@PutMapping("/updatePatientDetails/{contactNumber}")
 	public Patient updatePatientDetails(@PathVariable Long contactNumber, @RequestBody Patient patient) {
 		return patientService.updatePatientDetails(contactNumber, patient);
 	}
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
-	@GetMapping("/deletePatient/{contactNumber}")
+	@DeleteMapping("/deletePatient/{contactNumber}")
 	public List<Patient> deletePatient(@PathVariable Long contactNumber) {
 		return patientService.deletePatient(contactNumber);
 	}
