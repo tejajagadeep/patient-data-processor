@@ -115,9 +115,9 @@
 
             </tbody>
         </table>
-        <!-- <br>
+        <br>
         <div class="d-flex justify-content-between">
-            <button *ngIf="user.role === 'Admin' && patient.patientOwner === username"
+            <!-- <button *ngIf="user.role === 'Admin' && patient.patientOwner === username"
                 (click)="deletepatient(patient.patientId)" class="btn btn-danger">Delete</button>
             <button
                 *ngIf="user.role === 'Admin' && (patient.patientOwner === username || patient.patientManagerName === userByName.name)"
@@ -126,9 +126,10 @@
                 {{patient.patientName}}</button>
             <button
                 *ngIf="user.role === 'Admin' && (patient.patientOwner === username || patient.patientManagerName === userByName.name)"
-                (click)="updatepatient(patient.patientId)" class="btn btn-warning">Update</button>
+                (click)="updatepatient(patient.patientId)" class="btn btn-warning">Update</button> -->
+                <button [routerLink]="['/view-patient-reports/',patient.contactNumber]">Reports</button>
         </div>
-        <br> -->
+        <br>
 
 
     </div>

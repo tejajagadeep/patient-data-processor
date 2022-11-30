@@ -31,6 +31,7 @@ export class DoctorRegistrationComponent implements OnInit {
     this.doctorService.doctorRegistration(this.doctor).subscribe(
       response=>{
         this.doctor = response
+        this.router.navigate(['home'])
       },
       error => this.errorMessageResponse = error.error.message
     )

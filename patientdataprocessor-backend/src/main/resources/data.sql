@@ -48,3 +48,7 @@ insert into patient(contact_number,address,first_name,last_name,gender,date_of_b
 
 insert into report(id,day,bp_lvl1,bp_lvl2,sugar_lvl,contact_number)
 	values(1,'2022-01-01',140,90,99,7894561230);	
+insert into report(id,day,bp_lvl1,bp_lvl2,sugar_lvl,contact_number)
+	values(2,'2022-01-01',153,94,99,7894561230);
+insert into report(id,day,bp_lvl1,bp_lvl2,sugar_lvl,contact_number)
+	values(3,'2022-01-01',148,89,99,7894561230);

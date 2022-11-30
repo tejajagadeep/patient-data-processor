@@ -1,0 +1,80 @@
+<section class="h-100 h-custom" style="background-color: #8fc4b7;">
+    <div class="container">
+
+        <form class="card" style="border-radius: 15px;" #RegisterForm="ngForm" (ngSubmit)="saveReports()">
+
+            <h1 class="text-center">patient Registration</h1>
+
+            <div class="card-body">
+
+                <div class="container text-center  alert alert-warning" *ngIf="errorMessageResponse">Error:
+                    {{errorMessageResponse}}
+                </div>
+
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="exampleInputbpLevel1">
+                        <h6 class="mb-0">BP Level1<span class="required">*</span></h6>
+                    </label>
+                    <div class="form-group col-md-9 pe-5">
+                        <input type="number" class="form-control" id="bpLevel1" name="bpLevel1" placeholder="BP Level1"
+                            [(ngModel)]="reports.bpLevel1" required #bpLevel1="ngModel"
+                            [class.is-invalid]="bpLevel1.invalid && bpLevel1.touched"/>
+                        <small class="text-danger" [class.d-none]="bpLevel1.valid || bpLevel1.untouched">BP Level1
+                            is
+                            required</small>
+                    </div>
+                </div>
+
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="exampleInputbpLevel2">
+                        <h6 class="mb-0">BP Level2<span class="required">*</span></h6>
+                    </label>
+                    <div class="form-group col-md-9 pe-5">
+                        <input type="number" class="form-control" id="bpLevel2" name="bpLevel2" placeholder="BP Level2"
+                            [(ngModel)]="reports.bpLevel2" required #bpLevel2="ngModel"
+                            [class.is-invalid]="bpLevel2.invalid && bpLevel2.touched"/>
+                        <small class="text-danger" [class.d-none]="bpLevel2.valid || bpLevel2.untouched">BP Level2
+                            is
+                            required</small>
+                    </div>
+                </div>
+
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="exampleInputsugarLevel">
+                        <h6 class="mb-0">Sugar Level<span class="required">*</span></h6>
+                    </label>
+                    <div class="form-group col-md-9 pe-5">
+                        <input type="number" class="form-control" id="sugarLevel" name="sugarLevel" placeholder="Sugar Level"
+                            [(ngModel)]="reports.sugarLevel" required #sugarLevel="ngModel"
+                            [class.is-invalid]="sugarLevel.invalid && sugarLevel.touched"/>
+                        <small class="text-danger" [class.d-none]="sugarLevel.valid || sugarLevel.untouched">Sugar Level
+                            is
+                            required</small>
+                    </div>
+                </div>
+
+                
+
+                <div class="d-flex justify-content-around pt-3">
+                    <!-- <button type="button" class="btn btn-primary btn-lg" (click)="navBack()">Back</button> -->
+                    <!-- <button type="button" class="btn btn-light" [routerLink]="['/home/',username]">Home</button> -->
+                    <button type="reset" class="btn btn-info btn-lg">Reset All</button>
+                    <button type="submit" class="btn btn-warning btn-lg ms-2">Register</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</section>
+
+<!-- <mat-form-field>
+    <mat-label>
+        emailIds
+    </mat-label>
+    <input matInput type="text" [matAutocomplete]="auto"/>
+    <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let emailId of emailIds">
+            {{emailId}}
+        </mat-option>
+    </mat-autocomplete>
+</mat-form-field> -->
