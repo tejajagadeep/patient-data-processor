@@ -32,7 +32,7 @@
                     <div class="form-group col-md-9 pe-5">
                         <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name"
                             [(ngModel)]="patient.lastName" required #lastName="ngModel"
-                            [class.is-invalid]="lastName.invalid && lastName.touched" />
+                            [class.is-invalid]="lastName.invalid && lastName.touched" (keypress)="OnlyAlbhabets($event)"/>
                         <small class="text-danger" [class.d-none]="lastName.valid || lastName.untouched">Last Name
                             is
                             required</small>
@@ -46,7 +46,7 @@
                     <div class="form-group col-md-9 pe-5">
                         <input type="tel" [(ngModel)]="patient.contactNumber" class="form-control" placeholder="Contact Number" name="contactNumber"
                         pattern="[0-9]{10}" title="must have 10 numbers"  maxlength="10"  required #contactNumber="ngModel"
-                        [class.is-invalid]="contactNumber.invalid && contactNumber.touched"/>
+                        [class.is-invalid]="contactNumber.invalid && contactNumber.touched" (keypress)="OnlyNumbers($event)"/>
                         <small class="text-danger" [class.d-none]="contactNumber.valid || contactNumber.untouched">Contact Number
                             is
                             required</small>
@@ -139,7 +139,7 @@
                     </label>
                     <fieldset class="form-group col-md-9 pe-5">
                         <input type="text" class="form-control" id="emergencyContactNumber" name="emergencyContactNumber" placeholder="Emergency Contact Number"
-                            [(ngModel)]="patient.emergencyContactNumber">
+                            [(ngModel)]="patient.emergencyContactNumber" (keypress)="OnlyNumbers($event)">
                             
                     </fieldset>
                 </div>
@@ -233,7 +233,7 @@
                 </div>
 
                 <div class="d-flex justify-content-around pt-3">
-                    <!-- <button type="button" class="btn btn-primary btn-lg" (click)="navBack()">Back</button> -->
+                    <button type="button" class="btn btn-primary btn-lg" (click)="navBack()">Back</button>
                     <!-- <button type="button" class="btn btn-light" [routerLink]="['/home/',username]">Home</button> -->
                     <button type="reset" class="btn btn-info btn-lg">Reset All</button>
                     <button type="submit" class="btn btn-warning btn-lg ms-2">Register</button>

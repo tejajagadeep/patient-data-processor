@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Patient } from 'src/app/model/patient';
 import { PatientDataService } from 'src/app/service/data/patient-data.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-view-patient-details',
@@ -17,8 +18,13 @@ export class ViewPatientDetailsComponent implements OnInit {
   constructor(
     private patientService: PatientDataService,
     private router: Router,
+    private location: Location,
     private route: ActivatedRoute
   ) { }
+
+  navBack(){
+    this.location.back();
+  }
 
   ngOnInit(): void {
     this.contactNumber = this.route.snapshot.params['contactNumber']

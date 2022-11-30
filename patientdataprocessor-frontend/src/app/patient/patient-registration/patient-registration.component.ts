@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Patient } from 'src/app/model/patient';
 import { PatientDataService } from 'src/app/service/data/patient-data.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-patient-registration',
@@ -20,8 +21,13 @@ export class PatientRegistrationComponent implements OnInit {
   constructor(
     private patientService: PatientDataService,
     private router: Router,
+    private location: Location,
     private route: ActivatedRoute
   ) { }
+
+  navBack(){
+    this.location.back();
+  }
 
   ngOnInit(): void {
     this.patient = new Patient(this.dummyNumber, '','','','',this.dummyDate,'',this.dummyNumber,'','','',this.dummyDate,this.dummyDate,this.dummyDate,'','','',[])
@@ -37,6 +43,18 @@ export class PatientRegistrationComponent implements OnInit {
 
 
     return false;
+  }
+
+  OnlyNumbers(event: any):boolean{
+
+    const charCode = (event.which)?event.which: event.keyCode;
+
+    if(charCode > 31 && (charCode < 48 || charCode > 57)) {
+       return false
+    }
+
+
+    return true;
   }
 
   savepatient(){

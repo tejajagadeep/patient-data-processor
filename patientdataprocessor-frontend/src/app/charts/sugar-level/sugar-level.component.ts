@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import {​​​​​​ Chart, registerables }​​​​​​ from 'chart.js';
 import { Patient } from 'src/app/model/patient';
 import { PatientDataService } from 'src/app/service/data/patient-data.service';
+import { Location } from '@angular/common';
 
 Chart.register(...registerables);
 
@@ -17,11 +18,16 @@ export class SugarLevelComponent implements OnInit {
 
   constructor(
     private patientService: PatientDataService,
+    private location: Location,
     private route: ActivatedRoute
     ) { }
   chartdata: any;
   labeldata: any[] = [];
   realdata: any[] = [];
+  navBack(){
+    this.location.back();
+  }
+  
   ngOnInit(): void {
     this.contactNumber = this.route.snapshot.params['contactNumber']
     this.patientService.getChartInfo(this.contactNumber).subscribe((result) => {

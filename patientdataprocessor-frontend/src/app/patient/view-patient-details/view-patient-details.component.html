@@ -127,7 +127,8 @@
             <button
                 *ngIf="user.role === 'Admin' && (patient.patientOwner === username || patient.patientManagerName === userByName.name)"
                 (click)="updatepatient(patient.patientId)" class="btn btn-warning">Update</button> -->
-                <button [routerLink]="['/view-patient-reports/',patient.contactNumber]">Reports</button>
+                    <button type="button" class="btn btn-primary btn-lg" (click)="navBack()">Back</button>
+                    <button [routerLink]="['/view-patient-reports/',patient.contactNumber]">Reports</button>
         </div>
         <br>
 

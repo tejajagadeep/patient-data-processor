@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import {​​​​​​ Chart, registerables }​​​​​​ from 'chart.js';
 import { Patient } from 'src/app/model/patient';
 import { PatientDataService } from 'src/app/service/data/patient-data.service';
+import { Location } from '@angular/common';
 
 
 Chart.register(...registerables);
@@ -19,6 +20,7 @@ export class BloodPressureComponent implements OnInit {
 
   constructor(
     private patientService: PatientDataService,
+    private location: Location,
     private route: ActivatedRoute
     ) { }
   chartdata: any;
@@ -26,7 +28,9 @@ export class BloodPressureComponent implements OnInit {
   realdata1: any[] = [];
   realdata2: any[] = [];
 
-  
+  navBack(){
+    this.location.back();
+  }
 
   ngOnInit(): void {
 

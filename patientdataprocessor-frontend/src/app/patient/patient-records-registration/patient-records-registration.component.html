@@ -18,96 +18,17 @@
                 
     
 
-                <div class="row align-items-center pt-4 pb-3">
-                    <label class="col-md-3 ps-5" for="exampleInputlastName">
-                        <h6 class="mb-0">Address<span class="required">*</span></h6>
-                    </label>
-                    <div class="form-group col-md-9 pe-5">
-                        <input type="text" class="form-control" id="address" name="address" placeholder="Last Name"
-                            [(ngModel)]="patient.address" required #address="ngModel"
-                            [class.is-invalid]="address.invalid && address.touched" />
-                        <small class="text-danger" [class.d-none]="address.valid || address.untouched">Address
-                            is
-                            required</small>
-                    </div>
-                </div>
-
-
-
-                <div class="row align-items-center pt-4 pb-3">
-                    <label class="col-md-3 ps-5" for="exampleInputEmailId">
-                        <h6 class="mb-0">Email Id<span class="required">*</span></h6>
-                    </label>
-                    <fieldset class="form-group col-md-9 pe-5">
-                        <input type="email" class="form-control" id="email" name="email"
-                            placeholder="Email Id" [(ngModel)]="patient.email"
-                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required #email="ngModel"
-                            [class.is-invalid]="email.invalid && email.touched" />
-                            
-                        <small class="text-danger"
-                            [class.d-none]="email.valid || email.untouched"> Email Id is
-                            required</small>
-                    </fieldset>
-                </div>
-
                 
 
                 <div class="row align-items-center pt-4 pb-3">
-                    <label class="col-md-3 ps-5" for="exampleInputpatientdob">
-                        <h6 class="mb-0">Date Of Birth<span class="required">*</span></h6>
-                    </label>
-
-                    <fieldset class="form-group col-md-9 pe-5">
-                        <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth"
-                            placeholder="Date Of Birth" [ngModel]="patient.dateOfBirth | date: 'yyyy-MM-dd' "
-                            (ngModelChange)="patient.dateOfBirth = $event" required #dateOfBirth="ngModel"
-                            [class.is-invalid]="dateOfBirth.invalid && dateOfBirth.touched" />
-                           
-                        <small class="text-danger"
-                            [class.d-none]="dateOfBirth.valid || dateOfBirth.untouched">Date Of Birth
-                            is a required field.</small>
-                    </fieldset>
-                </div>
-
-               
-
-                <div class="row align-items-center pt-4 pb-3">
-                    <label class="form-label col-md-3 ps-5" for="exampleInputgender">
-                        <h6 class="mb-0">Gender<span class="required">*</span></h6>
+                    <label class="col-md-3 ps-5" for="exampleInputdisease">
+                        <h6 class="mb-0">Disease</h6>
                     </label>
                     <div class="form-group col-md-9 pe-5">
-                        <select class="form-control" name="gender" id="gender" [(ngModel)]="patient.gender" required>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                        </select>
+                        <input type="text" class="form-control" id="disease" name="disease" placeholder="Disease"
+                            [(ngModel)]="patient.disease">
                     </div>
                 </div>
-
-                <div class="row align-items-center pt-4 pb-3">
-                    <label class="col-md-3 ps-5" for="exampleInputmstatus">
-                        <h6 class="mb-0">Marital Status<span class="required">*</span></h6>
-                    </label>
-                    <div class="form-group col-md-9 pe-5">
-                        <input type="text" class="form-control" id="maritalStatus" name="maritalStatus" placeholder="Marital Status"
-                            [(ngModel)]="patient.maritalStatus" required #maritalStatus="ngModel"
-                            [class.is-invalid]="maritalStatus.invalid && maritalStatus.touched" />
-                        <small class="text-danger" [class.d-none]="maritalStatus.valid || maritalStatus.untouched">Marital Status
-                            is
-                            required</small>
-                    </div>
-                </div>
-
-                <div class="row align-items-center pt-4 pb-3">
-                    <label class="col-md-3 ps-5" for="exampleInputemergencyContactNumber">
-                        <h6 class="mb-0">Emergency Contact Number</h6>
-                    </label>
-                    <fieldset class="form-group col-md-9 pe-5">
-                        <input type="text" class="form-control" id="emergencyContactNumber" name="emergencyContactNumber" placeholder="Emergency Contact Number"
-                            [(ngModel)]="patient.emergencyContactNumber">
-                            
-                    </fieldset>
-                </div>
-
                 <div class="row align-items-center pt-4 pb-3">
                     <label class="col-md-3 ps-5" for="exampleInputmbloodGroup">
                         <h6 class="mb-0">Blood Group<span class="required">*</span></h6>
@@ -122,15 +43,6 @@
                     </div>
                 </div>
 
-                <div class="row align-items-center pt-4 pb-3">
-                    <label class="col-md-3 ps-5" for="exampleInputdisease">
-                        <h6 class="mb-0">Disease</h6>
-                    </label>
-                    <div class="form-group col-md-9 pe-5">
-                        <input type="text" class="form-control" id="disease" name="disease" placeholder="Disease"
-                            [(ngModel)]="patient.disease">
-                    </div>
-                </div>
                 <div class="row align-items-center pt-4 pb-3">
                     <label class="col-md-3 ps-5" for="exampleInputpatientvisitedDate">
                         <h6 class="mb-0">Date</h6>
@@ -196,8 +108,49 @@
                     </div>
                 </div>
 
+                
+
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="exampleInputlastName">
+                        <h6 class="mb-0">Address<span class="required">*</span></h6>
+                    </label>
+                    <div class="form-group col-md-9 pe-5">
+                        <input type="text" class="form-control" id="address" name="address" placeholder="Last Name"
+                            [(ngModel)]="patient.address" required #address="ngModel"
+                            [class.is-invalid]="address.invalid && address.touched" />
+                        <small class="text-danger" [class.d-none]="address.valid || address.untouched">Address
+                            is
+                            required</small>
+                    </div>
+                </div>
+
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="exampleInputmstatus">
+                        <h6 class="mb-0">Marital Status<span class="required">*</span></h6>
+                    </label>
+                    <div class="form-group col-md-9 pe-5">
+                        <input type="text" class="form-control" id="maritalStatus" name="maritalStatus" placeholder="Marital Status"
+                            [(ngModel)]="patient.maritalStatus" required #maritalStatus="ngModel"
+                            [class.is-invalid]="maritalStatus.invalid && maritalStatus.touched" />
+                        <small class="text-danger" [class.d-none]="maritalStatus.valid || maritalStatus.untouched">Marital Status
+                            is
+                            required</small>
+                    </div>
+                </div>
+
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="exampleInputemergencyContactNumber">
+                        <h6 class="mb-0">Emergency Contact Number</h6>
+                    </label>
+                    <fieldset class="form-group col-md-9 pe-5">
+                        <input type="text" class="form-control" id="emergencyContactNumber" name="emergencyContactNumber" placeholder="Emergency Contact Number"
+                            [(ngModel)]="patient.emergencyContactNumber">
+                            
+                    </fieldset>
+                </div>
+
                 <div class="d-flex justify-content-around pt-3">
-                    <!-- <button type="button" class="btn btn-primary btn-lg" (click)="navBack()">Back</button> -->
+                    <button type="button" class="btn btn-primary btn-lg" (click)="navBack()">Back</button>
                     <!-- <button type="button" class="btn btn-light" [routerLink]="['/home/',username]">Home</button> -->
                     <button type="reset" class="btn btn-info btn-lg">Reset All</button>
                     <button type="submit" class="btn btn-warning btn-lg ms-2">Register</button>
