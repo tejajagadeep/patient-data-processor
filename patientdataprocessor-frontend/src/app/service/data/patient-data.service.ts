@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { PATIENT_API_URL } from 'src/app/app.constants';
 import { Patient } from 'src/app/model/patient';
+import { Report } from 'src/app/model/report';
 
 @Injectable({
   providedIn: 'root'
@@ -30,5 +31,13 @@ export class PatientDataService {
 
   deletePatient(contactNumber: number){
     return this.http.delete<Patient>(`${PATIENT_API_URL}/deletePatient/${contactNumber}`)
+  }
+
+  // getChartInfo(contactNumber: number) {
+  //   return this.http.get("http://localhost:3000/patients");
+  // }
+
+  getChartInfo(contactNumber: number) {
+    return this.http.get(`${PATIENT_API_URL}/patientReports/${contactNumber}`)
   }
 }

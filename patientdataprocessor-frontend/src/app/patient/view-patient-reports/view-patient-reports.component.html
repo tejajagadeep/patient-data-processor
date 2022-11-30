@@ -13,10 +13,10 @@
             </thead>
             <tbody>
                 <tr *ngFor="let reports of patient.reports" >
-                    <td>{{reports.day | date : 'YYYY-MM-DD hh:mm:ss '}}</td>
-                    <td>{{reports.bpLevel1}}</td>
-                    <td>{{reports.bpLevel2}}</td>
-                    <td>{{reports.sugarLevel}}</td>
+                    <td>{{reports.date | date : 'YYYY-MM-DD hh:mm:ss '}}</td>
+                    <td>{{reports.systolic}}</td>
+                    <td>{{reports.diastolic}}</td>
+                    <td>{{reports.sugarlevel}}</td>
                     <td><button (click) = "delete(reports.id)" class="btn btn-danger">Delete</button></td>
                 </tr>
                  
@@ -42,3 +42,5 @@
 
     </div>
 </div>
+<app-blood-pressure></app-blood-pressure>
+<app-sugar-level></app-sugar-level>

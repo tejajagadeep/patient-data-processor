@@ -2,12 +2,14 @@ package com.cts.patientdataprocessorbackend.service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cts.patientdataprocessorbackend.exception.IdAlredyExistsException;
 import com.cts.patientdataprocessorbackend.model.Patient;
+import com.cts.patientdataprocessorbackend.model.Report;
 import com.cts.patientdataprocessorbackend.repository.PatientRepository;
 
 @Service
@@ -60,4 +62,15 @@ public class PatientServiceImpl implements PatientService{
 		return patientRepository.findAll();
 	}
 
+
+	@Override
+	public Set<Report> getBypatientReports(Long contactNumber) {
+		Patient patientDummy = patientRepository.findByContactNumber(contactNumber);
+		if(patientDummy==null) {
+			throw new  NoSuchElementException("Patient doesn't exist");
+		}
+		return patientDummy.getReports();
+	}
+
+	
 }

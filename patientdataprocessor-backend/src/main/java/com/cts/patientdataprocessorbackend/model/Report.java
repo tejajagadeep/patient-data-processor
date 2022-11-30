@@ -22,15 +22,15 @@ public class Report {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	private Date day;
+	private Date date;
 	
-	@Column(name="bp_lvl1")
-	private int bpLevel1;
+	@Column(name="systolic")
+	private int systolic;
 	
-	@Column(name="bp_lvl2")
-	private int bpLevel2;
+	@Column(name="diastolic")
+	private int diastolic;
 	
-	@Column(name="sugar_lvl")
-	private int sugarLevel;
+	@Column(name="sugar_level")
+	private int sugarlevel;
 	
 }

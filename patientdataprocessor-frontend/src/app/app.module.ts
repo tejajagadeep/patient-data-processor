@@ -20,6 +20,8 @@ import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter
 import { DoctorRegistrationComponent } from './doctor/doctor-registration/doctor-registration.component';
 import { ViewPatientReportsComponent } from './patient/view-patient-reports/view-patient-reports.component';
 import { ReportsRegistrationComponent } from './patient/reports-registration/reports-registration.component';
+import { BloodPressureComponent } from './charts/blood-pressure/blood-pressure.component';
+import { SugarLevelComponent } from './charts/sugar-level/sugar-level.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { ReportsRegistrationComponent } from './patient/reports-registration/rep
     PatientRecordsRegistrationComponent,
     DoctorRegistrationComponent,
     ViewPatientReportsComponent,
-    ReportsRegistrationComponent
+    ReportsRegistrationComponent,
+    BloodPressureComponent,
+    SugarLevelComponent
   ],
   imports: [
     BrowserModule,

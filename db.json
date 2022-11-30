@@ -1,0 +1,52 @@
+{
+  "patients": [
+    {
+      "date": "01/11/2022",
+      "systolic": 100,
+      "diastolic": 60,
+      "sugarlevel": 80
+    },
+    {
+      "date": "01/11/2022",
+      "systolic": 100,
+      "diastolic": 60,
+      "sugarlevel": 80
+    },
+    {
+      "date": "02/11/2022",
+      "systolic": 105,
+      "diastolic": 65,
+      "sugarlevel": 90
+    },
+    {
+      "date": "03/11/2022",
+      "systolic": 100,
+      "diastolic": 60,
+      "sugarlevel": 95
+    },
+    {
+      "date": "04/11/2022",
+      "systolic": 111,
+      "diastolic": 70,
+      "sugarlevel": 90
+    },
+    {
+      "date": "05/11/2022",
+      "systolic": 100,
+      "diastolic": 60,
+      "sugarlevel": 95
+    },
+    {
+      "date": "06/11/2022",
+      "systolic": 111,
+      "diastolic": 70,
+      "sugarlevel": 90
+    },
+    {
+      "date": "07/11/2022",
+      "systolic": 100,
+      "diastolic": 60,
+      "sugarlevel": 95
+    }
+  ]
+}

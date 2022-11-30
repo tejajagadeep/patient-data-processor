@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { LogoutComponent } from './auth/logout/logout.component';
 import { SignupComponent } from './auth/signup/signup.component';
+import { BloodPressureComponent } from './charts/blood-pressure/blood-pressure.component';
+import { SugarLevelComponent } from './charts/sugar-level/sugar-level.component';
 import { AdminDashboardComponent } from './component/admin-dashboard/admin-dashboard.component';
 import { UserDashboardComponent } from './component/user-dashboard/user-dashboard.component';
 import { DoctorRegistrationComponent } from './doctor/doctor-registration/doctor-registration.component';
@@ -27,6 +29,8 @@ const routes: Routes = [
   { path: 'view-patient-reports/:contactNumber', component: ViewPatientReportsComponent, canActivate: [AuthGuardService]  },
   { path: 'user-dashboard', component: UserDashboardComponent, canActivate: [AuthGuardService]  },
 
+  { path: 'charts-bp/:contactNumber', component: BloodPressureComponent, canActivate: [AuthGuardService] },
+  { path: 'charts-sugar/:contactNumber', component: SugarLevelComponent, canActivate: [AuthGuardService] },
   { path: 'doctor', component: UserDashboardComponent, canActivate: [AuthGuardService] },
   { path: 'admin', component: AdminDashboardComponent, canActivate: [AuthGuardService] },
   { path: 'logout', component: LogoutComponent, canActivate: [AuthGuardService] },

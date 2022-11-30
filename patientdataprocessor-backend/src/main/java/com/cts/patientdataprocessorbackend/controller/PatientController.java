@@ -1,6 +1,7 @@
 package com.cts.patientdataprocessorbackend.controller;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cts.patientdataprocessorbackend.model.Patient;
+import com.cts.patientdataprocessorbackend.model.Report;
 import com.cts.patientdataprocessorbackend.service.PatientService;
 
 
@@ -39,6 +41,12 @@ public class PatientController {
 	}
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
+	@GetMapping("/patientReports/{contactNumber}")
+	public Set<Report> getBypatientReports(@PathVariable Long contactNumber) {
+		return patientService.getBypatientReports(contactNumber);
+	}
+	
+	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
 	@PostMapping("/registerPatient")
 	public Patient registerPatient(@RequestBody Patient patient) {
 		return patientService.registerPatient(patient);
@@ -55,4 +63,6 @@ public class PatientController {
 	public List<Patient> deletePatient(@PathVariable Long contactNumber) {
 		return patientService.deletePatient(contactNumber);
 	}
+	
+	
 }

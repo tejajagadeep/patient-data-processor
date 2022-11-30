@@ -12,42 +12,42 @@
                 </div>
 
                 <div class="row align-items-center pt-4 pb-3">
-                    <label class="col-md-3 ps-5" for="exampleInputbpLevel1">
-                        <h6 class="mb-0">BP Level1<span class="required">*</span></h6>
+                    <label class="col-md-3 ps-5" for="exampleInputsystolic">
+                        <h6 class="mb-0">systolic<span class="required">*</span></h6>
                     </label>
                     <div class="form-group col-md-9 pe-5">
-                        <input type="number" class="form-control" id="bpLevel1" name="bpLevel1" placeholder="BP Level1"
-                            [(ngModel)]="reports.bpLevel1" required #bpLevel1="ngModel"
-                            [class.is-invalid]="bpLevel1.invalid && bpLevel1.touched"/>
-                        <small class="text-danger" [class.d-none]="bpLevel1.valid || bpLevel1.untouched">BP Level1
+                        <input type="number" class="form-control" id="systolic" name="systolic" placeholder="BP Level1"
+                            [(ngModel)]="reports.systolic" required #systolic="ngModel"
+                            [class.is-invalid]="systolic.invalid && systolic.touched"/>
+                        <small class="text-danger" [class.d-none]="systolic.valid || systolic.untouched">BP Level1
                             is
                             required</small>
                     </div>
                 </div>
 
                 <div class="row align-items-center pt-4 pb-3">
-                    <label class="col-md-3 ps-5" for="exampleInputbpLevel2">
-                        <h6 class="mb-0">BP Level2<span class="required">*</span></h6>
+                    <label class="col-md-3 ps-5" for="exampleInputdiastolic">
+                        <h6 class="mb-0">diastolic<span class="required">*</span></h6>
                     </label>
                     <div class="form-group col-md-9 pe-5">
-                        <input type="number" class="form-control" id="bpLevel2" name="bpLevel2" placeholder="BP Level2"
-                            [(ngModel)]="reports.bpLevel2" required #bpLevel2="ngModel"
-                            [class.is-invalid]="bpLevel2.invalid && bpLevel2.touched"/>
-                        <small class="text-danger" [class.d-none]="bpLevel2.valid || bpLevel2.untouched">BP Level2
+                        <input type="number" class="form-control" id="diastolic" name="diastolic" placeholder="BP Level2"
+                            [(ngModel)]="reports.diastolic" required #diastolic="ngModel"
+                            [class.is-invalid]="diastolic.invalid && diastolic.touched"/>
+                        <small class="text-danger" [class.d-none]="diastolic.valid || diastolic.untouched">BP Level2
                             is
                             required</small>
                     </div>
                 </div>
 
                 <div class="row align-items-center pt-4 pb-3">
-                    <label class="col-md-3 ps-5" for="exampleInputsugarLevel">
+                    <label class="col-md-3 ps-5" for="exampleInputsugarlevel">
                         <h6 class="mb-0">Sugar Level<span class="required">*</span></h6>
                     </label>
                     <div class="form-group col-md-9 pe-5">
-                        <input type="number" class="form-control" id="sugarLevel" name="sugarLevel" placeholder="Sugar Level"
-                            [(ngModel)]="reports.sugarLevel" required #sugarLevel="ngModel"
-                            [class.is-invalid]="sugarLevel.invalid && sugarLevel.touched"/>
-                        <small class="text-danger" [class.d-none]="sugarLevel.valid || sugarLevel.untouched">Sugar Level
+                        <input type="number" class="form-control" id="sugarlevel" name="sugarlevel" placeholder="Sugar Level"
+                            [(ngModel)]="reports.sugarlevel" required #sugarlevel="ngModel"
+                            [class.is-invalid]="sugarlevel.invalid && sugarlevel.touched"/>
+                        <small class="text-danger" [class.d-none]="sugarlevel.valid || sugarlevel.untouched">Sugar Level
                             is
                             required</small>
                     </div>

@@ -38,7 +38,7 @@ public class ReportServiceImpl implements ReportService{
 			throw new NoSuchElementException("Patient doesn't exist");
 
 		} 
-		report.setDay(new Date());
+		report.setDate(new Date());
 		patient.addReports(report);
 
 //		patientRepository.save(patient);
