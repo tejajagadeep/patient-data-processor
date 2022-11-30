@@ -22,6 +22,8 @@ import { ViewPatientReportsComponent } from './patient/view-patient-reports/view
 import { ReportsRegistrationComponent } from './patient/reports-registration/reports-registration.component';
 import { BloodPressureComponent } from './charts/blood-pressure/blood-pressure.component';
 import { SugarLevelComponent } from './charts/sugar-level/sugar-level.component';
+import { MenuComponent } from './navbar/menu/menu.component';
+import { FooterComponent } from './navbar/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { SugarLevelComponent } from './charts/sugar-level/sugar-level.component'
     ViewPatientReportsComponent,
     ReportsRegistrationComponent,
     BloodPressureComponent,
-    SugarLevelComponent
+    SugarLevelComponent,
+    MenuComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

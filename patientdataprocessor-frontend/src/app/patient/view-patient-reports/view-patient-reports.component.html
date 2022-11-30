@@ -37,11 +37,13 @@
                 *ngIf="user.role === 'Admin' && (patient.patientOwner === username || patient.patientManagerName === userByName.name)"
                 (click)="updatepatient(patient.patientId)" class="btn btn-warning">Update</button> -->
                 <button type="button" class="btn btn-primary btn-lg" (click)="navBack()">Back</button>
+                <button type="button" class="btn btn-primary btn-lg" [routerLink]="['/charts-bp/',contactNumber]">Blood Presure Analysis</button>
+                <button type="button" class="btn btn-primary btn-lg" [routerLink]="['/charts-sugar/',contactNumber]">Sugar Level Analysis</button>
+
             </div>
         <br>
 
-
+        
     </div>
 </div>
-<app-blood-pressure></app-blood-pressure>
-<app-sugar-level></app-sugar-level>
+

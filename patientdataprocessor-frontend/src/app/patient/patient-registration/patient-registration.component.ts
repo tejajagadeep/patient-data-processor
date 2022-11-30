@@ -59,7 +59,9 @@ export class PatientRegistrationComponent implements OnInit {
 
   savepatient(){
     this.patientService.registerPatient(this.patient).subscribe(
-      response=> this.patient=response,
+      response=> {this.patient=response
+      this.router.navigate(['view-patient-details',response.contactNumber])
+    },
       error=> this.errorMessageResponse = error
     )
 

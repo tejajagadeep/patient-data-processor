@@ -41,7 +41,9 @@ export class PatientRecordsRegistrationComponent implements OnInit {
 
   savepatient(){
     this.patientService.updatePatientDetails(this.contactNumber,this.patient).subscribe(
-      response=> this.patient=response,
+      response=> {this.patient=response,
+      this.router.navigate(['view-patient-details',this.contactNumber])
+    },
       error=> this.errorMessageResponse = error
     )
 

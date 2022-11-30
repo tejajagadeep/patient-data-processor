@@ -45,7 +45,7 @@
                     </label>
                     <div class="form-group col-md-9 pe-5">
                         <input type="number" class="form-control" id="sugarlevel" name="sugarlevel" placeholder="Sugar Level"
-                            [(ngModel)]="reports.sugarlevel" required #sugarlevel="ngModel"
+                            [(ngModel)]="reports.sugarlevel" required #sugarlevel="ngModel" min="120" max="300"
                             [class.is-invalid]="sugarlevel.invalid && sugarlevel.touched"/>
                         <small class="text-danger" [class.d-none]="sugarlevel.valid || sugarlevel.untouched">Sugar Level
                             is

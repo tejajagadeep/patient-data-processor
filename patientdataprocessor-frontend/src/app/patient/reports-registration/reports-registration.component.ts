@@ -28,7 +28,7 @@ export class ReportsRegistrationComponent implements OnInit {
     this.location.back();
   }
 
-  
+
   ngOnInit(): void {
     this.contactNumber = this.route.snapshot.params['contactNumber']
     this.reports = new Report(this.dummyNumber,this.dummyDate,this.dummyNumber,this.dummyNumber,this.dummyNumber)
@@ -39,6 +39,7 @@ export class ReportsRegistrationComponent implements OnInit {
       repsonse=> {
         console.log(repsonse)
         // repsonse.day = new Date()
+        this.router.navigate(['view-patient-reports',this.contactNumber ])
       },
       error => this.errorMessageResponse = error.error.message
     )
