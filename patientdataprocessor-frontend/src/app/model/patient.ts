@@ -25,6 +25,8 @@ export class Patient{
 	
 	public bloodGroup: string,
 	
+	public diagnosis: string,
+
 	public disease: string,
 	
 	public dateVisited: Date,

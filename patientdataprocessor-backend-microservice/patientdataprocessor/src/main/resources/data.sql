@@ -1,0 +1,2 @@
+insert into patient(contact_number,address,first_name,last_name,gender,date_of_birth,marital_status,emergency_contact_number,email,blood_group,disease,date_visited,treatment_start_date,treatment_end_date,prescription,height,weight)
+	values(6281369288,'Bhimavaram','Kishore','Das','Male','1991-08-01','Maried',6303843351,'kishoredas@gmail.com','B+','Diabetes','2022-11-11','2020-06-14','2024-12-28','Lantus','178cms','70kgs');	

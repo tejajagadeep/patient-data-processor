@@ -1,4 +1,4 @@
-package com.cts.patientdataprocessorbackend.model;
+package com.cts.authenticationmicroservice.model;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -17,8 +17,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Entity
-@Table
 public class Patient {
 
 	@Id

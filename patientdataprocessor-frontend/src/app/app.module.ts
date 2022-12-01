@@ -25,6 +25,7 @@ import { SugarLevelComponent } from './charts/sugar-level/sugar-level.component'
 import { MenuComponent } from './navbar/menu/menu.component';
 import { FooterComponent } from './navbar/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ViewPatientResultsComponent } from './patient/view-patient-results/view-patient-results.component';
 // import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 // import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -78,7 +79,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BloodPressureComponent,
     SugarLevelComponent,
     MenuComponent,
-    FooterComponent
+    FooterComponent,
+    ViewPatientResultsComponent
   ],
   imports: [
     BrowserModule,

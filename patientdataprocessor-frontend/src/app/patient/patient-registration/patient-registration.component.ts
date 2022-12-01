@@ -30,7 +30,7 @@ export class PatientRegistrationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.patient = new Patient(this.dummyNumber, '','','','',this.dummyDate,'',this.dummyNumber,'','','',this.dummyDate,this.dummyDate,this.dummyDate,'','','',[])
+    this.patient = new Patient(this.dummyNumber, '','','','',this.dummyDate,'',this.dummyNumber,'','','','',this.dummyDate,this.dummyDate,this.dummyDate,'','','',[])
   }
 
   OnlyAlbhabets(event: any):boolean{

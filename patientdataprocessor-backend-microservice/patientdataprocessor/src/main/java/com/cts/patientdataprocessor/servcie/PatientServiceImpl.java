@@ -7,12 +7,13 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cts.patientdataprocessor.exception.IdAlredyExistsException;
 import com.cts.patientdataprocessor.model.Patient;
 import com.cts.patientdataprocessor.model.Report;
 import com.cts.patientdataprocessor.repository.PatientRepository;
 
 @Service
-public class PatientServiceImpl {
+public class PatientServiceImpl implements PatientService{
 	
 	@Autowired
 	private PatientRepository patientRepository;
@@ -74,4 +75,4 @@ public class PatientServiceImpl {
 	
 }
 
-}
+
