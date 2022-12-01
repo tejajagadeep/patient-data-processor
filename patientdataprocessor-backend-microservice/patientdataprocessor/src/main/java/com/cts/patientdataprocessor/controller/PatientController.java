@@ -1,8 +1,67 @@
 package com.cts.patientdataprocessor.controller;
 
+import java.util.List;
+import java.util.Set;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cts.patientdataprocessor.model.Patient;
+import com.cts.patientdataprocessor.model.Report;
+import com.cts.patientdataprocessor.servcie.PatientService;
+
 @RestController
+@RequestMapping("/api/v1.0/patient")
+@CrossOrigin(origins="*")
 public class PatientController {
 
+	@Autowired
+	private PatientService patientService;
+	
+	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
+	@GetMapping("/getAllPatients")
+	public List<Patient> getAllPatients(){
+		return patientService.getAllPatients();
+	}
+	
+	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
+	@GetMapping("/getByContactNumber/{contactNumber}")
+	public Patient getByContactNumber(@PathVariable Long contactNumber) {
+		return patientService.getByContactNumber(contactNumber);
+	}
+	
+	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
+	@GetMapping("/patientReports/{contactNumber}")
+	public Set<Report> getBypatientReports(@PathVariable Long contactNumber) {
+		return patientService.getBypatientReports(contactNumber);
+	}
+	
+	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
+	@PostMapping("/registerPatient")
+	public Patient registerPatient(@RequestBody Patient patient) {
+		return patientService.registerPatient(patient);
+	}
+	
+	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
+	@PutMapping("/updatePatientDetails/{contactNumber}")
+	public Patient updatePatientDetails(@PathVariable Long contactNumber, @RequestBody Patient patient) {
+		return patientService.updatePatientDetails(contactNumber, patient);
+	}
+	
+	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
+	@DeleteMapping("/deletePatient/{contactNumber}")
+	public List<Patient> deletePatient(@PathVariable Long contactNumber) {
+		return patientService.deletePatient(contactNumber);
+	}
+	
+	
 }
