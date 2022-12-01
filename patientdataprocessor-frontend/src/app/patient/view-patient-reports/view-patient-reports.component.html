@@ -17,6 +17,13 @@
                 </tr>
             </thead>
             <tbody>
+                <tr *ngIf="patient.reports.length===0" >
+                    <td>NA</td>
+                    <td>NA</td>
+                    <td>NA</td>
+                    <td>NA</td>
+                    <td>NA</td>
+                </tr>
                 <tr *ngFor="let reports of patient.reports" >
                     <td>{{reports.date | date : 'yyyy-MM-dd hh:mm:ss '}}</td>
                     <td>{{reports.systolic}}</td>
