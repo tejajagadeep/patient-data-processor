@@ -1,19 +1,24 @@
+<app-menu></app-menu>
+
+<br>
 <div class="container">
     <div class="profile-details-content">
-        <h1 class="text-center">Patient {{patient.firstName}} {{patient.lastName}} Details</h1>
-        <table class="table table-striped table-bordered table-light">
+<br>
+<h1 class="text-center">Patient {{patient.firstName}} {{patient.lastName}} Report Details</h1>
+<br>
+<table class="table table-striped table-bordered table-light">
             <thead>
                 <tr>
-                    <th>Day</th>
-                    <th>bpLevel1</th>
-                    <th>bpLevel2</th>
-                    <th>sugarLevel</th>
+                    <th>Date and Time</th>
+                    <th>Systolic BP</th>
+                    <th>Diastolic BP</th>
+                    <th>Sugar Level</th>
                     <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let reports of patient.reports" >
-                    <td>{{reports.date | date : 'YYYY-MM-DD hh:mm:ss '}}</td>
+                    <td>{{reports.date | date : 'yyyy-MM-dd hh:mm:ss '}}</td>
                     <td>{{reports.systolic}}</td>
                     <td>{{reports.diastolic}}</td>
                     <td>{{reports.sugarlevel}}</td>
@@ -25,7 +30,6 @@
         </table>
         <br>
         <div class="d-flex justify-content-between">
-            <button [routerLink]="['/reports-registration/',patient.contactNumber]">addReports</button>
             <!-- <button *ngIf="user.role === 'Admin' && patient.patientOwner === username"
                 (click)="deletepatient(patient.patientId)" class="btn btn-danger">Delete</button>
             <button
@@ -37,13 +41,17 @@
                 *ngIf="user.role === 'Admin' && (patient.patientOwner === username || patient.patientManagerName === userByName.name)"
                 (click)="updatepatient(patient.patientId)" class="btn btn-warning">Update</button> -->
                 <button type="button" class="btn btn-primary btn-lg" (click)="navBack()">Back</button>
-                <button type="button" class="btn btn-primary btn-lg" [routerLink]="['/charts-bp/',contactNumber]">Blood Presure Analysis</button>
-                <button type="button" class="btn btn-primary btn-lg" [routerLink]="['/charts-sugar/',contactNumber]">Sugar Level Analysis</button>
+                <button type="button" class="btn btn-info btn-lg" [routerLink]="['/charts-bp/',contactNumber]">Blood Presure Analysis</button>
+                <button type="button" class="btn btn-info btn-lg" [routerLink]="['/charts-sugar/',contactNumber]">Sugar Level Analysis</button>
 
-            </div>
+            <button class="btn btn-warning btn-lg" [routerLink]="['/reports-registration/',patient.contactNumber]">addReports</button>
+        </div>
         <br>
 
-        
+        <br>
+<br>
     </div>
 </div>
 
+
+<app-footer></app-footer>

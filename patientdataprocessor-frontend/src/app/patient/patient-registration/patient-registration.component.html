@@ -2,8 +2,8 @@
     <div class="container">
 
         <form class="card" style="border-radius: 15px;" #RegisterForm="ngForm" (ngSubmit)="savepatient()">
-
-            <h1 class="text-center">patient Registration</h1>
+            <br>
+            <h1 class="text-center">Patient Registration</h1>
 
             <div class="card-body">
 
@@ -234,6 +234,7 @@
 
                 <div class="d-flex justify-content-around pt-3">
                     <button type="button" class="btn btn-primary btn-lg" (click)="navBack()">Back</button>
+                    <button type="button" class="btn btn-light" routerLink="/home">Home</button>
                     <!-- <button type="button" class="btn btn-light" [routerLink]="['/home/',username]">Home</button> -->
                     <button type="reset" class="btn btn-info btn-lg">Reset All</button>
                     <button type="submit" class="btn btn-warning btn-lg ms-2">Register</button>
@@ -242,6 +243,7 @@
 
         </form>
     </div>
+    <br>
 </section>
 
 <!-- <mat-form-field>

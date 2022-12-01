@@ -1,1 +1,33 @@
-<p>menu works!</p>
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <!-- <a class="navbar-brand" routerLink="/doctor-registration" *ngIf="user.role ==='ADMIN'">Add Doctor</a> -->
+            <!-- <a class="navbar-brand" routerLink="/patient-registration" *ngIf="user.role ==='DOCTOR'">Add Patient</a> -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <a id="mybutton1" class="btn btn-primary text-white me-2" routerLink="/home">Home</a>
+                <button class="btn btn btn-success mr-1 me-2" routerLink="/patient-registration"
+                    *ngIf="user.role ==='DOCTOR'" data-bs-toggle="modal" data-bs-target="#addHospital" type="submit">Add
+                    Patient</button>
+                <button class="btn btn btn-success mr-1 me-2" routerLink="/doctor-registration"
+                    *ngIf="user.role ==='ADMIN'" data-bs-toggle="modal" data-bs-target="#addHospital" type="submit">Add
+                    Doctor</button>
+
+            </div>
+
+
+            <div>
+                <button id="mybutton" class="btn btn-danger text-white me-2" (click)="logout()">Logout</button>
+            </div>
+
+        </div>
+
+    </nav>
+</div>
+<br>
+<br>
+<br>

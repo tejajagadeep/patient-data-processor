@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   //user
   username!: string
   user!: User
-
+  searchText: any;
   constructor(
     private patietnService: PatientDataService,
     private authService: AuthenticationDataService,

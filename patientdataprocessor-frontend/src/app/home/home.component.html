@@ -3,18 +3,23 @@
 <div class="container-fluid">
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
-      <a class="navbar-brand" routerLink="/doctor-registration" *ngIf="user.role ==='ADMIN'">Add Doctor</a>
-      <a class="navbar-brand" routerLink="/patient-registration" *ngIf="user.role ==='DOCTOR'">Add Patient</a>
+      <!-- <a class="navbar-brand" routerLink="/doctor-registration" *ngIf="user.role ==='ADMIN'">Add Doctor</a> -->
+      <!-- <a class="navbar-brand" routerLink="/patient-registration" *ngIf="user.role ==='DOCTOR'">Add Patient</a> -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <button class="btn btn btn-success mr-1 me-2" data-bs-toggle="modal" data-bs-target="#addHospital" type="submit">Add Hospital</button>
+        
+        <a id="mybutton1" class="btn btn-primary text-white me-2" routerLink="/home" >Home</a>
+        <button class="btn btn btn-success mr-1 me-2" routerLink="/patient-registration" *ngIf="user.role ==='DOCTOR'" data-bs-toggle="modal" data-bs-target="#addHospital" type="submit">Add Patient</button>
+        <button class="btn btn btn-success mr-1 me-2" routerLink="/doctor-registration" *ngIf="user.role ==='ADMIN'" data-bs-toggle="modal" data-bs-target="#addHospital" type="submit">Add Doctor</button>
         
       </div>
       
         
-      <div>
+      <div class="d-flex justify-content-around pt-3">
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+                placeholder="search...">&nbsp;&nbsp;
         <button id="mybutton" class="btn btn-danger text-white me-2" (click)="logout()" >Logout</button>
       </div>
       
@@ -33,17 +38,17 @@
         <img src="../assets/image/hospital.jpg"  height="100%" width="100%">
     </div> -->
 
-      <div class="col-sm-3" *ngFor="let hospital of patients">
-        <br>
-        <div class="card" style="width:18rem;">
+      <div class="col-sm-3" *ngFor="let hospital of patients | filter : searchText">
+          &nbsp;
+          <div class="card" style="width:18rem;">
           <div class="card-header text-center text-primary">
             Patient Details
           </div>
           <div class="card-body">
             <div class="card-title mb-3">Name: {{hospital.firstName}} {{hospital.lastName}}</div>
-  
-            <div class="card-subtitle" > <h6>Email Id:</h6> {{hospital.email}}</div>
-            <div class="card-subtitle" > <h6>Emergency Contact Number:</h6> {{hospital.emergencyContactNumber}}</div>
+            <div class="card-subtitle" > <b>Email Id:</b> {{hospital.email}}</div>
+            <br>
+            <div class="card-subtitle" > <b>Emergency Contact Number:</b> {{hospital.emergencyContactNumber}}</div>
 
               
              
@@ -55,13 +60,13 @@
               
                 <ul class="list-group list-group-flush">
                  
-                  <li class="list-group-item"><h6>Contact Number:</h6> {{hospital.contactNumber}}</li>
+                  <li class="list-group-item"><b>Contact Number:</b> {{hospital.contactNumber}}</li>
                   
-                  <li class="list-group-item"><h6>Gender:</h6> {{hospital.gender}}</li>
+                  <li class="list-group-item"><b>Gender:</b> {{hospital.gender}}</li>
                   
-                  <li class="list-group-item"><h6>Date Of Birth:</h6> {{hospital.dateOfBirth | date : 'yyyy-MM-dd'}}</li>
+                  <li class="list-group-item"><b>Date Of Birth:</b> {{hospital.dateOfBirth | date : 'yyyy-MM-dd'}}</li>
                   
-                  <li class="list-group-item"><h6>Address:</h6> {{hospital.address}}</li>
+                  <li class="list-group-item"><b>Address:</b> {{hospital.address}}</li>
   
                 </ul>
               
@@ -104,16 +109,16 @@
         <img src="../assets/image/hospital.jpg"  height="100%" width="100%">
     </div> -->
 
-      <div class="col-sm-3" *ngFor="let hospital of doctors">
+      <div class="col-sm-3" *ngFor="let hospital of doctors | filter : searchText ">
         
         <div class="card" style="width:18rem;">
           <div class="card-header text-center text-primary">
             Staff Details
           </div>
           <div class="card-body">
-            <div class="card-title mb-3"> Name: {{hospital.firstName}} {{hospital.lastName}}</div>
+            <div class="card-title mb-3"> Name: {{hospital.lastName}} {{hospital.firstName}}</div>
   
-            <div class="card-subtitle" > <h6>Email Id:</h6> {{hospital.emailId}}</div>
+            <div class="card-subtitle" > <b>Email Id:</b> {{hospital.emailId}}</div>
             <!-- <div class="card-subtitle" > Emergency Contact Number : {{hospital.emergencyContactNumber}}</div> -->
 
               
@@ -126,13 +131,13 @@
               
                 <ul class="list-group list-group-flush">
                  
-                  <li class="list-group-item"><h6>Contact Number:</h6> {{hospital.contactNumber}}</li>
+                  <li class="list-group-item"><b>Contact Number:</b> {{hospital.contactNumber}}</li>
                   
-                  <li class="list-group-item"><h6>Gender:</h6> {{hospital.gender}}</li>
+                  <li class="list-group-item"><b>Gender:</b> {{hospital.gender}}</li>
                   
-                  <li class="list-group-item"><h6>Date Of Birth:</h6> {{hospital.dateOfBirth | date : 'yyyy-MM-dd'}} </li>
+                  <li class="list-group-item"><b>Date Of Birth:</b> {{hospital.dateOfBirth | date : 'yyyy-MM-dd'}} </li>
                   
-                  <li class="list-group-item"><h6>Address:</h6> {{hospital.address}}</li>
+                  <li class="list-group-item"><b>Address:</b> {{hospital.address}}</li>
   
                 </ul>
               
@@ -164,8 +169,15 @@
   </div>
     <br>
   </div>
-  <footer  class="container-fluid" style="background-color:rgb(70, 112, 190)">
-    <p>*****************************************************************************************************************************************************************************************************************************</p>
+  <footer  class="container-fluid footer" style="background-color:rgb(70, 112, 190)">
+   <!-- Copyright -->
+  <!-- <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);"> -->
+  <div class="text-center" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2022 Copyright:
+    <a class="text-reset fw-bold">tb.com</a>
+  </div>
+  <!-- Copyright --> 
+  <!-- <p>*****************************************************************************************************************************************************************************************************************************</p> -->
   </footer>
 
 </div>

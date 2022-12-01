@@ -1,6 +1,10 @@
+<app-menu></app-menu>
+<br>
+<br>
 <div class="container">
     <div class="profile-details-content">
-        <h1 class="text-center">Patient {{patient.firstName}} {{patient.lastName}} Details</h1>
+        <h1 class="text-center"> <strong>Patient {{patient.firstName}} {{patient.lastName}} Details</strong></h1>
+        <br>
         <table class="table table-striped table-bordered table-light">
             <thead>
                 <tr>
@@ -111,7 +115,7 @@
                     </td>
                     <td>{{patient.weight}}</td>
                 </tr>
-                
+
 
             </tbody>
         </table>
@@ -127,11 +131,15 @@
             <button
                 *ngIf="user.role === 'Admin' && (patient.patientOwner === username || patient.patientManagerName === userByName.name)"
                 (click)="updatepatient(patient.patientId)" class="btn btn-warning">Update</button> -->
-                    <button type="button" class="btn btn-primary btn-lg" (click)="navBack()">Back</button>
-                    <button [routerLink]="['/view-patient-reports/',patient.contactNumber]">Reports</button>
+            <button type="button" class="btn btn-primary btn-lg" (click)="navBack()">Back</button>
+            <button type="button" class="btn btn-info btn-lg"
+                [routerLink]="['/view-patient-reports/',patient.contactNumber]">Reports</button>
         </div>
         <br>
-
+        <br>
+        <br>
 
     </div>
 </div>
+
+<app-footer></app-footer>

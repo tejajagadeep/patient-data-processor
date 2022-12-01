@@ -1,8 +1,8 @@
-.errormessage{
+.errormessage {
     color: red;
 }
 
-.search-container{
+.search-container {
     background: rgb(255, 255, 255);
     height: 50px;
     border-radius: 30px;
@@ -19,20 +19,20 @@
    text-shadow:  0px 0px 6px rgba(255,255,255,.3),
               -4px -4px 6px rgba(116, 125, 136, .2);
   text-shadow: 2px 2px 3px rgba(255,255,255,0.5);*/
-  box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
-              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
-    inset -4px -4px 6px 0 rgba(255,255,255,.2),
-    inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .3),
+        -4px -4px 6px 0 rgba(116, 125, 136, .2),
+        inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
+        inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
 }
 
-.search-container:hover > .search-input{
+.search-container:hover>.search-input {
     width: 500px;
 }
 
-.search-container .search-input{
+.search-container .search-input {
     background: transparent;
     border: none;
-    outline:none;
+    outline: none;
     width: 0px;
     font-weight: 500;
     font-size: 16px;
@@ -40,49 +40,47 @@
 
 }
 
-.search-container .search-btn .fas{
+.search-container .search-btn .fas {
     color: #e0e2e7;
 }
-.inner
-{
+
+.inner {
     overflow: hidden;
 }
-.inner img
-{
+
+.inner img {
     transition: all 1.5s ease;
 }
 
-.inner:hover img{
+.inner:hover img {
     transform: scale(1.5);
 }
-.card-title
-{
+
+.card-title {
     font-size: 22px;
     font-weight: 500;
 }
 
-.card-subtitle
-{
+.card-subtitle {
     font-size: 15px;
     font-weight: normal;
 }
-.table-wrapper
-{
+
+.table-wrapper {
     border-collapse: collapse;
     margin-left: 170px;
     margin-right: 140px;
     margin-top: 10px;
 }
-.form_group
-{
+
+.form_group {
     position: relative;
     padding: 15px 15px 15px;
     margin-top: 10px;
     width: 100%;
 }
 
-.form_field
-{
+.form_field {
     width: 100%;
     border: 0;
     border-bottom: 2px solid#9b9b9b;
@@ -94,13 +92,11 @@
     transition: border-color 0.2s;
 }
 
-.form_field::placeholder
-{
+.form_field::placeholder {
     color: transparent;
 }
 
-.form_label
-{
+.form_label {
     position: absolute;
     display: block;
     transition: 0.2s;
@@ -108,15 +104,13 @@
     color: #9b9b9b;
 }
 
-.form_field:placeholder-shown ~ .form_label
-{
-    font-size:0.9rem ;
+.form_field:placeholder-shown~.form_label {
+    font-size: 0.9rem;
     cursor: text;
     top: 20px;
 }
 
-.form_field:focus
-{
+.form_field:focus {
     padding-bottom: 6px;
     font-weight: 700;
     border-width: 3px;
@@ -124,8 +118,7 @@
     border-image-slice: 1;
 }
 
-.form_field:focus ~ .form_label
-{
+.form_field:focus~.form_label {
     position: absolute;
     top: 0;
     display: block;
@@ -135,26 +128,25 @@
     font-weight: 700;
 }
 
-.modal-header
-{
+.modal-header {
     background-color: #292828;
 }
 
-.modal-content
-{
+.modal-content {
     border: none;
 }
 
-.modal-title
-{
+.modal-title {
     color: white;
     font-size: 17px;
 }
 
-body, html {
+body,
+html {
     height: 100%;
-  }
-  .bg {
+}
+
+.bg {
     /* The image used */
     background-image: url("https://www.shrisaihospital.in/upload/image1636093120.jpeg");
     /* Half height */
@@ -163,4 +155,22 @@ body, html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-  }
+}
+
+.footer {
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    /* Set the footer to fixed position */
+    bottom: 0;
+    /* Position the footer at the top of the page */
+    width: 100%;
+    /* Full width */
+}
+
+
+/* Change background on mouse-over */
+.footer a:hover {
+    background: #ddd;
+    color: black;
+}
