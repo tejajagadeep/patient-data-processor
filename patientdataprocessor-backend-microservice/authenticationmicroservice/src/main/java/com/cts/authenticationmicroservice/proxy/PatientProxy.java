@@ -10,21 +10,27 @@ import java.util.Set;
 
 @FeignClient(name = "patient", url = "localhost:8085")
 public interface PatientProxy {
+	
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
     @GetMapping("/api/v1.0/patient/getAllPatients")
     public List<Patient> getAllPatients();
+    
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
     @GetMapping("/api/v1.0/patient/getByContactNumber/{contactNumber}")
     public Patient getByContactNumber(@PathVariable Long contactNumber);
+    
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
     @GetMapping("/api/v1.0/patient/patientReports/{contactNumber}")
     public Set<Report> getBypatientReports(@PathVariable Long contactNumber);
+    
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
     @PostMapping("/api/v1.0/patient/registerPatient")
     public Patient registerPatient(@RequestBody Patient patient);
+    
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
     @PutMapping("/api/v1.0/patient/updatePatientDetails/{contactNumber}")
     public Patient updatePatientDetails(@PathVariable Long contactNumber, @RequestBody Patient patient);
+    
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
     @DeleteMapping("/api/v1.0/patient/deletePatient/{contactNumber}")
     public List<Patient> deletePatient(@PathVariable Long contactNumber);

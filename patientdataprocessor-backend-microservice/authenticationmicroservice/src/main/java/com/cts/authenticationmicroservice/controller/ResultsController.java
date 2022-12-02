@@ -1,4 +1,4 @@
-package com.cts.patientdataprocessorbackend.controller;
+package com.cts.authenticationmicroservice.controller;
 
 import java.util.List;
 
@@ -15,32 +15,32 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cts.patientdataprocessorbackend.model.Results;
-import com.cts.patientdataprocessorbackend.service.ResultsService;
+import com.cts.authenticationmicroservice.model.Results;
+import com.cts.authenticationmicroservice.proxy.ResultsProxy;
 
 @RestController
 @RequestMapping("/api/v1.0/results")
 @CrossOrigin(origins="*")
 public class ResultsController {
-	
+
 	@Autowired
-	ResultsService resultsService;
+	ResultsProxy resultsproxy;
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
 	@GetMapping("/contactNumber/{contactNumber}")
 	public ResponseEntity<List<Results>> getByContactNumber(@PathVariable Long contactNumber) {
-		return new ResponseEntity<>(resultsService.getByContactNumber(contactNumber),HttpStatus.OK);
+		return this.resultsproxy.getByContactNumber(contactNumber);
 	}
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
 	@PostMapping("")
 	public ResponseEntity<Results> saveResults(@RequestBody Results results) {
-		return new ResponseEntity<>(resultsService.saveResults(results),HttpStatus.OK);
+		return this.resultsproxy.saveResults(results);
 	}
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
 	@DeleteMapping("/id/{id}")
 	public ResponseEntity<List<Results>> delete(@PathVariable int id) {
-		return new ResponseEntity<>(resultsService.delete(id),HttpStatus.OK);
+		return this.resultsproxy.delete(id);
 	}
 }
