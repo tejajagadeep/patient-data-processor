@@ -27,6 +27,7 @@ import { FooterComponent } from './navbar/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ViewPatientResultsComponent } from './patient/view/view-patient-results/view-patient-results.component';
 import { ResultsRegistrationComponent } from './patient/registration/results-registration/results-registration.component';
+import { BloodTestResultsComponent } from './charts/blood-test-results/blood-test-results.component';
 // import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 // import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -82,7 +83,8 @@ import { ResultsRegistrationComponent } from './patient/registration/results-reg
     MenuComponent,
     FooterComponent,
     ViewPatientResultsComponent,
-    ResultsRegistrationComponent
+    ResultsRegistrationComponent,
+    BloodTestResultsComponent
   ],
   imports: [
     BrowserModule,

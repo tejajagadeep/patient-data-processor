@@ -4,6 +4,7 @@ export class Report {
         public date: Date,
         public systolic: number,
         public diastolic: number,
-        public sugarlevel: number
+        public sugarlevel: number,
+        public sugarlevel2: number
     ) { }
 }

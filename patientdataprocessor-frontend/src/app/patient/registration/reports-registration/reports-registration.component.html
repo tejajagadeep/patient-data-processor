@@ -15,7 +15,7 @@
 
                 <div class="row align-items-center pt-4 pb-3">
                     <label class="col-md-3 ps-5" for="exampleInputsystolic">
-                        <h6 class="mb-0">systolic<span class="required">*</span></h6>
+                        <h6 class="mb-0">Systolic<span class="required">*</span></h6>
                     </label>
                     <div class="form-group col-md-9 pe-5">
                         <input type="number" class="form-control" id="systolic" name="systolic" placeholder="BP Level1"
@@ -29,7 +29,7 @@
 
                 <div class="row align-items-center pt-4 pb-3">
                     <label class="col-md-3 ps-5" for="exampleInputdiastolic">
-                        <h6 class="mb-0">diastolic<span class="required">*</span></h6>
+                        <h6 class="mb-0">Diastolic<span class="required">*</span></h6>
                     </label>
                     <div class="form-group col-md-9 pe-5">
                         <input type="number" class="form-control" id="diastolic" name="diastolic" placeholder="BP Level2"
@@ -43,19 +43,31 @@
 
                 <div class="row align-items-center pt-4 pb-3">
                     <label class="col-md-3 ps-5" for="exampleInputsugarlevel">
-                        <h6 class="mb-0">Sugar Level<span class="required">*</span></h6>
+                        <h6 class="mb-0">Sugar Level (Before Fasting)<span class="required">*</span></h6>
                     </label>
                     <div class="form-group col-md-9 pe-5">
-                        <input type="number" class="form-control" id="sugarlevel" name="sugarlevel" placeholder="Sugar Level"
+                        <input type="number" class="form-control" id="sugarlevel" name="sugarlevel" placeholder="Sugar Level (Before Fasting)"
                             [(ngModel)]="reports.sugarlevel" required #sugarlevel="ngModel"
                             [class.is-invalid]="sugarlevel.invalid && sugarlevel.touched" min="0"/>
-                        <small class="text-danger" [class.d-none]="sugarlevel.valid || sugarlevel.untouched">Sugar Level
+                        <small class="text-danger" [class.d-none]="sugarlevel.valid || sugarlevel.untouched">Sugar Level (Before Fasting)
                             is
                             required</small>
                     </div>
                 </div>
 
-                
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="exampleInputsugarlevel2">
+                        <h6 class="mb-0">Sugar Level (AfterFasting)<span class="required">*</span></h6>
+                    </label>
+                    <div class="form-group col-md-9 pe-5">
+                        <input type="number" class="form-control" id="sugarlevel2" name="sugarlevel2" placeholder="Sugar Level (AfterFasting)"
+                            [(ngModel)]="reports.sugarlevel2" required #sugarlevel2="ngModel"
+                            [class.is-invalid]="sugarlevel2.invalid && sugarlevel2.touched" min="0"/>
+                        <small class="text-danger" [class.d-none]="sugarlevel2.valid || sugarlevel2.untouched">Sugar Level (AfterFasting)
+                            is
+                            required</small>
+                    </div>
+                </div>
 
                 <div class="d-flex justify-content-around pt-3">
                     <button type="button" class="btn btn-primary btn-lg" (click)="navBack()">Back</button>

@@ -23,7 +23,8 @@ export class SugarLevelComponent implements OnInit {
     ) { }
   chartdata: any;
   labeldata: any[] = [];
-  realdata: any[] = [];
+  realdata1: any[] = [];
+  realdata2: any[] = [];
   navBack(){
     this.location.back();
   }
@@ -36,29 +37,38 @@ export class SugarLevelComponent implements OnInit {
         for (let i = 0; i < this.chartdata.length; i++) {
           console.log(this.chartdata[i]);
           this.labeldata.push(this.chartdata[i].date);
-          this.realdata.push(this.chartdata[i].sugarlevel);
+          this.realdata1.push(this.chartdata[i].sugarlevel);
+          this.realdata2.push(this.chartdata[i].sugarlevel2);
           // this.realdata2.push(this.chartdata[i].diastolic);
           // this.colordata.push(this.chartdata[i].colorcode);
         }
         // this.RenderChart(this.labeldata, this.realdata, this.colordata, 'bar', 'barchart');
-        this.RenderChart(this.labeldata, this.realdata);
+        this.RenderChart(this.labeldata, this.realdata1,this.realdata2);
       }
     });
   }
-  RenderChart(labeldata: any, realdata: any) {
+  RenderChart(labeldata: any, realdata1: any,realdata2: any) {
     const myChart = new Chart("linechart", {
       type: "line",
       data: {
         labels: labeldata,
         datasets: [{
-          label: 'Sugar Level',
-          data: realdata,
+          label: 'Sugar Level before fasting',
+          data: realdata1,
           backgroundColor: '#3202C5',
           // borderColor: '#05445E',
           borderColor: '#3202C5',
           borderWidth: 1
+        },
+        {
+          label: 'Sugar Level after fasting ',
+          data: realdata2,
+          backgroundColor: '#FF7F00',
+          borderColor: '#FF7F00',
+          borderWidth: 1
         }]
       },
+      
       /* options: {
         scales: {
           y: {

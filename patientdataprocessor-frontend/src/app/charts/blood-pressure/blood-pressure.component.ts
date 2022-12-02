@@ -67,8 +67,8 @@ export class BloodPressureComponent implements OnInit {
         {
           label: 'Diastolic',
           data: realdata2,
-          backgroundColor: '#FF1E76',
-          borderColor: '#FF1E76',
+          backgroundColor: '#FF7F00',
+          borderColor: '#FF7F00',
           borderWidth: 1
         }]
       },
