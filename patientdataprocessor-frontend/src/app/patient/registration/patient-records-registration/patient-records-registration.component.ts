@@ -36,6 +36,7 @@ export class PatientRecordsRegistrationComponent implements OnInit {
   getPatient(contactNumber1: number){
     this.patientService.getByContactNumber(contactNumber1).subscribe(
       response=> {this.patient=response,
+        
         this.patient.previousDiagnosis = response.diagnosis+'; '+response.previousDiagnosis, //response.dateVisited +"| date : 'yyyy-MM-dd': "+ 
         this.patient.diagnosis = ""
       }
