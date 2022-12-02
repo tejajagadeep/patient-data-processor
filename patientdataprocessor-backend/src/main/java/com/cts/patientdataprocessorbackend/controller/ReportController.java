@@ -3,6 +3,8 @@ package com.cts.patientdataprocessorbackend.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -26,19 +28,19 @@ public class ReportController {
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
 	@GetMapping("/getAllReports")
-	public List<Report> getAllReports(){
-		return reportService.getAllReports();
+	public ResponseEntity<List<Report>> getAllReports(){
+		return new ResponseEntity<>(reportService.getAllReports(),HttpStatus.OK);
 	}
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
 	@PostMapping("/saveReport/{contactNumber}")
-	public Report saveReport(@PathVariable Long contactNumber, @RequestBody Report report){
-		return reportService.saveReport(contactNumber, report);
+	public ResponseEntity<Report> saveReport(@PathVariable Long contactNumber, @RequestBody Report report){
+		return new ResponseEntity<>(reportService.saveReport(contactNumber, report),HttpStatus.OK);
 	}
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
 	@DeleteMapping("/id/{id}")
-	public List<Report> delete(@PathVariable int id){
-		return reportService.delete(id);
+	public ResponseEntity<List<Report>> delete(@PathVariable int id){
+		return new ResponseEntity<>(reportService.delete(id),HttpStatus.OK);
 	}
 }

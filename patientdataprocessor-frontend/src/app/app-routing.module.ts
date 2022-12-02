@@ -9,12 +9,13 @@ import { AdminDashboardComponent } from './component/admin-dashboard/admin-dashb
 import { UserDashboardComponent } from './component/user-dashboard/user-dashboard.component';
 import { DoctorRegistrationComponent } from './doctor/doctor-registration/doctor-registration.component';
 import { HomeComponent } from './home/home.component';
-import { PatientRecordsRegistrationComponent } from './patient/patient-records-registration/patient-records-registration.component';
-import { PatientRegistrationComponent } from './patient/patient-registration/patient-registration.component';
-import { ReportsRegistrationComponent } from './patient/reports-registration/reports-registration.component';
-import { ViewPatientDetailsComponent } from './patient/view-patient-details/view-patient-details.component';
-import { ViewPatientReportsComponent } from './patient/view-patient-reports/view-patient-reports.component';
-import { ViewPatientResultsComponent } from './patient/view-patient-results/view-patient-results.component';
+import { PatientRecordsRegistrationComponent } from './patient/registration/patient-records-registration/patient-records-registration.component';
+import { PatientRegistrationComponent } from './patient/registration/patient-registration/patient-registration.component';
+import { ReportsRegistrationComponent } from './patient/registration/reports-registration/reports-registration.component';
+import { ResultsRegistrationComponent } from './patient/registration/results-registration/results-registration.component';
+import { ViewPatientDetailsComponent } from './patient/view/view-patient-details/view-patient-details.component';
+import { ViewPatientReportsComponent } from './patient/view/view-patient-reports/view-patient-reports.component';
+import { ViewPatientResultsComponent } from './patient/view/view-patient-results/view-patient-results.component';
 import { AuthGuardService } from './service/auth/auth-guard.service';
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'patient-registration', component: PatientRegistrationComponent, canActivate: [AuthGuardService]  },
   { path: 'patient-records-registration/:contactNumber', component: PatientRecordsRegistrationComponent, canActivate: [AuthGuardService]  },
   { path: 'reports-registration/:contactNumber', component: ReportsRegistrationComponent, canActivate: [AuthGuardService]  },
+  { path: 'results-registration/:contactNumber', component: ResultsRegistrationComponent, canActivate: [AuthGuardService]  },
   { path: 'doctor-registration', component: DoctorRegistrationComponent, canActivate: [AuthGuardService]  },
   { path: 'view-patient-details/:contactNumber', component: ViewPatientDetailsComponent, canActivate: [AuthGuardService]  },
   { path: 'view-patient-results/:contactNumber', component: ViewPatientResultsComponent, canActivate: [AuthGuardService]  },

@@ -12,20 +12,21 @@ import { AdminDashboardComponent } from './component/admin-dashboard/admin-dashb
 import { HttpIntercepterService } from './service/auth/http-intercepter.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { LogoutComponent } from './auth/logout/logout.component';
-import { PatientRegistrationComponent } from './patient/patient-registration/patient-registration.component';
-import { ViewPatientDetailsComponent } from './patient/view-patient-details/view-patient-details.component';
+import { PatientRegistrationComponent } from './patient/registration/patient-registration/patient-registration.component';
+import { ViewPatientDetailsComponent } from './patient/view/view-patient-details/view-patient-details.component';
 import { HomeComponent } from './home/home.component';
-import { PatientRecordsRegistrationComponent } from './patient/patient-records-registration/patient-records-registration.component';
+import { PatientRecordsRegistrationComponent } from './patient/registration/patient-records-registration/patient-records-registration.component';
 import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter-basic-auth.service';
 import { DoctorRegistrationComponent } from './doctor/doctor-registration/doctor-registration.component';
-import { ViewPatientReportsComponent } from './patient/view-patient-reports/view-patient-reports.component';
-import { ReportsRegistrationComponent } from './patient/reports-registration/reports-registration.component';
+import { ViewPatientReportsComponent } from './patient/view/view-patient-reports/view-patient-reports.component';
+import { ReportsRegistrationComponent } from './patient/registration/reports-registration/reports-registration.component';
 import { BloodPressureComponent } from './charts/blood-pressure/blood-pressure.component';
 import { SugarLevelComponent } from './charts/sugar-level/sugar-level.component';
 import { MenuComponent } from './navbar/menu/menu.component';
 import { FooterComponent } from './navbar/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ViewPatientResultsComponent } from './patient/view-patient-results/view-patient-results.component';
+import { ViewPatientResultsComponent } from './patient/view/view-patient-results/view-patient-results.component';
+import { ResultsRegistrationComponent } from './patient/registration/results-registration/results-registration.component';
 // import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 // import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -80,7 +81,8 @@ import { ViewPatientResultsComponent } from './patient/view-patient-results/view
     SugarLevelComponent,
     MenuComponent,
     FooterComponent,
-    ViewPatientResultsComponent
+    ViewPatientResultsComponent,
+    ResultsRegistrationComponent
   ],
   imports: [
     BrowserModule,
