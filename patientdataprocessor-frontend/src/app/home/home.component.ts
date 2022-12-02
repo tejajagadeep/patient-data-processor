@@ -62,7 +62,7 @@ export class HomeComponent implements OnInit {
   }
 
   deletePatient(contactNumber1: number){
-    if(confirm('Are you sure you want to Delete?')){
+    if(confirm(`Are you sure you want to Delete Patient?`)){
     this.patietnService.deletePatient(contactNumber1).subscribe(
       response=> {
         console.log(response),
