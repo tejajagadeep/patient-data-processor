@@ -1,5 +1,7 @@
 package com.cts.patientdataprocessorbackend.service;
 
+import java.util.Date;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +18,7 @@ public class ResultsServiceImpl implements ResultsService{
 	ResultsRepository resultsRepository;
 
 	@Override
-	public Results getByContactNumber(Long contactNumber) {
+	public List<Results> getByContactNumber(Long contactNumber) {
 		if(resultsRepository.findByContactNumber(contactNumber)==null) {
 			throw new NoSuchElementException("Patient doesn't exist");
 		}
@@ -25,10 +27,17 @@ public class ResultsServiceImpl implements ResultsService{
 
 	@Override
 	public Results saveResults(Results results) {
-		if(resultsRepository.findByContactNumber(results.getContactNumber())!=null) {
-			throw new IdAlredyExistsException("Patient doesn't exist");
-		}
+//		if(resultsRepository.findByContactNumber(results.getContactNumber())!=null) {
+//			throw new IdAlredyExistsException("Patient doesn't exist");
+//		}
+		results.setDate(new Date());
 		return resultsRepository.save(results);
+	}
+
+	@Override
+	public List<Results> delete(int id) {
+		resultsRepository.deleteById(id);
+		return resultsRepository.findAll();
 	}
 	
 	

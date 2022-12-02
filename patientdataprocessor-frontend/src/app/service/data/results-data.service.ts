@@ -6,17 +6,21 @@ import { Results } from 'src/app/model/results';
 @Injectable({
   providedIn: 'root'
 })
-export class ResultsDataServiceService {
+export class ResultsDataService {
 
   constructor(
     private http: HttpClient
   ) { }
 
   getByContactNumber(contactNumber: number){
-    return this.http.get<Results>(`${RESULTS_API_URL}/contactNumber/${contactNumber}`)
+    return this.http.get<Results[]>(`${RESULTS_API_URL}/contactNumber/${contactNumber}`)
   }
 
   saveResults(results: Results){
     return this.http.post<Results>(`${RESULTS_API_URL}`,results)
+  }
+
+  delete(id: number){
+    return this.http.delete<Results>(`${RESULTS_API_URL}/id/${id}`)
   }
 }

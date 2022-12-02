@@ -1,1 +1,151 @@
-<p>results-registration works!</p>
+<section class="h-100 h-custom" style="background-color: #8fc4b7;">
+    <div class="container">
+
+        <form class="card" style="border-radius: 15px;" #RegisterForm="ngForm" (ngSubmit)="saveResults()">
+
+            <h1 class="text-center">Patient {{patient.firstName}} {{patient.lastName}} Results</h1>
+
+            <div class="card-body">
+
+                <div class="container text-center  alert alert-warning" *ngIf="errorMessageResponse">Error:
+                    {{errorMessageResponse}}
+                </div>
+
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="whiteBloodCells">
+                        <h6 class="mb-0">White Blood Cells<span class="required">*</span></h6>
+                    </label>
+                    <div class="form-group col-md-9 pe-5">
+                        <input type="number" [(ngModel)]="results.whiteBloodCells" id="whiteBloodCells" class="form-control" name="whiteBloodCells" placeholder="White Blood Cells"
+                         step=".01" required #whiteBloodCells="ngModel" min="0"
+                         [class.is-invalid]="whiteBloodCells.invalid && whiteBloodCells.touched"/>
+                         <small class="text-danger" [class.d-none]="whiteBloodCells.valid || whiteBloodCells.untouched">White Blood Cells
+                            is
+                            required</small>
+                    </div>
+                </div>
+
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="redBloodCells">
+                        <h6 class="mb-0">Red Blood Cells<span class="required">*</span></h6>
+                    </label>
+                    <div class="form-group col-md-9 pe-5">
+                        <input type="number" [(ngModel)]="results.redBloodCells" id="redBloodCells" class="form-control" name="redBloodCells" placeholder="Red Blood Cells"
+                         step=".01" required #redBloodCells="ngModel" min="0"
+                         [class.is-invalid]="redBloodCells.invalid && redBloodCells.touched"/>
+                         <small class="text-danger" [class.d-none]="redBloodCells.valid || redBloodCells.untouched">Red Blood Cells
+                            is
+                            required</small>
+                    </div>
+                </div>
+
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="whiteBloodCells">
+                        <h6 class="mb-0">Hemoglobin<span class="required">*</span></h6>
+                    </label>
+                    <div class="form-group col-md-9 pe-5">
+                        <input type="number" [(ngModel)]="results.hemoglobin" id="hemoglobin" class="form-control" name="hemoglobin" placeholder="Hemoglobin"
+                         step=".01" required #hemoglobin="ngModel" min="0"
+                         [class.is-invalid]="hemoglobin.invalid && hemoglobin.touched"/>
+                         <small class="text-danger" [class.d-none]="hemoglobin.valid || hemoglobin.untouched">Hemoglobin
+                            is
+                            required</small>
+                    </div>
+                </div>
+
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="hemotocrit">
+                        <h6 class="mb-0">Hemotocrit<span class="required">*</span></h6>
+                    </label>
+                    <div class="form-group col-md-9 pe-5">
+                        <input type="number" [(ngModel)]="results.hemotocrit" id="hemotocrit" class="form-control" name="whiteBloodCells" placeholder="Hemotocrit"
+                         step=".01" required #hemotocrit="ngModel" min="0"
+                         [class.is-invalid]="hemotocrit.invalid && hemotocrit.touched"/>
+                         <small class="text-danger" [class.d-none]="hemotocrit.valid || hemotocrit.untouched">Hemotocrit
+                            is
+                            required</small>
+                    </div>
+                </div>
+
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="meanCellVolume">
+                        <h6 class="mb-0">Mean Cell Volume<span class="required">*</span></h6>
+                    </label>
+                    <div class="form-group col-md-9 pe-5">
+                        <input type="number" [(ngModel)]="results.meanCellVolume"  id="meanCellVolume" class="form-control" name="meanCellVolume" placeholder="Mean Cell Volume"
+                         step=".01" required #meanCellVolume="ngModel" min="0"
+                         [class.is-invalid]="meanCellVolume.invalid && meanCellVolume.touched"/>
+                         <small class="text-danger" [class.d-none]="meanCellVolume.valid || meanCellVolume.untouched">Mean Cell Volume
+                            is
+                            required</small>
+                    </div>
+                </div>
+
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="meanCellHemoglobin">
+                        <h6 class="mb-0">Mean Cell Hemoglobin<span class="required">*</span></h6>
+                    </label>
+                    <div class="form-group col-md-9 pe-5">
+                        <input type="number" [(ngModel)]="results.meanCellHemoglobin" id="meanCellHemoglobin" class="form-control" name="meanCellHemoglobin" placeholder="Mean Cell Hemoglobin"
+                         step=".01" required #meanCellHemoglobin="ngModel" min="0"
+                         [class.is-invalid]="meanCellHemoglobin.invalid && meanCellHemoglobin.touched"/>
+                         <small class="text-danger" [class.d-none]="meanCellHemoglobin.valid || meanCellHemoglobin.untouched">Mean Cell Hemoglobin
+                            is
+                            required</small>
+                    </div>
+                </div>
+
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="platelets">
+                        <h6 class="mb-0">Platelets<span class="required">*</span></h6>
+                    </label>
+                    <div class="form-group col-md-9 pe-5">
+                        <input type="number" [(ngModel)]="results.platelets" id="platelets" class="form-control" name="platelets" placeholder="Platelets"
+                         required #platelets="ngModel" min="0"
+                         [class.is-invalid]="platelets.invalid && platelets.touched"/>
+                         <small class="text-danger" [class.d-none]="platelets.valid || platelets.untouched">Platelets
+                            is
+                            required</small>
+                    </div>
+                </div>
+
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="reticulocyte">
+                        <h6 class="mb-0">Reticulocyte<span class="required">*</span></h6>
+                    </label>
+                    <div class="form-group col-md-9 pe-5">
+                        <input type="number" [(ngModel)]="results.reticulocyte" id="" class="form-control" name="reticulocyte" placeholder="Reticulocyte"
+                         step=".001" required #reticulocyte="ngModel" min="0"
+                         [class.is-invalid]="reticulocyte.invalid && reticulocyte.touched"/>
+                         <small class="text-danger" [class.d-none]="reticulocyte.valid || reticulocyte.untouched">Reticulocyte
+                            is
+                            required</small>
+                    </div>
+                </div>
+
+            
+
+                <div class="d-flex justify-content-around pt-3">
+                    <button type="button" class="btn btn-primary btn-lg" (click)="navBack()">Back</button>
+                    <!-- <button type="button" class="btn btn-light" [routerLink]="['/home/',username]">Home</button> -->
+                    <button type="reset" class="btn btn-info btn-lg">Reset All</button>
+                    <button type="submit" class="btn btn-warning btn-lg ms-2">Register</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</section>
+
+<!-- <mat-form-field>
+    <mat-label>
+        emailIds
+    </mat-label>
+    <input matInput type="text" [matAutocomplete]="auto"/>
+    <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let emailId of emailIds">
+            {{emailId}}
+        </mat-option>
+    </mat-autocomplete>
+</mat-form-field> -->
+

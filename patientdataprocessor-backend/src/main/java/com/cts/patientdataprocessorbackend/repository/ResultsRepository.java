@@ -1,12 +1,14 @@
 package com.cts.patientdataprocessorbackend.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.cts.patientdataprocessorbackend.model.Results;
 
 @Repository
-public interface ResultsRepository extends JpaRepository<Results, Long>{
+public interface ResultsRepository extends JpaRepository<Results, Integer>{
 
-	public Results findByContactNumber(Long contactNumber);
+	public List<Results> findByContactNumber(Long contactNumber);
 }
