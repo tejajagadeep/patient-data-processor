@@ -33,4 +33,7 @@ public class Report {
 	@Column(name="sugar_level")
 	private int sugarlevel;
 	
+	@Column(name="sugar_level_2")
+	private int sugarlevel2;
+	
 }

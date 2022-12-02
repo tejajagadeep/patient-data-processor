@@ -85,7 +85,19 @@
                     </label>
                     <fieldset class="form-group col-md-9 pe-5">
                         <textarea type="text" class="form-control" id="diagnosis" name="diagnosis"
-                            placeholder="Diagnosis" [(ngModel)]="patient.diagnosis"
+                            placeholder="Diagnosis" [(ngModel)]="patient.diagnosis" 
+                            maxlength="255" 
+                            ></textarea>
+                        
+                    </fieldset>
+                </div>
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="previousDiagnosis">
+                        <h6 class="mb-0">Previous Diagnosis</h6>
+                    </label>
+                    <fieldset class="form-group col-md-9 pe-5">
+                        <textarea type="text" class="form-control" id="previousDiagnosis" name="previousDiagnosis"
+                            placeholder="Previous Diagnosis" [(ngModel)]="patient.previousDiagnosis"
                             maxlength="255" 
                             ></textarea>
                         

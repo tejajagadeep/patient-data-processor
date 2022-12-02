@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Set;
 
 @FeignClient(name = "patient", url = "localhost:8085")
-public interface Proxy {
+public interface PatientProxy {
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
     @GetMapping("/api/v1.0/patient/getAllPatients")
     public List<Patient> getAllPatients();

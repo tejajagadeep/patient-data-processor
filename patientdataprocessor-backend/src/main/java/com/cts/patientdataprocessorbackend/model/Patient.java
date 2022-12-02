@@ -52,6 +52,8 @@ public class Patient {
 	
 	private String diagnosis;
 	
+	private String previousDiagnosis;
+	
 	private Date dateVisited;
 	
 	private Date treatmentStartDate;
