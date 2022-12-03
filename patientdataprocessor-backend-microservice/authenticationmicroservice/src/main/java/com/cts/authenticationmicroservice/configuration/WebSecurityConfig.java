@@ -19,6 +19,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.cts.authenticationmicroservice.AuthenticationmicroserviceApplication;
 import com.cts.authenticationmicroservice.jwt.JwtAuthenticationEntryPoint;
@@ -27,6 +28,7 @@ import com.cts.authenticationmicroservice.jwt.JwtTokenUtil;
 
 @Configuration
 @EnableWebSecurity
+@EnableWebMvc
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -63,11 +65,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 				.antMatchers(HttpMethod.POST, "/authenticate").permitAll()
 				.antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-//				.antMatchers("/v3/api-docs/**").permitAll()
-//				.antMatchers("/swagger-ui/**").permitAll()
-//				.antMatchers("/swagger-resources/**").permitAll()
+				.antMatchers("/v3/api-docs").permitAll()
+				.antMatchers("/v2/api-docs").permitAll()
+				.antMatchers("/api/v1/auth/**").permitAll()
+				.antMatchers("/swagger-ui/**").permitAll()
+				.antMatchers("/swagger-resources/**").permitAll()
 				.antMatchers("/swagger-ui.html").permitAll()
-//				.antMatchers("/webjars/**").permitAll()
+				.antMatchers("/webjars/**").permitAll()
 		;
 
 		http.cors();
@@ -120,9 +124,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	public void configure(WebSecurity web) throws Exception {
 		log.info("inside WebSecurity configure of WebSecurityConfig");
 		web.ignoring().antMatchers("/h2-console/**").antMatchers("/swagger");
-		web.ignoring().antMatchers("/authapp/login", "/h2-console/**", "/v2/api-docs", "/configuration/ui",
-				"/swagger-resources/**", "/configuration/security", "/swagger-ui.html", "/webjars/**",
-				"/patient-data-processor/swagger");
+		web.ignoring().antMatchers("/authapp/login", "/h2-console/**");
+//				, "/v3/api-docs", "/configuration/ui",
+//				"/swagger-resources/**", "/configuration/security", "/swagger-ui.html", "/webjars/**",
+//				"/patient-data-processor/swagger");
 	}
 
 }

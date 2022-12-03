@@ -20,6 +20,9 @@ import com.cts.authenticationmicroservice.model.UserRole;
 import com.cts.authenticationmicroservice.proxy.DoctorProxy;
 import com.cts.authenticationmicroservice.repository.UserRoleRepository;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/v1.0/doctor")
@@ -34,12 +37,16 @@ public class DoctorController {
 	@Autowired
 	PasswordEncoder passwordEncoder;
 	
-	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
+	@Operation(summary = "Retrieve All Doctors' Details", description = "Retrieve all the doctors' details from the data base. Access by only ADMIN")
+	@SecurityRequirement(name = "Bearer Authentication")
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@GetMapping("")
 	public ResponseEntity<List<Doctor>> retrieveAllDoctorDetails(){
 		return this.doctorProxy.retrieveAllDoctorDetails();
 	}
 	
+	@Operation(summary = "Retrieve Doctor Details", description = "Retrieve the doctors by giving email address from the data base")
+	@SecurityRequirement(name = "Bearer Authentication")
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
 	@GetMapping("/emailId/{emailId}")
 	public ResponseEntity<Doctor> retrieveDoctorDetailsById(@PathVariable String emailId){
