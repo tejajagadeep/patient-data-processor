@@ -31,4 +31,6 @@ export class ReportsDataService {
   getChartInfo(contactNumber: number) {
     return this.http.get(`${REPORT_API_URL}/contactNumber/${contactNumber}`)
   }
+
+  
 }

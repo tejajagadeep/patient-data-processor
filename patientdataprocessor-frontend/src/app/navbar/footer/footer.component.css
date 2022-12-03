@@ -37,11 +37,12 @@ p {
     z-index: 99 !important;
     border: none; /* Remove borders */
     outline: none; /* Remove outline */
-    background-color: rgb(145, 59, 59); /* Set a background color */
+    background-color: rgb(0, 0, 0); /* Set a background color */
     color: white; /* Text color */
     cursor: pointer;
+    opacity: 0.8;
     padding: 15px; /* Some padding */
-    border-radius: 10px; /* Rounded corners */
+    /* border-radius: 10px;  Rounded corners */
     font-size: 18px; /* Increase font size */
 }
 

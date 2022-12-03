@@ -27,4 +27,8 @@ export class ResultsDataService {
   getChartInfo(contactNumber: number) {
     return this.http.get(`${RESULTS_API_URL}/contactNumber/${contactNumber}`)
   }
+
+  deleteBycontactNumber(contactNumber: number){
+    return this.http.delete(`${RESULTS_API_URL}/contactNumber/${contactNumber}`)
+  }
 }

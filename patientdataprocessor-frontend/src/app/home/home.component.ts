@@ -6,6 +6,8 @@ import { User } from '../model/user';
 import { AuthenticationDataService } from '../service/auth/authentication-data.service';
 import { DoctorDataService } from '../service/data/doctor-data.service';
 import { PatientDataService } from '../service/data/patient-data.service';
+import { ReportsDataService } from '../service/data/reports-data.service';
+import { ResultsDataService } from '../service/data/results-data.service';
 import { UserDataService } from '../service/data/user-data.service';
 
 @Component({
@@ -23,6 +25,8 @@ export class HomeComponent implements OnInit {
   searchText: any;
   constructor(
     private patietnService: PatientDataService,
+    private resultsService: ResultsDataService,
+    private reportsService: ReportsDataService,
     private authService: AuthenticationDataService,
     private userService: UserDataService,
     private doctorService: DoctorDataService,
@@ -70,6 +74,16 @@ export class HomeComponent implements OnInit {
       },
       error=> console.log(error)
     )
+      this.resultsService.deleteBycontactNumber(contactNumber1).subscribe(
+        response => {
+          console.log(response)
+        }
+      )
+      this.reportsService.deleteBycontactNumber(contactNumber1).subscribe(
+        response => {
+          console.log(response)
+        }
+      )
     }
   }
 
