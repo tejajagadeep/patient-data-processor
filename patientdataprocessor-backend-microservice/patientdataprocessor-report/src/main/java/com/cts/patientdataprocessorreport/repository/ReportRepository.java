@@ -10,4 +10,5 @@ public interface ReportRepository extends JpaRepository<Report, Integer>{
 
 	List<Report> findByContactNumber(Long contactNumber);
 	
+	Report findById(int id);
 }

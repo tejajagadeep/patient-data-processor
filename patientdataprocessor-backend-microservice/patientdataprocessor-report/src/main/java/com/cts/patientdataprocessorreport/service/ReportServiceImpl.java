@@ -44,7 +44,7 @@ public class ReportServiceImpl implements ReportService{
 
 	@Override
 	public List<Report> delete(int id) {
-		Report patient = reportRepository.findById(id).get();
+		Report patient = reportRepository.findById(id);
 
 		if (patient == null) {
 

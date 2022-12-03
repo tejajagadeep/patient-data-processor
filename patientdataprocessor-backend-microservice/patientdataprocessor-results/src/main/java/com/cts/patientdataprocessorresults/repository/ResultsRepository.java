@@ -11,4 +11,6 @@ import com.cts.patientdataprocessorresults.model.Results;
 public interface ResultsRepository extends JpaRepository<Results, Integer>{
 
 	public List<Results> findByContactNumber(Long contactNumber);
+	
+	public Results findById(int id);
 }
