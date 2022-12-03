@@ -26,11 +26,11 @@ public class ReportController {
 	@Autowired
 	private ReportProxy reportProxy;
 	
-	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
-	@GetMapping("/getAllReports")
-	public ResponseEntity<List<Report>> getAllReports(){
-		return this.reportProxy.getAllReports();
-	}
+//	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
+//	@GetMapping("/getAllReports")
+//	public ResponseEntity<List<Report>> getAllReports(){
+//		return this.reportProxy.getAllReports();
+//	}
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
 	@GetMapping("/contactNumber/{contactNumber}")

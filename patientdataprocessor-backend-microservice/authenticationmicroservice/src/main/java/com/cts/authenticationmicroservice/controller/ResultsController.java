@@ -33,7 +33,7 @@ public class ResultsController {
 	}
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
-	@PostMapping("")
+	@PostMapping("/saveResults")
 	public ResponseEntity<Results> saveResults(@RequestBody Results results) {
 		return this.resultsproxy.saveResults(results);
 	}
@@ -44,6 +44,7 @@ public class ResultsController {
 		return this.resultsproxy.delete(id);
 	}
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
 	@DeleteMapping("/contactNumber/{contactNumber}")
 	public ResponseEntity<List<Results>> deleteAllByContactNumber(@PathVariable Long contactNumber) {
 		return this.resultsproxy.deleteAllByContactNumber(contactNumber);

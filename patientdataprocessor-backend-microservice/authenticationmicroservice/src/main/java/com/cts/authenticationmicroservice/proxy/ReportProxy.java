@@ -17,9 +17,9 @@ import com.cts.authenticationmicroservice.model.Report;
 @FeignClient(name = "report", url = "localhost:8086")
 public interface ReportProxy {
 	
-	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
-	@GetMapping("/api/v1.0/report/getAllReports")
-	public ResponseEntity<List<Report>> getAllReports();
+//	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
+//	@GetMapping("/api/v1.0/report/getAllReports")
+//	public ResponseEntity<List<Report>> getAllReports();
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
 	@GetMapping("/api/v1.0/report/contactNumber/{contactNumber}")

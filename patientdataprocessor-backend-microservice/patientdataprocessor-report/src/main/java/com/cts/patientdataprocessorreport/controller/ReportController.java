@@ -25,10 +25,10 @@ public class ReportController {
 	@Autowired
 	private ReportService reportService;
 	
-	@GetMapping("/getAllReports")
-	public ResponseEntity<List<Report>> getAllReports(){
-		return new ResponseEntity<>(reportService.getAllReports(),HttpStatus.OK);
-	}
+//	@GetMapping("")
+//	public ResponseEntity<List<Report>> getAllReports(){
+//		return new ResponseEntity<>(reportService.getAllReports(),HttpStatus.OK);
+//	}
 	
 	@GetMapping("/contactNumber/{contactNumber}")
 	public ResponseEntity<List<Report>> getAllByContactNumber(@PathVariable Long contactNumber){

@@ -12,11 +12,11 @@ import java.util.Set;
 public interface PatientProxy {
 	
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
-    @GetMapping("/api/v1.0/patient/getAllPatients")
+    @GetMapping("/api/v1.0/patient")
     public List<Patient> getAllPatients();
     
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
-    @GetMapping("/api/v1.0/patient/getByContactNumber/{contactNumber}")
+    @GetMapping("/api/v1.0/patient/contactNumber/{contactNumber}")
     public Patient getByContactNumber(@PathVariable Long contactNumber);
     
 //    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
@@ -28,10 +28,10 @@ public interface PatientProxy {
     public Patient registerPatient(@RequestBody Patient patient);
     
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
-    @PutMapping("/api/v1.0/patient/updatePatientDetails/{contactNumber}")
+    @PutMapping("/api/v1.0/patient/contactNumber/{contactNumber}")
     public Patient updatePatientDetails(@PathVariable Long contactNumber, @RequestBody Patient patient);
     
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
-    @DeleteMapping("/api/v1.0/patient/deletePatient/{contactNumber}")
+    @DeleteMapping("/api/v1.0/patient/contactNumber/{contactNumber}")
     public List<Patient> deletePatient(@PathVariable Long contactNumber);
 }

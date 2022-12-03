@@ -14,11 +14,11 @@ export class PatientDataService {
   ) { }
 
   getAllPatient(){
-    return this.http.get<Patient[]>(`${PATIENT_API_URL}/getAllPatients`)
+    return this.http.get<Patient[]>(`${PATIENT_API_URL}`)
   }
 
   getByContactNumber(contactNumber: number){
-    return this.http.get<Patient>(`${PATIENT_API_URL}/getByContactNumber/${contactNumber}`)
+    return this.http.get<Patient>(`${PATIENT_API_URL}/contactNumber/${contactNumber}`)
   }
 
   registerPatient(patient: Patient){
@@ -26,11 +26,11 @@ export class PatientDataService {
   }
 
   updatePatientDetails(contactNumber: number,patient: Patient){
-    return this.http.put<Patient>(`${PATIENT_API_URL}/updatePatientDetails/${contactNumber}`,patient)
+    return this.http.put<Patient>(`${PATIENT_API_URL}/contactNumber/${contactNumber}`,patient)
   }
 
   deletePatient(contactNumber: number){
-    return this.http.delete<Patient>(`${PATIENT_API_URL}/deletePatient/${contactNumber}`)
+    return this.http.delete<Patient>(`${PATIENT_API_URL}/contactNumber/${contactNumber}`)
   }
 
   // getChartInfo(contactNumber: number) {

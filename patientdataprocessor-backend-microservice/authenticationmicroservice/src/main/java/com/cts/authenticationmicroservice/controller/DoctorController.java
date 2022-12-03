@@ -35,13 +35,13 @@ public class DoctorController {
 	PasswordEncoder passwordEncoder;
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
-	@GetMapping("/retrieveAllDoctorDetails")
+	@GetMapping("")
 	public ResponseEntity<List<Doctor>> retrieveAllDoctorDetails(){
 		return this.doctorProxy.retrieveAllDoctorDetails();
 	}
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
-	@GetMapping("/retrieveDoctorDetailsById/{emailId}")
+	@GetMapping("/emailId/{emailId}")
 	public ResponseEntity<Doctor> retrieveDoctorDetailsById(@PathVariable String emailId){
 		return this.doctorProxy.retrieveDoctorDetailsById(emailId);
 	}

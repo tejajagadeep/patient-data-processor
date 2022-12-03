@@ -30,7 +30,7 @@ public class ResultsController {
 		return new ResponseEntity<>(resultsService.getByContactNumber(contactNumber),HttpStatus.OK);
 	}
 	
-	@PostMapping("")
+	@PostMapping("/saveResults")
 	public ResponseEntity<Results> saveResults(@RequestBody Results results) {
 		return new ResponseEntity<>(resultsService.saveResults(results),HttpStatus.OK);
 	}

@@ -28,13 +28,13 @@ public class PatientController {
 	PatientProxy proxy;
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
-	@GetMapping("/getAllPatients")
+	@GetMapping("")
 	public List<Patient> getAllPatients() {
 	   return this.proxy.getAllPatients();
 	}
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
-	@GetMapping("/getByContactNumber/{contactNumber}")
+	@GetMapping("/contactNumber/{contactNumber}")
 	public Patient getByContactNumber(@PathVariable Long contactNumber) {
 		return this.proxy.getByContactNumber(contactNumber);
 	}
@@ -52,13 +52,13 @@ public class PatientController {
 	}
 	
 //	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
-	@PutMapping("/updatePatientDetails/{contactNumber}")
+	@PutMapping("/contactNumber/{contactNumber}")
 	public Patient updatePatientDetails(@PathVariable Long contactNumber, @RequestBody Patient patient) {
 		return this.proxy.updatePatientDetails(contactNumber, patient);
 	}
 	
 //	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
-	@DeleteMapping("/deletePatient/{contactNumber}")
+	@DeleteMapping("/contactNumber/{contactNumber}")
 	public List<Patient> deletePatient(@PathVariable Long contactNumber) {
 		return this.proxy.deletePatient(contactNumber);
 	}

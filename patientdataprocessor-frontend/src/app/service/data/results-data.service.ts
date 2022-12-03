@@ -17,7 +17,7 @@ export class ResultsDataService {
   }
 
   saveResults(results: Results){
-    return this.http.post<Results>(`${RESULTS_API_URL}`,results)
+    return this.http.post<Results>(`${RESULTS_API_URL}/saveResults`,results)
   }
 
   delete(id: number){

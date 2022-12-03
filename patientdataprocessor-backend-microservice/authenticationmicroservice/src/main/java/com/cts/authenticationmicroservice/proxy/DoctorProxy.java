@@ -17,11 +17,11 @@ import com.cts.authenticationmicroservice.model.Doctor;
 public interface DoctorProxy {
 
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
-	@GetMapping("/api/v1.0/doctor/retrieveAllDoctorDetails")
+	@GetMapping("/api/v1.0/doctor")
 	public ResponseEntity<List<Doctor>> retrieveAllDoctorDetails();
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
-	@GetMapping("/api/v1.0/doctor/retrieveDoctorDetailsById/{emailId}")
+	@GetMapping("/api/v1.0/doctor/emailId/{emailId}")
 	public ResponseEntity<Doctor> retrieveDoctorDetailsById(@PathVariable String emailId);
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN')")

@@ -30,13 +30,13 @@ public class PatientController {
 	private PatientService patientService;
 	
 //	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
-	@GetMapping("/getAllPatients")
+	@GetMapping("")
 	public ResponseEntity<List<Patient>> getAllPatients(){
 		return new ResponseEntity<>(patientService.getAllPatients(),HttpStatus.OK);
 	}
 	
 //	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
-	@GetMapping("/getByContactNumber/{contactNumber}")
+	@GetMapping("/contactNumber/{contactNumber}")
 	public ResponseEntity<Patient> getByContactNumber(@PathVariable Long contactNumber) {
 		return new ResponseEntity<>(patientService.getByContactNumber(contactNumber),HttpStatus.OK);
 	}
@@ -54,13 +54,13 @@ public class PatientController {
 	}
 	
 //	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
-	@PutMapping("/updatePatientDetails/{contactNumber}")
+	@PutMapping("/contactNumber/{contactNumber}")
 	public ResponseEntity<Patient> updatePatientDetails(@PathVariable Long contactNumber, @RequestBody Patient patient) {
 		return new ResponseEntity<>(patientService.updatePatientDetails(contactNumber, patient),HttpStatus.OK);
 	}
 	
 //	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
-	@DeleteMapping("/deletePatient/{contactNumber}")
+	@DeleteMapping("/contactNumber/{contactNumber}")
 	public ResponseEntity<List<Patient>> deletePatient(@PathVariable Long contactNumber) {
 		return new ResponseEntity<>(patientService.deletePatient(contactNumber),HttpStatus.OK);
 	}

@@ -25,13 +25,13 @@ public class DoctorController {
 	@Autowired
 	DoctorService doctorService;
 	
-	@GetMapping("/retrieveAllDoctorDetails")
+	@GetMapping("")
 	public ResponseEntity<List<Doctor>> retrieveAllDoctorDetails(){
 		
 		return new ResponseEntity<>(doctorService.retrieveAllDoctorDetails(),HttpStatus.OK);
 	}
 	
-	@GetMapping("/retrieveDoctorDetailsById/{emailId}")
+	@GetMapping("/emailId/{emailId}")
 	public ResponseEntity<Doctor> retrieveDoctorDetailsById(@PathVariable String emailId){
 		return  new ResponseEntity<>(doctorService.retrieveDoctorDetailsById(emailId),HttpStatus.OK);
 	}
