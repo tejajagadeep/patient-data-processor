@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.cts.authenticationmicroservice.model.Report;
 
-@FeignClient(name = "report", url = "localhost:8086")
+@FeignClient(name = "reports", url = "localhost:8086")
 public interface ReportProxy {
 	
 //	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")

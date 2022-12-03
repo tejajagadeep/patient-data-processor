@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Set;
 
-@FeignClient(name = "patient", url = "localhost:8085")
+@FeignClient(name = "patients", url = "localhost:8085")
 public interface PatientProxy {
 	
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")

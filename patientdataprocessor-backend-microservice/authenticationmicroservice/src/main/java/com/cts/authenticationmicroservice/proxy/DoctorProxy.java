@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.cts.authenticationmicroservice.model.Doctor;
 
-@FeignClient(name = "doctor", url = "localhost:8084")
+@FeignClient(name = "doctors", url = "localhost:8084")
 public interface DoctorProxy {
 
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")

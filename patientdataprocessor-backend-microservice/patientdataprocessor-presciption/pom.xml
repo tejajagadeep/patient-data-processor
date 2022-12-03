@@ -14,6 +14,7 @@
 	<name>patientdataprocessor-presciption</name>
 	<description>Presciption Microservice for Patient Data Processor project Spring Boot</description>
 	<properties>
+	<spring-cloud.version>2021.0.4</spring-cloud.version>
 		<java.version>1.8</java.version>
 	</properties>
 	<dependencies>
@@ -51,7 +52,23 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+	<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+
 	</dependencies>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<build>
 		<plugins>
