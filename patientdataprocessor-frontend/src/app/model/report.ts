@@ -1,6 +1,7 @@
 export class Report {
     constructor(
         public id: number,
+        public contactNmber: number,
         public date: Date,
         public systolic: number,
         public diastolic: number,

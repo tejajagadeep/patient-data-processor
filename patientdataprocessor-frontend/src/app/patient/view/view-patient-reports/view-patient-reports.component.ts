@@ -14,7 +14,8 @@ import { Location } from '@angular/common';
 export class ViewPatientReportsComponent implements OnInit {
 
   patient!: Patient
-  Reports!: Report
+
+  report!: Report[]
 
   contactNumber!: number
   
@@ -33,11 +34,18 @@ export class ViewPatientReportsComponent implements OnInit {
   ngOnInit(): void {
     this.contactNumber = this.route.snapshot.params['contactNumber']
     this.getPatient(this.contactNumber)
+    this.getReports(this.contactNumber)
   }
 
   getPatient(contactNumber1: number){
     this.patientService.getByContactNumber(contactNumber1).subscribe(
       response=> this.patient=response
+    )
+  }
+
+  getReports(contactNumber1: number){
+    this.reportService.getBycontactNumber(contactNumber1).subscribe(
+      response => this.report =response
     )
   }
 

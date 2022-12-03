@@ -38,6 +38,14 @@ public class ResultsServiceImpl implements ResultsService{
 		resultsRepository.deleteById(id);
 		return resultsRepository.findAll();
 	}
+
+	@Override
+	public List<Results> deleteAllByContactNumber(Long contactNumber) {
+		resultsRepository.findByContactNumber(contactNumber).forEach(resultsEach->{
+			resultsRepository.deleteAll(resultsRepository.findByContactNumber(contactNumber));
+		});
+		return resultsRepository.findAll();
+	}
 	
 	
 }

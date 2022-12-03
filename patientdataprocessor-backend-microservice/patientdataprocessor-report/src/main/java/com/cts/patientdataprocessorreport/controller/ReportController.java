@@ -30,13 +30,23 @@ public class ReportController {
 		return new ResponseEntity<>(reportService.getAllReports(),HttpStatus.OK);
 	}
 	
+	@GetMapping("/contactNumber/{contactNumber}")
+	public ResponseEntity<List<Report>> getAllByContactNumber(@PathVariable Long contactNumber){
+		return new ResponseEntity<>(reportService.getAllByContactNumber(contactNumber),HttpStatus.OK);
+	}
+	
 	@PostMapping("/saveReport/{contactNumber}")
-	public ResponseEntity<Report> saveReport(@PathVariable Long contactNumber, @RequestBody Report report){
-		return new ResponseEntity<>(reportService.saveReport(contactNumber, report),HttpStatus.OK);
+	public ResponseEntity<Report> saveReport(@RequestBody Report report){
+		return new ResponseEntity<>(reportService.saveReport(report),HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/id/{id}")
 	public ResponseEntity<List<Report>> delete(@PathVariable int id){
 		return new ResponseEntity<>(reportService.delete(id),HttpStatus.OK);
+	}
+	
+	@DeleteMapping("/contactNumber/{contactNumber}")
+	public ResponseEntity<List<Report>> deleteAllByContactNumber(@PathVariable Long contactNumber){
+		return new ResponseEntity<>(reportService.deleteAllByContactNumber(contactNumber),HttpStatus.OK);
 	}
 }

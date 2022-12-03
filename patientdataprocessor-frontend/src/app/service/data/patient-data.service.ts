@@ -37,7 +37,5 @@ export class PatientDataService {
   //   return this.http.get("http://localhost:3000/patients");
   // }
 
-  getChartInfo(contactNumber: number) {
-    return this.http.get(`${PATIENT_API_URL}/patientReports/${contactNumber}`)
-  }
+  
 }

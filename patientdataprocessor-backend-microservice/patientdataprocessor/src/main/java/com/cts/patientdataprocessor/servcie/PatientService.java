@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 import com.cts.patientdataprocessor.model.Patient;
-import com.cts.patientdataprocessor.model.Report;
+//import com.cts.patientdataprocessor.model.Report;
 
 public interface PatientService {
 
@@ -18,6 +18,6 @@ public interface PatientService {
 
 	List<Patient> deletePatient(Long contactNumber);
 
-	Set<Report> getBypatientReports(Long contactNumber);
+//	Set<Report> getBypatientReports(Long contactNumber);
 	
 }

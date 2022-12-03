@@ -75,8 +75,8 @@
               <div class="col-sm-7" style="margin-top: 20px; display:flex; justify-content:right;">
                 <td>
                   <button type="button" class="btn btn-outline-primary me-2 " data-bs-toggle="modal" data-bs-target="#editHospital" [routerLink]="['/view-patient-details/',hospital.contactNumber]">Details</button>
-                  <button type="button" class="btn btn-outline-primary me-2 " data-bs-toggle="modal" data-bs-target="#editHospital" [routerLink]="['/view-patient-results/',hospital.contactNumber]">Results</button>
-                  <button type="button" class="btn btn-outline-primary me-2 " data-bs-toggle="modal" data-bs-target="#editHospital" [routerLink]="['/view-patient-reports/',hospital.contactNumber]">Levels</button>
+                  <button type="button" class="btn btn-outline-info me-2 " data-bs-toggle="modal" data-bs-target="#editHospital" [routerLink]="['/view-patient-results/',hospital.contactNumber]">Results</button>
+                  <button type="button" class="btn btn-outline-info me-2 " data-bs-toggle="modal" data-bs-target="#editHospital" [routerLink]="['/view-patient-reports/',hospital.contactNumber]">Levels</button>
                   <!-- <button type="button" class="btn btn-outline-primary me-2 " data-bs-toggle="modal" data-bs-target="#editHospital" (click)="editHospital(hospital)">Edit</button>-->
                   <button type="button" class="btn btn-outline-danger " (click)="deletePatient(hospital.contactNumber)">Delete</button><br> 
                  

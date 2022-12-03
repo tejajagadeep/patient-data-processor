@@ -25,7 +25,7 @@ public class ReportServiceImpl implements ReportService{
 	}
 
 	@Override
-	public Report saveReport(Long contactNumber,Report report) {
+	public Report saveReport(Report report) {
 
 //		Patient patient = patientRepository.findByContactNumber(contactNumber);
 
@@ -55,6 +55,20 @@ public class ReportServiceImpl implements ReportService{
 		
 		reportRepository.deleteById(id);
 		
+		return reportRepository.findAll();
+	}
+
+	@Override
+	public List<Report> getAllByContactNumber(Long contactNumber) {
+		return reportRepository.findByContactNumber(contactNumber);
+	}
+
+	@Override
+	public List<Report> deleteAllByContactNumber(Long contactNumber) {
+//		reportRepository.deleteAllByContactNumber(contactNumber);
+		reportRepository.findByContactNumber(contactNumber).forEach(reportEach->{
+			reportRepository.deleteAll(reportRepository.findByContactNumber(contactNumber));
+		});
 		return reportRepository.findAll();
 	}
 

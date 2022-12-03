@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cts.patientdataprocessor.model.Patient;
-import com.cts.patientdataprocessor.model.Report;
+//import com.cts.patientdataprocessor.model.Report;
 import com.cts.patientdataprocessor.servcie.PatientService;
 
 @RestController
@@ -42,10 +42,10 @@ public class PatientController {
 	}
 	
 //	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
-	@GetMapping("/patientReports/{contactNumber}")
-	public ResponseEntity<Set<Report>> getBypatientReports(@PathVariable Long contactNumber) {
-		return new ResponseEntity<>(patientService.getBypatientReports(contactNumber),HttpStatus.OK);
-	}
+//	@GetMapping("/patientReports/{contactNumber}")
+//	public ResponseEntity<Set<Report>> getBypatientReports(@PathVariable Long contactNumber) {
+//		return new ResponseEntity<>(patientService.getBypatientReports(contactNumber),HttpStatus.OK);
+//	}
 	
 //	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
 	@PostMapping("/registerPatient")

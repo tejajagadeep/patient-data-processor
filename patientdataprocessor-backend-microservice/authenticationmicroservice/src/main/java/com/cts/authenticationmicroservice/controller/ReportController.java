@@ -33,14 +33,29 @@ public class ReportController {
 	}
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
-	@PostMapping("/saveReport/{contactNumber}")
-	public ResponseEntity<Report> saveReport(@PathVariable Long contactNumber, @RequestBody Report report){
-		return this.reportProxy.saveReport(contactNumber, report);
+	@GetMapping("/contactNumber/{contactNumber}")
+	public ResponseEntity<List<Report>> getAllByContactNumber(@PathVariable Long contactNumber){
+		return this.reportProxy.getAllByContactNumber(contactNumber);
 	}
+	
+	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
+	@PostMapping("/saveReport")
+	public ResponseEntity<Report> saveReport(@RequestBody Report report){
+		
+		return this.reportProxy.saveReport(report);
+	}
+	
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
 	@DeleteMapping("/id/{id}")
 	public ResponseEntity<List<Report>> delete(@PathVariable int id){
 		return this.reportProxy.delete(id);
 	}
+	
+	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
+	@DeleteMapping("/contactNumber/{contactNumber}")
+	public ResponseEntity<List<Report>> deleteAllByContactNumber(@PathVariable Long contactNumber){
+		return this.reportProxy.deleteAllByContactNumber(contactNumber);
+	}
+
 }

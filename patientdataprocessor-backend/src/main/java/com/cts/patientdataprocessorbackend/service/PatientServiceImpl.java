@@ -63,14 +63,14 @@ public class PatientServiceImpl implements PatientService{
 	}
 
 
-	@Override
-	public Set<Report> getBypatientReports(Long contactNumber) {
-		Patient patientDummy = patientRepository.findByContactNumber(contactNumber);
-		if(patientDummy==null) {
-			throw new  NoSuchElementException("Patient doesn't exist");
-		}
-		return patientDummy.getReports();
-	}
+//	@Override
+//	public Set<Report> getBypatientReports(Long contactNumber) {
+//		Patient patientDummy = patientRepository.findByContactNumber(contactNumber);
+//		if(patientDummy==null) {
+//			throw new  NoSuchElementException("Patient doesn't exist");
+//		}
+//		return patientDummy.getReports();
+//	}
 
 	
 }

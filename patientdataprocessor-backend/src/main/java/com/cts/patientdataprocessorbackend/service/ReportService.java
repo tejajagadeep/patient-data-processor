@@ -8,7 +8,7 @@ public interface ReportService {
 	
 	List<Report> getAllReports();
 	
-	Report saveReport(Long contactNumber, Report report);
+	Report saveReport(Report report);
 
 	List<Report> delete(int id);
 	

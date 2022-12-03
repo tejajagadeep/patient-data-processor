@@ -41,12 +41,13 @@ export class ReportsRegistrationComponent implements OnInit {
 
   ngOnInit(): void {
     this.contactNumber = this.route.snapshot.params['contactNumber']
-    this.reports = new Report(this.dummyNumber,this.dummyDate,this.dummyNumber,this.dummyNumber,this.dummyNumber,this.dummyNumber)
+    this.reports = new Report(this.dummyNumber,this.dummyNumber,this.dummyDate,this.dummyNumber,this.dummyNumber,this.dummyNumber,this.dummyNumber)
   this.getPatient(this.contactNumber)
   }
   
   saveReports(){
-    this.reportsService.saveReport(this.contactNumber,this.reports).subscribe(
+    this.reports.contactNmber = this.contactNumber
+    this.reportsService.saveReport(this.reports).subscribe(
       repsonse=> {
         console.log(repsonse)
         // repsonse.day = new Date()

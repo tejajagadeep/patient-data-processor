@@ -4,6 +4,7 @@ import {​​​​​​ Chart, registerables }​​​​​​ from 'chart.
 import { Patient } from 'src/app/model/patient';
 import { PatientDataService } from 'src/app/service/data/patient-data.service';
 import { Location } from '@angular/common';
+import { ReportsDataService } from 'src/app/service/data/reports-data.service';
 
 Chart.register(...registerables);
 
@@ -17,7 +18,8 @@ export class SugarLevelComponent implements OnInit {
   contactNumber!: number
 
   constructor(
-    private patientService: PatientDataService,
+    // private patientService: PatientDataService,
+    private reportService: ReportsDataService,
     private location: Location,
     private route: ActivatedRoute
     ) { }
@@ -31,7 +33,7 @@ export class SugarLevelComponent implements OnInit {
   
   ngOnInit(): void {
     this.contactNumber = this.route.snapshot.params['contactNumber']
-    this.patientService.getChartInfo(this.contactNumber).subscribe((result) => {
+    this.reportService.getChartInfo(this.contactNumber).subscribe((result) => {
       this.chartdata = result;
       if (this.chartdata != null) {
         for (let i = 0; i < this.chartdata.length; i++) {

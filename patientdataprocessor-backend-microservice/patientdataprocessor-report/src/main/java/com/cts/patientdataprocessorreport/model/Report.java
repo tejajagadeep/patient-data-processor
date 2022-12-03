@@ -22,6 +22,8 @@ public class Report {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
+	private Long contactNumber;
+	
 	private Date date;
 	
 	@Column(name="systolic")

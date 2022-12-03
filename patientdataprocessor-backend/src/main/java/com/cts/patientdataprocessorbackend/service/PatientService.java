@@ -19,6 +19,6 @@ public interface PatientService {
 
 	List<Patient> deletePatient(Long contactNumber);
 
-	Set<Report> getBypatientReports(Long contactNumber);
+//	Set<Report> getBypatientReports(Long contactNumber);
 
 }

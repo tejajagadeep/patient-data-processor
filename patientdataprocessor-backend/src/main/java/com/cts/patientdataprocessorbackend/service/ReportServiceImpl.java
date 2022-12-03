@@ -28,18 +28,18 @@ public class ReportServiceImpl implements ReportService{
 	}
 
 	@Override
-	public Report saveReport(Long contactNumber,Report report) {
+	public Report saveReport(Report report) {
 
-		Patient patient = patientRepository.findByContactNumber(contactNumber);
-
-		if (patient == null) {
-
-//			log.warn("Patient does'nt exist " + contactNumber);
-			throw new NoSuchElementException("Patient doesn't exist");
-
-		} 
+//		Patient patient = patientRepository.findByContactNumber(contactNumber);
+//
+//		if (patient == null) {
+//
+////			log.warn("Patient does'nt exist " + contactNumber);
+//			throw new NoSuchElementException("Patient doesn't exist");
+//
+//		} 
 		report.setDate(new Date());
-		patient.addReports(report);
+//		patient.addReports(report);
 
 //		patientRepository.save(patient);
 		return reportRepository.save(report);

@@ -17,11 +17,5 @@ insert into patient(contact_number,address,first_name,last_name,gender,date_of_b
 insert into patient(contact_number,address,first_name,last_name,gender,date_of_birth,marital_status,emergency_contact_number,email,blood_group,disease,diagnosis,previous_diagnosis,date_visited,treatment_start_date,treatment_end_date,prescription,height,weight)
 	values(9762534308,'Vijaywada','Atmaram','Rao','Male','1995-07-11','Maried',9893561731,'atmaram@gmail.com','A+','High BP','','','2022-11-22','2021-11-22','2023-06-20','Diuretics','175cms','75kgs');
 
-insert into report(id,date,systolic,diastolic,sugar_level,sugar_level_2,contact_number)
-	values(1,'2022-01-01',140,90,70,99,7894561230);	
-insert into report(id,date,systolic,diastolic,sugar_level,sugar_level_2,contact_number)
-	values(2,'2022-01-01',153,94,73,99,7894561230);
-insert into report(id,date,systolic,diastolic,sugar_level,sugar_level_2,contact_number)
-	values(3,'2022-01-01',148,89,65,99,7894561230);
 	
 	

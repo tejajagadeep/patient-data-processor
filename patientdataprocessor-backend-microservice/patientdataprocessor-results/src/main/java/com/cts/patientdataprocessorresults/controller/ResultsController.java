@@ -39,4 +39,9 @@ public class ResultsController {
 	public ResponseEntity<List<Results>> delete(@PathVariable int id) {
 		return new ResponseEntity<>(resultsService.delete(id),HttpStatus.OK);
 	}
+	
+	@DeleteMapping("/contactNumber/{contactNumber}")
+	public ResponseEntity<List<Results>> deleteAllByContactNumber(@PathVariable Long contactNumber) {
+		return new ResponseEntity<>(resultsService.deleteAllByContactNumber(contactNumber),HttpStatus.OK);
+	}
 }

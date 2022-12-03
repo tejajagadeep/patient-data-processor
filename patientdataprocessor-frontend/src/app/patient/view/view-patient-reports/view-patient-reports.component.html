@@ -17,14 +17,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngIf="patient.reports.length===0" >
+                <tr *ngIf="report.length===0" >
                     <td>NA</td>
                     <td>NA</td>
                     <td>NA</td>
                     <td>NA</td>
                     <td>NA</td>
                 </tr>
-                <tr *ngFor="let reports of patient.reports" >
+                <tr *ngFor="let reports of report" >
                     <td>{{reports.date | date : 'yyyy-MM-dd hh:mm:ss '}}</td>
                     <td>{{reports.systolic}}</td>
                     <td>{{reports.diastolic}}</td>
@@ -48,6 +48,7 @@
                 *ngIf="user.role === 'Admin' && (patient.patientOwner === username || patient.patientManagerName === userByName.name)"
                 (click)="updatepatient(patient.patientId)" class="btn btn-warning">Update</button> -->
                 <button type="button" class="btn btn-primary btn-lg" (click)="navBack()">Back</button>
+                <button type="button" class="btn btn-secondary btn-lg" [routerLink]="['/view-patient-details/',contactNumber]">Patient Details</button>
                 <button type="button" class="btn btn-info btn-lg" [routerLink]="['/charts-bp/',contactNumber]">Blood Presure Analysis</button>
                 <button type="button" class="btn btn-info btn-lg" [routerLink]="['/charts-sugar/',contactNumber]">Sugar Level Analysis</button>
 

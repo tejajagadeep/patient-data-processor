@@ -26,7 +26,7 @@ export class Patient{
 	public bloodGroup: string,
 	
 	public diagnosis: string, 
-	
+
 	public previousDiagnosis: string,
 
 	public disease: string,
@@ -43,6 +43,6 @@ export class Patient{
 	
 	public weight: string,
 
-    public reports: Report[]
+    // public reports: Report[]
     ) {}
 }

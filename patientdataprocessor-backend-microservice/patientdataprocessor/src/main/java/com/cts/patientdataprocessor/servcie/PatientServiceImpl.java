@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.cts.patientdataprocessor.exception.IdAlredyExistsException;
 import com.cts.patientdataprocessor.model.Patient;
-import com.cts.patientdataprocessor.model.Report;
+//import com.cts.patientdataprocessor.model.Report;
 import com.cts.patientdataprocessor.repository.PatientRepository;
 
 @Service
@@ -63,14 +63,14 @@ public class PatientServiceImpl implements PatientService{
 	}
 
 
-	@Override
-	public Set<Report> getBypatientReports(Long contactNumber) {
-		Patient patientDummy = patientRepository.findByContactNumber(contactNumber);
-		if(patientDummy==null) {
-			throw new  NoSuchElementException("Patient doesn't exist");
-		}
-		return patientDummy.getReports();
-	}
+//	@Override
+//	public Set<Report> getBypatientReports(Long contactNumber) {
+//		Patient patientDummy = patientRepository.findByContactNumber(contactNumber);
+//		if(patientDummy==null) {
+//			throw new  NoSuchElementException("Patient doesn't exist");
+//		}
+//		return patientDummy.getReports();
+//	}
 
 	
 }

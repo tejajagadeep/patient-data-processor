@@ -28,4 +28,7 @@ public interface ResultsProxy {
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
 	@DeleteMapping("/api/v1.0/results/id/{id}")
 	public ResponseEntity<List<Results>> delete(@PathVariable int id);
+	
+	@DeleteMapping("/contactNumber/{contactNumber}")
+	public ResponseEntity<List<Results>> deleteAllByContactNumber(@PathVariable Long contactNumber);
 }

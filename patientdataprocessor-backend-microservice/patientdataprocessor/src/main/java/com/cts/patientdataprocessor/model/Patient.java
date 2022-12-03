@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -52,6 +53,7 @@ public class Patient {
 
 	private String diagnosis;
 
+	@Size(max = 500)
 	private String previousDiagnosis;
 
 	private Date dateVisited;
@@ -68,18 +70,18 @@ public class Patient {
 
 	private String weight;
 
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "contact_number")
-	private Set<Report> reports;
-
-	public void addReports(Report theReport) {
-
-		if (reports == null) {
-//			storyAssignedToUsers = new ArrayList<>();
-			reports = new HashSet<>();
-		}
-
-		reports.add(theReport);
-
-	}
+//	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//	@JoinColumn(name = "contact_number")
+//	private Set<Report> reports;
+//
+//	public void addReports(Report theReport) {
+//
+//		if (reports == null) {
+////			storyAssignedToUsers = new ArrayList<>();
+//			reports = new HashSet<>();
+//		}
+//
+//		reports.add(theReport);
+//
+//	}
 }

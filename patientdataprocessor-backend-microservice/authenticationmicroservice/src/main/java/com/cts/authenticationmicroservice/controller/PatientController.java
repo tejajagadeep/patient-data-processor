@@ -39,11 +39,11 @@ public class PatientController {
 		return this.proxy.getByContactNumber(contactNumber);
 	}
 	
-	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
-	@GetMapping("/patientReports/{contactNumber}")
-	public Set<Report> getBypatientReports(@PathVariable Long contactNumber) {
-		return this.proxy.getBypatientReports(contactNumber);
-	}
+//	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
+//	@GetMapping("/patientReports/{contactNumber}")
+//	public Set<Report> getBypatientReports(@PathVariable Long contactNumber) {
+//		return this.proxy.getBypatientReports(contactNumber);
+//	}
 	
 //	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
 	@PostMapping("/registerPatient")

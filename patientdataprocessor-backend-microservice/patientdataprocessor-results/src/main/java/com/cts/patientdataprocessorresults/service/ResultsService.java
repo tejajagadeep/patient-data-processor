@@ -11,5 +11,7 @@ public interface ResultsService {
 	Results saveResults(Results results);
 	
 	List<Results> delete(int id);
+
+	List<Results> deleteAllByContactNumber(Long contactNumber);
 }
 

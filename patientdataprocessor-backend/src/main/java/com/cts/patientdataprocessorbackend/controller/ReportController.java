@@ -33,9 +33,9 @@ public class ReportController {
 	}
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
-	@PostMapping("/saveReport/{contactNumber}")
-	public ResponseEntity<Report> saveReport(@PathVariable Long contactNumber, @RequestBody Report report){
-		return new ResponseEntity<>(reportService.saveReport(contactNumber, report),HttpStatus.OK);
+	@PostMapping("/saveReport")
+	public ResponseEntity<Report> saveReport(@RequestBody Report report){
+		return new ResponseEntity<>(reportService.saveReport(report),HttpStatus.OK);
 	}
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")

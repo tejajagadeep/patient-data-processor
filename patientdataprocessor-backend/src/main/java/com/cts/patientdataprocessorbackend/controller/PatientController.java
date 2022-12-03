@@ -42,11 +42,11 @@ public class PatientController {
 		return new ResponseEntity<>(patientService.getByContactNumber(contactNumber),HttpStatus.OK);
 	}
 	
-	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
-	@GetMapping("/patientReports/{contactNumber}")
-	public ResponseEntity<Set<Report>> getBypatientReports(@PathVariable Long contactNumber) {
-		return new ResponseEntity<>(patientService.getBypatientReports(contactNumber),HttpStatus.OK);
-	}
+//	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
+//	@GetMapping("/patientReports/{contactNumber}")
+//	public ResponseEntity<Set<Report>> getBypatientReports(@PathVariable Long contactNumber) {
+//		return new ResponseEntity<>(patientService.getBypatientReports(contactNumber),HttpStatus.OK);
+//	}
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
 	@PostMapping("/registerPatient")

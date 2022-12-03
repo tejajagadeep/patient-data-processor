@@ -43,4 +43,9 @@ public class ResultsController {
 	public ResponseEntity<List<Results>> delete(@PathVariable int id) {
 		return this.resultsproxy.delete(id);
 	}
+	
+	@DeleteMapping("/contactNumber/{contactNumber}")
+	public ResponseEntity<List<Results>> deleteAllByContactNumber(@PathVariable Long contactNumber) {
+		return this.resultsproxy.deleteAllByContactNumber(contactNumber);
+	}
 }

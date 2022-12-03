@@ -19,9 +19,9 @@ public interface PatientProxy {
     @GetMapping("/api/v1.0/patient/getByContactNumber/{contactNumber}")
     public Patient getByContactNumber(@PathVariable Long contactNumber);
     
-    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
-    @GetMapping("/api/v1.0/patient/patientReports/{contactNumber}")
-    public Set<Report> getBypatientReports(@PathVariable Long contactNumber);
+//    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
+//    @GetMapping("/api/v1.0/patient/patientReports/{contactNumber}")
+//    public Set<Report> getBypatientReports(@PathVariable Long contactNumber);
     
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
     @PostMapping("/api/v1.0/patient/registerPatient")

@@ -68,18 +68,18 @@ public class Patient {
 	
 	private String weight;
 	
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "contact_number")
-	private Set<Report> reports;
-	
-	public void addReports(Report theReport) {
-
-		if (reports == null) {
-//			storyAssignedToUsers = new ArrayList<>();
-			reports = new HashSet<>();
-		}
-
-		reports.add(theReport);
-
-	}
+//	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//	@JoinColumn(name = "contact_number")
+//	private Set<Report> reports;
+//	
+//	public void addReports(Report theReport) {
+//
+//		if (reports == null) {
+////			storyAssignedToUsers = new ArrayList<>();
+//			reports = new HashSet<>();
+//		}
+//
+//		reports.add(theReport);
+//
+//	}
 }
