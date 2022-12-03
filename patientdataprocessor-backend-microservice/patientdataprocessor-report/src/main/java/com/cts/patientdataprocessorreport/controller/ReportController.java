@@ -35,7 +35,7 @@ public class ReportController {
 		return new ResponseEntity<>(reportService.getAllByContactNumber(contactNumber),HttpStatus.OK);
 	}
 	
-	@PostMapping("/saveReport/{contactNumber}")
+	@PostMapping("/saveReport")
 	public ResponseEntity<Report> saveReport(@RequestBody Report report){
 		return new ResponseEntity<>(reportService.saveReport(report),HttpStatus.OK);
 	}

@@ -46,7 +46,7 @@ export class ReportsRegistrationComponent implements OnInit {
   }
   
   saveReports(){
-    this.reports.contactNmber = this.contactNumber
+    this.reports.contactNumber = this.contactNumber
     this.reportsService.saveReport(this.reports).subscribe(
       repsonse=> {
         console.log(repsonse)

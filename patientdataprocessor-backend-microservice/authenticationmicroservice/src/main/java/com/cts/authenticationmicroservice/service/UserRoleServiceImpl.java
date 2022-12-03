@@ -14,10 +14,10 @@ public class UserRoleServiceImpl implements UserRoleService {
 	@Autowired
 	UserRoleRepository userRepository;
 
-	@Override
-	public List<UserRole> getAllUser() {
-		return userRepository.findAll();
-	}
+//	@Override
+//	public List<UserRole> getAllUser() {
+//		return userRepository.findAll();
+//	}
 
 	@Override
 	public UserRole getUserByUserName(String userName) {

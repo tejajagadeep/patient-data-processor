@@ -23,12 +23,12 @@ public class UserRoleController {
 	@Autowired
 	UserRoleService userService;
 
-	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
-	@GetMapping("/getAllUsers")
-	public ResponseEntity<List<UserRole>> getAllUsers() {
-
-		return new ResponseEntity<>(userService.getAllUser(), HttpStatus.OK);
-	}
+//	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
+//	@GetMapping("/getAllUsers")
+//	public ResponseEntity<List<UserRole>> getAllUsers() {
+//
+//		return new ResponseEntity<>(userService.getAllUser(), HttpStatus.OK);
+//	}
 
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
 	@GetMapping("/getUserByEmailId/{userName}")
