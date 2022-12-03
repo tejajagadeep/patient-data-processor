@@ -16,24 +16,24 @@ import io.swagger.v3.oas.annotations.servers.Server;
 @SpringBootApplication
 @EnableFeignClients
 @EnableEurekaClient
-//@OpenAPIDefinition(
-//		  info =@Info(
-//		    title = "Patient Data Processor API",
-//		    version = "${api.version}",
-//		    contact = @Contact(
-//		      name = "thunderbolts", email = "thunderbolts.com", url = "https://github"
-//		    ),
-//		    license = @License(
-//		      name = "thunderbolts", url = "https://"
-//		    ),
-//		    termsOfService = "${tos.uri}",
-//		    description = "${api.description}"
+@OpenAPIDefinition(
+		  info =@Info(
+		    title = "Patient Data Processor API",
+		    version = "${api.version}",
+		    contact = @Contact(
+		      name = "thunderbolts", email = "thunderbolts.com", url = "https://github"
+		    ),
+		    license = @License(
+		      name = "thunderbolts", url = "https://"
+		    ),
+		    termsOfService = "${tos.uri}",
+		    description = "${api.description}"
 //		  ),
 //		  servers = @Server(
 //		    url = "${api.server.url}",
 //		    description = "Production"
-//		  )
-//		)
+		  )
+		)
 @SecurityScheme(
 		  name = "Bearer Authentication",
 		  type = SecuritySchemeType.HTTP,

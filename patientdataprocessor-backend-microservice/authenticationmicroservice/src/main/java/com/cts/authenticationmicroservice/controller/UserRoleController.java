@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cts.authenticationmicroservice.model.UserRole;
 import com.cts.authenticationmicroservice.service.UserRoleService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/v1.0/userrole")
@@ -30,6 +33,8 @@ public class UserRoleController {
 //		return new ResponseEntity<>(userService.getAllUser(), HttpStatus.OK);
 //	}
 
+	@Operation(summary = "Retrieve ROLE", description = "Retrieve ROLE for access.")
+	@SecurityRequirement(name = "Bearer Authentication")
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
 	@GetMapping("/getUserByEmailId/{userName}")
 	public ResponseEntity<UserRole> getUserByUserName(@PathVariable String userName) {

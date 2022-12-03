@@ -53,6 +53,8 @@ public class DoctorController {
 		return this.doctorProxy.retrieveDoctorDetailsById(emailId);
 	}
 	
+	@Operation(summary = "Doctor Registration", description = "Admin Register the doctor details into the data base. Access by only ADMIN")
+	@SecurityRequirement(name = "Bearer Authentication")
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PostMapping("/doctorRegistration")
 	public ResponseEntity<Doctor> doctorRegistration(@RequestBody Doctor doctor){

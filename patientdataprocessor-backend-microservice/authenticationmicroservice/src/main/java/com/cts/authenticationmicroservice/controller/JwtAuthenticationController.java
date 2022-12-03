@@ -21,6 +21,8 @@ import com.cts.authenticationmicroservice.jwt.JwtResponse;
 import com.cts.authenticationmicroservice.jwt.JwtTokenUtil;
 import com.cts.authenticationmicroservice.security.UserDetailsServiceImpl;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 @CrossOrigin(origins = "*")
 @RestController
 public class JwtAuthenticationController {
@@ -36,6 +38,7 @@ public class JwtAuthenticationController {
 
 	Logger log = LoggerFactory.getLogger(AuthenticationmicroserviceApplication.class);
 
+	@Operation(summary = "Generate Jwt Token", description = "Generate Jwt Token by accessing the credentials from the data base.")
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
 
