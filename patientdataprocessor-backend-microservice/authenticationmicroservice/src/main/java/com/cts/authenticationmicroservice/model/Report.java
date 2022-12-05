@@ -20,6 +20,8 @@ import javax.persistence.Table;
 
 import org.springframework.format.datetime.DateFormatter;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -37,6 +39,7 @@ public class Report {
 //	@JoinColumn(name = "contact_number")
 	private Long contactNumber;
 	
+	@JsonFormat(pattern = "yyyy/MM/dd hh:mm:ss")
 	private Locale date;
 	
 	@Column(name="systolic")
