@@ -69,7 +69,7 @@ public class Patient {
 //	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 //	@JoinColumn(name = "contact_number")
 //	private Set<Report> reports;
-//	
+	
 //	public void addReports(Report theReport) {
 //
 //		if (reports == null) {

@@ -3,8 +3,7 @@ package com.cts.authenticationmicroservice.model;
 import java.util.Date;
 
 import javax.persistence.Id;
-
-import com.sun.istack.NotNull;
+import javax.validation.constraints.NotNull;
 
 public class Doctor {
 

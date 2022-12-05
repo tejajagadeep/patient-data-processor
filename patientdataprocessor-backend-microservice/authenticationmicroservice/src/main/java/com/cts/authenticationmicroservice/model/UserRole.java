@@ -4,8 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
-
-import com.sun.istack.NotNull;
+import javax.validation.constraints.NotNull;
 
 @Table
 @Entity
