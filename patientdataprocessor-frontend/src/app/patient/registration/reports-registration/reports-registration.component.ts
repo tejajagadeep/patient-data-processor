@@ -18,7 +18,7 @@ export class ReportsRegistrationComponent implements OnInit {
   contactNumber!: number
   errorMessageResponse!: string
   dummyNumber!: number
-  dummyDate!: Date
+  dummyDate!: DateConstructor
 
   constructor(
     private reportsService: ReportsDataService,

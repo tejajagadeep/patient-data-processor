@@ -1,6 +1,11 @@
 package com.cts.authenticationmicroservice.model;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.Locale;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -13,11 +18,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.format.datetime.DateFormatter;
+
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+//@Getter
+//@Setter
 public class Report {
 
 	@Id
@@ -30,7 +37,7 @@ public class Report {
 //	@JoinColumn(name = "contact_number")
 	private Long contactNumber;
 	
-	private Date date;
+	private Locale date;
 	
 	@Column(name="systolic")
 	private int systolic;
@@ -43,5 +50,63 @@ public class Report {
 	
 	@Column(name="sugar_level_2")
 	private int sugarlevel2;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Long getContactNumber() {
+		return contactNumber;
+	}
+
+	public void setContactNumber(Long contactNumber) {
+		this.contactNumber = contactNumber;
+	}
+
+	public Locale getDate() throws ParseException {
+		return date;
+	}
+
+	public void setDate(Locale date) {
+		this.date = date;
+	}
+
+	public int getSystolic() {
+		return systolic;
+	}
+
+	public void setSystolic(int systolic) {
+		this.systolic = systolic;
+	}
+
+	public int getDiastolic() {
+		return diastolic;
+	}
+
+	public void setDiastolic(int diastolic) {
+		this.diastolic = diastolic;
+	}
+
+	public int getSugarlevel() {
+		return sugarlevel;
+	}
+
+	public void setSugarlevel(int sugarlevel) {
+		this.sugarlevel = sugarlevel;
+	}
+
+	public int getSugarlevel2() {
+		return sugarlevel2;
+	}
+
+	public void setSugarlevel2(int sugarlevel2) {
+		this.sugarlevel2 = sugarlevel2;
+	}
+	
+	
 	
 }

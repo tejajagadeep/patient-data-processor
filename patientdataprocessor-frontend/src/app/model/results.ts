@@ -19,6 +19,6 @@ export class Results {
 
         public reticulocyte: number,
 
-        public date: Date
+        public date: DateConstructor
     ) { }
 }

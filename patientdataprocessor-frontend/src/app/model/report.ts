@@ -2,7 +2,7 @@ export class Report {
     constructor(
         public id: number,
         public contactNumber: number,
-        public date: Date,
+        public date: DateConstructor,
         public systolic: number,
         public diastolic: number,
         public sugarlevel: number,

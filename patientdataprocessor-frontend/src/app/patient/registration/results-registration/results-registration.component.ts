@@ -18,7 +18,7 @@ export class ResultsRegistrationComponent implements OnInit {
   dummyNumber!: number
   patient!: Patient
   contactNumber!: number
-  dummyDate!: Date
+  dummyDate!: DateConstructor
 
   constructor(
     private resultsService: ResultsDataService,

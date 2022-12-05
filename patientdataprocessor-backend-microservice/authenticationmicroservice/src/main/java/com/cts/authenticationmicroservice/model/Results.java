@@ -1,6 +1,7 @@
 package com.cts.authenticationmicroservice.model;
 
 import java.util.Date;
+import java.util.Locale;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,7 +20,7 @@ public class Results {
 	
 	private Long contactNumber;
 	
-	private Date date;
+	private Locale date;
 	
 	private double whiteBloodCells;
 	
