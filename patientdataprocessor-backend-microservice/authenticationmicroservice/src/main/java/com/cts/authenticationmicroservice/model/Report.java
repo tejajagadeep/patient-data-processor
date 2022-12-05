@@ -67,7 +67,7 @@ public class Report {
 		this.contactNumber = contactNumber;
 	}
 
-	public Locale getDate() throws ParseException {
+	public Locale getDate(){
 		return date;
 	}
 

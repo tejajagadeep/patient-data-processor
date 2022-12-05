@@ -99,6 +99,10 @@ public class Doctor {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
+	public Doctor() {
+		super();
+	}
 	
 	
 }
