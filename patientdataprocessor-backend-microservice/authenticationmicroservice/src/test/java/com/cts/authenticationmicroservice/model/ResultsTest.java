@@ -1,8 +1,9 @@
-package com.cts.patientdataprocessorresults.model;
+package com.cts.authenticationmicroservice.model;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Date;
+import java.util.Locale;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -15,7 +16,7 @@ class ResultsTest {
 	Results results;
 
 	private String dateString = "1999/07/28";
-	private Date date = new Date(dateString);
+	private Locale date = new Locale(dateString);
 	
 	@Test
 	void testGetterSetterId() {

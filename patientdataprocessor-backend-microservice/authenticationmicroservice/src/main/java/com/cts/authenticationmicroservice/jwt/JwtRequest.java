@@ -44,14 +44,6 @@ public class JwtRequest implements Serializable {
 		this.password = password;
 	}
 
-	public Logger getLog() {
-		return log;
-	}
-
-	public void setLog(Logger log) {
-		this.log = log;
-	}
-
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}

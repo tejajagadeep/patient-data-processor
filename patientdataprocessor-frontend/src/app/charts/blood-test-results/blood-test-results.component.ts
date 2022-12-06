@@ -80,15 +80,15 @@ export class BloodTestResultsComponent implements OnInit {
         {
           label: 'Hemoglobin',
           data: realdata3,
-          backgroundColor: '#9400D3',
-          borderColor: '#9400D3',
+          backgroundColor: '#0000CC',
+          borderColor: '#0000CC',
           borderWidth: 1
         },
         {
           label: 'Hemotocrit',
           data: realdata4,
-          backgroundColor: '#660033',
-          borderColor: '#660033',
+          backgroundColor: '#CC0099',
+          borderColor: '#CC0099',
           borderWidth: 1
         },
         {
@@ -108,8 +108,8 @@ export class BloodTestResultsComponent implements OnInit {
         {
           label: 'Platelets',
           data: realdata7,
-          backgroundColor: '#003300',
-          borderColor: '#003300',
+          backgroundColor: '#006666',
+          borderColor: '#006666',
           borderWidth: 1
         },
         {
