@@ -12,16 +12,16 @@ export class DoctorDataService {
     private http: HttpClient
   ) { }
 
-  retrieveAllDoctorDetails(){
-    return this.http.get<Doctor[]>(`${DOCTOR_API_URL}/`) 
+  retrieveAllDoctorDetails() {
+    return this.http.get<Doctor[]>(`${DOCTOR_API_URL}/`)
   }
 
-  retrieveDoctorDetailsById(emailId: string){
-    return this.http.get<Doctor>(`${DOCTOR_API_URL}/emailId/${emailId}`) 
+  retrieveDoctorDetailsById(emailId: string) {
+    return this.http.get<Doctor>(`${DOCTOR_API_URL}/emailId/${emailId}`)
   }
 
-  doctorRegistration(doctor: Doctor){
-    return this.http.post<Doctor>(`${DOCTOR_API_URL}/doctorRegistration`,doctor) 
+  doctorRegistration(doctor: Doctor) {
+    return this.http.post<Doctor>(`${DOCTOR_API_URL}/doctorRegistration`, doctor)
   }
 
 }

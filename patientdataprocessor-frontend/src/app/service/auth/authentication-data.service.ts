@@ -28,9 +28,9 @@ export class AuthenticationDataService {
     return this.httpClient.post<any>(`${API_URL}/authenticate`, { username, password }).pipe(
       map(
         userData => {
-          sessionStorage.setItem('authenticatedUser', username);
+          localStorage.setItem('authenticatedUser', username);
           let tokenStr = 'Bearer ' + userData.token;
-          sessionStorage.setItem('token', tokenStr);
+          localStorage.setItem('token', tokenStr);
           return userData;
         }
       )
@@ -39,22 +39,22 @@ export class AuthenticationDataService {
   }
 
   getAuthenticatedToken() {
-    return sessionStorage.getItem('token')
+    return localStorage.getItem('token')
   }
 
   isUserLoggedIn() {
-    // let user = sessionStorage.getItem('username')
+    // let user = localStorage.getItem('username')
     // console.log(!(user === null))
     // return !(user === null)
-    let user = sessionStorage.getItem('authenticatedUser')
+    let user = localStorage.getItem('authenticatedUser')
     if (user === null) return false
     return true
   }
 
   logOut() {
-    sessionStorage.removeItem('authenticatedUser')
-    sessionStorage.removeItem('token')
-    sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
+    localStorage.removeItem('authenticatedUser')
+    localStorage.removeItem('token')
+    localStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
   }
 
   // authenticationService(username: string, password: string): Observable<any> {
@@ -71,34 +71,34 @@ export class AuthenticationDataService {
   }
 
   registerSuccessfulLogin1(username: string, password: string) {
-    sessionStorage.setItem('authenticatedUser', username)
-    // sessionStorage.setItem('password',password)
+    localStorage.setItem('authenticatedUser', username)
+    // localStorage.setItem('password',password)
   }
 
   logout1() {
-    sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
+    localStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
     // this.username = null;
     // this.password = null;
   }
 
   isUserLoggedIn1() {
-    let user = sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
+    let user = localStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
     if (user === null) return false
     return true
   }
 
   isNavBar() {
-    let user = sessionStorage.getItem('authenticatedUser')
+    let user = localStorage.getItem('authenticatedUser')
     if (user) { return false } else {
       return true
     }
   }
 
   getLoggedInUserName() {
-    let user = sessionStorage.getItem('authenticatedUser')
+    let user = localStorage.getItem('authenticatedUser')
     if (user === null) return ''
     return user
   }
 
-  
+
 }

@@ -18,7 +18,7 @@ export class ViewPatientReportsComponent implements OnInit {
   report!: Report[]
 
   contactNumber!: number
-  
+
   constructor(
     private patientService: PatientDataService,
     private router: Router,
@@ -27,34 +27,36 @@ export class ViewPatientReportsComponent implements OnInit {
     private reportService: ReportsDataService
   ) { }
 
-  navBack(){
+  navBack() {
     this.location.back();
   }
-  
+
   ngOnInit(): void {
     this.contactNumber = this.route.snapshot.params['contactNumber']
     this.getPatient(this.contactNumber)
     this.getReports(this.contactNumber)
   }
 
-  getPatient(contactNumber1: number){
+  getPatient(contactNumber1: number) {
     this.patientService.getByContactNumber(contactNumber1).subscribe(
-      response=> this.patient=response
+      response => this.patient = response
     )
   }
 
-  getReports(contactNumber1: number){
+  getReports(contactNumber1: number) {
     this.reportService.getBycontactNumber(contactNumber1).subscribe(
-      response => this.report =response
+      response => this.report = response
     )
   }
 
-  delete(id: number){
-    if(confirm('are you sure want to delte?')){
-    this.reportService.deleteReport(id).subscribe(
-      response=>{console.log(response),
-      this.getPatient(this.contactNumber)}
-    )
+  delete(id: number) {
+    if (confirm('are you sure want to delte?')) {
+      this.reportService.deleteReport(id).subscribe(
+        response => {
+          console.log(response),
+          this.getPatient(this.contactNumber)
+        }
+      )
+    }
   }
-}
 }

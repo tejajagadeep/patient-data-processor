@@ -13,12 +13,12 @@
                     {{errorMessageResponse}}
                 </div>
 
-                
 
-                
-    
 
-                
+
+
+
+
 
                 <div class="row align-items-center pt-4 pb-3">
                     <label class="col-md-3 ps-5" for="exampleInputdisease">
@@ -34,8 +34,8 @@
                         <h6 class="mb-0">Blood Group<span class="required">*</span></h6>
                     </label>
                     <div class="form-group col-md-9 pe-5">
-                        <input type="text" class="form-control" id="bloodGroup" name="bloodGroup" placeholder="Blood Group"
-                            [(ngModel)]="patient.bloodGroup" required #bloodGroup="ngModel"
+                        <input type="text" class="form-control" id="bloodGroup" name="bloodGroup"
+                            placeholder="Blood Group" [(ngModel)]="patient.bloodGroup" required #bloodGroup="ngModel"
                             [class.is-invalid]="bloodGroup.invalid && bloodGroup.touched" />
                         <small class="text-danger" [class.d-none]="bloodGroup.valid || bloodGroup.untouched">Blood Group
                             is
@@ -51,7 +51,7 @@
                     <fieldset class="form-group col-md-9 pe-5">
                         <input type="date" class="form-control" id="dateVisited" name="dateVisited"
                             placeholder="Visited Date" [ngModel]="patient.dateVisited | date: 'yyyy-MM-dd' "
-                            (ngModelChange)="patient.dateVisited = $event"   />
+                            (ngModelChange)="patient.dateVisited = $event" />
                     </fieldset>
                 </div>
 
@@ -62,12 +62,13 @@
 
                     <fieldset class="form-group col-md-9 pe-5">
                         <input type="date" class="form-control" id="treatmentStartDate" name="treatmentStartDate"
-                            placeholder="Treatment Start Date" [ngModel]="patient.treatmentStartDate | date: 'yyyy-MM-dd' "
-                            (ngModelChange)="patient.treatmentStartDate = $event"   />
+                            placeholder="Treatment Start Date"
+                            [ngModel]="patient.treatmentStartDate | date: 'yyyy-MM-dd' "
+                            (ngModelChange)="patient.treatmentStartDate = $event" />
                     </fieldset>
                 </div>
 
-                
+
                 <div class="row align-items-center pt-4 pb-3">
                     <label class="col-md-3 ps-5" for="exampleInputpatientvisitedDate">
                         <h6 class="mb-0">Treatment End Date</h6>
@@ -76,7 +77,7 @@
                     <fieldset class="form-group col-md-9 pe-5">
                         <input type="date" class="form-control" id="treatmentEndDate" name="treatmentEndDate"
                             placeholder="Treatment End Date" [ngModel]="patient.treatmentEndDate | date: 'yyyy-MM-dd' "
-                            (ngModelChange)="patient.treatmentEndDate = $event"   />
+                            (ngModelChange)="patient.treatmentEndDate = $event" />
                     </fieldset>
                 </div>
                 <div class="row align-items-center pt-4 pb-3">
@@ -85,10 +86,8 @@
                     </label>
                     <fieldset class="form-group col-md-9 pe-5">
                         <textarea type="text" class="form-control" id="diagnosis" name="diagnosis"
-                            placeholder="Diagnosis" [(ngModel)]="patient.diagnosis" 
-                            maxlength="155" 
-                            ></textarea>
-                        
+                            placeholder="Diagnosis" [(ngModel)]="patient.diagnosis" maxlength="155"></textarea>
+
                     </fieldset>
                 </div>
                 <div class="row align-items-center pt-4 pb-3">
@@ -98,9 +97,8 @@
                     <fieldset class="form-group col-md-9 pe-5">
                         <textarea type="text" class="form-control" id="previousDiagnosis" name="previousDiagnosis"
                             placeholder="Previous Diagnosis" [(ngModel)]="patient.previousDiagnosis"
-                            maxlength="255" 
-                            ></textarea>
-                        
+                            maxlength="255"></textarea>
+
                     </fieldset>
                 </div>
                 <div class="row align-items-center pt-4 pb-3">
@@ -108,8 +106,8 @@
                         <h6 class="mb-0">Prescription</h6>
                     </label>
                     <div class="form-group col-md-9 pe-5">
-                        <input type="text" class="form-control" id="prescription" name="prescription" placeholder="Prescription"
-                            [(ngModel)]="patient.prescription">
+                        <input type="text" class="form-control" id="prescription" name="prescription"
+                            placeholder="Prescription" [(ngModel)]="patient.prescription">
                     </div>
                 </div>
                 <div class="row align-items-center pt-4 pb-3">
@@ -131,7 +129,7 @@
                     </div>
                 </div>
 
-                
+
 
                 <div class="row align-items-center pt-4 pb-3">
                     <label class="col-md-3 ps-5" for="exampleInputlastName">
@@ -152,10 +150,12 @@
                         <h6 class="mb-0">Marital Status<span class="required">*</span></h6>
                     </label>
                     <div class="form-group col-md-9 pe-5">
-                        <input type="text" class="form-control" id="maritalStatus" name="maritalStatus" placeholder="Marital Status"
-                            [(ngModel)]="patient.maritalStatus" required #maritalStatus="ngModel"
+                        <input type="text" class="form-control" id="maritalStatus" name="maritalStatus"
+                            placeholder="Marital Status" [(ngModel)]="patient.maritalStatus" required
+                            #maritalStatus="ngModel"
                             [class.is-invalid]="maritalStatus.invalid && maritalStatus.touched" />
-                        <small class="text-danger" [class.d-none]="maritalStatus.valid || maritalStatus.untouched">Marital Status
+                        <small class="text-danger"
+                            [class.d-none]="maritalStatus.valid || maritalStatus.untouched">Marital Status
                             is
                             required</small>
                     </div>
@@ -166,9 +166,10 @@
                         <h6 class="mb-0">Emergency Contact Number</h6>
                     </label>
                     <fieldset class="form-group col-md-9 pe-5">
-                        <input type="text" class="form-control" id="emergencyContactNumber" name="emergencyContactNumber" placeholder="Emergency Contact Number"
+                        <input type="text" class="form-control" id="emergencyContactNumber"
+                            name="emergencyContactNumber" placeholder="Emergency Contact Number"
                             [(ngModel)]="patient.emergencyContactNumber">
-                            
+
                     </fieldset>
                 </div>
 

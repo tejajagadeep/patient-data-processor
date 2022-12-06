@@ -14,7 +14,7 @@ export class ViewPatientDetailsComponent implements OnInit {
   patient!: Patient
   errorMessageResponse!: string
   contactNumber!: number
-  
+
   constructor(
     private patientService: PatientDataService,
     private router: Router,
@@ -22,7 +22,7 @@ export class ViewPatientDetailsComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
-  navBack(){
+  navBack() {
     this.location.back();
   }
 
@@ -31,9 +31,9 @@ export class ViewPatientDetailsComponent implements OnInit {
     this.getPatient(this.contactNumber)
   }
 
-  getPatient(contactNumber1: number){
+  getPatient(contactNumber1: number) {
     this.patientService.getByContactNumber(contactNumber1).subscribe(
-      response=> this.patient=response
+      response => this.patient = response
     )
   }
 

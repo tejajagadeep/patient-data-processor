@@ -1,4 +1,4 @@
-export class Doctor{
+export class Doctor {
     constructor(
 
         public emailId: string,
@@ -10,5 +10,5 @@ export class Doctor{
         public address: string,
         public contactNumber: number
 
-    ) {}
+    ) { }
 }

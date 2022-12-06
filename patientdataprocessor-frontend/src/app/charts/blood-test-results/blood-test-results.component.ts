@@ -17,7 +17,7 @@ export class BloodTestResultsComponent implements OnInit {
     private patientService: ResultsDataService,
     private location: Location,
     private route: ActivatedRoute
-    ) { }
+  ) { }
   chartdata: any;
   labeldata: any[] = [];
   realdata1: any[] = [];
@@ -28,10 +28,10 @@ export class BloodTestResultsComponent implements OnInit {
   realdata6: any[] = [];
   realdata7: any[] = [];
   realdata8: any[] = [];
-  navBack(){
+  navBack() {
     this.location.back();
   }
-  
+
   ngOnInit(): void {
     this.contactNumber = this.route.snapshot.params['contactNumber']
     this.patientService.getChartInfo(this.contactNumber).subscribe((result) => {
@@ -52,11 +52,11 @@ export class BloodTestResultsComponent implements OnInit {
           // this.colordata.push(this.chartdata[i].colorcode);
         }
         // this.RenderChart(this.labeldata, this.realdata, this.colordata, 'bar', 'barchart');
-        this.RenderChart(this.labeldata, this.realdata1,this.realdata2,this.realdata3,this.realdata4,this.realdata5,this.realdata6,this.realdata7,this.realdata8);
+        this.RenderChart(this.labeldata, this.realdata1, this.realdata2, this.realdata3, this.realdata4, this.realdata5, this.realdata6, this.realdata7, this.realdata8);
       }
     });
   }
-  RenderChart(labeldata: any, realdata1: any, realdata2: any,realdata3: any,realdata4: any,realdata5: any,realdata6: any,realdata7: any,realdata8: any) {
+  RenderChart(labeldata: any, realdata1: any, realdata2: any, realdata3: any, realdata4: any, realdata5: any, realdata6: any, realdata7: any, realdata8: any) {
     const myChart = new Chart("linechart", {
       type: "line",
       data: {
@@ -120,7 +120,7 @@ export class BloodTestResultsComponent implements OnInit {
           borderWidth: 1
         }]
       },
-      
+
       /* options: {
         scales: {
           y: {
@@ -129,6 +129,6 @@ export class BloodTestResultsComponent implements OnInit {
         }
       } */
     });
-}
+  }
 
 }

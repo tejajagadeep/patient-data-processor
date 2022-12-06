@@ -13,23 +13,23 @@ export class PatientDataService {
     private http: HttpClient
   ) { }
 
-  getAllPatient(){
+  getAllPatient() {
     return this.http.get<Patient[]>(`${PATIENT_API_URL}`)
   }
 
-  getByContactNumber(contactNumber: number){
+  getByContactNumber(contactNumber: number) {
     return this.http.get<Patient>(`${PATIENT_API_URL}/contactNumber/${contactNumber}`)
   }
 
-  registerPatient(patient: Patient){
-    return this.http.post<Patient>(`${PATIENT_API_URL}/registerPatient`,patient)
+  registerPatient(patient: Patient) {
+    return this.http.post<Patient>(`${PATIENT_API_URL}/registerPatient`, patient)
   }
 
-  updatePatientDetails(contactNumber: number,patient: Patient){
-    return this.http.put<Patient>(`${PATIENT_API_URL}/contactNumber/${contactNumber}`,patient)
+  updatePatientDetails(contactNumber: number, patient: Patient) {
+    return this.http.put<Patient>(`${PATIENT_API_URL}/contactNumber/${contactNumber}`, patient)
   }
 
-  deletePatient(contactNumber: number){
+  deletePatient(contactNumber: number) {
     return this.http.delete<Patient>(`${PATIENT_API_URL}/contactNumber/${contactNumber}`)
   }
 
@@ -37,5 +37,5 @@ export class PatientDataService {
   //   return this.http.get("http://localhost:3000/patients");
   // }
 
-  
+
 }

@@ -25,7 +25,7 @@ export class FooterComponent implements OnInit {
       behavior: 'smooth',
     });
   }
-  
+
   constructor() { }
 
   ngOnInit(): void {

@@ -56,12 +56,12 @@ export class LoginComponent implements OnInit {
 
 
   checkLogin1() {
- 
+
 
     this.authenticateLoginService.authenticate(this.username, this.password).subscribe(
       response => {
         this.user = response,
-        this.router.navigate(['home'])
+          this.router.navigate(['home'])
       },
       error => {
         this.errorMessage = "Invalid Credentials"
@@ -69,18 +69,18 @@ export class LoginComponent implements OnInit {
 
     );
 
-  //   this.userService.getUserByUserName(this.username).subscribe(
-  //     resp => {
-  //         console.log(resp.role)
-  //         if( resp.role == 'AMDIN'){
-  //         this.router.navigate(['admin'])
-  //       }
-  //       if(resp.role == 'DOCTOR'){
-  //         this.router.navigate(['doctor'])
-  //       }
-  // }
-  //   )
+    //   this.userService.getUserByUserName(this.username).subscribe(
+    //     resp => {
+    //         console.log(resp.role)
+    //         if( resp.role == 'AMDIN'){
+    //         this.router.navigate(['admin'])
+    //       }
+    //       if(resp.role == 'DOCTOR'){
+    //         this.router.navigate(['doctor'])
+    //       }
+    // }
+    //   )
   }
-  
+
 
 }

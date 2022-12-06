@@ -25,44 +25,45 @@ export class PatientRegistrationComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
-  navBack(){
+  navBack() {
     this.location.back();
   }
 
   ngOnInit(): void {
-    this.patient = new Patient(this.dummyNumber, '','','','',this.dummyDate,'',this.dummyNumber,'','','','','',this.dummyDate,this.dummyDate,this.dummyDate,'','','')
+    this.patient = new Patient(this.dummyNumber, '', '', '', '', this.dummyDate, '', this.dummyNumber, '', '', '', '', '', this.dummyDate, this.dummyDate, this.dummyDate, '', '', '')
   }
 
-  OnlyAlbhabets(event: any):boolean{
+  OnlyAlbhabets(event: any): boolean {
 
-    const charCode = (event.which)?event.which: event.keyCode;
+    const charCode = (event.which) ? event.which : event.keyCode;
 
-    if(charCode > 31 && (charCode < 48 || charCode > 57) || charCode == ' ') {
-       return true
+    if (charCode > 31 && (charCode < 48 || charCode > 57) || charCode == ' ') {
+      return true
     }
 
 
     return false;
   }
 
-  OnlyNumbers(event: any):boolean{
+  OnlyNumbers(event: any): boolean {
 
-    const charCode = (event.which)?event.which: event.keyCode;
+    const charCode = (event.which) ? event.which : event.keyCode;
 
-    if(charCode > 31 && (charCode < 48 || charCode > 57)) {
-       return false
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false
     }
 
 
     return true;
   }
 
-  savepatient(){
+  savepatient() {
     this.patientService.registerPatient(this.patient).subscribe(
-      response=> {this.patient=response
-      this.router.navigate(['view-patient-details',response.contactNumber])
-    },
-      error=> this.errorMessageResponse = error
+      response => {
+        this.patient = response
+        this.router.navigate(['view-patient-details', response.contactNumber])
+      },
+      error => this.errorMessageResponse = error
     )
 
   }

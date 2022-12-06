@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {​​​​​​ Chart, registerables }​​​​​​ from 'chart.js';
+import { Chart, registerables } from 'chart.js';
 import { Patient } from 'src/app/model/patient';
 import { PatientDataService } from 'src/app/service/data/patient-data.service';
 import { Location } from '@angular/common';
@@ -24,13 +24,13 @@ export class BloodPressureComponent implements OnInit {
     private reportService: ReportsDataService,
     private location: Location,
     private route: ActivatedRoute
-    ) { }
+  ) { }
   chartdata: any;
   labeldata: any[] = [];
   realdata1: any[] = [];
   realdata2: any[] = [];
 
-  navBack(){
+  navBack() {
     this.location.back();
   }
 
@@ -82,6 +82,6 @@ export class BloodPressureComponent implements OnInit {
         }
       } */
     });
-}
+  }
 
 }

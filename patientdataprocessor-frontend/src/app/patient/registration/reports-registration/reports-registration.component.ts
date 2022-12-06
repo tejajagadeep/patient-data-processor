@@ -28,30 +28,30 @@ export class ReportsRegistrationComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
-  navBack(){
+  navBack() {
     this.location.back();
-    
+
   }
 
-  getPatient(contactNumber1: number){
+  getPatient(contactNumber1: number) {
     this.patientService.getByContactNumber(contactNumber1).subscribe(
-      response=> this.patient=response
+      response => this.patient = response
     )
   }
 
   ngOnInit(): void {
     this.contactNumber = this.route.snapshot.params['contactNumber']
-    this.reports = new Report(this.dummyNumber,this.dummyNumber,this.dummyDate,this.dummyNumber,this.dummyNumber,this.dummyNumber,this.dummyNumber)
-  this.getPatient(this.contactNumber)
+    this.reports = new Report(this.dummyNumber, this.dummyNumber, this.dummyDate, this.dummyNumber, this.dummyNumber, this.dummyNumber, this.dummyNumber)
+    this.getPatient(this.contactNumber)
   }
-  
-  saveReports(){
+
+  saveReports() {
     this.reports.contactNumber = this.contactNumber
     this.reportsService.saveReport(this.reports).subscribe(
-      repsonse=> {
+      repsonse => {
         console.log(repsonse)
         // repsonse.day = new Date()
-        this.router.navigate(['view-patient-reports',this.contactNumber ])
+        this.router.navigate(['view-patient-reports', this.contactNumber])
       },
       error => this.errorMessageResponse = error.error.message
     )

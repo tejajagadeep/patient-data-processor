@@ -41,39 +41,39 @@ export class HomeComponent implements OnInit {
     this.getAllDoctors();
   }
 
-  getUser(){
+  getUser() {
     this.userService.getUserByUserName(this.username).subscribe(
-      response=> this.user=response
+      response => this.user = response
     )
   }
 
-  getAllPatients(){
+  getAllPatients() {
     this.patietnService.getAllPatient().subscribe(
-      response=> {
-        this.patients=response,
-        console.log(response)
+      response => {
+        this.patients = response,
+          console.log(response)
       }
     )
   }
 
-  getAllDoctors(){
+  getAllDoctors() {
     this.doctorService.retrieveAllDoctorDetails().subscribe(
-      response=> {
-        this.doctors=response,
-        console.log(response)
+      response => {
+        this.doctors = response,
+          console.log(response)
       }
     )
   }
 
-  deletePatient(contactNumber1: number){
-    if(confirm(`Are you sure you want to Delete Patient?`)){
-    this.patietnService.deletePatient(contactNumber1).subscribe(
-      response=> {
-        console.log(response),
-        this.getAllPatients()
-      },
-      error=> console.log(error)
-    )
+  deletePatient(contactNumber1: number) {
+    if (confirm(`Are you sure you want to Delete Patient?`)) {
+      this.patietnService.deletePatient(contactNumber1).subscribe(
+        response => {
+          console.log(response),
+            this.getAllPatients()
+        },
+        error => console.log(error)
+      )
       this.resultsService.deleteBycontactNumber(contactNumber1).subscribe(
         response => {
           console.log(response)
@@ -87,7 +87,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  logout(){
+  logout() {
     this.authService.logOut()
     this.router.navigate(['logout'])
   }

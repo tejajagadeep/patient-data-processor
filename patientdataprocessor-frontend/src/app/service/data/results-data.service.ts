@@ -12,15 +12,15 @@ export class ResultsDataService {
     private http: HttpClient
   ) { }
 
-  getByContactNumber(contactNumber: number){
+  getByContactNumber(contactNumber: number) {
     return this.http.get<Results[]>(`${RESULTS_API_URL}/contactNumber/${contactNumber}`)
   }
 
-  saveResults(results: Results){
-    return this.http.post<Results>(`${RESULTS_API_URL}/saveResults`,results)
+  saveResults(results: Results) {
+    return this.http.post<Results>(`${RESULTS_API_URL}/saveResults`, results)
   }
 
-  delete(id: number){
+  delete(id: number) {
     return this.http.delete<Results>(`${RESULTS_API_URL}/id/${id}`)
   }
 
@@ -28,7 +28,7 @@ export class ResultsDataService {
     return this.http.get(`${RESULTS_API_URL}/contactNumber/${contactNumber}`)
   }
 
-  deleteBycontactNumber(contactNumber: number){
+  deleteBycontactNumber(contactNumber: number) {
     return this.http.delete(`${RESULTS_API_URL}/contactNumber/${contactNumber}`)
   }
 }

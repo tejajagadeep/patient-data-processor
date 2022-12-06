@@ -34,33 +34,33 @@ export class ViewPatientResultsComponent implements OnInit {
     this.getAllResults(this.contactNumber)
   }
 
-  navBack(){
+  navBack() {
     this.location.back();
-    
+
   }
 
-  getPatient(contactNumber1: number){
+  getPatient(contactNumber1: number) {
     this.patientService.getByContactNumber(contactNumber1).subscribe(
-      response=> this.patient=response
+      response => this.patient = response
     )
   }
 
-  getAllResults(contactNumber1: number){
+  getAllResults(contactNumber1: number) {
     this.resultsService.getByContactNumber(contactNumber1).subscribe(
       response => this.results = response
     )
 
   }
 
-  delete(id: number){
-    if(confirm('Are you sure you want delelte?'))
-    this.resultsService.delete(id).subscribe(
-      response => {
-        console.log(response),
-        this.getAllResults(this.contactNumber)
-        this.deleteMessage = `The Result is Deleted`
-      }
-      
-    )
+  delete(id: number) {
+    if (confirm('Are you sure you want delelte?'))
+      this.resultsService.delete(id).subscribe(
+        response => {
+          console.log(response),
+            this.getAllResults(this.contactNumber)
+          this.deleteMessage = `The Result is Deleted`
+        }
+
+      )
   }
 }

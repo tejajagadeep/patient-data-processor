@@ -24,13 +24,13 @@ export class MenuComponent implements OnInit {
     this.getUser();
   }
 
-  getUser(){
+  getUser() {
     this.userService.getUserByUserName(this.username).subscribe(
-      response=> this.user=response
+      response => this.user = response
     )
   }
 
-  logout(){
+  logout() {
     this.authService.logOut()
     this.router.navigate(['logout'])
   }

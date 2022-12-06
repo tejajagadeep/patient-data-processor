@@ -3,10 +3,10 @@
 <br>
 <div class="container">
     <div class="profile-details-content">
-<br>
-<h1 class="text-center">Patient {{patient.firstName}} {{patient.lastName}} Report Details</h1>
-<br>
-<table class="table table-striped table-bordered table-light">
+        <br>
+        <h1 class="text-center">Patient {{patient.firstName}} {{patient.lastName}} Report Details</h1>
+        <br>
+        <table class="table table-striped table-bordered table-light">
             <thead>
                 <tr>
                     <th>Date and Time</th>
@@ -17,21 +17,21 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngIf="report.length===0" >
+                <tr *ngIf="report.length===0">
                     <td>NA</td>
                     <td>NA</td>
                     <td>NA</td>
                     <td>NA</td>
                     <td>NA</td>
                 </tr>
-                <tr *ngFor="let reports of report" >
-                    <td>{{reports.date}}</td>
+                <tr *ngFor="let reports of report">
+                    <td>{{reports.date | 'YYYY-MM-dd hh:mm:ss '}}</td>
                     <td>{{reports.systolic}}</td>
                     <td>{{reports.diastolic}}</td>
                     <td>{{reports.sugarlevel}}</td>
-                    <td><button (click) = "delete(reports.id)" class="btn btn-danger">Delete</button></td>
+                    <td><button (click)="delete(reports.id)" class="btn btn-danger">Delete</button></td>
                 </tr>
-                 
+
 
             </tbody>
         </table>
@@ -47,17 +47,21 @@
             <button
                 *ngIf="user.role === 'Admin' && (patient.patientOwner === username || patient.patientManagerName === userByName.name)"
                 (click)="updatepatient(patient.patientId)" class="btn btn-warning">Update</button> -->
-                <button type="button" class="btn btn-primary btn-lg" (click)="navBack()">Back</button>
-                <button type="button" class="btn btn-secondary btn-lg" [routerLink]="['/view-patient-details/',contactNumber]">Patient Details</button>
-                <button type="button" class="btn btn-info btn-lg" [routerLink]="['/charts-bp/',contactNumber]">Blood Presure Analysis</button>
-                <button type="button" class="btn btn-info btn-lg" [routerLink]="['/charts-sugar/',contactNumber]">Sugar Level Analysis</button>
+            <button type="button" class="btn btn-primary btn-lg" (click)="navBack()">Back</button>
+            <button type="button" class="btn btn-secondary btn-lg"
+                [routerLink]="['/view-patient-details/',contactNumber]">Patient Details</button>
+            <button type="button" class="btn btn-info btn-lg" [routerLink]="['/charts-bp/',contactNumber]">Blood Presure
+                Analysis</button>
+            <button type="button" class="btn btn-info btn-lg" [routerLink]="['/charts-sugar/',contactNumber]">Sugar
+                Level Analysis</button>
 
-            <button class="btn btn-warning btn-lg" [routerLink]="['/reports-registration/',patient.contactNumber]">Add Reports</button>
+            <button class="btn btn-warning btn-lg" [routerLink]="['/reports-registration/',patient.contactNumber]">Add
+                Reports</button>
         </div>
         <br>
 
         <br>
-<br>
+        <br>
     </div>
 </div>
 

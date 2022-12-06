@@ -12,19 +12,19 @@ export class ReportsDataService {
     private http: HttpClient
   ) { }
 
-  getBycontactNumber(contactNumber: number){
+  getBycontactNumber(contactNumber: number) {
     return this.http.get<Report[]>(`${REPORT_API_URL}/contactNumber/${contactNumber}`)
   }
 
-  saveReport(reports: Report){
-    return this.http.post<Report>(`${REPORT_API_URL}/saveReport`,reports)
+  saveReport(reports: Report) {
+    return this.http.post<Report>(`${REPORT_API_URL}/saveReport`, reports)
   }
 
-  deleteReport(id: number){
+  deleteReport(id: number) {
     return this.http.delete<Report>(`${REPORT_API_URL}/id/${id}`)
   }
 
-  deleteBycontactNumber(contactNumber: number){
+  deleteBycontactNumber(contactNumber: number) {
     return this.http.delete(`${REPORT_API_URL}/contactNumber/${contactNumber}`)
   }
 
@@ -32,5 +32,5 @@ export class ReportsDataService {
     return this.http.get(`${REPORT_API_URL}/contactNumber/${contactNumber}`)
   }
 
-  
+
 }

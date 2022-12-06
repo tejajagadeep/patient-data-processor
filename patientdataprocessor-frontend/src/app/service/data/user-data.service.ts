@@ -12,7 +12,7 @@ export class UserDataService {
     private http: HttpClient
   ) { }
 
-  getUserByUserName(userName: string){
+  getUserByUserName(userName: string) {
     return this.http.get<User>(`${USER_API_URL}/getUserByEmailId/${userName}`)
   }
 }

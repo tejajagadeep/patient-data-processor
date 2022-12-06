@@ -1,4 +1,4 @@
-<section class="h-100 h-custom" style="background-color: #8fc4b7;">
+<section class="h-100 h-custom" style="background-color: #8fc4b7;" *ngIf="user.role ==='ADMIN'">
     <div class="container">
 
         <form class="card" style="border-radius: 15px;" #RegisterForm="ngForm" (ngSubmit)="doctorRegistration()">
@@ -18,7 +18,8 @@
                     <div class="form-group col-md-9 pe-5">
                         <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name"
                             [(ngModel)]="doctor.firstName" required #firstName="ngModel"
-                            [class.is-invalid]="firstName.invalid && firstName.touched" (keypress)="OnlyAlbhabets($event)"/>
+                            [class.is-invalid]="firstName.invalid && firstName.touched"
+                            (keypress)="OnlyAlbhabets($event)" />
                         <small class="text-danger" [class.d-none]="firstName.valid || firstName.untouched">First Name
                             is
                             required</small>
@@ -32,7 +33,8 @@
                     <div class="form-group col-md-9 pe-5">
                         <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name"
                             [(ngModel)]="doctor.lastName" required #lastName="ngModel"
-                            [class.is-invalid]="lastName.invalid && lastName.touched" (keypress)="OnlyAlbhabets($event)"/>
+                            [class.is-invalid]="lastName.invalid && lastName.touched"
+                            (keypress)="OnlyAlbhabets($event)" />
                         <small class="text-danger" [class.d-none]="lastName.valid || lastName.untouched">Last Name
                             is
                             required</small>
@@ -44,15 +46,18 @@
                         <h6 class="mb-0">Contact Number<span class="required">*</span></h6>
                     </label>
                     <div class="form-group col-md-9 pe-5">
-                        <input type="tel" [(ngModel)]="doctor.contactNumber" class="form-control" name="contactNumber" placeholder="Contact Number"
-                        pattern="[0-9]{10}" title="must have 10 numbers"  maxlength="10"  required #contactNumber="ngModel"
-                        [class.is-invalid]="contactNumber.invalid && contactNumber.touched" (keypress)="OnlyNumbers($event)"/>
-                        <small class="text-danger" [class.d-none]="contactNumber.valid || contactNumber.untouched">Contact Number
+                        <input type="tel" [(ngModel)]="doctor.contactNumber" class="form-control" name="contactNumber"
+                            placeholder="Contact Number" pattern="[0-9]{10}" title="must have 10 numbers" maxlength="10"
+                            required #contactNumber="ngModel"
+                            [class.is-invalid]="contactNumber.invalid && contactNumber.touched"
+                            (keypress)="OnlyNumbers($event)" />
+                        <small class="text-danger"
+                            [class.d-none]="contactNumber.valid || contactNumber.untouched">Contact Number
                             is
                             required</small>
                     </div>
                 </div>
-    
+
 
                 <!-- <div class="row align-items-center pt-4 pb-3">
                     <label class="col-md-3 ps-5" for="exampleInputlastName">
@@ -78,31 +83,31 @@
                             placeholder="Date Of Birth" [ngModel]="doctor.dateOfBirth | date: 'yyyy-MM-dd' "
                             (ngModelChange)="doctor.dateOfBirth = $event" required #dateOfBirth="ngModel"
                             [class.is-invalid]="dateOfBirth.invalid && dateOfBirth.touched" />
-                           
-                        <small class="text-danger"
-                            [class.d-none]="dateOfBirth.valid || dateOfBirth.untouched">Date Of Birth
+
+                        <small class="text-danger" [class.d-none]="dateOfBirth.valid || dateOfBirth.untouched">Date Of
+                            Birth
                             is a required field.</small>
                     </fieldset>
                 </div>
 
                 <div class="row align-items-center pt-4 pb-3">
                     <label class="form-label col-md-3 ps-5" for="exampleInputgender">
-                      <h6 class="mb-0">Gender<span class="required">*</span></h6>
+                        <h6 class="mb-0">Gender<span class="required">*</span></h6>
                     </label>
                     <div class="form-group col-md-9 pe-5">
-                      <select class="form-control" name="gender" id="gender" [(ngModel)]="doctor.gender" required #gender="ngModel"
-                      [class.is-invalid]="gender.invalid && gender.touched">
-                        <option value="" selected>Select Gender</option>
-                        <option value="Admin">Male</option>
-                        <option value="Member">Female</option>
-                      </select>
-                      
-                        <small class="text-danger" [class.d-none]="gender.valid || gender.untouched">Gender is a
-                          required field.</small>
-                    </div>
-                  </div>
+                        <select class="form-control" name="gender" id="gender" [(ngModel)]="doctor.gender" required
+                            #gender="ngModel" [class.is-invalid]="gender.invalid && gender.touched">
+                            <option value="" selected>Select Gender</option>
+                            <option value="Admin">Male</option>
+                            <option value="Member">Female</option>
+                        </select>
 
-                  <div class="row align-items-center pt-4 pb-3">
+                        <small class="text-danger" [class.d-none]="gender.valid || gender.untouched">Gender is a
+                            required field.</small>
+                    </div>
+                </div>
+
+                <div class="row align-items-center pt-4 pb-3">
                     <label class="col-md-3 ps-5" for="exampleInputAddress">
                         <h6 class="mb-0">Address<span class="required">*</span></h6>
                     </label>
@@ -121,13 +126,11 @@
                         <h6 class="mb-0">Email Id<span class="required">*</span></h6>
                     </label>
                     <fieldset class="form-group col-md-9 pe-5">
-                        <input type="emailId" class="form-control" id="emailId" name="emailId"
-                            placeholder="Email Id" [(ngModel)]="doctor.emailId"
-                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required #emailId="ngModel"
-                            [class.is-invalid]="emailId.invalid && emailId.touched" />
-                            
-                        <small class="text-danger"
-                            [class.d-none]="emailId.valid || emailId.untouched"> Email Id is
+                        <input type="emailId" class="form-control" id="emailId" name="emailId" placeholder="Email Id"
+                            [(ngModel)]="doctor.emailId" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required
+                            #emailId="ngModel" [class.is-invalid]="emailId.invalid && emailId.touched" />
+
+                        <small class="text-danger" [class.d-none]="emailId.valid || emailId.untouched"> Email Id is
                             required</small>
                     </fieldset>
                 </div>
@@ -159,6 +162,10 @@
     </div>
 </section>
 
+<div *ngIf="user.role ==='DOCTOR'">
+    <app-home></app-home>
+</div>
+
 <!-- <mat-form-field>
     <mat-label>
         emailIds
@@ -170,4 +177,3 @@
         </mat-option>
     </mat-autocomplete>
 </mat-form-field> -->
-

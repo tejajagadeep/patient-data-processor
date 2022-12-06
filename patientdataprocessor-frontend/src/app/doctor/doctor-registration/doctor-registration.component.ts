@@ -3,6 +3,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Doctor } from 'src/app/model/doctor';
 import { DoctorDataService } from 'src/app/service/data/doctor-data.service';
 import { Location } from '@angular/common';
+import { PatientDataService } from 'src/app/service/data/patient-data.service';
+import { AuthenticationDataService } from 'src/app/service/auth/authentication-data.service';
+import { UserDataService } from 'src/app/service/data/user-data.service';
+import { User } from 'src/app/model/user';
 
 @Component({
   selector: 'app-doctor-registration',
@@ -12,6 +16,8 @@ import { Location } from '@angular/common';
 export class DoctorRegistrationComponent implements OnInit {
 
   doctor!: Doctor
+  user!: User
+  username!: string
 
   dummyNumber!: number
   dummyDate!: Date
@@ -19,23 +25,33 @@ export class DoctorRegistrationComponent implements OnInit {
   errorMessageResponse!: string
 
   constructor(
+    private authService: AuthenticationDataService,
+    private userService: UserDataService,
     private doctorService: DoctorDataService,
     private router: Router,
     private location: Location,
     private route: ActivatedRoute
   ) { }
 
-  navBack(){
+  navBack() {
     this.location.back();
   }
-  
+
   ngOnInit(): void {
-    this.doctor = new Doctor('','','','',this.dummyDate,'','',this.dummyNumber)
+    this.doctor = new Doctor('', '', '', '', this.dummyDate, '', '', this.dummyNumber)
+    this.username = this.authService.getLoggedInUserName();
+    this.getUser();
   }
 
-  doctorRegistration(){
+  getUser() {
+    this.userService.getUserByUserName(this.username).subscribe(
+      response => this.user = response
+    )
+  }
+
+  doctorRegistration() {
     this.doctorService.doctorRegistration(this.doctor).subscribe(
-      response=>{
+      response => {
         this.doctor = response
         this.router.navigate(['home'])
       },
@@ -43,24 +59,24 @@ export class DoctorRegistrationComponent implements OnInit {
     )
   }
 
-  OnlyAlbhabets(event: any):boolean{
+  OnlyAlbhabets(event: any): boolean {
 
-    const charCode = (event.which)?event.which: event.keyCode;
+    const charCode = (event.which) ? event.which : event.keyCode;
 
-    if(charCode > 31 && (charCode < 48 || charCode > 57) || charCode == ' ') {
-       return true
+    if (charCode > 31 && (charCode < 48 || charCode > 57) || charCode == ' ') {
+      return true
     }
 
 
     return false;
   }
 
-  OnlyNumbers(event: any):boolean{
+  OnlyNumbers(event: any): boolean {
 
-    const charCode = (event.which)?event.which: event.keyCode;
+    const charCode = (event.which) ? event.which : event.keyCode;
 
-    if(charCode > 31 && (charCode < 48 || charCode > 57)) {
-       return false
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false
     }
 
 

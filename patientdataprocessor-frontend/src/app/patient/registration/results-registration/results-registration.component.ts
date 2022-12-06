@@ -30,39 +30,39 @@ export class ResultsRegistrationComponent implements OnInit {
 
   ngOnInit(): void {
     this.contactNumber = this.route.snapshot.params['contactNumber']
-    this.results = new Results(this.dummyNumber,this.dummyNumber,this.dummyNumber,this.dummyNumber,this.dummyNumber,this.dummyNumber,this.dummyNumber,this.dummyNumber,this.dummyNumber,this.dummyNumber,this.dummyDate)
-  this.getPatient(this.contactNumber)
-}
-OnlyNumbers(event: any):boolean{
-
-  const charCode = (event.which)?event.which: event.keyCode;
-
-  if(charCode < 31 && (charCode < 48 || charCode > 57)  || charCode == '.') {
-     return true
+    this.results = new Results(this.dummyNumber, this.dummyNumber, this.dummyNumber, this.dummyNumber, this.dummyNumber, this.dummyNumber, this.dummyNumber, this.dummyNumber, this.dummyNumber, this.dummyNumber, this.dummyDate)
+    this.getPatient(this.contactNumber)
   }
+  OnlyNumbers(event: any): boolean {
+
+    const charCode = (event.which) ? event.which : event.keyCode;
+
+    if (charCode < 31 && (charCode < 48 || charCode > 57) || charCode == '.') {
+      return true
+    }
 
 
-  return false;
-}
-getPatient(contactNumber1: number){
-  this.patientService.getByContactNumber(contactNumber1).subscribe(
-    response=> this.patient=response
-  )
-}
-  saveResults(){
+    return false;
+  }
+  getPatient(contactNumber1: number) {
+    this.patientService.getByContactNumber(contactNumber1).subscribe(
+      response => this.patient = response
+    )
+  }
+  saveResults() {
     this.results.contactNumber = this.contactNumber;
     this.resultsService.saveResults(this.results).subscribe(
-      repsonse=> {
+      repsonse => {
         console.log(repsonse)
         // repsonse.day = new Date()
-        this.router.navigate(['view-patient-results',this.contactNumber ])
+        this.router.navigate(['view-patient-results', this.contactNumber])
       },
       error => this.errorMessageResponse = error.error.message
     )
   }
 
-  navBack(){
+  navBack() {
     this.location.back();
-    
+
   }
 }

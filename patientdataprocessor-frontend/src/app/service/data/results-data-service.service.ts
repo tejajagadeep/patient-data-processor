@@ -12,11 +12,11 @@ export class ResultsDataServiceService {
     private http: HttpClient
   ) { }
 
-  getByContactNumber(contactNumber: number){
+  getByContactNumber(contactNumber: number) {
     return this.http.get<Results>(`${RESULTS_API_URL}/contactNumber/${contactNumber}`)
   }
 
-  saveResults(results: Results){
-    return this.http.post<Results>(`${RESULTS_API_URL}`,results)
+  saveResults(results: Results) {
+    return this.http.post<Results>(`${RESULTS_API_URL}`, results)
   }
 }
