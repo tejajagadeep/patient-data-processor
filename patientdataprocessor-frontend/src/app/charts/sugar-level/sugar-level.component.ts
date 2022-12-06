@@ -16,9 +16,10 @@ Chart.register(...registerables);
 export class SugarLevelComponent implements OnInit {
 
   contactNumber!: number
+  patient!: Patient
 
   constructor(
-    // private patientService: PatientDataService,
+    private patientService: PatientDataService,
     private reportService: ReportsDataService,
     private location: Location,
     private route: ActivatedRoute
@@ -33,6 +34,8 @@ export class SugarLevelComponent implements OnInit {
 
   ngOnInit(): void {
     this.contactNumber = this.route.snapshot.params['contactNumber']
+    this.getPatient(this.contactNumber)
+
     this.reportService.getChartInfo(this.contactNumber).subscribe((result) => {
       this.chartdata = result;
       if (this.chartdata != null) {
@@ -55,7 +58,7 @@ export class SugarLevelComponent implements OnInit {
       data: {
         labels: labeldata,
         datasets: [{
-          label: 'Sugar Level before fasting',
+          label: 'Sugar Level Before Fasting',
           data: realdata1,
           backgroundColor: '#3202C5',
           // borderColor: '#05445E',
@@ -63,7 +66,7 @@ export class SugarLevelComponent implements OnInit {
           borderWidth: 1
         },
         {
-          label: 'Sugar Level after fasting ',
+          label: 'Sugar Level After Fasting ',
           data: realdata2,
           backgroundColor: '#FF7F00',
           borderColor: '#FF7F00',
@@ -81,4 +84,9 @@ export class SugarLevelComponent implements OnInit {
     });
   }
 
+  getPatient(contactNumber1: number) {
+    this.patientService.getByContactNumber(contactNumber1).subscribe(
+      response => this.patient = response
+    )
+  }
 }

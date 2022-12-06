@@ -37,6 +37,7 @@ export class BloodPressureComponent implements OnInit {
   ngOnInit(): void {
 
     this.contactNumber = this.route.snapshot.params['contactNumber']
+    this.getPatient(this.contactNumber)
 
     this.reportService.getChartInfo(this.contactNumber).subscribe((result) => {
       this.chartdata = result;
@@ -82,6 +83,11 @@ export class BloodPressureComponent implements OnInit {
         }
       } */
     });
+  }
+  getPatient(contactNumber1: number) {
+    this.patientService.getByContactNumber(contactNumber1).subscribe(
+      response => this.patient = response
+    )
   }
 
 }

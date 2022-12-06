@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ResultsDataService } from 'src/app/service/data/results-data.service';
 import { Location } from '@angular/common';
 import { Chart } from 'chart.js';
+import { Patient } from 'src/app/model/patient';
+import { PatientDataService } from 'src/app/service/data/patient-data.service';
 
 @Component({
   selector: 'app-blood-test-results',
@@ -12,9 +14,11 @@ import { Chart } from 'chart.js';
 export class BloodTestResultsComponent implements OnInit {
 
   contactNumber!: number
+  patient!: Patient
 
   constructor(
-    private patientService: ResultsDataService,
+    private patientService: PatientDataService,
+    private resultsService: ResultsDataService,
     private location: Location,
     private route: ActivatedRoute
   ) { }
@@ -34,7 +38,8 @@ export class BloodTestResultsComponent implements OnInit {
 
   ngOnInit(): void {
     this.contactNumber = this.route.snapshot.params['contactNumber']
-    this.patientService.getChartInfo(this.contactNumber).subscribe((result) => {
+    this.getPatient(this.contactNumber)
+    this.resultsService.getChartInfo(this.contactNumber).subscribe((result) => {
       this.chartdata = result;
       if (this.chartdata != null) {
         for (let i = 0; i < this.chartdata.length; i++) {
@@ -129,6 +134,12 @@ export class BloodTestResultsComponent implements OnInit {
         }
       } */
     });
+  }
+
+  getPatient(contactNumber1: number) {
+    this.patientService.getByContactNumber(contactNumber1).subscribe(
+      response => this.patient = response
+    )
   }
 
 }
