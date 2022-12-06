@@ -21,15 +21,15 @@ public interface ReportProxy {
 //	@GetMapping("/api/v1.0/report/getAllReports")
 //	public ResponseEntity<List<Report>> getAllReports();
 	
-	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
+	@PreAuthorize("hasRole('ROLE_DOCTOR')")
 	@GetMapping("/api/v1.0/report/contactNumber/{contactNumber}")
 	public ResponseEntity<List<Report>> getAllByContactNumber(@PathVariable Long contactNumber);
 	
-	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
+	@PreAuthorize("hasRole('ROLE_DOCTOR')")
 	@PostMapping("/api/v1.0/report/saveReport")
 	public ResponseEntity<Report> saveReport(@RequestBody Report report);
 	
-	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
+	@PreAuthorize("hasRole('ROLE_DOCTOR')")
 	@DeleteMapping("/api/v1.0/report/id/{id}")
 	public ResponseEntity<List<Report>> delete(@PathVariable int id);
 	

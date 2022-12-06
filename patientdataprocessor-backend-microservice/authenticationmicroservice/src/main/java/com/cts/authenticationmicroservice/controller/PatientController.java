@@ -32,7 +32,7 @@ public class PatientController {
 	
 	@Operation(summary = "Retrieve All Patients' Details", description = "Retrieve all the Patients' details from the data base.")
 	@SecurityRequirement(name = "Bearer Authentication")
-	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
+	@PreAuthorize("hasRole('ROLE_DOCTOR')")
 	@GetMapping("")
 	public List<Patient> getAllPatients() {
 	   return this.proxy.getAllPatients();
@@ -40,7 +40,7 @@ public class PatientController {
 	
 	@Operation(summary = "Retrieve Patient's Details", description = "Retrieve the Patient's details from the data base by Contact Number.")
 	@SecurityRequirement(name = "Bearer Authentication")
-	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
+	@PreAuthorize("hasRole('ROLE_DOCTOR')")
 	@GetMapping("/contactNumber/{contactNumber}")
 	public Patient getByContactNumber(@PathVariable Long contactNumber) {
 		return this.proxy.getByContactNumber(contactNumber);
@@ -54,7 +54,7 @@ public class PatientController {
 	
 	@Operation(summary = "Patient Registration", description = "Doctor will register the Patient's details into the data base so he can retrieve at later point.")
 	@SecurityRequirement(name = "Bearer Authentication")
-	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
+	@PreAuthorize("hasRole('ROLE_DOCTOR')")
 	@PostMapping("/registerPatient")
 	public Patient registerPatient(@RequestBody Patient patient) {
 		return this.proxy.registerPatient(patient);
@@ -62,7 +62,7 @@ public class PatientController {
 	
 	@Operation(summary = "Save Patient's Medical Record Details", description = "Doctor will save the Patient's Medical Record details into the data base so he can retrieve at later point.")
 	@SecurityRequirement(name = "Bearer Authentication")
-	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
+	@PreAuthorize("hasRole('ROLE_DOCTOR')")
 	@PutMapping("/contactNumber/{contactNumber}")
 	public Patient updatePatientDetails(@PathVariable Long contactNumber, @RequestBody Patient patient) {
 		return this.proxy.updatePatientDetails(contactNumber, patient);
@@ -70,7 +70,7 @@ public class PatientController {
 	
 	@Operation(summary = "Delete Patient's Details", description = "Delete the Patient's details from the data base by Contact Number.")
 	@SecurityRequirement(name = "Bearer Authentication")
-	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
+	@PreAuthorize("hasRole('ROLE_DOCTOR')")
 	@DeleteMapping("/contactNumber/{contactNumber}")
 	public List<Patient> deletePatient(@PathVariable Long contactNumber) {
 		return this.proxy.deletePatient(contactNumber);

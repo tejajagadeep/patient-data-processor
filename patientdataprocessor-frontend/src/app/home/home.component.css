@@ -174,3 +174,28 @@ html {
     background: #ddd;
     color: black;
 }
+
+.banner-image
+
+{
+
+    background-image: url(img/bg-home.png);
+
+    background-size: cover;
+
+    background-attachment: flex;
+
+    height:auto;
+
+    width: auto;
+
+    padding: auto;
+
+
+
+}
+
+.black {
+    color: #020202;
+    text-transform: uppercase;
+}

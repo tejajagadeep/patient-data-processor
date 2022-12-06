@@ -31,7 +31,7 @@ public class ResultsController {
 	
 	@Operation(summary = "Retrieve Patient's Results", description = "Retrieve Blood Test results of a Patient from the data base for analysis.")
 	@SecurityRequirement(name = "Bearer Authentication")
-	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
+	@PreAuthorize("hasRole('ROLE_DOCTOR')")
 	@GetMapping("/contactNumber/{contactNumber}")
 	public ResponseEntity<List<Results>> getByContactNumber(@PathVariable Long contactNumber) {
 		return this.resultsproxy.getByContactNumber(contactNumber);
@@ -39,7 +39,7 @@ public class ResultsController {
 	
 	@Operation(summary = "Save Patient's Result Details", description = "Save Blood Test Result Details of a Patient into the data base to analyse later.")
 	@SecurityRequirement(name = "Bearer Authentication")
-	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
+	@PreAuthorize("hasRole('ROLE_DOCTOR')")
 	@PostMapping("/saveResults")
 	public ResponseEntity<Results> saveResults(@RequestBody Results results) {
 		return this.resultsproxy.saveResults(results);
@@ -47,7 +47,7 @@ public class ResultsController {
 	
 	@Operation(summary = "Delete Patient's Result Details", description = "Delete the Patient's Blood Test Result details from the data base by Id.")
 	@SecurityRequirement(name = "Bearer Authentication")
-	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
+	@PreAuthorize("hasRole('ROLE_DOCTOR')")
 	@DeleteMapping("/id/{id}")
 	public ResponseEntity<List<Results>> delete(@PathVariable int id) {
 		return this.resultsproxy.delete(id);
@@ -55,7 +55,7 @@ public class ResultsController {
 	
 	@Operation(summary = "Delete Patient's Results", description = "Delete All the Blood Test Results details of a Patient from the data base by Contact Number.")
 	@SecurityRequirement(name = "Bearer Authentication")
-	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
+	@PreAuthorize("hasRole('ROLE_DOCTOR')")
 	@DeleteMapping("/contactNumber/{contactNumber}")
 	public ResponseEntity<List<Results>> deleteAllByContactNumber(@PathVariable Long contactNumber) {
 		return this.resultsproxy.deleteAllByContactNumber(contactNumber);

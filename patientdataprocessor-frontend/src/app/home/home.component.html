@@ -5,13 +5,14 @@
       <div class="container-fluid">
         <!-- <a class="navbar-brand" routerLink="/doctor-registration" *ngIf="user.role ==='ADMIN'">Add Doctor</a> -->
         <!-- <a class="navbar-brand" routerLink="/patient-registration" *ngIf="user.role ==='DOCTOR'">Add Patient</a> -->
+        <a class="navbar-brand" href="#">Patient Data Processor</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-          <a id="mybutton1" class="btn btn-primary text-white me-2" routerLink="/home">Home</a>
+          
+          <a id="mybutton1" class="btn btn-secondary text-white me-2" routerLink="/home">Home</a>
           <button class="btn btn btn-success mr-1 me-2" routerLink="/patient-registration" *ngIf="user.role ==='DOCTOR'"
             data-bs-toggle="modal" data-bs-target="#addHospital" type="submit">Add Patient</button>
           <button class="btn btn btn-success mr-1 me-2" routerLink="/doctor-registration" *ngIf="user.role ==='ADMIN'"
@@ -21,8 +22,7 @@
 
 
         <div class="d-flex justify-content-around pt-3">
-          <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
-            placeholder="search...">&nbsp;&nbsp;
+         
           <button id="mybutton" class="btn btn-danger text-white me-2" (click)="logout()">Logout</button>
         </div>
 
@@ -30,6 +30,46 @@
 
     </nav>
 
+    <div class="banner-image w-100 d-flex justify-content-center align-items-center">
+
+      <div class="content text-center">
+
+        <br><br><br><br><br>
+
+
+
+        <h1 *ngIf="user.role ==='ADMIN'">
+          <p class="black">Welcome Admin.....</p><br>
+        </h1>
+        <h1 *ngIf="user.role ==='DOCTOR'">
+          <p class="black">Welcome {{doctor.firstName}} {{doctor.lastName}}.....</p><br>
+        </h1>
+
+        <br>
+        <p *ngIf="user.role ==='DOCTOR'" class="content text-center text-white ">Search For A Patient...</p>
+        <p *ngIf="user.role ==='ADMIN'" class="content text-center text-white ">Search For A Doctor...</p>
+
+        <div class="search-container">
+
+            <input type="text" name="search" placeholder="Search..." [(ngModel)]="searchText" autocomplete="off" class="search-input" >
+
+
+            <span class="material-icons">
+
+              search
+
+            </span>
+
+
+        </div>
+
+        <br><br><br>
+
+      </div>
+
+
+
+    </div>
 
     <!-- Patients -->
     <!--Card View-->
@@ -41,7 +81,7 @@
         <img src="../assets/image/hospital.jpg"  height="100%" width="100%">
     </div> -->
 
-        <div class="col-sm-3" *ngFor="let hospital of patients | filter : searchText">
+        <div class="col-sm-4" *ngFor="let hospital of patients | filter : searchText">
           &nbsp;
           <div class="card" style="width:18rem;">
             <div class="card-header text-center text-primary">
@@ -120,7 +160,7 @@
         <img src="../assets/image/hospital.jpg"  height="100%" width="100%">
     </div> -->
 
-        <div class="col-sm-3" *ngFor="let hospital of doctors | filter : searchText ">
+        <div class="col-sm-4" *ngFor="let hospital of doctors | filter : searchText ">
 
           <div class="card" style="width:18rem;">
             <div class="card-header text-center text-primary">
@@ -192,6 +232,7 @@
     </footer>
 
   </div>
+</div>
 
 
 

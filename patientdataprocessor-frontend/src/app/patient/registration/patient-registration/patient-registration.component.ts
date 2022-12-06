@@ -63,7 +63,7 @@ export class PatientRegistrationComponent implements OnInit {
         this.patient = response
         this.router.navigate(['view-patient-details', response.contactNumber])
       },
-      error => this.errorMessageResponse = error
+      error => this.errorMessageResponse = "Phone number already exists"
     )
 
   }

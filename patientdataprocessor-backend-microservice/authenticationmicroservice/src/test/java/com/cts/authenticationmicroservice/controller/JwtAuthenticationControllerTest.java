@@ -83,7 +83,6 @@ class JwtAuthenticationControllerTest {
 		ResponseEntity<?> resposne = jwtAuthenticationController.createAuthenticationToken(jwtRequest);
 		
 		assertEquals(HttpStatus.OK, resposne.getStatusCode());
-		assertThrows(Exception.class, ()->jwtAuthenticationController.createAuthenticationToken(jwtRequest));
 	}
 //	void authenticateTest(String username, String password) {
 //		

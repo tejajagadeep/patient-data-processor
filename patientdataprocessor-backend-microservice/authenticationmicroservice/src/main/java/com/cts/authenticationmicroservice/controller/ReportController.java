@@ -37,7 +37,7 @@ public class ReportController {
 	
 	@Operation(summary = "Retrieve Patient's Report", description = "Retrieve blood pressure and sugar level of a Patient's Report details from the data base for analysis.")
 	@SecurityRequirement(name = "Bearer Authentication")
-	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
+	@PreAuthorize("hasRole('ROLE_DOCTOR')")
 	@GetMapping("/contactNumber/{contactNumber}")
 	public ResponseEntity<List<Report>> getAllByContactNumber(@PathVariable Long contactNumber){
 		return this.reportProxy.getAllByContactNumber(contactNumber);
@@ -45,7 +45,7 @@ public class ReportController {
 	
 	@Operation(summary = "Save Patient's Report Details", description = "Save blood pressure and sugar level of a Patient's Report details into the data base to analyse later.")
 	@SecurityRequirement(name = "Bearer Authentication")
-	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
+	@PreAuthorize("hasRole('ROLE_DOCTOR')")
 	@PostMapping("/saveReport")
 	public ResponseEntity<Report> saveReport(@RequestBody Report report){
 		
@@ -54,7 +54,7 @@ public class ReportController {
 	
 	@Operation(summary = "Delete Patient's Report Details", description = "Delete the Patient's Report details from the data base by Id.")
 	@SecurityRequirement(name = "Bearer Authentication")
-	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
+	@PreAuthorize("hasRole('ROLE_DOCTOR')")
 	@DeleteMapping("/id/{id}")
 	public ResponseEntity<List<Report>> delete(@PathVariable int id){
 		return this.reportProxy.delete(id);
@@ -62,7 +62,7 @@ public class ReportController {
 	
 	@Operation(summary = "Delete Patient's Report Details", description = "Delete All the Report details of a Patient from the data base by Contact Number.")
 	@SecurityRequirement(name = "Bearer Authentication")
-	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
+	@PreAuthorize("hasRole('ROLE_DOCTOR')")
 	@DeleteMapping("/contactNumber/{contactNumber}")
 	public ResponseEntity<List<Report>> deleteAllByContactNumber(@PathVariable Long contactNumber){
 		return this.reportProxy.deleteAllByContactNumber(contactNumber);

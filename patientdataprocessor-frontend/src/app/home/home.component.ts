@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
 
   patients!: Patient[]
   doctors!: Doctor[]
+  doctor!: Doctor
   //user
   username!: string
   user!: User
@@ -36,6 +37,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.username = this.authService.getLoggedInUserName();
+    this.getdoctorById(this.username)
     this.getUser();
     this.getAllPatients();
     this.getAllDoctors();
@@ -53,6 +55,12 @@ export class HomeComponent implements OnInit {
         this.patients = response,
           console.log(response)
       }
+    )
+  }
+
+  getdoctorById(email: string){
+    this.doctorService.retrieveDoctorDetailsById(email).subscribe(
+      response => this.doctor = response
     )
   }
 
