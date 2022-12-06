@@ -61,7 +61,7 @@ public class JwtAuthenticationController {
 			log.info("inside authenticate DisabledException of JwtAuthenticationController class");
 			throw new Exception("USER_DISABLED", e);
 		} catch (BadCredentialsException e) {
-			log.info("inside authenticate  DisabledException of JwtAuthenticationController class");
+			log.info("inside authenticate  BadCredentialsException of JwtAuthenticationController class");
 			throw new Exception("INVALID_CREDENTIALS", e);
 		}
 	}

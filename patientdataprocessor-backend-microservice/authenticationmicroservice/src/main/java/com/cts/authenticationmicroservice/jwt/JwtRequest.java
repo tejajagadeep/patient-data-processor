@@ -21,8 +21,6 @@ public class JwtRequest implements Serializable {
 	private String username;
 	private String password;
 
-	Logger log = LoggerFactory.getLogger(AuthenticationmicroserviceApplication.class);
-
 	// need default constructor for JSON Parsing
 	public JwtRequest() {
 
@@ -48,11 +46,10 @@ public class JwtRequest implements Serializable {
 		return serialVersionUID;
 	}
 
-	public JwtRequest(String username, String password, Logger log) {
+	public JwtRequest(String username, String password) {
 		super();
 		this.username = username;
 		this.password = password;
-		this.log = log;
 	}
 
 }

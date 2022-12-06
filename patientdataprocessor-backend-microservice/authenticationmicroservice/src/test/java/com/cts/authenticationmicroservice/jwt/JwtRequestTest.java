@@ -18,7 +18,7 @@ class JwtRequestTest {
 	
 	Logger log = LoggerFactory.getLogger(AuthenticationmicroserviceApplication.class);
 	
-	JwtRequest jet = new JwtRequest("","",log);
+	JwtRequest jet = new JwtRequest("","");
 
 	@Test
 	void testJwtRequest() {
