@@ -26,6 +26,8 @@ class ResultsTest {
 
 	@Test
 	void testGetterSetterContactNumber() {
+		results.setContactNumber(7894562785L);
+		assertEquals(7894562785L, results.getContactNumber());
 	}
 
 	@Test

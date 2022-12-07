@@ -38,6 +38,7 @@ class JwtRequestTest {
 
 	@Test
 	void testGetSerialversionuid() {
+		jwtRequest.getSerialversionuid();
 	}
 
 	@Test
