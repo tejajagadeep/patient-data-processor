@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.username = this.authService.getLoggedInUserName();
-    this.getdoctorById(this.username)
+    // this.getdoctorById(this.username)
     this.getUser();
     this.getAllPatients();
     this.getAllDoctors();
