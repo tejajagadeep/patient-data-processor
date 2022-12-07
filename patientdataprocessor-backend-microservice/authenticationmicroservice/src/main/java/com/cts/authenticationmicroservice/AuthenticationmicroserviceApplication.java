@@ -20,14 +20,15 @@ import io.swagger.v3.oas.annotations.servers.Server;
 		  info =@Info(
 		    title = "Patient Data Processor API",
 		    version = "${api.version}",
-		    contact = @Contact(
-		      name = "thunderbolts", email = "thunderbolts.com", url = "https://github"
-		    ),
-		    license = @License(
-		      name = "thunderbolts", url = "https://"
-		    ),
-		    termsOfService = "${tos.uri}",
-		    description = "${api.description}"
+		    description = "Swagger UI For Patient Data Processor"
+//		    contact = @Contact(
+//		      name = "thunderbolts", email = "thunderbolts.com", url = "https://github"
+//		    ),
+//		    license = @License(
+//		      name = "thunderbolts", url = "https://"
+//		    ),
+//		    termsOfService = "${tos.uri}",
+//		    description = "${api.description}"
 //		  ),
 //		  servers = @Server(
 //		    url = "${api.server.url}",

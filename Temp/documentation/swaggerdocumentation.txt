@@ -1,0 +1,1035 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Patient Data Processor API",
+    "description": "Swagger UI For Patient Data Processor",
+    "version": "v1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8083/patient-data-processor",
+      "description": "Generated server url"
+    }
+  ],
+  "paths": {
+    "/api/v1.0/patient/contactNumber/{contactNumber}": {
+      "get": {
+        "tags": [
+          "patient-controller"
+        ],
+        "summary": "Retrieve Patient's Details",
+        "description": "Retrieve the Patient's details from the data base by Contact Number.",
+        "operationId": "getByContactNumber_1",
+        "parameters": [
+          {
+            "name": "contactNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Patient"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer Authentication": []
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "patient-controller"
+        ],
+        "summary": "Save Patient's Medical Record Details",
+        "description": "Doctor will save the Patient's Medical Record details into the data base so he can retrieve at later point.",
+        "operationId": "updatePatientDetails",
+        "parameters": [
+          {
+            "name": "contactNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Patient"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Patient"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer Authentication": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "patient-controller"
+        ],
+        "summary": "Delete Patient's Details",
+        "description": "Delete the Patient's details from the data base by Contact Number.",
+        "operationId": "deletePatient",
+        "parameters": [
+          {
+            "name": "contactNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Patient"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer Authentication": []
+          }
+        ]
+      }
+    },
+    "/authenticate": {
+      "post": {
+        "tags": [
+          "jwt-authentication-controller"
+        ],
+        "summary": "Generate Jwt Token",
+        "description": "Generate Jwt Token by accessing the credentials from the data base.",
+        "operationId": "createAuthenticationToken",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JwtRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1.0/results/saveResults": {
+      "post": {
+        "tags": [
+          "results-controller"
+        ],
+        "summary": "Save Patient's Result Details",
+        "description": "Save Blood Test Result Details of a Patient into the data base to analyse later.",
+        "operationId": "saveResults",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Results"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Results"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer Authentication": []
+          }
+        ]
+      }
+    },
+    "/api/v1.0/report/saveReport": {
+      "post": {
+        "tags": [
+          "report-controller"
+        ],
+        "summary": "Save Patient's Report Details",
+        "description": "Save blood pressure and sugar level of a Patient's Report details into the data base to analyse later.",
+        "operationId": "saveReport",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Report"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Report"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer Authentication": []
+          }
+        ]
+      }
+    },
+    "/api/v1.0/patient/registerPatient": {
+      "post": {
+        "tags": [
+          "patient-controller"
+        ],
+        "summary": "Patient Registration",
+        "description": "Doctor will register the Patient's details into the data base so he can retrieve at later point.",
+        "operationId": "registerPatient",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Patient"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Patient"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer Authentication": []
+          }
+        ]
+      }
+    },
+    "/api/v1.0/doctor/doctorRegistration": {
+      "post": {
+        "tags": [
+          "doctor-controller"
+        ],
+        "summary": "Doctor Registration",
+        "description": "Admin Register the doctor details into the data base. Access by only ADMIN",
+        "operationId": "doctorRegistration",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Doctor"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Doctor"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer Authentication": []
+          }
+        ]
+      }
+    },
+    "/api/v1.0/userrole/getUserByEmailId/{userName}": {
+      "get": {
+        "tags": [
+          "user-role-controller"
+        ],
+        "summary": "Retrieve ROLE",
+        "description": "Retrieve ROLE for access.",
+        "operationId": "getUserByUserName",
+        "parameters": [
+          {
+            "name": "userName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserRole"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer Authentication": []
+          }
+        ]
+      }
+    },
+    "/api/v1.0/results/contactNumber/{contactNumber}": {
+      "get": {
+        "tags": [
+          "results-controller"
+        ],
+        "summary": "Retrieve Patient's Results",
+        "description": "Retrieve Blood Test results of a Patient from the data base for analysis.",
+        "operationId": "getByContactNumber",
+        "parameters": [
+          {
+            "name": "contactNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Results"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer Authentication": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "results-controller"
+        ],
+        "summary": "Delete Patient's Results",
+        "description": "Delete All the Blood Test Results details of a Patient from the data base by Contact Number.",
+        "operationId": "deleteAllByContactNumber",
+        "parameters": [
+          {
+            "name": "contactNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Results"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer Authentication": []
+          }
+        ]
+      }
+    },
+    "/api/v1.0/report/contactNumber/{contactNumber}": {
+      "get": {
+        "tags": [
+          "report-controller"
+        ],
+        "summary": "Retrieve Patient's Report",
+        "description": "Retrieve blood pressure and sugar level of a Patient's Report details from the data base for analysis.",
+        "operationId": "getAllByContactNumber",
+        "parameters": [
+          {
+            "name": "contactNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Report"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer Authentication": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "report-controller"
+        ],
+        "summary": "Delete Patient's Report Details",
+        "description": "Delete All the Report details of a Patient from the data base by Contact Number.",
+        "operationId": "deleteAllByContactNumber_1",
+        "parameters": [
+          {
+            "name": "contactNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Report"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer Authentication": []
+          }
+        ]
+      }
+    },
+    "/api/v1.0/patient": {
+      "get": {
+        "tags": [
+          "patient-controller"
+        ],
+        "summary": "Retrieve All Patients' Details",
+        "description": "Retrieve all the Patients' details from the data base.",
+        "operationId": "getAllPatients",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Patient"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer Authentication": []
+          }
+        ]
+      }
+    },
+    "/api/v1.0/doctor": {
+      "get": {
+        "tags": [
+          "doctor-controller"
+        ],
+        "summary": "Retrieve All Doctors' Details",
+        "description": "Retrieve all the doctors' details from the data base. Access by only ADMIN",
+        "operationId": "retrieveAllDoctorDetails",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Doctor"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer Authentication": []
+          }
+        ]
+      }
+    },
+    "/api/v1.0/doctor/emailId/{emailId}": {
+      "get": {
+        "tags": [
+          "doctor-controller"
+        ],
+        "summary": "Retrieve Doctor Details",
+        "description": "Retrieve the doctors by giving email address from the data base",
+        "operationId": "retrieveDoctorDetailsById",
+        "parameters": [
+          {
+            "name": "emailId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Doctor"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer Authentication": []
+          }
+        ]
+      }
+    },
+    "/api/v1.0/results/id/{id}": {
+      "delete": {
+        "tags": [
+          "results-controller"
+        ],
+        "summary": "Delete Patient's Result Details",
+        "description": "Delete the Patient's Blood Test Result details from the data base by Id.",
+        "operationId": "delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Results"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer Authentication": []
+          }
+        ]
+      }
+    },
+    "/api/v1.0/report/id/{id}": {
+      "delete": {
+        "tags": [
+          "report-controller"
+        ],
+        "summary": "Delete Patient's Report Details",
+        "description": "Delete the Patient's Report details from the data base by Id.",
+        "operationId": "delete_1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Report"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer Authentication": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Patient": {
+        "type": "object",
+        "properties": {
+          "contactNumber": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "address": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "gender": {
+            "type": "string"
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "maritalStatus": {
+            "type": "string"
+          },
+          "emergencyContactNumber": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "email": {
+            "type": "string"
+          },
+          "bloodGroup": {
+            "type": "string"
+          },
+          "disease": {
+            "type": "string"
+          },
+          "diagnosis": {
+            "type": "string"
+          },
+          "previousDiagnosis": {
+            "type": "string"
+          },
+          "dateVisited": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "treatmentStartDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "treatmentEndDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "prescription": {
+            "type": "string"
+          },
+          "height": {
+            "type": "string"
+          },
+          "weight": {
+            "type": "string"
+          }
+        }
+      },
+      "JwtRequest": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "Results": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "contactNumber": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "date": {
+            "type": "object",
+            "properties": {
+              "language": {
+                "type": "string"
+              },
+              "script": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "variant": {
+                "type": "string"
+              },
+              "extensionKeys": {
+                "uniqueItems": true,
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "unicodeLocaleAttributes": {
+                "uniqueItems": true,
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "unicodeLocaleKeys": {
+                "uniqueItems": true,
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "iso3Language": {
+                "type": "string"
+              },
+              "iso3Country": {
+                "type": "string"
+              },
+              "displayLanguage": {
+                "type": "string"
+              },
+              "displayScript": {
+                "type": "string"
+              },
+              "displayCountry": {
+                "type": "string"
+              },
+              "displayVariant": {
+                "type": "string"
+              },
+              "displayName": {
+                "type": "string"
+              }
+            }
+          },
+          "whiteBloodCells": {
+            "type": "number",
+            "format": "double"
+          },
+          "redBloodCells": {
+            "type": "number",
+            "format": "double"
+          },
+          "hemoglobin": {
+            "type": "number",
+            "format": "double"
+          },
+          "hemotocrit": {
+            "type": "number",
+            "format": "double"
+          },
+          "meanCellVolume": {
+            "type": "number",
+            "format": "double"
+          },
+          "meanCellHemoglobin": {
+            "type": "number",
+            "format": "double"
+          },
+          "platelets": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "reticulocyte": {
+            "type": "number",
+            "format": "double"
+          }
+        }
+      },
+      "Report": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "contactNumber": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "date": {
+            "type": "object",
+            "properties": {
+              "language": {
+                "type": "string"
+              },
+              "script": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "variant": {
+                "type": "string"
+              },
+              "extensionKeys": {
+                "uniqueItems": true,
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "unicodeLocaleAttributes": {
+                "uniqueItems": true,
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "unicodeLocaleKeys": {
+                "uniqueItems": true,
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "iso3Language": {
+                "type": "string"
+              },
+              "iso3Country": {
+                "type": "string"
+              },
+              "displayLanguage": {
+                "type": "string"
+              },
+              "displayScript": {
+                "type": "string"
+              },
+              "displayCountry": {
+                "type": "string"
+              },
+              "displayVariant": {
+                "type": "string"
+              },
+              "displayName": {
+                "type": "string"
+              }
+            }
+          },
+          "systolic": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "diastolic": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sugarlevel": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sugarlevel2": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "Doctor": {
+        "required": [
+          "address",
+          "contactNumber",
+          "dateOfBirth",
+          "firstName",
+          "gender",
+          "lastName",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "emailId": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "gender": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "contactNumber": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "UserRole": {
+        "required": [
+          "password",
+          "role"
+        ],
+        "type": "object",
+        "properties": {
+          "userName": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "Bearer Authentication": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}
