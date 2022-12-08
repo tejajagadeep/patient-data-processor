@@ -59,7 +59,10 @@ public class DoctorController {
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PostMapping("/doctorRegistration")
 	public ResponseEntity<Doctor> doctorRegistration(@RequestBody Doctor doctor){
-		if(userRoleRepository.findById(doctor.getEmailId()).isPresent()) {
+		
+		
+		
+		if(userRoleRepository.findByUserName(doctor.getEmailId())!=null) {
 			throw new IdAlredyExistsException("Email Id Already Exists");
 		} else {
 		String encryptedPassword = passwordEncoder.encode(doctor.getPassword());

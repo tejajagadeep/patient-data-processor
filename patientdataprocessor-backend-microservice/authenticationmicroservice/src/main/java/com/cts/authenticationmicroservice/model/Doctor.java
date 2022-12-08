@@ -3,6 +3,7 @@ package com.cts.authenticationmicroservice.model;
 import java.util.Date;
 
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 public class Doctor {
@@ -10,25 +11,31 @@ public class Doctor {
 	@Id
 	private String emailId;
 	
+	@NotEmpty
 	@NotNull
 	private String password;
 	
+	@NotEmpty
 	@NotNull
 	private String firstName;
 	
+	@NotEmpty
 	@NotNull
 	private String lastName;
 	
+	@NotEmpty
 	@NotNull
 	private Date dateOfBirth;
 	
+	@NotEmpty
 	@NotNull
 	private String gender;
 	
+	@NotEmpty
 	@NotNull
 	private String address;
 	
-	
+	@NotEmpty
 	@NotNull
 	private Long contactNumber;
 
