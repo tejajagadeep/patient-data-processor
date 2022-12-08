@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cts.authenticationmicroservice.exception.IdAlredyExistsException;
 import com.cts.authenticationmicroservice.model.UserRole;
 import com.cts.authenticationmicroservice.repository.UserRoleRepository;
 

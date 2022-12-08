@@ -8,6 +8,7 @@ class PatientdataprocessorResultsApplicationTests {
 
 	@Test
 	void contextLoads() {
+//		PatientdataprocessorResultsApplication.main(new String[] {});
 	}
 
 }

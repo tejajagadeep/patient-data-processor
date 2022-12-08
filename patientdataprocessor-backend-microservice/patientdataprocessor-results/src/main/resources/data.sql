@@ -1,38 +1,38 @@
 insert into Results(id,contact_number,date,white_blood_cells,red_blood_cells,hemoglobin,hemotocrit,mean_cell_volume,mean_cell_hemoglobin,platelets,reticulocyte)
-	values(1,7894561230,'2022-10-31',1.90,3.75,110,30.6,81.6,28.3,120,0.20);
+	values(1,7894561230,'2022-10-31',1.90,3.75,11,30.6,81.6,28.3,120,0.20);
 insert into Results(id,contact_number,date,white_blood_cells,red_blood_cells,hemoglobin,hemotocrit,mean_cell_volume,mean_cell_hemoglobin,platelets,reticulocyte)
-	values(2,7894561230,'2022-11-7',1.99,3.79,150,33.6,91.6,29.3,160,0.30);
+	values(2,7894561230,'2022-11-7',1.99,3.79,15,33.6,91.6,29.3,160,0.30);
 insert into Results(id,contact_number,date,white_blood_cells,red_blood_cells,hemoglobin,hemotocrit,mean_cell_volume,mean_cell_hemoglobin,platelets,reticulocyte)
-	values(3,7894561230,'2022-11-14',2.90,3.85,180,29.6,71.6,34.3,140,0.25);
+	values(3,7894561230,'2022-11-14',2.90,3.85,18,29.6,71.6,34.3,140,0.25);
 insert into Results(id,contact_number,date,white_blood_cells,red_blood_cells,hemoglobin,hemotocrit,mean_cell_volume,mean_cell_hemoglobin,platelets,reticulocyte)
-	values(4,7894561230,'2022-11-21',3.60,4.5,175,35.3,75.6,34.3,150,0.5);
+	values(4,7894561230,'2022-11-21',3.60,4.5,17,35.3,75.6,34.3,150,0.5);
 insert into Results(id,contact_number,date,white_blood_cells,red_blood_cells,hemoglobin,hemotocrit,mean_cell_volume,mean_cell_hemoglobin,platelets,reticulocyte)
-	values(5,7894561230,'2022-11-28',4.15,4.85,180,39.6,78.6,37.3,170,0.75);
+	values(5,7894561230,'2022-11-28',4.15,4.85,18,39.6,78.6,37.3,170,0.75);
 
 
 insert into Results(id,contact_number,date,white_blood_cells,red_blood_cells,hemoglobin,hemotocrit,mean_cell_volume,mean_cell_hemoglobin,platelets,reticulocyte)
-	values(6,9977055233,'2022-09-14',3.00,3.75,120,36.6,81.6,26.8,160,0.56);
+	values(6,9977055233,'2022-09-14',3.00,3.75,12,36.6,81.6,26.8,160,0.56);
 insert into Results(id,contact_number,date,white_blood_cells,red_blood_cells,hemoglobin,hemotocrit,mean_cell_volume,mean_cell_hemoglobin,platelets,reticulocyte)
-	values(7,9977055233,'2022-09-21',3.75,4.37,136,37.9,85.6,27.6,168,0.63);
+	values(7,9977055233,'2022-09-21',3.75,4.37,16,37.9,85.6,27.6,168,0.63);
 insert into Results(id,contact_number,date,white_blood_cells,red_blood_cells,hemoglobin,hemotocrit,mean_cell_volume,mean_cell_hemoglobin,platelets,reticulocyte)
-	values(8,9977055233,'2022-09-28',4.36,4.68,144,39.1,83.6,29.1,170,0.98);
+	values(8,9977055233,'2022-09-28',4.36,4.68,14,39.1,83.6,29.1,170,0.98);
 
 insert into Results(id,contact_number,date,white_blood_cells,red_blood_cells,hemoglobin,hemotocrit,mean_cell_volume,mean_cell_hemoglobin,platelets,reticulocyte)
-	values(9,6281058211,'2022-10-14',4.00,4.85,119,38.6,81.6,29.8,160,0.75);
+	values(9,6281058211,'2022-10-14',4.00,4.85,19,38.6,81.6,29.8,160,0.75);
 insert into Results(id,contact_number,date,white_blood_cells,red_blood_cells,hemoglobin,hemotocrit,mean_cell_volume,mean_cell_hemoglobin,platelets,reticulocyte)
-	values(10,6281058211,'2022-10-21',3.70,4.15,126,39.2,79.3,29.3,168,0.89);
+	values(10,6281058211,'2022-10-21',3.70,4.15,16,39.2,79.3,29.3,168,0.89);
 insert into Results(id,contact_number,date,white_blood_cells,red_blood_cells,hemoglobin,hemotocrit,mean_cell_volume,mean_cell_hemoglobin,platelets,reticulocyte)
-	values(11,6281058211,'2022-10-28',3.86,3.78,138,38.9,77.5,28.9,162,0.82);
+	values(11,6281058211,'2022-10-28',3.86,3.78,18,38.9,77.5,28.9,162,0.82);
 insert into Results(id,contact_number,date,white_blood_cells,red_blood_cells,hemoglobin,hemotocrit,mean_cell_volume,mean_cell_hemoglobin,platelets,reticulocyte)
-	values(12,6281058211,'2022-11-04',4.12,4.59,146,38.3,80.9,28.3,170,0.91);
+	values(12,6281058211,'2022-11-04',4.12,4.59,16,38.3,80.9,28.3,170,0.91);
 
 
 insert into Results(id,contact_number,date,white_blood_cells,red_blood_cells,hemoglobin,hemotocrit,mean_cell_volume,mean_cell_hemoglobin,platelets,reticulocyte)
-	values(13,9381058211,'2022-10-30',5.00,5.97,130,38.6,83.2,29.8,176,1.75);
+	values(13,9381058211,'2022-10-30',5.00,5.97,13,38.6,83.2,29.8,176,1.75);
 insert into Results(id,contact_number,date,white_blood_cells,red_blood_cells,hemoglobin,hemotocrit,mean_cell_volume,mean_cell_hemoglobin,platelets,reticulocyte)
-	values(14,9381058211,'2022-11-07',6.17,5.73,143,41.3,86.5,27.3,189,1.63);
+	values(14,9381058211,'2022-11-07',6.17,5.73,14,41.3,86.5,27.3,189,1.63);
 insert into Results(id,contact_number,date,white_blood_cells,red_blood_cells,hemoglobin,hemotocrit,mean_cell_volume,mean_cell_hemoglobin,platelets,reticulocyte)
-	values(15,9381058211,'2022-11-14',5.95,6.88,155,44.9,84.9,30.7,180,1.47);
+	values(15,9381058211,'2022-11-14',5.95,6.88,15,44.9,84.9,30.7,180,1.47);
 
 
 insert into Results(id,contact_number,date,white_blood_cells,red_blood_cells,hemoglobin,hemotocrit,mean_cell_volume,mean_cell_hemoglobin,platelets,reticulocyte)
@@ -48,8 +48,8 @@ insert into Results(id,contact_number,date,white_blood_cells,red_blood_cells,hem
 
 
 insert into Results(id,contact_number,date,white_blood_cells,red_blood_cells,hemoglobin,hemotocrit,mean_cell_volume,mean_cell_hemoglobin,platelets,reticulocyte)
-	values(21,9762534308,'2022-10-25',4.35,5.77,168,38.6,79.8,29.8,219,1.13);
+	values(21,9762534308,'2022-10-25',4.35,5.22,18,38.6,79.8,29.8,219,1.13);
 insert into Results(id,contact_number,date,white_blood_cells,red_blood_cells,hemoglobin,hemotocrit,mean_cell_volume,mean_cell_hemoglobin,platelets,reticulocyte)
-	values(22,9762534308,'2022-11-01',4.15,5.32,176,39.8,82.9,30.4,227,1.22);
+	values(22,9762534308,'2022-11-01',4.15,5.32,31,39.8,82.9,30.4,227,1.22);
 insert into Results(id,contact_number,date,white_blood_cells,red_blood_cells,hemoglobin,hemotocrit,mean_cell_volume,mean_cell_hemoglobin,platelets,reticulocyte)
-	values(23,9762534308,'2022-11-08',4.80,5.89,171,39.1,91.0,31.7,250,1.34);
+	values(23,9762534308,'2022-11-08',4.80,5.89,26,39.1,91.0,31.7,250,1.34);

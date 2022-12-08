@@ -19,6 +19,15 @@ export class DoctorRegistrationComponent implements OnInit {
   user!: User
   username!: string
 
+  emailIdT!: boolean
+  passwordT!: boolean
+  firstNameT!: boolean
+  lastNameT!: boolean
+  genderT!: boolean
+  addressT!: boolean
+  dateOfBirthT!: boolean
+  contactNumberT!: boolean
+
   dummyNumber!: number
   dummyDate!: Date
 
@@ -50,6 +59,34 @@ export class DoctorRegistrationComponent implements OnInit {
   }
 
   doctorRegistration() {
+
+    // if(this.doctor.address===''){
+    //   this.addressT=true
+    // }
+    // if(this.doctor.firstName===''){
+    //   this.firstNameT=true
+    // }
+    // if(this.doctor.lastName===''){
+    //   this.lastNameT=true
+    // }
+    // if(this.doctor.dateOfBirth===this.dummyDate){
+    //   this.dateOfBirthT=true
+    // }
+    // if(this.doctor.emailId===''){
+    //   this.emailIdT=true
+    // }
+    // if(this.doctor.contactNumber===this.dummyNumber){
+    //   this.contactNumberT=true
+    // }
+    // if(this.doctor.gender===''){
+    //   this.genderT=true
+    // }
+    // if(this.doctor.password===''){
+    //   this.passwordT=true
+    // }
+
+    // if(this.addressT===false && this.firstNameT===false && this.lastNameT==false && this.dateOfBirthT==false
+    //    && this.emailIdT==false && this.contactNumberT==false && this.genderT==false && this.passwordT==false ) {
     this.doctorService.doctorRegistration(this.doctor).subscribe(
       response => {
         this.doctor = response
@@ -57,6 +94,7 @@ export class DoctorRegistrationComponent implements OnInit {
       },
       error => this.errorMessageResponse = error.error.message
     )
+      //  }
   }
 
   OnlyAlbhabets(event: any): boolean {

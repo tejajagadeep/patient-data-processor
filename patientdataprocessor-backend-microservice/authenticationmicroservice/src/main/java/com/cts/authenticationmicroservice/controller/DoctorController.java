@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cts.authenticationmicroservice.exception.IdAlredyExistsException;
 import com.cts.authenticationmicroservice.model.Doctor;
 import com.cts.authenticationmicroservice.model.UserRole;
 import com.cts.authenticationmicroservice.proxy.DoctorProxy;
@@ -58,7 +59,9 @@ public class DoctorController {
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PostMapping("/doctorRegistration")
 	public ResponseEntity<Doctor> doctorRegistration(@RequestBody Doctor doctor){
-		
+		if(userRoleRepository.findById(doctor.getEmailId()).isPresent()) {
+			throw new IdAlredyExistsException("Email Id Already Exists");
+		} else {
 		String encryptedPassword = passwordEncoder.encode(doctor.getPassword());
 		doctor.setPassword(encryptedPassword);
 		UserRole user = new UserRole();
@@ -68,5 +71,6 @@ public class DoctorController {
 		userRoleRepository.save(user);
 		
 		return this.doctorProxy.doctorRegistration(doctor);
+		}
 	}
 }

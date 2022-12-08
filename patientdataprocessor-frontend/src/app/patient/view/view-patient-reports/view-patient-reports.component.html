@@ -12,7 +12,8 @@
                     <th>Date and Time</th>
                     <th>Systolic BP</th>
                     <th>Diastolic BP</th>
-                    <th>Sugar Level</th>
+                    <th>Fasting Blood Sugar Level</th>
+                    <th>Postprandial Blood Sugar</th>
                     <th>Delete</th>
                 </tr>
             </thead>
@@ -29,6 +30,7 @@
                     <td>{{reports.systolic}}</td>
                     <td>{{reports.diastolic}}</td>
                     <td>{{reports.sugarlevel}}</td>
+                    <td>{{reports.sugarlevel2}}</td>
                     <td><button (click)="delete(reports.id)" class="btn btn-danger">Delete</button></td>
                 </tr>
 

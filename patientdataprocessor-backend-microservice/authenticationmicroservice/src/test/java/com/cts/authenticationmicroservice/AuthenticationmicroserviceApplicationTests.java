@@ -8,6 +8,7 @@ class AuthenticationmicroserviceApplicationTests {
 
 	@Test
 	void contextLoads() {
+//		AuthenticationmicroserviceApplication.main(new String[] {});
 	}
 
 }

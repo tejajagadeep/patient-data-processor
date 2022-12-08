@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.cts.patientdataprocessordoctor.exception.IdAlredyExistsException;
 import com.cts.patientdataprocessordoctor.model.Doctor;
 import com.cts.patientdataprocessordoctor.repository.DoctorRespository;
 
@@ -42,6 +43,9 @@ public class DoctorServiceImpl implements DoctorService{
 //		user.setPassword(encryptedPassword);
 //		user.setRole("DOCTOR");
 //		userRepository.save(user);
+		if(doctorRespository.findByEmailId(doctor.getEmailId())!= null) {
+			throw new IdAlredyExistsException("Email Id already Exists");
+		}
 		return doctorRespository.save(doctor);
 	}
 

@@ -12,8 +12,8 @@ import { UserDataService } from 'src/app/service/data/user-data.service';
 })
 export class LoginComponent implements OnInit {
 
-  username!: string
-  password!: string
+  username=''
+  password=''
   errorMessage!: string
   successMessage!: string
   invalidLogin = false
@@ -56,8 +56,12 @@ export class LoginComponent implements OnInit {
 
 
   checkLogin1() {
-
-
+    if(this.username===''){
+      this.errorMessage = "Email Address Required"
+    } 
+    else if(this.password===''){
+      this.password = "Password Required"
+    } else {
     this.authenticateLoginService.authenticate(this.username, this.password).subscribe(
       response => {
         this.user = response,
@@ -68,7 +72,7 @@ export class LoginComponent implements OnInit {
       }
 
     );
-
+    }
     //   this.userService.getUserByUserName(this.username).subscribe(
     //     resp => {
     //         console.log(resp.role)

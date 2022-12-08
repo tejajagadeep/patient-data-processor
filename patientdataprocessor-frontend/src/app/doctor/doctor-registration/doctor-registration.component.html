@@ -20,6 +20,7 @@
                             [(ngModel)]="doctor.firstName" required #firstName="ngModel"
                             [class.is-invalid]="firstName.invalid && firstName.touched"
                             (keypress)="OnlyAlbhabets($event)" />
+                            <small class="text-danger" *ngIf="firstNameT && firstName.untouched">First Name is required field</small>
                         <small class="text-danger" [class.d-none]="firstName.valid || firstName.untouched">First Name
                             is
                             required</small>
@@ -35,7 +36,8 @@
                             [(ngModel)]="doctor.lastName" required #lastName="ngModel"
                             [class.is-invalid]="lastName.invalid && lastName.touched"
                             (keypress)="OnlyAlbhabets($event)" />
-                        <small class="text-danger" [class.d-none]="lastName.valid || lastName.untouched">Last Name
+                            <small class="text-danger" *ngIf="lastNameT && firstName.untouched">Last Name is required field</small>
+                            <small class="text-danger" [class.d-none]="lastName.valid || lastName.untouched">Last Name
                             is
                             required</small>
                     </div>
@@ -51,7 +53,8 @@
                             required #contactNumber="ngModel"
                             [class.is-invalid]="contactNumber.invalid && contactNumber.touched"
                             (keypress)="OnlyNumbers($event)" />
-                        <small class="text-danger"
+                            <small class="text-danger" *ngIf="contactNumberT && contactNumber.untouched">Contact Number is required field</small>
+                            <small class="text-danger"
                             [class.d-none]="contactNumber.valid || contactNumber.untouched">Contact Number
                             is
                             required</small>
@@ -84,7 +87,8 @@
                             (ngModelChange)="doctor.dateOfBirth = $event" required #dateOfBirth="ngModel"
                             [class.is-invalid]="dateOfBirth.invalid && dateOfBirth.touched" />
 
-                        <small class="text-danger" [class.d-none]="dateOfBirth.valid || dateOfBirth.untouched">Date Of
+                            <small class="text-danger" *ngIf="dateOfBirthT && dateOfBirth.untouched">Date Of Birth is required field</small>
+                            <small class="text-danger" [class.d-none]="dateOfBirth.valid || dateOfBirth.untouched">Date Of
                             Birth
                             is a required field.</small>
                     </fieldset>
@@ -102,7 +106,8 @@
                             <option value="Member">Female</option>
                         </select>
 
-                        <small class="text-danger" [class.d-none]="gender.valid || gender.untouched">Gender is a
+                            <small class="text-danger" *ngIf="genderT && gender.untouched">First Name is required field</small>
+                            <small class="text-danger" [class.d-none]="gender.valid || gender.untouched">Gender is a
                             required field.</small>
                     </div>
                 </div>
@@ -115,7 +120,8 @@
                         <input type="text" class="form-control" id="address" name="address" placeholder="Address"
                             [(ngModel)]="doctor.address" required #address="ngModel"
                             [class.is-invalid]="address.invalid && address.touched" />
-                        <small class="text-danger" [class.d-none]="address.valid || address.untouched">Address
+                            <small class="text-danger" *ngIf="addressT && address.untouched">First Name is required field</small>
+                            <small class="text-danger" [class.d-none]="address.valid || address.untouched">Address
                             is
                             required</small>
                     </div>
@@ -130,7 +136,8 @@
                             [(ngModel)]="doctor.emailId" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required
                             #emailId="ngModel" [class.is-invalid]="emailId.invalid && emailId.touched" />
 
-                        <small class="text-danger" [class.d-none]="emailId.valid || emailId.untouched"> Email Id is
+                            <small class="text-danger" *ngIf="emailIdT && emailId.untouched">First Name is required field</small>
+                            <small class="text-danger" [class.d-none]="emailId.valid || emailId.untouched"> Email Id is
                             required</small>
                     </fieldset>
                 </div>
@@ -143,7 +150,8 @@
                         <input type="password" class="form-control" id="password" name="password" placeholder="Password"
                             [(ngModel)]="doctor.password" required #password="ngModel"
                             [class.is-invalid]="password.invalid && password.touched" />
-                        <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password
+                            <small class="text-danger" *ngIf="passwordT && password.untouched">First Name is required field</small>
+                            <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password
                             is
                             required</small>
                     </div>

@@ -8,8 +8,9 @@
 
       <form action="" class="mt-5 p-5">
         <h5 class="text-primary mb-3">Login </h5>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="username"
+          <div class="alert alert-warning" *ngIf="errorMessage">{{errorMessage}}</div>
+          <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="floatingInput" placeholder="Enter Email Address" name="username"
             [(ngModel)]="username">
           <label for="floatingInput">Email address</label>
         </div>
