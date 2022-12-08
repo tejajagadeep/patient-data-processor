@@ -19,6 +19,16 @@ public class UserRoleServiceImpl implements UserRoleService {
 //	public List<UserRole> getAllUser() {
 //		return userRepository.findAll();
 //	}
+	
+	@Override
+	public UserRole save(UserRole userRole) {
+		UserRole u = userRepository.findByUserName(userRole.getUserName());
+		if (u!= null) {
+			throw new IdAlredyExistsException("Email Id Already Exist");
+		}
+		
+		return userRepository.save(userRole);
+	}
 
 	@Override
 	public UserRole getUserByUserName(String userName) {

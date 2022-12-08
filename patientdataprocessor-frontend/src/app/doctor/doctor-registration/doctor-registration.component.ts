@@ -87,19 +87,21 @@ export class DoctorRegistrationComponent implements OnInit {
 
     // if(this.addressT==false && this.firstNameT==false && this.lastNameT==false && this.dateOfBirthT==false
     //    && this.emailIdT==false && this.contactNumberT==false && this.genderT==false && this.passwordT==false ) {
+    
     this.doctorService.doctorRegistration(this.doctor).subscribe(
       response => {
         this.doctor = response
         this.router.navigate(['home'])
       },
-      error => {
-        if(error.error.message==='Email Id Already Exists'){
+      error => 
+        // if(error.error.message==='Email Id Already Exists'){
           this.errorMessageResponse = error.error.message
-        } else {
-          this.errorMessageResponse = 'Fields Required'
-        }
+          
+        // } else {
+        //   this.errorMessageResponse = 'Fields Required'
+        // }
         
-      }
+      
     )
       //  }
   }

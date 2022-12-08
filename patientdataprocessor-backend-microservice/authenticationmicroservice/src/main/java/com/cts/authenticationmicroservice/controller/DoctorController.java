@@ -20,6 +20,7 @@ import com.cts.authenticationmicroservice.model.Doctor;
 import com.cts.authenticationmicroservice.model.UserRole;
 import com.cts.authenticationmicroservice.proxy.DoctorProxy;
 import com.cts.authenticationmicroservice.repository.UserRoleRepository;
+import com.cts.authenticationmicroservice.service.UserRoleService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
@@ -34,6 +35,9 @@ public class DoctorController {
 	
 	@Autowired
 	UserRoleRepository userRoleRepository;
+	
+	@Autowired
+	UserRoleService userRoleService;
 	
 	@Autowired
 	PasswordEncoder passwordEncoder;
@@ -62,18 +66,18 @@ public class DoctorController {
 		
 		
 		
-		if(userRoleRepository.findByUserName(doctor.getEmailId())!=null) {
-			throw new IdAlredyExistsException("Email Id Already Exists");
-		} else {
+//		if(userRoleRepository.findByUserName(doctor.getEmailId())!=null) {
+//			throw new IdAlredyExistsException("Email Id Already Exists");
+//		} else {
 		String encryptedPassword = passwordEncoder.encode(doctor.getPassword());
 		doctor.setPassword(encryptedPassword);
 		UserRole user = new UserRole();
 		user.setUserName(doctor.getEmailId());
 		user.setPassword(encryptedPassword);
 		user.setRole("DOCTOR");
-		userRoleRepository.save(user);
+		userRoleService.save(user);
 		
 		return this.doctorProxy.doctorRegistration(doctor);
-		}
+//		}
 	}
 }

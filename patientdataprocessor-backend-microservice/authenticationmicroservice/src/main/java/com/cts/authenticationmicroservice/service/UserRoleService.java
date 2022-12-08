@@ -8,5 +8,6 @@ public interface UserRoleService {
 
 //	public List<UserRole> getAllUser();
 
+	public UserRole save(UserRole userRole);
 	public UserRole getUserByUserName(String userName);
 }

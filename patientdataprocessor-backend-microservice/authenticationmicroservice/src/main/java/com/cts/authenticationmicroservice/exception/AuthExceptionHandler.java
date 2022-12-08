@@ -19,12 +19,7 @@ import feign.FeignException;
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class AuthExceptionHandler extends ResponseEntityExceptionHandler{
 	
-	/**invalid user exception handler
-	 * @param InvalidUserException
-	 * @return ResponseEntity<MessageResponse>
-	 * 
-	 * @author Kollimarla Jagadeep
-	 */
+
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	@ExceptionHandler(FeignException.class)
 	public ResponseEntity<MessageResponse> handleFeignException(FeignException fe) {
