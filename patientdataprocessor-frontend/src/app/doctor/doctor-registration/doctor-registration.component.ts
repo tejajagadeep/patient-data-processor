@@ -92,7 +92,14 @@ export class DoctorRegistrationComponent implements OnInit {
         this.doctor = response
         this.router.navigate(['home'])
       },
-      error => this.errorMessageResponse = error.error.message
+      error => {
+        if(error.error.message==='Email Id Already Exists'){
+          this.errorMessageResponse = error.error.message
+        } else {
+          this.errorMessageResponse = 'Fields Required'
+        }
+        
+      }
     )
       //  }
   }
