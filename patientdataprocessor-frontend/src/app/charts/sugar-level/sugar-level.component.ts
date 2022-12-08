@@ -58,7 +58,7 @@ export class SugarLevelComponent implements OnInit {
       data: {
         labels: labeldata,
         datasets: [{
-          label: 'Sugar Level Before Fasting',
+          label: 'Fasting Blood Sugar',
           data: realdata1,
           backgroundColor: '#3202C5',
           // borderColor: '#05445E',
@@ -66,7 +66,7 @@ export class SugarLevelComponent implements OnInit {
           borderWidth: 1
         },
         {
-          label: 'Sugar Level After Fasting ',
+          label: 'Postprandial Blood Sugar',
           data: realdata2,
           backgroundColor: '#FF7F00',
           borderColor: '#FF7F00',
