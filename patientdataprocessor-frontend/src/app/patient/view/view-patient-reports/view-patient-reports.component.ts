@@ -54,7 +54,7 @@ export class ViewPatientReportsComponent implements OnInit {
       this.reportService.deleteReport(id).subscribe(
         response => {
           console.log(response),
-          this.getPatient(this.contactNumber)
+          this.getReports(this.contactNumber)
         }
       )
     }

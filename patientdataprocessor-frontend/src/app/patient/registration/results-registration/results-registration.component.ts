@@ -5,6 +5,7 @@ import { Results } from 'src/app/model/results';
 import { PatientDataService } from 'src/app/service/data/patient-data.service';
 import { ResultsDataService } from 'src/app/service/data/results-data.service';
 import { Location } from '@angular/common';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-results-registration',
@@ -19,6 +20,15 @@ export class ResultsRegistrationComponent implements OnInit {
   patient!: Patient
   contactNumber!: number
   dummyDate!: DateConstructor
+
+  whiteBloodCellsT=false
+  redBloodCellsT=false
+  hemoglobinT=false
+  hemotocritT=false
+  meanCellVolumeT=false
+  meanCellHemoglobinT=false
+  plateletsT=false
+  reticulocyteT=false
 
   constructor(
     private resultsService: ResultsDataService,
@@ -50,6 +60,36 @@ export class ResultsRegistrationComponent implements OnInit {
     )
   }
   saveResults() {
+
+    if(this.results.whiteBloodCells===this.dummyNumber){
+      this.whiteBloodCellsT=true
+    }
+    if(this.results.redBloodCells===this.dummyNumber){
+      this.redBloodCellsT=true
+    }
+    if(this.results.hemoglobin===this.dummyNumber){
+      this.hemoglobinT=true
+    }
+    if(this.results.hemotocrit===this.dummyNumber){
+      this.hemotocritT=true
+    }
+    if(this.results.meanCellVolume===this.dummyNumber){
+      this.meanCellVolumeT=true
+    }
+    if(this.results.meanCellHemoglobin===this.dummyNumber){
+      this.meanCellHemoglobinT=true
+    }
+    if(this.results.platelets===this.dummyNumber){
+      this.plateletsT=true
+    }
+    if(this.results.reticulocyte===this.dummyNumber){
+      this.reticulocyteT=true
+    }
+
+    if(this.results.whiteBloodCells!==this.dummyNumber && this.results.redBloodCells!==this.dummyNumber &&
+      this.results.hemoglobin!==this.dummyNumber && this.results.hemotocrit!==this.dummyNumber &&
+      this.results.meanCellVolume!==this.dummyNumber && this.results.meanCellHemoglobin!==this.dummyNumber &&
+      this.results.platelets!==this.dummyNumber && this.results.reticulocyte!==this.dummyNumber){
     this.results.contactNumber = this.contactNumber;
     this.resultsService.saveResults(this.results).subscribe(
       repsonse => {
@@ -60,6 +100,7 @@ export class ResultsRegistrationComponent implements OnInit {
       error => this.errorMessageResponse = error.error.message
     )
   }
+}
 
   navBack() {
     this.location.back();

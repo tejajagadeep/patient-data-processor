@@ -19,14 +19,14 @@ export class DoctorRegistrationComponent implements OnInit {
   user!: User
   username!: string
 
-  emailIdT!: boolean
-  passwordT!: boolean
-  firstNameT!: boolean
-  lastNameT!: boolean
-  genderT!: boolean
-  addressT!: boolean
-  dateOfBirthT!: boolean
-  contactNumberT!: boolean
+  emailIdT= false
+  passwordT= false
+  firstNameT= false
+  lastNameT= false
+  genderT= false
+  addressT= false
+  dateOfBirthT= false
+  contactNumberT= false
 
   dummyNumber!: number
   dummyDate!: Date
@@ -85,8 +85,8 @@ export class DoctorRegistrationComponent implements OnInit {
       this.passwordT=true
     }
 
-    // if(this.addressT==false && this.firstNameT==false && this.lastNameT==false && this.dateOfBirthT==false
-    //    && this.emailIdT==false && this.contactNumberT==false && this.genderT==false && this.passwordT==false ) {
+    if(this.doctor.address!=='' && this.doctor.firstName!=='' && this.doctor.lastName!=='' && this.doctor.dateOfBirth!==this.dummyDate
+       && this.doctor.emailId!=='' && this.doctor.contactNumber!==this.dummyNumber && this.doctor.gender!=='' && this.doctor.password!=='' ) {
     
     this.doctorService.doctorRegistration(this.doctor).subscribe(
       response => {
@@ -103,7 +103,7 @@ export class DoctorRegistrationComponent implements OnInit {
         
       
     )
-      //  }
+       }
   }
 
   OnlyAlbhabets(event: any): boolean {

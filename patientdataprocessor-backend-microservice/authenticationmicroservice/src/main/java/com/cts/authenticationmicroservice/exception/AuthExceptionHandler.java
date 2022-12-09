@@ -26,4 +26,15 @@ public class AuthExceptionHandler extends ResponseEntityExceptionHandler{
 		return ResponseEntity.badRequest().body(new MessageResponse(new Date(),fe.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR));
 
 	}
+	
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	@ExceptionHandler(IdAlredyExistsException.class)
+	public ResponseEntity<MessageResponse> handleIdAlreadyExistException(IdAlredyExistsException ie) {
+		MessageResponse messageResponse = new MessageResponse();
+		messageResponse.setMessage(ie.getMessage());
+		messageResponse.setStatus(HttpStatus.BAD_REQUEST);
+		messageResponse.setTimeStamp(new Date());
+		return new ResponseEntity<>(messageResponse, HttpStatus.BAD_REQUEST);
+
+	}
 }

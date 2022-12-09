@@ -36,7 +36,7 @@
                             [(ngModel)]="doctor.lastName" required #lastName="ngModel"
                             [class.is-invalid]="lastName.invalid && lastName.touched"
                             (keypress)="OnlyAlbhabets($event)" />
-                            <small class="text-danger" *ngIf="lastNameT && firstName.untouched">Last Name is required field</small>
+                            <small class="text-danger" *ngIf="lastNameT && lastName.untouched">Last Name is required field</small>
                             <small class="text-danger" [class.d-none]="lastName.valid || lastName.untouched">Last Name
                             is
                             required</small>
@@ -102,8 +102,8 @@
                         <select class="form-control" name="gender" id="gender" [(ngModel)]="doctor.gender" required
                             #gender="ngModel" [class.is-invalid]="gender.invalid && gender.touched">
                             <option value="" selected>Select Gender</option>
-                            <option value="Admin">Male</option>
-                            <option value="Member">Female</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
                         </select>
 
                             <small class="text-danger" *ngIf="genderT && gender.untouched">Gender is required field</small>

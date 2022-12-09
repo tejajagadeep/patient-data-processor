@@ -8,6 +8,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.cts.authenticationmicroservice.exception.IdAlredyExistsException;
 import com.cts.authenticationmicroservice.model.UserRole;
 import com.cts.authenticationmicroservice.repository.UserRoleRepository;
 
@@ -20,11 +21,36 @@ class UserRoleServiceImplTest {
 	@Mock
 	UserRoleRepository userRoleRepository;
 	
-	@Mock
-	UserRole userRole;
+	
+	
+	@Test
+	void testGetUserByUserNameexists() {
+		UserRole userRole = new UserRole();
+		userRole.setUserName("thunder");
+		userRole.setPassword("thunder");
+		userRole.setRole("ADMIN");
+		
+		when(userRoleRepository.findByUserName("thunder")).thenReturn(null);
+		
+		when(userRoleRepository.save(userRole)).thenReturn(userRole);
+		assertEquals(userRole, userRoleServiceImpl.save(userRole));
+	}
+	
+	@Test
+	void testGetUserByUserNameexistsExcep() {
+		UserRole userRole = new UserRole();
+		userRole.setUserName("thunder");
+		userRole.setPassword("thunder");
+		userRole.setRole("ADMIN");
+		
+		when(userRoleRepository.findByUserName("thunder")).thenReturn(userRole);
+		
+		assertThrows(IdAlredyExistsException.class,()-> userRoleServiceImpl.save(userRole));
+	}
 
 	@Test
 	void testGetUserByUserName() {
+		UserRole userRole = new UserRole();
 		userRole.setUserName("thunder");
 		userRole.setPassword("thunder");
 		userRole.setRole("ADMIN");

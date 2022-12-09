@@ -20,6 +20,7 @@
                             class="form-control" name="whiteBloodCells" placeholder="White Blood Cells" step=".01"
                             required #whiteBloodCells="ngModel" min="0"
                             [class.is-invalid]="whiteBloodCells.invalid && whiteBloodCells.touched" />
+                            <small class="text-danger" *ngIf="whiteBloodCellsT && whiteBloodCells.untouched">White Blood Cells is required field</small>
                         <small class="text-danger"
                             [class.d-none]="whiteBloodCells.valid || whiteBloodCells.untouched">White Blood Cells
                             is
@@ -36,6 +37,7 @@
                             name="redBloodCells" placeholder="Red Blood Cells" step=".01" required
                             #redBloodCells="ngModel" min="0"
                             [class.is-invalid]="redBloodCells.invalid && redBloodCells.touched" />
+                            <small class="text-danger" *ngIf="redBloodCellsT && redBloodCells.untouched">Red Blood Cells is required field</small>
                         <small class="text-danger" [class.d-none]="redBloodCells.valid || redBloodCells.untouched">Red
                             Blood Cells
                             is
@@ -44,13 +46,14 @@
                 </div>
 
                 <div class="row align-items-center pt-4 pb-3">
-                    <label class="col-md-3 ps-5" for="whiteBloodCells">
+                    <label class="col-md-3 ps-5" for="hemoglobin">
                         <h6 class="mb-0">Hemoglobin g/dL (Hb)<span class="required">*</span></h6>
                     </label>
                     <div class="form-group col-md-9 pe-5">
                         <input type="number" [(ngModel)]="results.hemoglobin" id="hemoglobin" class="form-control"
                             name="hemoglobin" placeholder="Hemoglobin" step=".01" required #hemoglobin="ngModel" min="0"
                             [class.is-invalid]="hemoglobin.invalid && hemoglobin.touched" />
+                            <small class="text-danger" *ngIf="hemoglobinT && hemoglobin.untouched">Hemoglobin is required field</small>
                         <small class="text-danger" [class.d-none]="hemoglobin.valid || hemoglobin.untouched">Hemoglobin
                             is
                             required</small>
@@ -63,8 +66,9 @@
                     </label>
                     <div class="form-group col-md-9 pe-5">
                         <input type="number" [(ngModel)]="results.hemotocrit" id="hemotocrit" class="form-control"
-                            name="whiteBloodCells" placeholder="Hemotocrit" step=".01" required #hemotocrit="ngModel"
+                            name="hemotocrit" placeholder="Hemotocrit" step=".01" required #hemotocrit="ngModel"
                             min="0" [class.is-invalid]="hemotocrit.invalid && hemotocrit.touched" />
+                            <small class="text-danger" *ngIf="hemotocritT && hemotocrit.untouched">Hemotocrit is required field</small>
                         <small class="text-danger" [class.d-none]="hemotocrit.valid || hemotocrit.untouched">Hemotocrit
                             is
                             required</small>
@@ -80,6 +84,7 @@
                             class="form-control" name="meanCellVolume" placeholder="Mean Cell Volume" step=".01"
                             required #meanCellVolume="ngModel" min="0"
                             [class.is-invalid]="meanCellVolume.invalid && meanCellVolume.touched" />
+                            <small class="text-danger" *ngIf="meanCellVolumeT && meanCellVolume.untouched">Mean Cell Volume is required field</small>
                         <small class="text-danger"
                             [class.d-none]="meanCellVolume.valid || meanCellVolume.untouched">Mean Cell Volume
                             is
@@ -96,6 +101,7 @@
                             class="form-control" name="meanCellHemoglobin" placeholder="Mean Cell Hemoglobin" step=".01"
                             required #meanCellHemoglobin="ngModel" min="0"
                             [class.is-invalid]="meanCellHemoglobin.invalid && meanCellHemoglobin.touched" />
+                            <small class="text-danger" *ngIf="meanCellHemoglobinT && meanCellHemoglobin.untouched">Mean Cell Hemoglobin is required field</small>
                         <small class="text-danger"
                             [class.d-none]="meanCellHemoglobin.valid || meanCellHemoglobin.untouched">Mean Cell
                             Hemoglobin
@@ -112,6 +118,7 @@
                         <input type="number" [(ngModel)]="results.platelets" id="platelets" class="form-control"
                             name="platelets" placeholder="Platelets" required #platelets="ngModel" min="0"
                             [class.is-invalid]="platelets.invalid && platelets.touched" />
+                            <small class="text-danger" *ngIf="plateletsT && platelets.untouched">Platelets is required field</small>
                         <small class="text-danger" [class.d-none]="platelets.valid || platelets.untouched">Platelets
                             is
                             required</small>
@@ -126,6 +133,7 @@
                         <input type="number" [(ngModel)]="results.reticulocyte" id="" class="form-control"
                             name="reticulocyte" placeholder="Reticulocyte" step=".001" required #reticulocyte="ngModel"
                             min="0" [class.is-invalid]="reticulocyte.invalid && reticulocyte.touched" />
+                            <small class="text-danger" *ngIf="reticulocyteT && reticulocyte.untouched">Reticulocyte is required field</small>
                         <small class="text-danger"
                             [class.d-none]="reticulocyte.valid || reticulocyte.untouched">Reticulocyte
                             is

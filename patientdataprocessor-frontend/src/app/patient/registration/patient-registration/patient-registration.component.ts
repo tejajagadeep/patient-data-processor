@@ -18,6 +18,16 @@ export class PatientRegistrationComponent implements OnInit {
 
   errorMessageResponse!: string
 
+  contactNumberT=false
+  addressT=false
+  firstNameT=false
+  lastNameT=false
+  genderT=false
+  dateOfBirthT=false
+  maritalStatusT=false
+  emailT=false
+  bloodGroupT=false
+
   constructor(
     private patientService: PatientDataService,
     private router: Router,
@@ -58,6 +68,38 @@ export class PatientRegistrationComponent implements OnInit {
   }
 
   savepatient() {
+
+    if(this.patient.firstName===''){
+      this.firstNameT=true
+    }
+    if(this.patient.lastName===''){
+      this.lastNameT=true
+    }
+    if(this.patient.contactNumber===this.dummyNumber){
+      this.contactNumberT=true
+    }
+    if(this.patient.address===''){
+      this.addressT=true
+    }
+    if(this.patient.email===''){
+      this.emailT=true
+    }
+    if(this.patient.dateOfBirth===this.dummyDate){
+      this.dateOfBirthT=true
+    }
+    if(this.patient.gender===''){
+      this.genderT=true
+    }
+    if(this.patient.maritalStatus===''){
+      this.maritalStatusT=true
+    }
+    if(this.patient.bloodGroup===''){
+      this.bloodGroupT=true
+    }
+
+    if(this.patient.firstName!=='' && this.patient.lastName!=='' && this.patient.contactNumber!==this.dummyNumber &&
+    this.patient.address!=='' && this.patient.email!=='' && this.patient.dateOfBirth!==this.dummyDate &&
+    this.patient.gender!=='' && this.patient.maritalStatus!=='' && this.patient.bloodGroup!==''){
     this.patientService.registerPatient(this.patient).subscribe(
       response => {
         this.patient = response
@@ -65,6 +107,6 @@ export class PatientRegistrationComponent implements OnInit {
       },
       error => this.errorMessageResponse = "Phone number already exists"
     )
-
+    }
   }
 }

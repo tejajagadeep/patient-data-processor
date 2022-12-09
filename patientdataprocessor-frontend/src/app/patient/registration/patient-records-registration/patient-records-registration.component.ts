@@ -17,6 +17,10 @@ export class PatientRecordsRegistrationComponent implements OnInit {
   errorMessageResponse!: string
   contactNumber!: number
 
+  addressT=false
+  bloodGroupT=false
+  maritalStatusT=false
+
   constructor(
     private patientService: PatientDataService,
     private router: Router,
@@ -45,6 +49,7 @@ export class PatientRecordsRegistrationComponent implements OnInit {
   }
 
   savepatient() {
+
     this.patientService.updatePatientDetails(this.contactNumber, this.patient).subscribe(
       response => {
         this.patient = response,

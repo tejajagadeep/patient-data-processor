@@ -20,6 +20,11 @@ export class ReportsRegistrationComponent implements OnInit {
   dummyNumber!: number
   dummyDate!: DateConstructor
 
+  systolicT= false
+  diastolicT= false
+  sugarlevelT= false
+  sugarlevel2T= false
+
   constructor(
     private reportsService: ReportsDataService,
     private patientService: PatientDataService,
@@ -46,6 +51,23 @@ export class ReportsRegistrationComponent implements OnInit {
   }
 
   saveReports() {
+
+    if(this.reports.systolic===this.dummyNumber){
+      this.systolicT=true
+    }
+    if(this.reports.diastolic===this.dummyNumber){
+      this.diastolicT=true
+    }
+    if(this.reports.sugarlevel===this.dummyNumber){
+      this.sugarlevelT=true
+    }
+    if(this.reports.sugarlevel2===this.dummyNumber){
+      this.sugarlevel2T=true
+    }
+
+    // if(this.systolicT===false && this.diastolicT===false && this.sugarlevelT===false && this.sugarlevel2T===false){
+      if(this.reports.systolic!==this.dummyNumber && this.reports.diastolic!==this.dummyNumber 
+        && this.reports.sugarlevel!==this.dummyNumber && this.reports.sugarlevel2!==this.dummyNumber){
     this.reports.contactNumber = this.contactNumber
     this.reportsService.saveReport(this.reports).subscribe(
       repsonse => {
@@ -56,5 +78,6 @@ export class ReportsRegistrationComponent implements OnInit {
       error => this.errorMessageResponse = error.error.message
     )
   }
+}
 
 }
