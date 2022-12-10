@@ -1,4 +1,4 @@
-<section class="h-100 h-custom" style="background-color: #8fc4b7;" *ngIf="user.role ==='ADMIN'">
+<section class="h-100 h-custom" style="background-color: #8fc4b7;" >
     <div class="container">
 
         <form class="card" style="border-radius: 15px;" #RegisterForm="ngForm" (ngSubmit)="doctorRegistration()">
@@ -170,9 +170,9 @@
     </div>
 </section>
 
-<div *ngIf="user.role ==='DOCTOR'">
+<!-- <div *ngIf="user.role ==='DOCTOR'">
     <app-home></app-home>
-</div>
+</div> -->
 
 <!-- <mat-form-field>
     <mat-label>

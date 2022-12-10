@@ -11,7 +11,7 @@ import { UserDataService } from '../data/user-data.service';
 })
 export class AuthenticationDataService {
 
-  USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser'
+  // USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser'
 
   public username!: string
   public password!: string;
@@ -47,14 +47,16 @@ export class AuthenticationDataService {
     // console.log(!(user === null))
     // return !(user === null)
     let user = localStorage.getItem('authenticatedUser')
-    if (user === null) return false
+    let tokens = localStorage.getItem('token')
+    if (user === null || tokens==null) return false
     return true
   }
 
   logOut() {
     localStorage.removeItem('authenticatedUser')
     localStorage.removeItem('token')
-    localStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
+    // localStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
+    localStorage.removeItem('userRole')
   }
 
   // authenticationService(username: string, password: string): Observable<any> {
@@ -76,16 +78,16 @@ export class AuthenticationDataService {
   }
 
   logout1() {
-    localStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
+    // localStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
     // this.username = null;
     // this.password = null;
   }
 
-  isUserLoggedIn1() {
-    let user = localStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
-    if (user === null) return false
-    return true
-  }
+  // isUserLoggedIn1() {
+    // let user = localStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
+    // if (user === null) return false
+    // return true
+  // }
 
   isNavBar() {
     let user = localStorage.getItem('authenticatedUser')
@@ -99,6 +101,7 @@ export class AuthenticationDataService {
     if (user === null) return ''
     return user
   }
+
 
 
 }
