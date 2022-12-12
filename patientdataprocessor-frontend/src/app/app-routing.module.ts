@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ForbiddenComponent } from './auth/forbidden/forbidden.component';
 import { LoginComponent } from './auth/login/login.component';
 import { LogoutComponent } from './auth/logout/logout.component';
 import { SignupComponent } from './auth/signup/signup.component';
@@ -36,6 +37,7 @@ const routes: Routes = [
   { path: 'charts-bp/:contactNumber', component: BloodPressureComponent, canActivate: [DoctorAuthGuardService], data: {roles:['DOCTOR']}  },
   { path: 'charts-sugar/:contactNumber', component: SugarLevelComponent, canActivate: [DoctorAuthGuardService], data: {roles:['DOCTOR']}  },
   { path: 'charts-blood-test-results/:contactNumber', component: BloodTestResultsComponent, canActivate: [DoctorAuthGuardService], data: {roles:['DOCTOR']}  },
+  { path: 'forbidden', component: ForbiddenComponent, canActivate: [AuthGuardService] },
   { path: 'logout', component: LogoutComponent, canActivate: [AuthGuardService] },
   { path: '**', component: LoginComponent, canActivate: [AuthGuardService] }
 ];
