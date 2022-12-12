@@ -53,7 +53,7 @@ export class ViewPatientResultsComponent implements OnInit {
   }
 
   delete(id: number) {
-    if (confirm('Are you sure you want delelte?'))
+    if (confirm('Are you sure you want delete?'))
       this.resultsService.delete(id).subscribe(
         response => {
           console.log(response),

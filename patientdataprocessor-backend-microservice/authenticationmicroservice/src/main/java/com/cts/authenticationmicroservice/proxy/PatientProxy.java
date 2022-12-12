@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Set;
 
-@FeignClient(name = "patients", url = "localhost:8085")
+@FeignClient(name = "patients", url = "localhost:8085", path = "/api/v1.0/patient")
 public interface PatientProxy {
 	
-    @GetMapping("/api/v1.0/patient")
+    @GetMapping("")
     public List<Patient> getAllPatients();
     
     @PreAuthorize("hasRole('ROLE_DOCTOR')")
-    @GetMapping("/api/v1.0/patient/contactNumber/{contactNumber}")
+    @GetMapping("/contactNumber/{contactNumber}")
     public Patient getByContactNumber(@PathVariable Long contactNumber);
     
 //    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
@@ -23,14 +23,14 @@ public interface PatientProxy {
 //    public Set<Report> getBypatientReports(@PathVariable Long contactNumber);
     
     @PreAuthorize("hasRole('ROLE_DOCTOR')")
-    @PostMapping("/api/v1.0/patient/registerPatient")
+    @PostMapping("/registerPatient")
     public Patient registerPatient(@RequestBody Patient patient);
     
     @PreAuthorize("hasRole('ROLE_DOCTOR')")
-    @PutMapping("/api/v1.0/patient/contactNumber/{contactNumber}")
+    @PutMapping("/contactNumber/{contactNumber}")
     public Patient updatePatientDetails(@PathVariable Long contactNumber, @RequestBody Patient patient);
     
     @PreAuthorize("hasRole('ROLE_DOCTOR')")
-    @DeleteMapping("/api/v1.0/patient/contactNumber/{contactNumber}")
+    @DeleteMapping("/contactNumber/{contactNumber}")
     public List<Patient> deletePatient(@PathVariable Long contactNumber);
 }

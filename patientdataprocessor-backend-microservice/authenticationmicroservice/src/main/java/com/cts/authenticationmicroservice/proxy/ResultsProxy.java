@@ -14,22 +14,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.cts.authenticationmicroservice.model.Results;
 
-@FeignClient(name = "results", url = "localhost:8087")
+@FeignClient(name = "results", url = "localhost:8087", path = "/api/v1.0/results")
 public interface ResultsProxy {
 
 	@PreAuthorize("hasRole('ROLE_DOCTOR')")
-	@GetMapping("/api/v1.0/results/contactNumber/{contactNumber}")
+	@GetMapping("/contactNumber/{contactNumber}")
 	public ResponseEntity<List<Results>> getByContactNumber(@PathVariable Long contactNumber);
 	
 	@PreAuthorize("hasRole('ROLE_DOCTOR')")
-	@PostMapping("/api/v1.0/results/saveResults")
+	@PostMapping("/saveResults")
 	public ResponseEntity<Results> saveResults(@RequestBody Results results);
 	
 	@PreAuthorize("hasRole('ROLE_DOCTOR')")
-	@DeleteMapping("/api/v1.0/results/id/{id}")
+	@DeleteMapping("/id/{id}")
 	public ResponseEntity<List<Results>> delete(@PathVariable int id);
 	
 	@PreAuthorize("hasRole('ROLE_DOCTOR')")
-	@DeleteMapping("/api/v1.0/results/contactNumber/{contactNumber}")
+	@DeleteMapping("/contactNumber/{contactNumber}")
 	public ResponseEntity<List<Results>> deleteAllByContactNumber(@PathVariable Long contactNumber);
 }
