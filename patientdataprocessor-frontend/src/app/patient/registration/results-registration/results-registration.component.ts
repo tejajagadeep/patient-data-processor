@@ -47,12 +47,12 @@ export class ResultsRegistrationComponent implements OnInit {
 
     const charCode = (event.which) ? event.which : event.keyCode;
 
-    if (charCode < 31 && (charCode < 48 || charCode > 57) || charCode == '.') {
-      return true
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false
     }
 
 
-    return false;
+    return true;
   }
   getPatient(contactNumber1: number) {
     this.patientService.getByContactNumber(contactNumber1).subscribe(

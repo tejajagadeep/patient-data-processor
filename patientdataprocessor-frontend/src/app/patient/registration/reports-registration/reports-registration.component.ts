@@ -50,6 +50,18 @@ export class ReportsRegistrationComponent implements OnInit {
     this.getPatient(this.contactNumber)
   }
 
+  OnlyNumbers(event: any): boolean {
+
+    const charCode = (event.which) ? event.which : event.keyCode;
+
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false
+    }
+
+
+    return true;
+  }
+
   saveReports() {
 
     if(this.reports.systolic===this.dummyNumber){
