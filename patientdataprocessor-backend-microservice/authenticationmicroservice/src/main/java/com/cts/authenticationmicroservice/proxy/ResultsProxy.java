@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.cts.authenticationmicroservice.model.Results;
 
-@FeignClient(name = "results", url = "localhost:8087", path = "/api/v1.0/results")
+@FeignClient(name = "results", path = "/api/v1.0/results")
 public interface ResultsProxy {
 
 	@PreAuthorize("hasRole('ROLE_DOCTOR')")
