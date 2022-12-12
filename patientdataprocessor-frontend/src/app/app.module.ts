@@ -28,6 +28,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ViewPatientResultsComponent } from './patient/view/view-patient-results/view-patient-results.component';
 import { ResultsRegistrationComponent } from './patient/registration/results-registration/results-registration.component';
 import { BloodTestResultsComponent } from './charts/blood-test-results/blood-test-results.component';
+import { ForbiddenComponent } from './auth/forbidden/forbidden.component';
 // import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 // import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -84,7 +85,8 @@ import { BloodTestResultsComponent } from './charts/blood-test-results/blood-tes
     FooterComponent,
     ViewPatientResultsComponent,
     ResultsRegistrationComponent,
-    BloodTestResultsComponent
+    BloodTestResultsComponent,
+    ForbiddenComponent
   ],
   imports: [
     BrowserModule,

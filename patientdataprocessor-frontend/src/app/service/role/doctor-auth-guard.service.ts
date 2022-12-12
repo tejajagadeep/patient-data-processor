@@ -13,7 +13,7 @@ export class DoctorAuthGuardService implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     const role = route.data['roles'] as Array<string>
-    if(role && this.authService.isUserLoggedIn()){
+    if(role && this.authService.isUserLoggedIn() ){
       const match = (localStorage.getItem('userRole')===role[0])
       if(match){
         return true
