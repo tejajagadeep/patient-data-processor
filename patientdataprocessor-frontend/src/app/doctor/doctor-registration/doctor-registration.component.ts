@@ -109,8 +109,8 @@ export class DoctorRegistrationComponent implements OnInit {
   OnlyAlbhabets(event: any): boolean {
 
     const charCode = (event.which) ? event.which : event.keyCode;
-
-    if (charCode > 31 && (charCode < 48 || charCode > 57) || charCode == ' ') {
+    //ASCII value of uppercase alphabets – 65 to 90. ASCII value of lowercase alphabets – 97 to 122. decimal 32
+    if(charCode == 32 || ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123))) {
       return true
     }
 

@@ -6,6 +6,7 @@
         <br>
         <h1 class="text-center">Patient {{patient.firstName}} {{patient.lastName}} Results Details</h1>
         <br>
+        <div class="text-center  alert alert-warning" *ngIf="errorMessageResponse">Error: Results Service Unavailable.</div>
         <table class="table table-striped table-bordered table-light">
             <thead>
                 <tr>

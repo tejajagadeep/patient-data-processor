@@ -19,7 +19,7 @@
                         <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name"
                             [(ngModel)]="patient.firstName" required #firstName="ngModel"
                             [class.is-invalid]="firstName.invalid && firstName.touched"
-                            (keypress)="OnlyAlbhabets($event)" />
+                            (keypress)="OnlyAlbhabets($event)" autocomplete="off"/>
                             <small class="text-danger" *ngIf="firstNameT && firstName.untouched">First Name is required field</small>
                         <small class="text-danger" [class.d-none]="firstName.valid || firstName.untouched">First Name
                             is

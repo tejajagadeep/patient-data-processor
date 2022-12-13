@@ -5,6 +5,8 @@ import java.util.Date;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,6 +18,7 @@ import lombok.Setter;
 //@AllArgsConstructor
 @Component
 public class MessageResponse {
+	@JsonFormat(pattern = "yyyy/MM/dd hh:mm:ss ")
 	private Date timeStamp;
 	private String message;
 	private HttpStatus status;

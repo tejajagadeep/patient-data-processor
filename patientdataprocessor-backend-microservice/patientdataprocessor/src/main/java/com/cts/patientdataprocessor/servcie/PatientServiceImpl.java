@@ -36,7 +36,10 @@ public class PatientServiceImpl implements PatientService{
 		
 		Patient patientDummy = patientRepository.findByContactNumber(patient.getContactNumber());
 		if(patientDummy!=null) {
-			throw new  IdAlredyExistsException("Contact Number Already Present");
+			throw new  IdAlredyExistsException("Contact Number Already Exists.");
+		}
+		if(patientRepository.findByEmail(patient.getEmail())!=null) {
+			throw new  IdAlredyExistsException("Email Id Already Exists.");
 		}
 		return patientRepository.save(patient);
 	}

@@ -57,10 +57,10 @@ export class LoginComponent implements OnInit {
 
   checkLogin1() {
     if(this.username===''){
-      this.errorMessage = "Email Address Required"
+      this.errorMessage = "Email Address is Required"
     } 
     else if(this.password===''){
-      this.password = "Password Required"
+      this.errorMessage = "Password is Required"
     } else {
     this.authenticateLoginService.authenticate(this.username, this.password).subscribe(
       response => {

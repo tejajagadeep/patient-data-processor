@@ -16,6 +16,8 @@ export class ViewPatientReportsComponent implements OnInit {
   patient!: Patient
 
   report!: Report[]
+  errorMessageResponse!: string
+  
 
   contactNumber!: number
 
@@ -45,8 +47,25 @@ export class ViewPatientReportsComponent implements OnInit {
 
   getReports(contactNumber1: number) {
     this.reportService.getBycontactNumber(contactNumber1).subscribe(
-      response => this.report = response
+      response => {
+        this.report = response,
+          console.log(response)
+      },
+      error => {
+        console.log(error.error.message.indexOf('Load balancer does not contain an instance for the service reports'))
+        console.log(error.error.message.indexOf('Connection refused:'))
+        if (error.error.message.indexOf('Load balancer does not contain an instance for the service reports')==124) {
+          this.errorMessageResponse = 'Reports Service Unavailable.'
+
+        }
+        if (error.error.message.indexOf('Connection refused:')==0) {
+          this.errorMessageResponse = error.error.message
+
+        }
+        console.log((this.errorMessageResponse))
+      }
     )
+    
   }
 
   delete(id: number) {

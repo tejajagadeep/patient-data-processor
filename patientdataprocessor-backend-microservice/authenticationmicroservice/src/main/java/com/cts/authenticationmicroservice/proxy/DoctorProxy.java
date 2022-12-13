@@ -16,7 +16,7 @@ import com.cts.authenticationmicroservice.model.Doctor;
 @FeignClient(name = "doctors", path = "/api/v1.0/doctor")
 public interface DoctorProxy {
 
-	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@GetMapping("")
 	public ResponseEntity<List<Doctor>> retrieveAllDoctorDetails();
 	

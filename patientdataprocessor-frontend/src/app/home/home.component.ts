@@ -22,6 +22,8 @@ export class HomeComponent implements OnInit {
   patients!: Patient[]
   doctors!: Doctor[]
   doctor!: Doctor
+
+  errorMessageResponse!: string
   //user
   username!: string
   user!: User
@@ -57,6 +59,18 @@ export class HomeComponent implements OnInit {
       response => {
         this.patients = response,
           console.log(response)
+      },
+      error=>{
+        console.log(error.error.message.indexOf('Load balancer does not contain an instance for the service patients'))
+        console.log(error.error.message.indexOf('Connection refused:'))
+        if (error.error.message.indexOf('Load balancer does not contain an instance for the service patients')==91) {
+          this.errorMessageResponse = 'Patient Service Unavailable.'
+
+        }
+        if (error.error.message.indexOf('Connection refused:')==0) {
+          this.errorMessageResponse = error.error.message
+
+        }
       }
     )
   }
@@ -72,6 +86,18 @@ export class HomeComponent implements OnInit {
       response => {
         this.doctors = response,
           console.log(response)
+      },
+      error=>{
+        console.log(error.error.message.indexOf('doctors'))
+        console.log(error.error.message.indexOf('Connection refused:'))
+        if (error.error.message.indexOf('Load balancer does not contain an instance for the service doctors')==98) {
+          this.errorMessageResponse = 'Doctor Service Unavailable.'
+
+        }
+        if (error.error.message.indexOf('Connection refused:')==0) {
+          this.errorMessageResponse = error.error.message
+
+        }
       }
     )
   }

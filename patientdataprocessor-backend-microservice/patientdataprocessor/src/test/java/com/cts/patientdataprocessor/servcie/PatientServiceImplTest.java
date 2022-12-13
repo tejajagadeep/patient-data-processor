@@ -169,6 +169,35 @@ class PatientServiceImplTest {
 		assertThrows(IdAlredyExistsException.class, ()->patientServiceimpl.registerPatient(patient));
 	}
 	
+	@Test
+	void testregisterPatientThrowsexception2()
+	{
+		Patient patient = new Patient();
+		patient.setContactNumber(7894561230L);
+		patient.setAddress("hyderabad");
+		patient.setFirstName("Rakel");
+		patient.setLastName("Ramesh");
+		patient.setGender("Male");
+		patient.setDateOfBirth(dob);
+		patient.setMaritalStatus("single");
+		patient.setEmergencyContactNumber(7894561231L);
+		patient.setEmail("ramesh@gmail.com");
+		patient.setBloodGroup("O+");
+		patient.setDisease("High BP");
+		patient.setDiagnosis("");
+		patient.setPreviousDiagnosis("");
+		patient.setDateVisited(visited);
+		patient.setTreatmentStartDate(treatmentstart);
+		patient.setTreatmentEndDate(treatmentend);
+		patient.setPrescription("Diuretics");
+		patient.setHeight("170cms");
+		patient.setWeight("75kgs");
+		
+		when(patientRepository.findByContactNumber(7894561230L)).thenReturn(null);
+		when(patientRepository.findByEmail("ramesh@gmail.com")).thenReturn(patient);
+		assertThrows(IdAlredyExistsException.class, ()->patientServiceimpl.registerPatient(patient));
+	}
+	
 
 	@Test
 	void testRegisterPatient() {

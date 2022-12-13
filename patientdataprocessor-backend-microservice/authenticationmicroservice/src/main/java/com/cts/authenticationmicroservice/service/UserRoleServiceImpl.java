@@ -24,7 +24,7 @@ public class UserRoleServiceImpl implements UserRoleService {
 	public UserRole save(UserRole userRole) {
 		UserRole u = userRepository.findByUserName(userRole.getUserName());
 		if (u!= null) {
-			throw new IdAlredyExistsException("Email Id Already Exist");
+			throw new IdAlredyExistsException("Email Id Already Exists");
 		}
 		
 		return userRepository.save(userRole);
