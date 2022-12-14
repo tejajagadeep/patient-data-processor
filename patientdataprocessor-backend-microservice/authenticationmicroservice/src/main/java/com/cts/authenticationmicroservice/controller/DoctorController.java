@@ -69,15 +69,18 @@ public class DoctorController {
 //		if(userRoleRepository.findByUserName(doctor.getEmailId())!=null) {
 //			throw new IdAlredyExistsException("Email Id Already Exists");
 //		} else {
+		
 		String encryptedPassword = passwordEncoder.encode(doctor.getPassword());
 		doctor.setPassword(encryptedPassword);
+//		if(this.doctorProxy.doctorRegistration(doctor).getStatusCodeValue()!=400) {
 		UserRole user = new UserRole();
 		user.setUserName(doctor.getEmailId());
 		user.setPassword(encryptedPassword);
 		user.setRole("DOCTOR");
 		userRoleService.save(user);
-		
+//		}
 		return this.doctorProxy.doctorRegistration(doctor);
 //		}
+		
 	}
 }

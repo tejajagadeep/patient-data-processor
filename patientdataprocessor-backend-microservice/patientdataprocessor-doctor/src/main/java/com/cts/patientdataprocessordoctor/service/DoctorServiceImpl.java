@@ -45,8 +45,11 @@ public class DoctorServiceImpl implements DoctorService{
 //		userRepository.save(user);
 		Doctor d = doctorRespository.findByEmailId(doctor.getEmailId());
 		if(d!= null) {
-			throw new IdAlredyExistsException("Email Id already Exists");
+			throw new IdAlredyExistsException("Email Id already Exists.");
 		}
+//		if(doctorRespository.findByContactNumber(doctor.getContactNumber())!=null) {
+//			throw new IdAlredyExistsException("Contact Number already Exists.");
+//		}
 		return doctorRespository.save(doctor);
 	}
 

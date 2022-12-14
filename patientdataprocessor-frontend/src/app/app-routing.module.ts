@@ -37,7 +37,6 @@ const routes: Routes = [
   { path: 'charts-bp/:contactNumber', component: BloodPressureComponent, canActivate: [DoctorAuthGuardService], data: {roles:['DOCTOR']}  },
   { path: 'charts-sugar/:contactNumber', component: SugarLevelComponent, canActivate: [DoctorAuthGuardService], data: {roles:['DOCTOR']}  },
   { path: 'charts-blood-test-results/:contactNumber', component: BloodTestResultsComponent, canActivate: [DoctorAuthGuardService], data: {roles:['DOCTOR']}  },
-  { path: 'forbidden', component: ForbiddenComponent, canActivate: [AuthGuardService] },
   { path: 'logout', component: LogoutComponent, canActivate: [AuthGuardService] },
   { path: '**', component: LoginComponent, canActivate: [AuthGuardService] }
 ];

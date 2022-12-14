@@ -14,6 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import com.cts.patientdataprocessordoctor.exception.IdAlredyExistsException;
 import com.cts.patientdataprocessordoctor.model.Doctor;
 import com.cts.patientdataprocessordoctor.repository.DoctorRespository;
 
@@ -79,5 +80,41 @@ class DoctorServiceImplTest {
 		when(doctorRespository.save(doctor)).thenReturn(doctor);
 		assertEquals(doctor, doctorServiceImpl.doctorRegistration(doctor));
 	}
+	
+	@Test
+	void testDoctorRegistrationmailExcepton() {
+		Doctor doctor = new Doctor();
+		doctor.setEmailId("thunder@gmail.com");
+		doctor.setPassword("password");
+		doctor.setContactNumber(7982516852L);
+		doctor.setFirstName("first");
+		doctor.setLastName("last");
+		Date date = new Date();
+		doctor.setDateOfBirth(date);
+		doctor.setGender("male");
+		doctor.setAddress("address");
+		
+		when(doctorRespository.findByEmailId("thunder@gmail.com")).thenReturn(doctor);
+		assertThrows(IdAlredyExistsException.class, ()-> doctorServiceImpl.doctorRegistration(doctor));
+	}
+	
+//	@Test
+//	void testDoctorRegistrationNumberException() {
+//		Doctor doctor = new Doctor();
+//		doctor.setEmailId("thunder@gmail.com");
+//		doctor.setPassword("password");
+//		doctor.setContactNumber(7982516852L);
+//		doctor.setFirstName("first");
+//		doctor.setLastName("last");
+//		Date date = new Date();
+//		doctor.setDateOfBirth(date);
+//		doctor.setGender("male");
+//		doctor.setAddress("address");
+//		
+//		
+//		when(doctorRespository.findByEmailId("thunder@gmail.com")).thenReturn(null);
+//		when(doctorRespository.findByContactNumber(7982516852L)).thenReturn(doctor);
+//		assertThrows(IdAlredyExistsException.class, ()-> doctorServiceImpl.doctorRegistration(doctor));
+//	}
 
 }

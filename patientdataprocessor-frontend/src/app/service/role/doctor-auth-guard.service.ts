@@ -18,7 +18,8 @@ export class DoctorAuthGuardService implements CanActivate {
       if (match) {
         return true
       } else {
-        this.router.navigate(['forbidden']);
+        alert("You don't have access for this path. Redirect to Home Page.")
+        this.router.navigate(['home']);
         return false
       }
     }

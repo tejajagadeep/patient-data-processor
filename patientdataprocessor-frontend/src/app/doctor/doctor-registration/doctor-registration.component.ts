@@ -93,14 +93,28 @@ export class DoctorRegistrationComponent implements OnInit {
         this.doctor = response
         this.router.navigate(['home'])
       },
-      error => 
-        // if(error.error.message==='Email Id Already Exists'){
-          this.errorMessageResponse = error.error.message
-          
-        // } else {
-        //   this.errorMessageResponse = 'Fields Required'
-        // }
+      error => {
+        // this.errorMessageResponse = error.error.message
+        if(error.error.message.indexOf('Email Id')!= -1){
+
+          this.errorMessageResponse = error.error.message.substring(error.error.message.indexOf('Email Id'))
+          this.errorMessageResponse= this.errorMessageResponse.substring(0,this.errorMessageResponse.indexOf('.'))
         
+        };
+        // if(error.error.message.indexOf('Contact Number')!= -1){
+        //   this.errorMessageResponse = error.error.message.substring(error.error.message.indexOf('Contact Number'))
+        //   this.errorMessageResponse= this.errorMessageResponse.substring(0,this.errorMessageResponse.indexOf('.'))
+          
+        // };
+        if (error.error.message.indexOf('Load balancer does not contain an instance for the service doctors')!= -1) {
+          this.errorMessageResponse = 'Doctor Service Unavailable.'
+
+        };
+        if (error.error.message.indexOf('Connection refused:')!= -1) {
+          this.errorMessageResponse = error.error.message
+
+        };
+      }
       
     )
        }

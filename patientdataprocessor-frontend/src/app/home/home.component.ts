@@ -90,11 +90,11 @@ export class HomeComponent implements OnInit {
       error=>{
         console.log(error.error.message.indexOf('doctors'))
         console.log(error.error.message.indexOf('Connection refused:'))
-        if (error.error.message.indexOf('Load balancer does not contain an instance for the service doctors')==98) {
+        if (error.error.message.indexOf('Load balancer does not contain an instance for the service doctors')!= -1) {
           this.errorMessageResponse = 'Doctor Service Unavailable.'
 
         }
-        if (error.error.message.indexOf('Connection refused:')==0) {
+        if (error.error.message.indexOf('Connection refused:')!= -1) {
           this.errorMessageResponse = error.error.message
 
         }
