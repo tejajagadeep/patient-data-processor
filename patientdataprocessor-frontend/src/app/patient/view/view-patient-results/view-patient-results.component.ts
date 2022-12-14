@@ -47,15 +47,18 @@ export class ViewPatientResultsComponent implements OnInit {
 
   getAllResults(contactNumber1: number) {
     this.resultsService.getByContactNumber(contactNumber1).subscribe(
-      response => this.results = response,
+      response => {
+        this.results = response,
+          console.log(response)
+      },
       error => {
         console.log(error.error.message.indexOf('Load balancer does not contain an instance for the service results'))
         console.log(error.error.message.indexOf('Connection refused:'))
-        if (error.error.message.indexOf('Load balancer does not contain an instance for the service results')==123) {
+        if (error.error.message.indexOf('Load balancer does not contain an instance for the service results')!=- 1) {
           this.errorMessageResponse = 'Results Service Unavailable.'
 
         }
-        if (error.error.message.indexOf('Connection refused:')==0) {
+        if (error.error.message.indexOf('Connection refused:')!=- 1) {
           this.errorMessageResponse = error.error.message
 
         }

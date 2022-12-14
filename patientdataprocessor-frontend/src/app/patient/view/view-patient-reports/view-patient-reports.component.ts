@@ -54,11 +54,11 @@ export class ViewPatientReportsComponent implements OnInit {
       error => {
         console.log(error.error.message.indexOf('Load balancer does not contain an instance for the service reports'))
         console.log(error.error.message.indexOf('Connection refused:'))
-        if (error.error.message.indexOf('Load balancer does not contain an instance for the service reports')==124) {
+        if (error.error.message.indexOf('Load balancer does not contain an instance for the service reports')!=- 1) {
           this.errorMessageResponse = 'Reports Service Unavailable.'
 
         }
-        if (error.error.message.indexOf('Connection refused:')==0) {
+        if (error.error.message.indexOf('Connection refused:')!=- 1) {
           this.errorMessageResponse = error.error.message
 
         }

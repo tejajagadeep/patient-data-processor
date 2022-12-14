@@ -108,7 +108,12 @@ export class PatientRegistrationComponent implements OnInit {
         },
         error => {
           this.errorDummy = error.error.message
-          this.errorDummy = this.errorDummy.slice(279)
+          if(this.errorDummy.indexOf('Email Id')!= -1){
+          this.errorDummy = error.error.message.substring(this.errorDummy.indexOf('Email Id'))
+          }
+          if(this.errorDummy.indexOf('Contact Number')!= -1){
+            this.errorDummy = error.error.message.substring(this.errorDummy.indexOf('Contact Number'))
+          }
           console.log()
           this.errorMessageResponse = this.errorDummy.substring(0,this.errorDummy.indexOf('.'))
          if (error.error.message.indexOf('Load balancer does not contain an instance for the service patients')==116) {
