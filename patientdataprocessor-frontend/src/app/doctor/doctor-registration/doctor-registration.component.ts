@@ -95,13 +95,14 @@ export class DoctorRegistrationComponent implements OnInit {
       },
       error => {
         // this.errorMessageResponse = error.error.message
+
         if(error.error.message.indexOf('Email Id')!= -1){
 
           this.errorMessageResponse = error.error.message.substring(error.error.message.indexOf('Email Id'))
           this.errorMessageResponse= this.errorMessageResponse.substring(0,this.errorMessageResponse.indexOf('.'))
         
-        };
-        // if(error.error.message.indexOf('Contact Number')!= -1){
+        }
+        // else if(error.error.message.indexOf('Contact Number')!= -1){
         //   this.errorMessageResponse = error.error.message.substring(error.error.message.indexOf('Contact Number'))
         //   this.errorMessageResponse= this.errorMessageResponse.substring(0,this.errorMessageResponse.indexOf('.'))
           
