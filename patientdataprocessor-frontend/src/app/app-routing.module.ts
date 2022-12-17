@@ -19,11 +19,12 @@ import { ViewPatientDetailsComponent } from './patient/view/view-patient-details
 import { ViewPatientReportsComponent } from './patient/view/view-patient-reports/view-patient-reports.component';
 import { ViewPatientResultsComponent } from './patient/view/view-patient-results/view-patient-results.component';
 import { AuthGuardService } from './service/auth/auth-guard.service';
+import { LoginRouteGuardService } from './service/auth/login-route-guard.service';
 import { DoctorAuthGuardService } from './service/role/doctor-auth-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent, canActivate: [LoginRouteGuardService] },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuardService] },
   { path: 'patient-registration', component: PatientRegistrationComponent, canActivate: [DoctorAuthGuardService], data: {roles:['DOCTOR']} },
   { path: 'patient-records-registration/:contactNumber', component: PatientRecordsRegistrationComponent, canActivate: [DoctorAuthGuardService], data: {roles:['DOCTOR']}  },
@@ -38,7 +39,7 @@ const routes: Routes = [
   { path: 'charts-sugar/:contactNumber', component: SugarLevelComponent, canActivate: [DoctorAuthGuardService], data: {roles:['DOCTOR']}  },
   { path: 'charts-blood-test-results/:contactNumber', component: BloodTestResultsComponent, canActivate: [DoctorAuthGuardService], data: {roles:['DOCTOR']}  },
   { path: 'logout', component: LogoutComponent, canActivate: [AuthGuardService] },
-  { path: '**', component: LoginComponent, canActivate: [AuthGuardService] }
+  { path: '**', redirectTo: 'login', pathMatch: 'full' }
 ];
 
 @NgModule({
