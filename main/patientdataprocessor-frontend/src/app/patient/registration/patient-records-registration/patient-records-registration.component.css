@@ -1,0 +1,13 @@
+.required {
+    color: red;
+}
+
+h6 {
+    font-size: 20px;
+}
+
+textarea {
+    /* width: 400px; */
+    height: 100px;
+    padding: 20px 0 20px 20px;
+}

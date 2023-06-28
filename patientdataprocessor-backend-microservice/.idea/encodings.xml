@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/../../../authentication-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apigateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apigateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/authentication-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/authenticationmicroservice/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/authenticationmicroservice/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eurekaserver/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eurekaserver/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/patientdataprocessor-doctor/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/patientdataprocessor-doctor/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/patientdataprocessor-report/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/patientdataprocessor-report/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/patientdataprocessor-results/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/patientdataprocessor-results/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/patientdataprocessor/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/patientdataprocessor/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

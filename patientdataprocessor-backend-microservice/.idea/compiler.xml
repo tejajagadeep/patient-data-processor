@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="apigateway" />
+        <module name="eurekaserver" />
+        <module name="patientdataprocessor-report" />
+        <module name="authentication-service" />
+        <module name="patientdataprocessor" />
+        <module name="patientdataprocessor-doctor" />
+        <module name="patientdataprocessor-results" />
+        <module name="authenticationmicroservice" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="apigateway" options="-parameters" />
+      <module name="authentication-service" options="-parameters" />
+      <module name="authenticationmicroservice" options="-parameters" />
+      <module name="eurekaserver" options="-parameters" />
+      <module name="patientdataprocessor" options="-parameters" />
+      <module name="patientdataprocessor-doctor" options="-parameters" />
+      <module name="patientdataprocessor-report" options="-parameters" />
+      <module name="patientdataprocessor-results" options="-parameters" />
+    </option>
+  </component>
+</project>

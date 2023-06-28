@@ -1,0 +1,19 @@
+th {
+    font-size: 25px;
+}
+
+td {
+    font-size: 20px;
+}
+
+h6 {
+    font-size: 20px;
+}
+
+h1 {
+    font-size: 30px;
+    /* font-style: initial; */
+    color: rgb(25, 156, 25);
+    /* font: bold; */
+    text-transform: uppercase;
+}

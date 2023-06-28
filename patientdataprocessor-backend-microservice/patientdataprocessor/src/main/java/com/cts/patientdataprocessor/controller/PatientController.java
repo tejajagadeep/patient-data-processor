@@ -3,6 +3,9 @@ package com.cts.patientdataprocessor.controller;
 import java.util.List;
 import java.util.Set;
 
+import com.cts.patientdataprocessor.dto.PatientDto;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -49,7 +52,12 @@ public class PatientController {
 	
 //	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')")
 	@PostMapping("/registerPatient")
-	public ResponseEntity<Patient> registerPatient(@RequestBody Patient patient) {
+	public ResponseEntity<PatientDto> registerPatient(@RequestBody PatientDto patient) {
+
+		ModelMapper modelMapper=new ModelMapper();
+		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+
+		patientService.registerPatient(patient);
 		return new ResponseEntity<>(patientService.registerPatient(patient),HttpStatus.OK);
 	}
 	

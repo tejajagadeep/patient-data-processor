@@ -1,0 +1,102 @@
+<section class="h-100 h-custom " style="background-color: #8fc4b7;">
+    <div class="container div-center">
+
+        <form class="card" style="border-radius: 15px;" #RegisterForm="ngForm" (ngSubmit)="saveReports()">
+            <br>
+            <br>
+
+            <h1 class="text-center">Patient {{patient.firstName}} {{patient.lastName}} Reports</h1>
+
+            <div class="card-body">
+
+                <div class="container text-center  alert alert-warning" *ngIf="errorMessageResponse">Error:
+                    {{errorMessageResponse}}
+                </div>
+
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="exampleInputsystolic">
+                        <h6 class="mb-0">Systolic<span class="required">*</span></h6>
+                    </label>
+                    <div class="form-group col-md-9 pe-5">
+                        <input type="number" class="form-control" id="systolic" name="systolic" placeholder="Systolic"
+                            [(ngModel)]="reports.systolic" required #systolic="ngModel" min="100" max="220"
+                            [class.is-invalid]="systolic.invalid && systolic.touched" (keypress)="OnlyNumbers($event)"  />
+                            <small class="text-danger" *ngIf="systolicT && systolic.untouched">Systolic is required field</small>
+                        <small class="text-danger" [class.d-none]="systolic.valid || systolic.untouched">Systolic
+                            is
+                            required field and valid range is between 100 and 220</small>
+                    </div>
+                </div>
+
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="exampleInputdiastolic">
+                        <h6 class="mb-0">Diastolic<span class="required">*</span></h6>
+                    </label>
+                    <div class="form-group col-md-9 pe-5">
+                        <input type="number" class="form-control" id="diastolic" name="diastolic"
+                            placeholder="Diastolic" [(ngModel)]="reports.diastolic" required #diastolic="ngModel"
+                            min="60" [class.is-invalid]="diastolic.invalid && diastolic.touched" (keypress)="OnlyNumbers($event)" />
+                            <small class="text-danger" *ngIf="diastolicT && diastolic.untouched">Diastolic is required field</small>
+                        <small class="text-danger" [class.d-none]="diastolic.valid || diastolic.untouched">Diastolic
+                            is
+                            required field and valid range is minimum 60</small>
+                    </div>
+                </div>
+
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="exampleInputsugarlevel">
+                        <h6 class="mb-0">Fasting Blood Sugar Level<span class="required">*</span></h6>
+                    </label>
+                    <div class="form-group col-md-9 pe-5">
+                        <input type="number" class="form-control" id="sugarlevel" name="sugarlevel"
+                            placeholder="Fasting Blood Sugar Level" [(ngModel)]="reports.sugarlevel" required
+                            #sugarlevel="ngModel" [class.is-invalid]="sugarlevel.invalid && sugarlevel.touched"
+                            min="0" (keypress)="OnlyNumbers($event)" />
+                            <small class="text-danger" *ngIf="sugarlevelT && sugarlevel.untouched">Fasting Blood Sugar Level is required field</small>
+                        <small class="text-danger" [class.d-none]="sugarlevel.valid || sugarlevel.untouched">Fasting Blood Sugar Level
+                            is
+                            required field</small>
+                    </div>
+                </div>
+
+                <div class="row align-items-center pt-4 pb-3">
+                    <label class="col-md-3 ps-5" for="exampleInputsugarlevel2">
+                        <h6 class="mb-0">Postprandial Blood Sugar Level<span class="required">*</span></h6>
+                    </label>
+                    <div class="form-group col-md-9 pe-5">
+                        <input type="number" class="form-control" id="sugarlevel2" name="sugarlevel2"
+                            placeholder="Postprandial Blood Sugar Level" [(ngModel)]="reports.sugarlevel2" required
+                            #sugarlevel2="ngModel" [class.is-invalid]="sugarlevel2.invalid && sugarlevel2.touched"
+                            min="0" (keypress)="OnlyNumbers($event)" />
+                            <small class="text-danger" *ngIf="sugarlevel2T && sugarlevel2.untouched">Postprandial Blood Sugar is required field</small>
+                        <small class="text-danger" [class.d-none]="sugarlevel2.valid || sugarlevel2.untouched">Postprandial Blood Sugar
+                            is
+                            required field</small>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-around pt-3">
+                    <button type="button" class="btn btn-primary btn-lg" (click)="navBack()">Back</button>
+                    <!-- <button type="button" class="btn btn-light" [routerLink]="['/home/',username]">Home</button> -->
+                    <button type="button" class="btn btn-light" routerLink="/home">Home</button>
+                    <button type="reset" class="btn btn-info btn-lg">Reset All</button>
+                    <button type="submit" class="btn btn-warning btn-lg ms-2">Save</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <br>
+</section>
+
+<!-- <mat-form-field>
+    <mat-label>
+        emailIds
+    </mat-label>
+    <input matInput type="text" [matAutocomplete]="auto"/>
+    <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let emailId of emailIds">
+            {{emailId}}
+        </mat-option>
+    </mat-autocomplete>
+</mat-form-field> -->

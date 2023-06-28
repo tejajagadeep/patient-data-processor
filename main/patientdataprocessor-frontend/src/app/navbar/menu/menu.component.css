@@ -1,0 +1,169 @@
+.errormessage {
+    color: red;
+}
+
+.search-container {
+    background: rgb(255, 255, 255);
+    height: 50px;
+    border-radius: 30px;
+    padding: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.8s;
+    /*box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+    inset -7px -7px 10px 0px rgba(0,0,0,.1),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+   text-shadow:  0px 0px 6px rgba(255,255,255,.3),
+              -4px -4px 6px rgba(116, 125, 136, .2);
+  text-shadow: 2px 2px 3px rgba(255,255,255,0.5);*/
+    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .3),
+        -4px -4px 6px 0 rgba(116, 125, 136, .2),
+        inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
+        inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+}
+
+.search-container:hover>.search-input {
+    width: 500px;
+}
+
+.search-container .search-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 0px;
+    font-weight: 500;
+    font-size: 16px;
+    transition: 0.8s;
+
+}
+
+.search-container .search-btn .fas {
+    color: #e0e2e7;
+}
+
+.inner {
+    overflow: hidden;
+}
+
+.inner img {
+    transition: all 1.5s ease;
+}
+
+.inner:hover img {
+    transform: scale(1.5);
+}
+
+.card-title {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.card-subtitle {
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.table-wrapper {
+    border-collapse: collapse;
+    margin-left: 170px;
+    margin-right: 140px;
+    margin-top: 10px;
+}
+
+.form_group {
+    position: relative;
+    padding: 15px 15px 15px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.form_field {
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid#9b9b9b;
+    outline: none;
+    font-size: 0.9rem;
+    color: rgb(29, 29, 29);
+    padding: 7px 0;
+    background-color: transparent;
+    transition: border-color 0.2s;
+}
+
+.form_field::placeholder {
+    color: transparent;
+}
+
+.form_label {
+    position: absolute;
+    display: block;
+    transition: 0.2s;
+    font-size: 0.9rem;
+    color: #9b9b9b;
+}
+
+.form_field:placeholder-shown~.form_label {
+    font-size: 0.9rem;
+    cursor: text;
+    top: 20px;
+}
+
+.form_field:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #020202, #525252);
+    border-image-slice: 1;
+}
+
+.form_field:focus~.form_label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 0.9rem;
+    color: #2e2e2e;
+    font-weight: 700;
+}
+
+.modal-header {
+    background-color: #292828;
+}
+
+.modal-content {
+    border: none;
+}
+
+.modal-title {
+    color: white;
+    font-size: 17px;
+}
+
+body,
+html {
+    height: 100%;
+}
+
+.bg {
+    /* The image used */
+    background-image: url("https://www.shrisaihospital.in/upload/image1636093120.jpeg");
+    /* Half height */
+    height: 50%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    /* Set the navbar to fixed position */
+    top: 0;
+    /* Position the navbar at the top of the page */
+    width: 100%;
+    /* Full width */
+}
