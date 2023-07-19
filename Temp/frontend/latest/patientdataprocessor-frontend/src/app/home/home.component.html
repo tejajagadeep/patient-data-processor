@@ -117,7 +117,10 @@
         <img src="../assets/image/hospital.jpg"  height="100%" width="100%">
     </div> -->
 
-        <div class="col-sm-4" *ngFor="let hospital of patients">
+        <div
+          class="col-sm-4"
+          *ngFor="let hospital of patients | search : searchText"
+        >
           <!-- <div class="col-sm-4" *ngFor="let hospital of patients | filter : searchText"> -->
           &nbsp;
           <div class="card" style="width: 18rem">
@@ -244,7 +247,10 @@
         <img src="../assets/image/hospital.jpg"  height="100%" width="100%">
     </div> -->
 
-        <div class="col-sm-4" *ngFor="let hospital of doctors">
+        <div
+          class="col-sm-4"
+          *ngFor="let hospital of doctors | search : searchText"
+        >
           <div class="card" style="width: 18rem">
             <div class="card-header text-center text-primary">
               Doctor Details

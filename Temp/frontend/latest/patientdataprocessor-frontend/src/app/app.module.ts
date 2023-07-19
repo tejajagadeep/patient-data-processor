@@ -29,6 +29,7 @@ import { ViewPatientResultsComponent } from './patient/view/view-patient-results
 import { ResultsRegistrationComponent } from './patient/registration/results-registration/results-registration.component';
 import { BloodTestResultsComponent } from './charts/blood-test-results/blood-test-results.component';
 import { ForbiddenComponent } from './auth/forbidden/forbidden.component';
+import { SearchPipe } from './search.pipe';
 // import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 // import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -87,6 +88,7 @@ import { ForbiddenComponent } from './auth/forbidden/forbidden.component';
     ResultsRegistrationComponent,
     BloodTestResultsComponent,
     ForbiddenComponent,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,
