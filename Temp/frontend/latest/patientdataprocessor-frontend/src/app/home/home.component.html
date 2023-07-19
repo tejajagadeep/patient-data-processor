@@ -1,150 +1,231 @@
 <div class="bg">
-
   <div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <div class="container-fluid">
         <!-- <a class="navbar-brand" routerLink="/doctor-registration" *ngIf="user.role ==='ADMIN'">Add Doctor</a> -->
         <!-- <a class="navbar-brand" routerLink="/patient-registration" *ngIf="user.role ==='DOCTOR'">Add Patient</a> -->
         <a class="navbar-brand" href="#">Patient Data Processor</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          
-          <a id="mybutton1" class="btn btn-secondary text-white me-2" routerLink="/home">Home</a>
-          <button class="btn btn btn-success mr-1 me-2" routerLink="/patient-registration" *ngIf="user.role ==='DOCTOR'"
-            data-bs-toggle="modal" data-bs-target="#addHospital" type="submit">Add Patient</button>
-          <button class="btn btn btn-success mr-1 me-2" routerLink="/doctor-registration" *ngIf="user.role ==='ADMIN'"
-            data-bs-toggle="modal" data-bs-target="#addHospital" type="submit">Add Doctor</button>
-
+          <a
+            id="mybutton1"
+            class="btn btn-secondary text-white me-2"
+            routerLink="/home"
+            >Home</a
+          >
+          <button
+            class="btn btn btn-success mr-1 me-2"
+            routerLink="/patient-registration"
+            *ngIf="user.role === 'DOCTOR'"
+            data-bs-toggle="modal"
+            data-bs-target="#addHospital"
+            type="submit"
+          >
+            Add Patient
+          </button>
+          <button
+            class="btn btn btn-success mr-1 me-2"
+            routerLink="/doctor-registration"
+            *ngIf="user.role === 'ADMIN'"
+            data-bs-toggle="modal"
+            data-bs-target="#addHospital"
+            type="submit"
+          >
+            Add Doctor
+          </button>
         </div>
-
 
         <div class="d-flex justify-content-around pt-3">
-         
-          <button id="mybutton" class="btn btn-danger text-white me-2" (click)="logout()" >Logout</button>
+          <button
+            id="mybutton"
+            class="btn btn-danger text-white me-2"
+            (click)="logout()"
+          >
+            Logout
+          </button>
         </div>
-
       </div>
-
     </nav>
 
-    <div class="banner-image w-100 d-flex justify-content-center align-items-center">
-
+    <div
+      class="banner-image w-100 d-flex justify-content-center align-items-center"
+    >
       <div class="content text-center">
+        <br /><br /><br /><br /><br />
 
-        <br><br><br><br><br>
-
-
-
-        <h1 *ngIf="user.role ==='ADMIN'">
-          <p class="black">Welcome Admin.....</p><br>
+        <h1 *ngIf="user.role === 'ADMIN'">
+          <p class="black">Welcome Admin.....</p>
+          <br />
         </h1>
-        <h1 *ngIf="user.role ==='DOCTOR'">
-          <p class="black">Welcome Doctor....</p><br>
+        <h1 *ngIf="user.role === 'DOCTOR'">
+          <p class="black">Welcome Doctor....</p>
+          <br />
         </h1>
 
-        <br>
-        <p *ngIf="user.role ==='DOCTOR'" class="content text-center text-white ">Search For A Patient...</p>
-        <p *ngIf="user.role ==='ADMIN'" class="content text-center text-white ">Search For A Doctor...</p>
+        <br />
+        <p
+          *ngIf="user.role === 'DOCTOR'"
+          class="content text-center text-white"
+        >
+          Search For A Patient...
+        </p>
+        <p *ngIf="user.role === 'ADMIN'" class="content text-center text-white">
+          Search For A Doctor...
+        </p>
 
         <div class="search-container">
+          <input
+            type="text"
+            name="search"
+            placeholder="Search..."
+            [(ngModel)]="searchText"
+            autocomplete="off"
+            class="search-input"
+          />
 
-            <input type="text" name="search" placeholder="Search..." [(ngModel)]="searchText" autocomplete="off" class="search-input" >
-
-
-            <span class="material-icons">
-
-              search
-
-            </span>
-
-
+          <span class="material-icons"> search </span>
         </div>
 
-        <br><br><br>
-
+        <br /><br /><br />
       </div>
-
-
-
     </div>
 
-    <div class="container text-center  alert alert-warning" *ngIf="errorMessageResponse">Error:
-      {{errorMessageResponse}}
-  </div>
+    <div
+      class="container text-center alert alert-warning"
+      *ngIf="errorMessageResponse"
+    >
+      Error:
+      {{ errorMessageResponse }}
+    </div>
     <!-- Patients -->
     <!--Card View-->
 
-    <div class="container" *ngIf="user.role ==='DOCTOR'">
-      <br>
+    <div class="container" *ngIf="user.role === 'DOCTOR'">
+      <br />
       <div class="row">
         <!-- <div class="col-md-6">
         <img src="../assets/image/hospital.jpg"  height="100%" width="100%">
     </div> -->
 
-        <div class="col-sm-4" *ngFor="let hospital of patients | filter : searchText">
+        <div class="col-sm-4" *ngFor="let hospital of patients">
+          <!-- <div class="col-sm-4" *ngFor="let hospital of patients | filter : searchText"> -->
           &nbsp;
-          <div class="card" style="width:18rem;">
+          <div class="card" style="width: 18rem">
             <div class="card-header text-center text-primary">
               Patient Details
             </div>
             <div class="card-body">
-              <div class="card-title mb-3">Name: {{hospital.firstName}} {{hospital.lastName}}</div>
-              <div class="card-subtitle"> <b>Email Id:</b> {{hospital.email}}</div>
-              <br>
-              <div class="card-subtitle"> <b>Emergency Contact Number:</b> {{hospital.emergencyContactNumber}}</div>
-
-
-
-
-
-
+              <div class="card-title mb-3">
+                Name: {{ hospital.firstName }} {{ hospital.lastName }}
+              </div>
+              <div class="card-subtitle">
+                <b>Email Id:</b> {{ hospital.email }}
+              </div>
+              <br />
+              <div class="card-subtitle">
+                <b>Emergency Contact Number:</b>
+                {{ hospital.emergencyContactNumber }}
+              </div>
 
               <div class="row">
-
                 <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <b>Contact Number:</b> {{ hospital.contactNumber }}
+                  </li>
 
-                  <li class="list-group-item"><b>Contact Number:</b> {{hospital.contactNumber}}</li>
+                  <li class="list-group-item">
+                    <b>Gender:</b> {{ hospital.gender }}
+                  </li>
 
-                  <li class="list-group-item"><b>Gender:</b> {{hospital.gender}}</li>
+                  <li class="list-group-item">
+                    <b>Date Of Birth:</b>
+                    {{ hospital.dateOfBirth | date : "yyyy-MM-dd" }}
+                  </li>
 
-                  <li class="list-group-item"><b>Date Of Birth:</b> {{hospital.dateOfBirth | date : 'yyyy-MM-dd'}}</li>
-
-                  <li class="list-group-item"><b>Address:</b> {{hospital.address}}</li>
-
+                  <li class="list-group-item">
+                    <b>Address:</b> {{ hospital.address }}
+                  </li>
                 </ul>
-
               </div>
               <div class="row">
-                <div class="col-sm-7" style="margin-top: 20px; display:flex; justify-content:right;">
+                <div
+                  class="col-sm-7"
+                  style="
+                    margin-top: 20px;
+                    display: flex;
+                    justify-content: right;
+                  "
+                >
                   <td>
-                    <button type="button" class="btn btn-outline-primary me-2 " data-bs-toggle="modal"
+                    <button
+                      type="button"
+                      class="btn btn-outline-primary me-2"
+                      data-bs-toggle="modal"
                       data-bs-target="#editHospital"
-                      [routerLink]="['/view-patient-details/',hospital.contactNumber]">Details</button>
-                    <button type="button" class="btn btn-outline-info me-2 " data-bs-toggle="modal"
+                      [routerLink]="[
+                        '/view-patient-details/',
+                        hospital.contactNumber
+                      ]"
+                    >
+                      Details
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-info me-2"
+                      data-bs-toggle="modal"
                       data-bs-target="#editHospital"
-                      [routerLink]="['/view-patient-results/',hospital.contactNumber]">Results</button>
-                    <button type="button" class="btn btn-outline-info me-2 " data-bs-toggle="modal"
+                      [routerLink]="[
+                        '/view-patient-results/',
+                        hospital.contactNumber
+                      ]"
+                    >
+                      Results
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-info me-2"
+                      data-bs-toggle="modal"
                       data-bs-target="#editHospital"
-                      [routerLink]="['/view-patient-reports/',hospital.contactNumber]">Levels</button>
+                      [routerLink]="[
+                        '/view-patient-reports/',
+                        hospital.contactNumber
+                      ]"
+                    >
+                      Levels
+                    </button>
                     <!-- <button type="button" class="btn btn-outline-primary me-2 " data-bs-toggle="modal" data-bs-target="#editHospital" (click)="editHospital(hospital)">Edit</button>-->
-                    <button type="button" class="btn btn-outline-danger "
-                      (click)="deletePatient(hospital.contactNumber)">Delete</button><br>
-
+                    <button
+                      type="button"
+                      class="btn btn-outline-danger"
+                      (click)="deletePatient(hospital.contactNumber)"
+                    >
+                      Delete</button
+                    ><br />
                   </td>
-
                 </div>
-
               </div>
               <div class="row">
-                <div class="col-sm-7" style="margin-top: 20px; display:flex; justify-content:right;">
+                <div
+                  class="col-sm-7"
+                  style="
+                    margin-top: 20px;
+                    display: flex;
+                    justify-content: right;
+                  "
+                >
                   <td>
-
                     <!-- <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2" (click)="onViewHospital(hospital)">View</button> -->
                   </td>
-
                 </div>
               </div>
             </div>
@@ -155,100 +236,107 @@
     <!-- Doctors -->
     <!--Card View-->
 
-    <div class="container" *ngIf="user.role ==='ADMIN'">
-      <br>
+    <div class="container" *ngIf="user.role === 'ADMIN'">
+      <br />
       <div class="row">
-        <br>
+        <br />
         <!-- <div class="col-md-6">
         <img src="../assets/image/hospital.jpg"  height="100%" width="100%">
     </div> -->
 
-        <div class="col-sm-4" *ngFor="let hospital of doctors | filter : searchText ">
-
-          <div class="card" style="width:18rem;">
+        <div class="col-sm-4" *ngFor="let hospital of doctors">
+          <div class="card" style="width: 18rem">
             <div class="card-header text-center text-primary">
               Doctor Details
             </div>
             <div class="card-body">
-              <div class="card-title mb-3"> Name: {{hospital.lastName}} {{hospital.firstName}}</div>
+              <div class="card-title mb-3">
+                Name: {{ hospital.lastName }} {{ hospital.firstName }}
+              </div>
 
-              <div class="card-subtitle"> <b>Email Id:</b> {{hospital.emailId}}</div>
+              <div class="card-subtitle">
+                <b>Email Id:</b> {{ hospital.emailId }}
+              </div>
               <!-- <div class="card-subtitle" > Emergency Contact Number : {{hospital.emergencyContactNumber}}</div> -->
 
-
-
-
-
-
-
               <div class="row">
-
                 <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <b>Contact Number:</b> {{ hospital.contactNumber }}
+                  </li>
 
-                  <li class="list-group-item"><b>Contact Number:</b> {{hospital.contactNumber}}</li>
+                  <li class="list-group-item">
+                    <b>Gender:</b> {{ hospital.gender }}
+                  </li>
 
-                  <li class="list-group-item"><b>Gender:</b> {{hospital.gender}}</li>
+                  <li class="list-group-item">
+                    <b>Date Of Birth:</b>
+                    {{ hospital.dateOfBirth | date : "yyyy-MM-dd" }}
+                  </li>
 
-                  <li class="list-group-item"><b>Date Of Birth:</b> {{hospital.dateOfBirth | date : 'yyyy-MM-dd'}} </li>
-
-                  <li class="list-group-item"><b>Address:</b> {{hospital.address}}</li>
-
+                  <li class="list-group-item">
+                    <b>Address:</b> {{ hospital.address }}
+                  </li>
                 </ul>
-
               </div>
               <div class="row">
-                <div class="col-sm-7" style="margin-top: 20px; display:flex; justify-content:right;">
+                <div
+                  class="col-sm-7"
+                  style="
+                    margin-top: 20px;
+                    display: flex;
+                    justify-content: right;
+                  "
+                >
                   <td>
                     <!-- <button type="button" class="btn btn-outline-primary me-2 " data-bs-toggle="modal" data-bs-target="#editHospital" (click)="editHospital(hospital)">Edit</button>
                   <button type="button" class="btn btn-outline-danger " (click)="deleteHospital(hospital.contactNumber)">Delete</button><br> -->
-
                   </td>
-
                 </div>
-
               </div>
               <div class="row">
-                <div class="col-sm-7" style="margin-top: 20px; display:flex; justify-content:right;">
+                <div
+                  class="col-sm-7"
+                  style="
+                    margin-top: 20px;
+                    display: flex;
+                    justify-content: right;
+                  "
+                >
                   <td>
-
                     <!-- <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2" (click)="onViewHospital(hospital)">View</button> -->
                   </td>
-
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <br>
+        <br />
       </div>
-      <br>
+      <br />
     </div>
-    <br>
-<br>
-<button *ngIf="showBtn$ | async" class="top-btn" (click)="gotoTop()">
-  &uarr;
-</button>
-    <footer class="container-fluid footer" style="background-color:rgb(70, 112, 190)">
+    <br />
+    <br />
+    <button *ngIf="showBtn$ | async" class="top-btn" (click)="gotoTop()">
+      &uarr;
+    </button>
+    <footer
+      class="container-fluid footer"
+      style="background-color: rgb(70, 112, 190)"
+    >
       <!-- Copyright -->
       <!-- <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);"> -->
-      <div class="text-center" style="background-color: rgba(0, 0, 0, 0.05);">
+      <div class="text-center" style="background-color: rgba(0, 0, 0, 0.05)">
         © 2022 Copyright:
         <a class="text-reset fw-bold">tb.com</a>
       </div>
       <!-- Copyright -->
       <!-- <p>*****************************************************************************************************************************************************************************************************************************</p> -->
     </footer>
-
   </div>
 </div>
 
-
-
-
-
-
-
-  <!--<html>
+<!--<html>
     <head>
         <style type="text/css">
             .S{
