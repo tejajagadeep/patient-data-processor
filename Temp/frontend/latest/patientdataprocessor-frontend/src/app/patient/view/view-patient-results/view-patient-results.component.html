@@ -1,0 +1,106 @@
+<app-menu></app-menu>
+
+<br>
+<div class="container">
+    <div class="profile-details-content">
+        <br>
+        <h1 class="text-center">Patient {{patient.firstName}} {{patient.lastName}} Results Details</h1>
+        <br>
+        <div class="text-center  alert alert-warning" *ngIf="errorMessageResponse">Error: Results Service Unavailable.</div>
+        <table class="table table-striped table-bordered table-light">
+            <thead>
+                <tr>
+                    <th>Date and Time</th>
+                    <th>White Blood Cells</th>
+                    <th>Red Blood Cells</th>
+                    <th>Hemoglobin</th>
+                    <th>Hemotocrit</th>
+                    <th>Mean Cell Volume</th>
+                    <th>Mean Cell Hemoglobin</th>
+                    <th>Platelets</th>
+                    <th>Reticulocyte Absolute</th>
+                    <th rowspan="3">Delete</th>
+                </tr>
+                <tr>
+                    <th>Units</th>
+                    <th class="size">K/&mu;L</th>
+                    <th class="size">M/&mu;L</th>
+                    <th class="size">g/dL</th>
+                    <th class="size">%</th>
+                    <th class="size">fL</th>
+                    <th class="size">pg</th>
+                    <th class="size">K/&mu;L</th>
+                    <th class="size">%</th>
+                </tr>
+                <tr>
+                    <th>Refernce Range</th>
+                    <th class="size">4.5-11.5</th>
+                    <th class="size">4-5.40</th>
+                    <th class="size">12-15</th>
+                    <th class="size">35-49</th>
+                    <th class="size">80-94</th>
+                    <th class="size">32-36</th>
+                    <th class="size">150-450</th>
+                    <th class="size">0.52</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngIf="results.length===0">
+                    <td>NA</td>
+                    <td>NA</td>
+                    <td>NA</td>
+                    <td>NA</td>
+                    <td>NA</td>
+                    <td>NA</td>
+                    <td>NA</td>
+                    <td>NA</td>
+                    <td>NA</td>
+                    <td>NA</td>
+                </tr>
+                <tr *ngFor="let result of results">
+                    <td>{{result.date}}</td>
+                    <td>{{result.whiteBloodCells}}</td>
+                    <td>{{result.redBloodCells}}</td>
+                    <td>{{result.hemoglobin}}</td>
+                    <td>{{result.hemotocrit}}</td>
+                    <td>{{result.meanCellVolume}}</td>
+                    <td>{{result.meanCellHemoglobin}}</td>
+                    <td>{{result.platelets}}</td>
+                    <td>{{result.reticulocyte}}</td>
+                    <td><button (click)="delete(result.id)" class="btn btn-danger">Delete</button></td>
+                </tr>
+
+
+            </tbody>
+        </table>
+        <br>
+        <div class="d-flex justify-content-between">
+            <!-- <button *ngIf="user.role === 'Admin' && patient.patientOwner === username"
+                (click)="deletepatient(patient.patientId)" class="btn btn-danger">Delete</button>
+            <button
+                *ngIf="user.role === 'Admin' && (patient.patientOwner === username || patient.patientManagerName === userByName.name)"
+                [routerLink]="['/patient-story-registration/',patient.patientId]" class="btn btn-secondary">New Story
+                For
+                {{patient.patientName}}</button>
+            <button
+                *ngIf="user.role === 'Admin' && (patient.patientOwner === username || patient.patientManagerName === userByName.name)"
+                (click)="updatepatient(patient.patientId)" class="btn btn-warning">Update</button> -->
+            <button type="button" class="btn btn-primary btn-lg" (click)="navBack()">Back</button>
+            <button type="button" class="btn btn-secondary btn-lg"
+                [routerLink]="['/view-patient-details/',contactNumber]">Patient Details</button>
+            <button type="button" class="btn btn-info btn-lg"
+                [routerLink]="['/charts-blood-test-results/',contactNumber]">Blood Presure Analysis</button>
+            <!-- <button type="button" class="btn btn-info btn-lg" [routerLink]="['/charts-sugar/',contactNumber]">Sugar Level Analysis</button> -->
+
+            <button class="btn btn-warning btn-lg" [routerLink]="['/results-registration/',patient.contactNumber]">Add
+                Results</button>
+        </div>
+        <br>
+
+        <br>
+        <br>
+    </div>
+</div>
+
+
+<app-footer></app-footer>

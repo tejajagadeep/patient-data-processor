@@ -1,0 +1,13 @@
+.required {
+    color: red;
+}
+
+h6 {
+    font-size: 20px;
+}
+
+.div-center {
+    position: absolute;
+    top: 10%;
+    left: 7%;
+}
