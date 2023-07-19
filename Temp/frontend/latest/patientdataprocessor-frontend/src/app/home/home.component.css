@@ -1,263 +1,255 @@
 .errormessage {
-    color: red;
+  color: red;
 }
 
 .search-container {
-    background: rgb(255, 255, 255);
-    height: 50px;
-    border-radius: 30px;
-    padding: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: 0.8s;
-    /*box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+  background: rgb(255, 255, 255);
+  height: 50px;
+  border-radius: 30px;
+  padding: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.8s;
+  /*box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
     inset -7px -7px 10px 0px rgba(0,0,0,.1),
    7px 7px 20px 0px rgba(0,0,0,.1),
    4px 4px 5px 0px rgba(0,0,0,.1);
    text-shadow:  0px 0px 6px rgba(255,255,255,.3),
               -4px -4px 6px rgba(116, 125, 136, .2);
   text-shadow: 2px 2px 3px rgba(255,255,255,0.5);*/
-    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .3),
-        -4px -4px 6px 0 rgba(116, 125, 136, .2),
-        inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
-        inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+  box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.3),
+    -4px -4px 6px 0 rgba(116, 125, 136, 0.2),
+    inset -4px -4px 6px 0 rgba(255, 255, 255, 0.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, 0.2);
 }
 
-.search-container:hover>.search-input {
-    width: 500px;
+.search-container:hover > .search-input {
+  width: 500px;
 }
 
 .search-container .search-input {
-    background: transparent;
-    border: none;
-    outline: none;
-    width: 0px;
-    font-weight: 500;
-    font-size: 16px;
-    transition: 0.8s;
-
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 0px;
+  font-weight: 500;
+  font-size: 16px;
+  transition: 0.8s;
 }
 
 .search-container .search-btn .fas {
-    color: #e0e2e7;
+  color: #e0e2e7;
 }
 
 .inner {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .inner img {
-    transition: all 1.5s ease;
+  transition: all 1.5s ease;
 }
 
 .inner:hover img {
-    transform: scale(1.5);
+  transform: scale(1.5);
 }
 
 .card-title {
-    font-size: 22px;
-    font-weight: 500;
+  font-size: 22px;
+  font-weight: 500;
 }
 
 .card-subtitle {
-    font-size: 15px;
-    font-weight: normal;
+  font-size: 15px;
+  font-weight: normal;
 }
 
 .table-wrapper {
-    border-collapse: collapse;
-    margin-left: 170px;
-    margin-right: 140px;
-    margin-top: 10px;
+  border-collapse: collapse;
+  margin-left: 170px;
+  margin-right: 140px;
+  margin-top: 10px;
 }
 
 .form_group {
-    position: relative;
-    padding: 15px 15px 15px;
-    margin-top: 10px;
-    width: 100%;
+  position: relative;
+  padding: 15px 15px 15px;
+  margin-top: 10px;
+  width: 100%;
 }
 
 .form_field {
-    width: 100%;
-    border: 0;
-    border-bottom: 2px solid#9b9b9b;
-    outline: none;
-    font-size: 0.9rem;
-    color: rgb(29, 29, 29);
-    padding: 7px 0;
-    background-color: transparent;
-    transition: border-color 0.2s;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid#9b9b9b;
+  outline: none;
+  font-size: 0.9rem;
+  color: rgb(29, 29, 29);
+  padding: 7px 0;
+  background-color: transparent;
+  transition: border-color 0.2s;
 }
 
 .form_field::placeholder {
-    color: transparent;
+  color: transparent;
 }
 
 .form_label {
-    position: absolute;
-    display: block;
-    transition: 0.2s;
-    font-size: 0.9rem;
-    color: #9b9b9b;
+  position: absolute;
+  display: block;
+  transition: 0.2s;
+  font-size: 0.9rem;
+  color: #9b9b9b;
 }
 
-.form_field:placeholder-shown~.form_label {
-    font-size: 0.9rem;
-    cursor: text;
-    top: 20px;
+.form_field:placeholder-shown ~ .form_label {
+  font-size: 0.9rem;
+  cursor: text;
+  top: 20px;
 }
 
 .form_field:focus {
-    padding-bottom: 6px;
-    font-weight: 700;
-    border-width: 3px;
-    border-image: linear-gradient(to right, #020202, #525252);
-    border-image-slice: 1;
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, #020202, #525252);
+  border-image-slice: 1;
 }
 
-.form_field:focus~.form_label {
-    position: absolute;
-    top: 0;
-    display: block;
-    transition: 0.2s;
-    font-size: 0.9rem;
-    color: #2e2e2e;
-    font-weight: 700;
+.form_field:focus ~ .form_label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 0.9rem;
+  color: #2e2e2e;
+  font-weight: 700;
 }
 
 .modal-header {
-    background-color: #292828;
+  background-color: #292828;
 }
 
 .modal-content {
-    border: none;
+  border: none;
 }
 
 .modal-title {
-    color: white;
-    font-size: 17px;
+  color: white;
+  font-size: 17px;
 }
 
 body,
 html {
-    height: 100%;
+  height: 100%;
 }
 
 .bg {
-    /* The image used */
-    /* background-image: url("https://www.shrisaihospital.in/upload/image1636093120.jpeg"); */
-    /* Half height */
-    height: 50%;
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  /* The image used */
+  /* background-image: url("https://www.shrisaihospital.in/upload/image1636093120.jpeg"); */
+  /* Half height */
+  height: 50%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .footer {
-    overflow: hidden;
-    background-color: #333;
-    position: fixed;
-    /* Set the footer to fixed position */
-    bottom: 0;
-    /* Position the footer at the top of the page */
-    width: 100%;
-    /* Full width */
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  /* Set the footer to fixed position */
+  bottom: 0;
+  /* Position the footer at the top of the page */
+  width: 100%;
+  /* Full width */
 }
-
 
 /* Change background on mouse-over */
 .footer a:hover {
-    background: #ddd;
-    color: black;
+  background: #ddd;
+  color: black;
 }
 
-.banner-image
+.banner-image {
+  background-image: url(/assets/image/bg-home.png);
 
-{
+  background-size: cover;
 
-    background-image: url(/assets/image/bg-home.png);
+  background-attachment: flex;
 
-    background-size: cover;
+  height: auto;
 
-    background-attachment: flex;
+  width: auto;
 
-    height:auto;
-
-    width: auto;
-
-    padding: auto;
-
-
-
+  padding: auto;
 }
 
 .black {
-    color: #020202;
-    text-transform: uppercase;
+  color: #020202;
+  text-transform: uppercase;
 }
 
 .top-btn {
-    position: fixed;
-    bottom: 20px;
-    /* Place the button at the bottom of the page */
-    right: 30px;
-    /* Place the button 30px from the right */
-    font-size: 5px;
-    text-align: center;
-    border-radius: 5px;
-    outline: none;
-    z-index: 99 !important;
-    border: none;
-    /* Remove borders */
-    outline: none;
-    /* Remove outline */
-    background-color: rgb(0, 0, 0);
-    /* Set a background color */
-    color: white;
-    /* Text color */
-    cursor: pointer;
-    opacity: 0.8;
-    padding: 15px;
-    /* Some padding */
-    /* border-radius: 10px;  Rounded corners */
-    font-size: 18px;
-    /* Increase font size */
+  position: fixed;
+  bottom: 20px;
+  /* Place the button at the bottom of the page */
+  right: 30px;
+  /* Place the button 30px from the right */
+  font-size: 5px;
+  text-align: center;
+  border-radius: 5px;
+  outline: none;
+  z-index: 99 !important;
+  border: none;
+  /* Remove borders */
+  outline: none;
+  /* Remove outline */
+  background-color: rgb(0, 0, 0);
+  /* Set a background color */
+  color: white;
+  /* Text color */
+  cursor: pointer;
+  opacity: 0.8;
+  padding: 15px;
+  /* Some padding */
+  /* border-radius: 10px;  Rounded corners */
+  font-size: 18px;
+  /* Increase font size */
 }
 
 #myBtn {
-    display: none;
-    /* Hidden by default */
-    position: fixed;
-    /* Fixed/sticky position */
-    bottom: 20px;
-    /* Place the button at the bottom of the page */
-    right: 30px;
-    /* Place the button 30px from the right */
-    z-index: 99;
-    /* Make sure it does not overlap */
-    border: none;
-    /* Remove borders */
-    outline: none;
-    /* Remove outline */
-    background-color: red;
-    /* Set a background color */
-    color: white;
-    /* Text color */
-    cursor: pointer;
-    /* Add a mouse pointer on hover */
-    padding: 15px;
-    /* Some padding */
-    border-radius: 10px;
-    /* Rounded corners */
-    font-size: 18px;
-    /* Increase font size */
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Fixed/sticky position */
+  bottom: 20px;
+  /* Place the button at the bottom of the page */
+  right: 30px;
+  /* Place the button 30px from the right */
+  z-index: 99;
+  /* Make sure it does not overlap */
+  border: none;
+  /* Remove borders */
+  outline: none;
+  /* Remove outline */
+  background-color: red;
+  /* Set a background color */
+  color: white;
+  /* Text color */
+  cursor: pointer;
+  /* Add a mouse pointer on hover */
+  padding: 15px;
+  /* Some padding */
+  border-radius: 10px;
+  /* Rounded corners */
+  font-size: 18px;
+  /* Increase font size */
 }
 
 #myBtn:hover {
-    background-color: #555;
-    /* Add a dark-grey background on hover */
+  background-color: #555;
+  /* Add a dark-grey background on hover */
 }
