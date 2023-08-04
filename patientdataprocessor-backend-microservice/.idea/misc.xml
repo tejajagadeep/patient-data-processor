@@ -13,6 +13,7 @@
         <option value="$PROJECT_DIR$/patientdataprocessor-results/pom.xml" />
         <option value="$PROJECT_DIR$/../../../authentication-service/pom.xml" />
         <option value="$PROJECT_DIR$/authentication-service/pom.xml" />
+        <option value="$PROJECT_DIR$/../../../config-server/config-server/pom.xml" />
       </list>
     </option>
   </component>
