@@ -1,5 +1,5 @@
 # PatientDataProcessor-
-Project Data Processor with graphical Representation of project
+Patient Data Processor with graphical Representation of medical records of a patient
 
 # Swagger
 
